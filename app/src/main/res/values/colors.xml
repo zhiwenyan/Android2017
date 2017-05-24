@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="colorWhite">#fff</color>
+
+    <color name="white">#ffffff</color>
+
+    <color name="huise">#C5C7C7</color>
+
+    <color name="huise2">#EAECF0</color>
+
+    <color name="text_color">#CFD5DE</color>
+
+
+    <color name="common_background_bg">#F5F5F5</color>
+    <color name="common_primary">#ececec</color>
+    <color name="common_cm_color">#01579B</color>
+    <color name="common_cmlight_color">#0277BD</color>
+    <color name="common_red">#ED1D25</color>
+    <color name="common_black">#333333</color>
+    <color name="common_gray">#8e8e93</color>
+    <color name="common_blue">#5677FC</color>
+    <color name="common_lightgray">#929292</color>
+    <color name="tab_normal_color">#333333</color>
+    <color name="tab_selected_color">#01579B</color>
+    <color name="common_primary_text_color">#333333</color>
+    <color name="common_second_text_color">#999999</color>
+    <color name="common_line_color">#cecece</color>
+    <color name="common_item_press">#dddddd</color>
+    <color name="common_gray_999">#999999</color>
+    <color name="common_gray_hint">#e4e3e3</color>
+    <drawable name="common_background_bg">#F5F5F5</drawable>
+</resources>

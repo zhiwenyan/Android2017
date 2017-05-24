@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="zhiwenyan.cmccaifu.com.android2017.retrofit.RetrofitActivity">
+
+
+    <Button
+        android:id="@+id/QueryBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get-->Query"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/QueryMapBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get-->QueryMap"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/PathBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get-->Path"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/postFliedBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post-->Flied"/>
+
+
+    <Button
+        android:id="@+id/upload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="文件上传"/>
+
+
+    <Button
+        android:id="@+id/getMovie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="获取电影信息"/>
+
+
+
+    <TextView
+        android:id="@+id/resultTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

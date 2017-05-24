@@ -1,0 +1,6 @@
+深入了解 Android Nested Scrolling
+https://mp.weixin.qq.com/s?__biz=MzI3MDE0NzYwNA==&mid=2651434837&idx=1&sn=56e268afc1557186d22e2d8d3c677fd2&chksm=f128862ec65f0f389c602397bc00bd28809f7a11ffb5165c1f4cb37730d87b234fc087b11e62&scene=0&key=63ae4df48f5d4829e300fa92dc0d1ae59a324f92670cf38f7b0e71e98368032c738f5a665eb2471050c0214c3553e6d7d864c0880ffa8bb3e2989c20c86082ec599a6f28f7ea5ff539ba0dd662db89a5&ascene=0&uin=MjY5MTE4NTMzOA%3D%3D&devicetype=iMac+MacBookPro12%2C1+OSX+OSX+10.11.6+build(15G31)&version=12020110&nettype=WIFI&fontScale=100&pass_ticket=DnzGOhI%2BkADIKDCe0K3kVC6CIVuEHS4ga68CLDIU9qUNnzvlzHs6Ct6uGZd29JLc
+
+CoordinatorLayout  NestedScrollView
+
+NestedScrollingChild和NestedScrollingParent分别定义了嵌套子View和嵌套父View需要实现的接口

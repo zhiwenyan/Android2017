@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="zhiwenyan.cmccaifu.com.android2017.ViewGroup.ViewGroupActivity">
+
+
+    <Button
+        android:id="@+id/ViewDragHelperBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ViewDragHelper"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Activity实现侧滑返回"
+        android:textAllCaps="false"/>
+     <Button
+        android:id="@+id/tag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="流体式标签"
+        android:textAllCaps="false"/>
+
+</LinearLayout>

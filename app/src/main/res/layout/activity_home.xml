@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context="zhiwenyan.cmccaifu.com.android2017.recyclerview.HomeActivity">
+
+
+    <Button
+        android:id="@+id/animation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Animation"
+        android:textAllCaps="false"/>
+
+
+    <Button
+        android:id="@+id/multipleItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MultipleItem"
+        android:textAllCaps="false"/>
+
+
+    <Button
+        android:id="@+id/headAndFooter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="headAndFooter"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/dagAndSwipe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DragAndSwipe"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Divider"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/manage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="频道管理"/>
+</LinearLayout>

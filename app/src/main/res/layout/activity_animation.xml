@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="zhiwenyan.cmccaifu.com.android2017.animation.AnimationActivity">
+
+
+    <TextView
+        android:id="@+id/target"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorAccent"/>
+
+
+    <Button
+        android:id="@+id/transBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="平移"/>
+
+    <Button
+        android:id="@+id/rorationBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="旋转"/>
+
+    <Button
+        android:id="@+id/scaleBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="缩放"/>
+
+    <Button
+        android:id="@+id/alphaBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="透明度"/>
+
+    <Button
+        android:id="@+id/groupBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="组合"/>
+
+</LinearLayout>

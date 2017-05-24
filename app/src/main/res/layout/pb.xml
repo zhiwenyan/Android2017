@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 android:background="#eee">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+
+        <Button
+            android:id="@+id/submitBtn"
+            style="@style/darkBtnStyle"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:text="提交"/>
+
+
+
+
+        <Button
+            android:id="@+id/saveBtn"
+
+            style="@style/lightBtnStyle"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:text="保存"/>
+
+
+
+        <Button
+            android:id="@+id/deleteBtn"
+            style="@style/grayBtnStyle"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:text="删除"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="30dp"
+        android:text="FloatingActionButton(浮动按钮)"
+        android:textColor="#333"
+        android:textSize="18sp"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:background="@color/common_cm_color"
+        android:src="@android:drawable/ic_input_add"
+        android:tint="#fff"/>
+</android.support.design.widget.CoordinatorLayout>

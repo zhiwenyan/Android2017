@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context="zhiwenyan.cmccaifu.com.android2017.view.matrix.MatrixActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/scaleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="缩放"/>
+
+        <Button
+            android:id="@+id/traslateBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="平移"/>
+
+        <Button
+            android:id="@+id/rorationBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="旋转"/>
+
+        <Button
+            android:id="@+id/skewBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="倾斜"/>
+    </LinearLayout>
+
+    <zhiwenyan.cmccaifu.com.android2017.view.matrix.MatrixView
+        android:id="@+id/img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/photo_one"/>
+</LinearLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="zhiwenyan.cmccaifu.com.android2017.view.shapeview.ShapeViewActivity">
+
+    <zhiwenyan.cmccaifu.com.android2017.view.shapeview.MultiShapeView
+        android:id="@+id/shapeView1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="8dp"
+        app:shape="circle"/>
+
+    <zhiwenyan.cmccaifu.com.android2017.view.shapeview.MultiShapeView
+        android:id="@+id/shapeView2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="8dp"
+        app:border_color="#fc7c6d"
+        app:shape="circle"/>
+
+    <zhiwenyan.cmccaifu.com.android2017.view.shapeview.MultiShapeView
+        android:id="@+id/shapeView3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="8dp"
+        app:round_radius="8dp"
+        app:shape="rect"/>
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="8dp"/>
+
+</LinearLayout>
