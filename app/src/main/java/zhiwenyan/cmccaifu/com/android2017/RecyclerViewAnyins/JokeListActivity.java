@@ -19,5 +19,7 @@ public class JokeListActivity extends BaseActivity {
     @Override
     protected void init() {
 
+
+
     }
 }
