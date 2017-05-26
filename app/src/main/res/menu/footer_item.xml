@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/header"
+        android:orderInCategory="100"
+        android:title="添加头部"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/footer"
+        android:orderInCategory="100"
+        android:title="添加底部"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/removeheader"
+        android:orderInCategory="100"
+        android:title="移除头部"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/removefooter"
+        android:orderInCategory="100"
+        android:title="移除底部"
+        app:showAsAction="never"/>
+
+</menu>

@@ -185,6 +185,18 @@
         </activity>
         <activity android:name=".view.customview.CustomActivity">
         </activity>
+        <activity android:name=".RecyclerViewAnyins.RecycleActivity">
+        </activity>
+        <activity android:name=".RecyclerViewAnyins.BasicUseActivity">
+        </activity>
+        <activity android:name=".RecyclerViewAnyins.CommonAdapterActivity">
+        </activity>
+        <activity android:name=".RecyclerViewAnyins.JokeListActivity">
+        </activity>
+        <activity android:name=".RecyclerViewAnyins.HeadAndFooterActivity">
+        </activity>
+        <activity android:name=".RecyclerViewAnyins.ItemDragActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -28,7 +28,6 @@ import zhiwenyan.cmccaifu.com.android2017.dummy.DummyContent;
  * item details side-by-side using two vertical panes.
  */
 public class ItemListActivity extends AppCompatActivity {
-
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
      * device.

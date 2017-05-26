@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context="zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.RecycleActivity">
+
+    <Button
+        android:id="@+id/basicBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="基本使用"/>
+
+    <Button
+        android:id="@+id/adapterBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打造万能的Adapter（多种条目）"
+        android:textAllCaps="false"/>
+
+
+    <Button
+        android:id="@+id/headAndFooterBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="添加头部和尾部"
+        android:textAllCaps="false"/>
+
+
+    <Button
+        android:id="@+id/dragBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="拖动和排序"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/jokeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="内涵段子列表"
+        android:textAllCaps="false"/>
+
+</LinearLayout>

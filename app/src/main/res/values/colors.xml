@@ -15,6 +15,7 @@
 
     <color name="text_color">#CFD5DE</color>
 
+    <color name="dragColor">#f72b70</color>
 
     <color name="common_background_bg">#F5F5F5</color>
     <color name="common_primary">#ececec</color>

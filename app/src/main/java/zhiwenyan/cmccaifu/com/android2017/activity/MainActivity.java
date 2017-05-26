@@ -10,6 +10,7 @@ import butterknife.OnClick;
 import zhiwenyan.cmccaifu.com.android2017.IPC.MessengerActivity;
 import zhiwenyan.cmccaifu.com.android2017.IPC.ServiceActivity;
 import zhiwenyan.cmccaifu.com.android2017.R;
+import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.RecycleActivity;
 import zhiwenyan.cmccaifu.com.android2017.Thread.ThreadActivity;
 import zhiwenyan.cmccaifu.com.android2017.Thread.ThreadPoolActivity;
 import zhiwenyan.cmccaifu.com.android2017.ViewGroup.ViewGroupActivity;
@@ -27,7 +28,6 @@ import zhiwenyan.cmccaifu.com.android2017.materialdesign.ScrollingActivity;
 import zhiwenyan.cmccaifu.com.android2017.mvp.MVPActivity;
 import zhiwenyan.cmccaifu.com.android2017.net.HttpURLConnectionActivity;
 import zhiwenyan.cmccaifu.com.android2017.okhttp.OkhttpActivity;
-import zhiwenyan.cmccaifu.com.android2017.recyclerview.RecyclerViewActivity;
 import zhiwenyan.cmccaifu.com.android2017.retrofit.RetrofitActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.ViewActivity;
 
@@ -49,7 +49,7 @@ public class MainActivity extends BaseActivity {
     @OnClick({R.id.propertyAnimTv, R.id.tweenAnimTv, R.id.mvpTv, R.id.glideTv, R.id.threeTv,
             R.id.recylerTv, R.id.threadTv, R.id.threadPoolTv, R.id.frameAnimTv, R.id.httpTv,
             R.id.okHttpTv, R.id.retrofit, R.id.bannerTv, R.id.tabTv, R.id.viewTv, R.id.viewgroupTv,
-            R.id.threedTv, R.id.lruTv, R.id.drawTv,R.id.coorTv,R.id.messenger,R.id.startService})
+            R.id.threedTv, R.id.lruTv, R.id.drawTv, R.id.coorTv, R.id.messenger, R.id.startService})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -66,7 +66,7 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
                 break;
             case R.id.recylerTv:
-                intent = new Intent(this, RecyclerViewActivity.class);
+                intent = new Intent(this, RecycleActivity.class);
                 startActivity(intent);
                 break;
             case R.id.threeTv:
@@ -126,15 +126,15 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
                 break;
             case R.id.coorTv:
-                intent=new Intent(this, ScrollingActivity.class);
+                intent = new Intent(this, ScrollingActivity.class);
                 startActivity(intent);
                 break;
             case R.id.messenger:
-                intent=new Intent(this, MessengerActivity.class);
+                intent = new Intent(this, MessengerActivity.class);
                 startActivity(intent);
                 break;
             case R.id.startService:
-                intent=new Intent(this, ServiceActivity.class);
+                intent = new Intent(this, ServiceActivity.class);
                 startActivity(intent);
                 break;
         }

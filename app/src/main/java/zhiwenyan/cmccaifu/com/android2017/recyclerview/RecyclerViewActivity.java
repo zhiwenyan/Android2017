@@ -120,6 +120,7 @@ public class RecyclerViewActivity extends BaseActivity {
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
                 int position = viewHolder.getAdapterPosition();//获取要滑动删除的Item位置
                 mAdapter.removeItem(position);
+
             }
 
             @Override
