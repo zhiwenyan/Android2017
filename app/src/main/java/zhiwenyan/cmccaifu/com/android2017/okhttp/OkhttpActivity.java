@@ -126,6 +126,7 @@ public class OkhttpActivity extends BaseActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+
                 updateUI(response.body().toString());
             }
         });

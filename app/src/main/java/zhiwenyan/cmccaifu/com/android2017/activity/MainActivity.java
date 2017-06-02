@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
+import zhiwenyan.cmccaifu.com.android2017.IPC.AidlActivity;
 import zhiwenyan.cmccaifu.com.android2017.IPC.MessengerActivity;
 import zhiwenyan.cmccaifu.com.android2017.IPC.ServiceActivity;
 import zhiwenyan.cmccaifu.com.android2017.R;
@@ -18,7 +19,7 @@ import zhiwenyan.cmccaifu.com.android2017.animation.AnimationActivity;
 import zhiwenyan.cmccaifu.com.android2017.animator.AnimatorActivity;
 import zhiwenyan.cmccaifu.com.android2017.banner.TabedActivity;
 import zhiwenyan.cmccaifu.com.android2017.banner.ThreeDActivity;
-import zhiwenyan.cmccaifu.com.android2017.banner.ViewPagerActivity;
+import zhiwenyan.cmccaifu.com.android2017.banner.banner.BannerActivity;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 import zhiwenyan.cmccaifu.com.android2017.cache.ThreeCacheActivity;
 import zhiwenyan.cmccaifu.com.android2017.cache.lru.PhotoWallActivity;
@@ -49,7 +50,8 @@ public class MainActivity extends BaseActivity {
     @OnClick({R.id.propertyAnimTv, R.id.tweenAnimTv, R.id.mvpTv, R.id.glideTv, R.id.threeTv,
             R.id.recylerTv, R.id.threadTv, R.id.threadPoolTv, R.id.frameAnimTv, R.id.httpTv,
             R.id.okHttpTv, R.id.retrofit, R.id.bannerTv, R.id.tabTv, R.id.viewTv, R.id.viewgroupTv,
-            R.id.threedTv, R.id.lruTv, R.id.drawTv, R.id.coorTv, R.id.messenger, R.id.startService})
+            R.id.threedTv, R.id.lruTv, R.id.drawTv, R.id.coorTv, R.id.messenger, R.id.startService,
+            R.id.aidlTv})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -98,7 +100,7 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
                 break;
             case R.id.bannerTv:
-                intent = new Intent(this, ViewPagerActivity.class);
+                intent = new Intent(this, BannerActivity.class);
                 startActivity(intent);
                 break;
             case R.id.tabTv:
@@ -135,6 +137,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.startService:
                 intent = new Intent(this, ServiceActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.aidlTv:
+                intent = new Intent(this, AidlActivity.class);
                 startActivity(intent);
                 break;
         }

@@ -34,9 +34,10 @@ public interface BookService {
     Call<BookResponse> getBook(@Path("id") String id);
 
     //Post请求需要把请求参数放置在请求体中，而非拼接在url后面
-
     @FormUrlEncoded
     @POST("book/reviews")
     Call<String> addReviews(@Field("book") String bookId, @Field("title") String title,
                             @Field("content") String content, @Field("rating") String rating);
+
+
 }

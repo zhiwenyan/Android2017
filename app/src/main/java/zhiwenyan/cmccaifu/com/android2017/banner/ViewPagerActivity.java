@@ -66,8 +66,7 @@ public class ViewPagerActivity extends BaseActivity {
 
             @Override
             public Object instantiateItem(ViewGroup container, int position) {
-                position = position % mImageViews.size();
-                ImageView view = mImageViews.get(position);
+                ImageView view = mImageViews.get(position % mImageViews.size());
                 ViewParent vp = view.getParent();
                 if (vp != null) {
                     ViewGroup parent = (ViewGroup) vp;

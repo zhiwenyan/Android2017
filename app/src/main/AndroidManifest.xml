@@ -197,6 +197,8 @@
         </activity>
         <activity android:name=".RecyclerViewAnyins.ItemDragActivity">
         </activity>
+        <activity android:name=".banner.banner.BannerActivity">
+        </activity>
     </application>
 
 </manifest>
