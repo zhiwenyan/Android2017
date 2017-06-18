@@ -12,7 +12,7 @@ import okhttp3.Response;
  * Created by zhiwenyan on 6/1/17.
  */
 
-public class HttpUtils{
+public class HttpUtils {
     private OkHttpClient mOkHttpClient;
     private Request mRequest;
     private static String Url;
@@ -38,12 +38,12 @@ public class HttpUtils{
         mOkHttpClient.newCall(mRequest).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-
+                info = e.getMessage();
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                info=response.body().toString();
+                info = response.body().string();
 
             }
         });

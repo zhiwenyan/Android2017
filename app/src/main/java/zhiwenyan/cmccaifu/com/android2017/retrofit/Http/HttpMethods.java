@@ -10,12 +10,13 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import rx.Subscriber;
 import rx.functions.Func1;
 import zhiwenyan.cmccaifu.com.android2017.retrofit.model.Subject;
 import zhiwenyan.cmccaifu.com.android2017.retrofit.service.MovieService;
 
 public class HttpMethods {
-    public static final String BASE_URL = "https://api.douban.com/v2/movie/";
+    private static final String BASE_URL = "https://api.douban.com/v2/movie/";
     private static final int DEFAULT_TIMEOUT = 5 * 1000;
     private Retrofit retrofit;
     private String info;
@@ -41,8 +42,8 @@ public class HttpMethods {
     public static HttpMethods getInstance() {
         return SingletonHolder.INSTANCE;
     }
-//
-//        public void getTopMovie(Subscriber<List<Subject>> subscriber, int start, int count) {
+
+    public void getTopMovie(Subscriber<List<Subject>> subscriber, int start, int count) {
 //        retrofit.create(MovieService.class)
 //                .getTopMovie(start, count)
 //                .map(new HttpResultFunc<List<Subject>>())
@@ -50,7 +51,7 @@ public class HttpMethods {
 //                .unsubscribeOn(Schedulers.io())
 //                .observeOn(AndroidSchedulers.mainThread())
 //                .subscribe(subscriber);
- //   }
+    }
 
     public String getTopMovie(int start, int count) {
         retrofit.create(MovieService.class)

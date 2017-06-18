@@ -3,7 +3,7 @@
 
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
-            <solid android:color="#1A237E"/>
+            <solid android:color="#4ea6ff"/>
 
             <corners android:radius="4dp"/>
         </shape>

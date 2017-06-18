@@ -62,6 +62,16 @@ public class OkhttpActivity extends BaseActivity {
         Request request = new Request.Builder()
                 .url("http://publicobject.com/helloworld.txt")
                 .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                updateUI(response.body().string());
+            }
+        });
 
     }
 
@@ -79,8 +89,8 @@ public class OkhttpActivity extends BaseActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                updateUI("Server:" + response.header("Server") + "Date:" +
-                        response.header("Date") + "Vary:" + response.header("Vary"));
+                updateUI("Server:" + response.header("Server") + "\n " + "Date:" +
+                        response.header("Date") + "\n" + "Vary:" + response.header("Vary"));
             }
         });
     }
@@ -103,12 +113,13 @@ public class OkhttpActivity extends BaseActivity {
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
+                updateUI(e.getMessage());
 
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                updateUI(response.body().toString());
+                updateUI(response.body().string());
             }
         });
 
@@ -127,7 +138,7 @@ public class OkhttpActivity extends BaseActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
 
-                updateUI(response.body().toString());
+                updateUI(response.body().string());
             }
         });
     }

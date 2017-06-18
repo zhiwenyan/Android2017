@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:context="zhiwenyan.cmccaifu.com.android2017.view.activity.PasswordActivity">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
+        android:text="输入密码"
+        android:textColor="#000"
+        android:textSize="22sp"/>
+
+    <zhiwenyan.cmccaifu.com.android2017.view.password.PasswordEditText
+        android:id="@+id/pw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="40dp"
+        android:padding="8dp"
+        app:bgColor="#d1d2d6"
+        app:bgCorner="4dp"
+        app:bgSize="1dp"
+        app:divisionLineColor="#d1d2d6"
+        app:divisionLineSize="1dp"
+        app:passwordNumber="6"
+        app:passwordRadius="3dp"/>
+
+    <zhiwenyan.cmccaifu.com.android2017.view.password.CustomerKeyboard
+        android:id="@+id/keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </zhiwenyan.cmccaifu.com.android2017.view.password.CustomerKeyboard>
+</LinearLayout>

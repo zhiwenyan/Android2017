@@ -83,7 +83,7 @@
                 android:background="#fc8122"
                 android:gravity="center_horizontal"
                 android:padding="8dp"
-                android:text="协调性布局"
+                android:text="沉浸式状态栏"
                 android:textColor="@color/colorWhite"/>
 
             <TextView
@@ -381,6 +381,20 @@
                 android:padding="8dp"
                 android:text="3D轮滑效果"
                 android:textColor="@color/colorWhite"/>
+
+
+            <TextView
+                android:id="@+id/cardViewPager"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:background="#d4c176"
+                android:gravity="center_horizontal"
+                android:padding="8dp"
+                android:text="卡片效果"
+                android:textColor="@color/colorWhite"/>
+
         </LinearLayout>
 
         <TextView

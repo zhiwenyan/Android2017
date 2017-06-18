@@ -66,8 +66,6 @@ public class CommonAdapterActivity extends BaseActivity {
             }
             if (chatData.getIsMe() == 0) {
                 holder.setText(R.id.chat_text, chatData.getChatContent());
-
-
             }
         }
     }

@@ -5,6 +5,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
+import zhiwenyan.cmccaifu.com.android2017.Http.HttpUtils;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
@@ -12,6 +13,8 @@ public class BannerActivity extends BaseActivity {
     public static final String URL1 = "http://pb9.pstatp.com/origin/24990000d4c26180d691";
     public static final String URL2 = "http://pb9.pstatp.com/origin/1dcf002c646ac321e698";
     private BannerView mBannerView;
+    private String url = "http://is.snssdk.com/2/essay/discovery/v3/?&device_platform=android&device_type=Redmi+Note+3&iid=6152551759&" +
+            "manifest_version_code=570&longitude=113.000366&latitude=28.171377&update_version_code=5701&aid=7&channel=360";
 
 
     @Override
@@ -22,6 +25,8 @@ public class BannerActivity extends BaseActivity {
     @Override
     protected void init() {
         doSetToolBarTitle("自定义Banner实现无限轮播");
+        String info = HttpUtils.getInstance(url).execute(   );
+       // Toast.makeText(this, info, Toast.LENGTH_SHORT).show();
         mBannerView = (BannerView) findViewById(R.id.bannerView);
         mBannerView.setAdapter(new BannerAdapter() {
             @Override

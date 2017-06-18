@@ -18,9 +18,10 @@ import zhiwenyan.cmccaifu.com.android2017.ViewGroup.ViewGroupActivity;
 import zhiwenyan.cmccaifu.com.android2017.animation.AnimationActivity;
 import zhiwenyan.cmccaifu.com.android2017.animator.AnimatorActivity;
 import zhiwenyan.cmccaifu.com.android2017.banner.TabedActivity;
-import zhiwenyan.cmccaifu.com.android2017.banner.ThreeDActivity;
 import zhiwenyan.cmccaifu.com.android2017.banner.banner.BannerActivity;
+import zhiwenyan.cmccaifu.com.android2017.banner.cardViewPager.CardViewPagerActivity;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
+import zhiwenyan.cmccaifu.com.android2017.behavior.BehaviorActivity;
 import zhiwenyan.cmccaifu.com.android2017.cache.ThreeCacheActivity;
 import zhiwenyan.cmccaifu.com.android2017.cache.lru.PhotoWallActivity;
 import zhiwenyan.cmccaifu.com.android2017.glide.GlideActivity;
@@ -51,7 +52,7 @@ public class MainActivity extends BaseActivity {
             R.id.recylerTv, R.id.threadTv, R.id.threadPoolTv, R.id.frameAnimTv, R.id.httpTv,
             R.id.okHttpTv, R.id.retrofit, R.id.bannerTv, R.id.tabTv, R.id.viewTv, R.id.viewgroupTv,
             R.id.threedTv, R.id.lruTv, R.id.drawTv, R.id.coorTv, R.id.messenger, R.id.startService,
-            R.id.aidlTv})
+            R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -69,6 +70,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.recylerTv:
                 intent = new Intent(this, RecycleActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.behaviorTv:
+                intent = new Intent(this, BehaviorActivity.class);
                 startActivity(intent);
                 break;
             case R.id.threeTv:
@@ -116,8 +121,8 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
                 break;
             case R.id.threedTv:
-                intent = new Intent(this, ThreeDActivity.class);
-                startActivity(intent);
+                //     intent = new Intent(this, ThreeDActivity.class);
+                //   startActivity(intent);
                 break;
             case R.id.lruTv:
                 intent = new Intent(this, PhotoWallActivity.class);
@@ -141,6 +146,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.aidlTv:
                 intent = new Intent(this, AidlActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.cardViewPager:
+                intent = new Intent(this, CardViewPagerActivity.class);
                 startActivity(intent);
                 break;
         }

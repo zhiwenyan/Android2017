@@ -1,82 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-
     tools:context="zhiwenyan.cmccaifu.com.android2017.view.ViewActivity">
 
-    <Button
-        android:id="@+id/btn1"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="自定义View(SimileView)"
-        android:textAllCaps="false"/>
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="自定义饼图(PieView)"
-        android:textAllCaps="false"/>
 
-    <Button
-        android:id="@+id/btn3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="画布操作(Canvas)"
-        android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自定义View(SimileView)"
+            android:textAllCaps="false"/>
 
-    <Button
-        android:id="@+id/btn4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="折线图(LinView)"
-        android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自定义饼图(PieView)"
+            android:textAllCaps="false"/>
 
-    <Button
-        android:id="@+id/btn5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Path"
-        android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="画布操作(Canvas)"
+            android:textAllCaps="false"/>
 
-    <Button
-        android:id="@+id/btn6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="贝塞尔曲线"
-        android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="折线图(LinView)"
+            android:textAllCaps="false"/>
 
-    <Button
-        android:id="@+id/btn7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ShapeView"
-        android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/btn5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Path"
+            android:textAllCaps="false"/>
 
-    <Button
-        android:id="@+id/btn8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Matrix"
-        android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/btn6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="贝塞尔曲线"
+            android:textAllCaps="false"/>
 
-    <Button
-        android:id="@+id/btn9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="自定义交替的圆环"
-        android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/btn7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ShapeView"
+            android:textAllCaps="false"/>
 
-    <Button
-        android:id="@+id/btn10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="onMeasure/onLayout"
-        android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/btn8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Matrix"
+            android:textAllCaps="false"/>
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btn9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自定义交替的圆环"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="onMeasure/onLayout"
+            android:textAllCaps="false"/>
+
+
+        <Button
+            android:id="@+id/btn11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自定义密码输入框和密码"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自定义首字母索引"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="玩转字体颜色"/>
+
+        <Button
+            android:id="@+id/btn15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View的Touch事件"/>
+    </LinearLayout>
+
+</ScrollView>

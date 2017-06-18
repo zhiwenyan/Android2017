@@ -7,7 +7,9 @@ import butterknife.OnClick;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.CustomProgressBar.CustomProgressBarActivity;
+import zhiwenyan.cmccaifu.com.android2017.view.activity.IndexActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.activity.LineActivity;
+import zhiwenyan.cmccaifu.com.android2017.view.activity.PasswordActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.activity.PieActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.activity.SimileViewActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.canvas.CanvasActivity;
@@ -16,6 +18,8 @@ import zhiwenyan.cmccaifu.com.android2017.view.matrix.MatrixActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.path.BezierActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.path.PathActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.shapeview.ShapeViewActivity;
+import zhiwenyan.cmccaifu.com.android2017.view.textView.ColorTrackTextViewActivity;
+import zhiwenyan.cmccaifu.com.android2017.view.touchView.ViewTouchActivity;
 
 public class ViewActivity extends BaseActivity {
 
@@ -31,7 +35,8 @@ public class ViewActivity extends BaseActivity {
     }
 
     @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5,
-            R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9, R.id.btn10})
+            R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9, R.id.btn10, R.id.btn11,
+            R.id.btn12, R.id.btn13, R.id.btn15})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn1:
@@ -64,6 +69,19 @@ public class ViewActivity extends BaseActivity {
             case R.id.btn10:
                 startActivity(new Intent(this, CustomActivity.class));
                 break;
+            case R.id.btn11:
+                startActivity(new Intent(this, PasswordActivity.class));
+                break;
+            case R.id.btn12:
+                startActivity(new Intent(this, IndexActivity.class));
+                break;
+            case R.id.btn13:
+                startActivity(new Intent(this, ColorTrackTextViewActivity.class));
+                break;
+            case R.id.btn15:
+                startActivity(new Intent(this, ViewTouchActivity.class));
+                break;
+
         }
     }
 }

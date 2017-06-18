@@ -199,6 +199,26 @@
         </activity>
         <activity android:name=".banner.banner.BannerActivity">
         </activity>
+        <activity android:name=".view.activity.PasswordActivity">
+        </activity>
+        <activity android:name=".view.activity.IndexActivity">
+        </activity>
+        <activity android:name=".view.activity.MarqueeView">
+        </activity>
+        <activity
+            android:name=".ViewGroup.slideMenu.SlideMenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".banner.cardViewPager.CardViewPagerActivity">
+        </activity>
+        <activity android:name=".view.textView.ColorTrackTextViewActivity">
+        </activity>
+        <activity android:name=".view.textView.ViewPagerActivity">
+        </activity>
+        <activity android:name=".view.touchView.ViewTouchActivity">
+        </activity>
+        <activity android:name=".ViewGroup.tagLayout.TagLayoutActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="zhiwenyan.cmccaifu.com.android2017.view.textView.ColorTrackTextViewActivity">
+
+
+    <zhiwenyan.cmccaifu.com.android2017.view.textView.ColorTrackTextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello Word"
+        android:textColor="#000"
+        android:textSize="22sp"/>
+
+    <Button
+        android:id="@+id/leftToRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="左->右"/>
+
+    <Button
+        android:id="@+id/rightToLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="右->左"/>
+
+    <Button
+        android:id="@+id/vp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ViewPager"
+        android:textAllCaps="false"/>
+</LinearLayout>

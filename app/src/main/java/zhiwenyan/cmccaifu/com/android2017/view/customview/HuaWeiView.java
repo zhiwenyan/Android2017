@@ -168,17 +168,14 @@ public class HuaWeiView extends View {
             @Override
             public void run() {
                 switch (state) {
-
                     case 1://后退状态
                         isRunning = true;
-
                         targetAngle -= 3;
                         score = (int) targetAngle / 3;
                         if (targetAngle <= 0) {//如果回退到0
                             targetAngle = 0;
                             //改为前进状态
                             state = 2;
-
                         }
                         break;
                     case 2://前进状态

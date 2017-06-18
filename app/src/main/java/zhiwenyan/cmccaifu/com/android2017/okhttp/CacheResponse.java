@@ -17,6 +17,8 @@ import okhttp3.Response;
  */
 public final class CacheResponse {
     private final OkHttpClient client;
+    public static final String URL = "http://pb9.pstatp.com/origin/24990000d4c26180d691";
+
 
     public CacheResponse(File cacheDirectory) throws Exception {
         int cacheSize = 10 * 1024 * 1024; // 10 MiB
@@ -29,7 +31,7 @@ public final class CacheResponse {
 
     public void run() throws Exception {
         Request request = new Request.Builder()
-                .url("http://publicobject.com/helloworld.txt")
+                .url(URL)
                 .build();
 
         String response1Body;
@@ -56,6 +58,6 @@ public final class CacheResponse {
     }
 
     public static void main(String... args) throws Exception {
-        new CacheResponse(new File("CacheResponse.tmp")).run();
+        new CacheResponse(new File("a.png")).run();
     }
 }

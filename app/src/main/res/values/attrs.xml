@@ -1,4 +1,4 @@
- <resources>
+<resources>
 
     <!-- Declare custom theme attributes that allow changing which styles are
          used for button bars depending on the API level.
@@ -20,7 +20,6 @@
         <attr name="cover_color" format="color"/>
         <attr name="round_radius" format="dimension"/>
     </declare-styleable>
-
 
 
     <declare-styleable name="CustomProgressBar">
@@ -57,5 +56,19 @@
 
         <!-- 是否显示断 -->
         <attr name="is_show_select" format="boolean"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="LetterSideBarView">
+    </declare-styleable>
+
+    <declare-styleable name="slideMenu">
+        <attr name="rightPadding" format="dimension"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="ColorTrackTextView">
+        <attr name="originColor" format="color"/>
+        <attr name="changeColor" format="color"/>
     </declare-styleable>
 </resources>
