@@ -104,11 +104,13 @@ public class SuperCircleView extends View {
             return;
         }
         mPaint.setColor(mMaxCircleColor);
+        mPaint.setColor(Color.GRAY);
         canvas.drawCircle(mViewCenterX, mViewCenterY, mMinRadio + mRingWidth + 20, mPaint); //外面的圆
         mPaint.setColor(mMinCircleColor);
+        mPaint.setColor(Color.YELLOW);
         canvas.drawCircle(mViewCenterX, mViewCenterY, mMinRadio, mPaint); //里面的圆形
         //画默认圆环
-        drawNormalRing(canvas);
+       // drawNormalRing(canvas);
         //画彩色圆环
         drawColorRing(canvas);
 
@@ -125,24 +127,23 @@ public class SuperCircleView extends View {
         ringColorPaint.setStyle(Paint.Style.STROKE);
         ringColorPaint.setStrokeWidth(mRingWidth);
         ringColorPaint.setShader(new SweepGradient(mViewCenterX, mViewCenterX, color, null));
-
+        canvas.drawArc(mRectF, 270, mSelectRing, false, ringColorPaint);
         if (!isShowSelect) {
-            canvas.drawArc(mRectF, 270, mSelectRing, false, ringColorPaint);
             return;
         }
 
-        if (mSelect == mSelectRing && mSelectRing != 0 && mSelect != 0) {
-            canvas.drawArc(mRectF, 270, 360, false, ringColorPaint);
-        } else {
-            Log.d(TAG, (mRingAngleWidth * mSelectRing + mSelectAngle + mSelectRing) + "");
-            canvas.drawArc(mRectF, 270, mRingAngleWidth * mSelectRing + mSelectAngle * mSelectRing, false, ringColorPaint);
-        }
+//        if (mSelect == mSelectRing && mSelectRing != 0 && mSelect != 0) {
+//            canvas.drawArc(mRectF, 270, 360, false, ringColorPaint);
+//        } else {
+//            Log.d(TAG, (mRingAngleWidth * mSelectRing + mSelectAngle + mSelectRing) + "");
+//            canvas.drawArc(mRectF, 270, mRingAngleWidth * mSelectRing + mSelectAngle * mSelectRing, false, ringColorPaint);
+//        }
 
-        ringColorPaint.setShader(null);
-        ringColorPaint.setColor(mMaxCircleColor);
-        for (int i = 0; i < mSelectRing; i++) {
-            canvas.drawArc(mRectF, 270 + (i * mRingAngleWidth + (i) * mSelectAngle), mSelectAngle, false, ringColorPaint);
-        }
+//        ringColorPaint.setShader(null);
+//        ringColorPaint.setColor(mMaxCircleColor);
+//        for (int i = 0; i < mSelectRing; i++) {
+//            canvas.drawArc(mRectF, 270 + (i * mRingAngleWidth + (i) * mSelectAngle), mSelectAngle, false, ringColorPaint);
+//        }
     }
 
     /**

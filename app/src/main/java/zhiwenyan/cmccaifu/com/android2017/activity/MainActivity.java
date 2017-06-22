@@ -1,6 +1,8 @@
 package zhiwenyan.cmccaifu.com.android2017.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -42,6 +44,15 @@ public class MainActivity extends BaseActivity {
     @InjectView(R.id.frameAnimTv)
     TextView mrameAnimTv;
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("TAG", "onResume: " + this.getSharedPreferences("code", Context.MODE_PRIVATE));
+        Log.i("TAG", "onResume: " + this.getCacheDir().getAbsolutePath());
+        Log.i("TAG", "onResume: " + this.getExternalCacheDir().getAbsolutePath());
+
+    }
+
 
     @Override
     protected int getLayoutId() {
@@ -52,7 +63,7 @@ public class MainActivity extends BaseActivity {
             R.id.recylerTv, R.id.threadTv, R.id.threadPoolTv, R.id.frameAnimTv, R.id.httpTv,
             R.id.okHttpTv, R.id.retrofit, R.id.bannerTv, R.id.tabTv, R.id.viewTv, R.id.viewgroupTv,
             R.id.threedTv, R.id.lruTv, R.id.drawTv, R.id.coorTv, R.id.messenger, R.id.startService,
-            R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager})
+            R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager, R.id.bntv})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -150,6 +161,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.cardViewPager:
                 intent = new Intent(this, CardViewPagerActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.bntv:
+                intent = new Intent(this, BottomNavigationActivity.class);
                 startActivity(intent);
                 break;
         }

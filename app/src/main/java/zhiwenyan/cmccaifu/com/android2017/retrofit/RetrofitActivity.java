@@ -51,7 +51,7 @@ public class RetrofitActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.QueryBtn, R.id.QueryMapBtn, R.id.postFliedBtn, R.id.PathBtn, R.id.upload,R.id.getMovie})
+    @OnClick({R.id.QueryBtn, R.id.QueryMapBtn, R.id.postFliedBtn, R.id.PathBtn, R.id.upload, R.id.getMovie})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.QueryBtn:
@@ -75,10 +75,12 @@ public class RetrofitActivity extends BaseActivity {
                 break;
         }
     }
-    private void getMovie(){
-        String result= HttpMethods.getInstance().getTopMovie(0,10);
+
+    private void getMovie() {
+        String result = HttpMethods.getInstance().getTopMovie(0, 10);
         mResultTv.setText(result);
     }
+
     private void getQuery() {
         Call<BookSearchResponse> call = mBookService.getSearchBooks("小王子", "", 0, 3);
         call.enqueue(new Callback<BookSearchResponse>() {
