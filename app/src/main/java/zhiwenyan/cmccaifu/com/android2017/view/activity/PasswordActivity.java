@@ -55,7 +55,7 @@ public class PasswordActivity extends AppCompatActivity implements CustomerKeybo
         mPasswordEditText.setPasswordFullListener(this);
         mPasswordEditText.setEnabled(false);
         PopupWindow popupWindow = new PopupWindow(keyBoardView, RelativeLayout.LayoutParams.MATCH_PARENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT,true);
+                RelativeLayout.LayoutParams.WRAP_CONTENT, true);
         popupWindow.setAnimationStyle(R.anim.slid_in_bottom);
         popupWindow.setBackgroundDrawable(new BitmapDrawable());
         popupWindow.showAtLocation(mButton, Gravity.BOTTOM, 0, 0);

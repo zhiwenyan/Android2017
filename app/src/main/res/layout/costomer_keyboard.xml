@@ -121,15 +121,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp">
 
-        <!--<View-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginRight="1dp"-->
-        <!--android:layout_weight="1"-->
-        <!--android:background="#fff"-->
-        <!--android:gravity="center"-->
-        <!--android:padding="20dp"-->
-        <!--android:text=""/>-->
+        <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="1dp"
+        android:layout_weight="1"
+        android:background="#fff"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="X"/>
 
         <TextView
             android:layout_width="0dp"
