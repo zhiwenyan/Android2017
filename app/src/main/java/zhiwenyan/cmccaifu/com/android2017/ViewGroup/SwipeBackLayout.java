@@ -45,8 +45,8 @@ public class SwipeBackLayout extends FrameLayout {
             @Override
             public int getViewHorizontalDragRange(View child) {
                 //因为我们移动的是整个界面，所以直接返回整个界面的宽度就可以了
-             //   return child == mContentView ? mContentWidth : 0; //解决冲突：如果触摸是mContentView，则返回mContentWidth，
-            return  mContentWidth;
+                //   return child == mContentView ? mContentWidth : 0; //解决冲突：如果触摸是mContentView，则返回mContentWidth，
+                return mContentWidth;
             }
 
             @Override
@@ -134,7 +134,7 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     //接口：当滑动到1/2时回调改接口
-   public interface callBackListener {
+    public interface callBackListener {
         void finish();
     }
 }
