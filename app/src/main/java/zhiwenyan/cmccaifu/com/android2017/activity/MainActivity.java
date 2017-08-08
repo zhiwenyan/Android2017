@@ -44,6 +44,7 @@ public class MainActivity extends BaseActivity {
     @InjectView(R.id.frameAnimTv)
     TextView mrameAnimTv;
 
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -63,7 +64,7 @@ public class MainActivity extends BaseActivity {
             R.id.recylerTv, R.id.threadTv, R.id.threadPoolTv, R.id.frameAnimTv, R.id.httpTv,
             R.id.okHttpTv, R.id.retrofit, R.id.bannerTv, R.id.tabTv, R.id.viewTv, R.id.viewgroupTv,
             R.id.threedTv, R.id.lruTv, R.id.drawTv, R.id.coorTv, R.id.messenger, R.id.startService,
-            R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager, R.id.bntv})
+            R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager, R.id.bntv, R.id.device})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -165,6 +166,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.bntv:
                 intent = new Intent(this, BottomNavigationActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.device:
+                intent = new Intent(this, DeviceActivity.class);
                 startActivity(intent);
                 break;
         }

@@ -17,7 +17,7 @@ public class ViewTouchActivity extends AppCompatActivity {
         findViewById(R.id.tv).setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Log.i("TAG", "onTouch: " + event.getAction());
+                Log.i("TAG", "OnTouchListener--->onTouch: " + event.getAction());
                 return false;
             }
         });
@@ -27,5 +27,11 @@ public class ViewTouchActivity extends AppCompatActivity {
                 Log.i("TAG", "onClick");
             }
         });
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        Log.i("TAG", "OnTouchListener-->onTouchEvent: " + event.getAction());
+        return super.onTouchEvent(event);
     }
 }

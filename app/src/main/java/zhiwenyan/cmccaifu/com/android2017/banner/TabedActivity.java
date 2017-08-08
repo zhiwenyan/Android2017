@@ -21,7 +21,7 @@ import android.widget.TextView;
 import zhiwenyan.cmccaifu.com.android2017.R;
 
 public class TabedActivity extends AppCompatActivity {
-
+    private TextView mTextView;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -61,6 +61,8 @@ public class TabedActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        mTextView= (TextView) findViewById(R.id.section_label);
+        mTextView.setText("section_label");
 
     }
 

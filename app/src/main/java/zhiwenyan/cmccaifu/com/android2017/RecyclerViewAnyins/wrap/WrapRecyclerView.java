@@ -8,6 +8,9 @@ import android.view.View;
 
 /**
  * Created by zhiwenyan on 5/26/17.
+ *
+ *
+ * 可添加头部和尾部
  */
 
 public class WrapRecyclerView extends RecyclerView {
@@ -63,7 +66,7 @@ public class WrapRecyclerView extends RecyclerView {
             mAdapter = (WrapRecyclerAdapter) adapter;
         } else {
             mAdapter = new WrapRecyclerAdapter(adapter);
-          //  adapter.registerAdapterDataObserver(mObserver);
+            adapter.registerAdapterDataObserver(mObserver);
         }
         super.setAdapter(mAdapter);
     }

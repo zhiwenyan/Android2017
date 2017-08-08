@@ -15,7 +15,7 @@ import android.widget.BaseAdapter;
  * @since date 2015-03-04
  */
 public class TagCloudLayout extends ViewGroup {
-//https://github.com/fyales/tagcloud/blob/master/app/src/main/java/com/fyales/tagcloud/MainActivity.java
+    //https://github.com/fyales/tagcloud/blob/master/app/src/main/java/com/fyales/tagcloud/MainActivity.java
     private int mLineSpacing;
     private int mTagSpacing;
     private BaseAdapter mAdapter;
@@ -51,7 +51,7 @@ public class TagCloudLayout extends ViewGroup {
         this.removeAllViews();
 
         for (int i = 0; i < mAdapter.getCount(); i++) {
-            View view = mAdapter.getView(i,null,null);
+            View view = mAdapter.getView(i, null, null);
             final int position = i;
             view.setOnClickListener(new OnClickListener() {
                 @Override
@@ -140,14 +140,14 @@ public class TagCloudLayout extends ViewGroup {
         return new LayoutParams(this.getContext(), attrs);
     }
 
-    public void setAdapter(BaseAdapter adapter){
+    public void setAdapter(BaseAdapter adapter) {
         //if (mAdapter == null){
-            mAdapter = adapter;
-            if (mObserver == null){
-                mObserver = new DataChangeObserver();
-                mAdapter.registerDataSetObserver(mObserver);
-            }
-            drawLayout();
+        mAdapter = adapter;
+        if (mObserver == null) {
+            mObserver = new DataChangeObserver();
+            mAdapter.registerDataSetObserver(mObserver);
+        }
+        drawLayout();
         //}
     }
 
@@ -159,7 +159,7 @@ public class TagCloudLayout extends ViewGroup {
         void itemClick(int position);
     }
 
-    class DataChangeObserver extends DataSetObserver{
+    class DataChangeObserver extends DataSetObserver {
         @Override
         public void onChanged() {
             TagCloudLayout.this.drawLayout();

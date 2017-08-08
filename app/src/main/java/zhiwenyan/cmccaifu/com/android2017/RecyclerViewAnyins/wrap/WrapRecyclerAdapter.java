@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 /**
  * Created by zhiwenyan on 5/25/17.
  * <p>
- * 添加头部和尾部 移除头部和尾部
+ * 添加头部和尾部 移除头部和尾部 装饰者设计模式
  */
 
 public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -119,7 +119,7 @@ public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
      *
      * @param view
      */
-    public void  addFooterView(View view) {
+    public void addFooterView(View view) {
         if (mFooters.indexOfValue(view) == -1) {
             mFooters.put(BASE_FOOTER_KEY++, view);
             notifyDataSetChanged();
