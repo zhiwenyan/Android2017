@@ -19,7 +19,7 @@ public class DialogActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,R.id.btn5})
+    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn1:
@@ -42,7 +42,7 @@ public class DialogActivity extends BaseActivity {
 //                DialogFragment dialogFragment=new DialogFragment();
                 break;
             case R.id.btn3:
-               ProgressDialog progressDialog=new ProgressDialog(this);
+                ProgressDialog progressDialog = new ProgressDialog(this);
 //                progressDialog.setTitle("Load");
                 progressDialog.setMax(100);
                 progressDialog.setMessage("Load...");
@@ -52,7 +52,7 @@ public class DialogActivity extends BaseActivity {
             case R.id.btn4:
                 break;
             case R.id.btn5:
-                BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(this);
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
                 bottomSheetDialog.setContentView(R.layout.activity_main);
                 bottomSheetDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
                     @Override

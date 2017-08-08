@@ -7,6 +7,7 @@ import android.widget.Button;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import zhiwenyan.cmccaifu.com.android2017.R;
+import zhiwenyan.cmccaifu.com.android2017.ViewGroup.Drag.VerticalDragActivity;
 import zhiwenyan.cmccaifu.com.android2017.ViewGroup.slideMenu.SlideMenuActivity;
 import zhiwenyan.cmccaifu.com.android2017.ViewGroup.tagLayout.TagLayoutActivity;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
@@ -26,7 +27,7 @@ public class ViewGroupActivity extends BaseActivity {
         super.doSetToolBarTitle("ViewGroup");
     }
 
-    @OnClick({R.id.ViewDragHelperBtn, R.id.back, R.id.tag,R.id.slide})
+    @OnClick({R.id.ViewDragHelperBtn, R.id.back, R.id.tag, R.id.slide, R.id.drag})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ViewDragHelperBtn:
@@ -40,6 +41,9 @@ public class ViewGroupActivity extends BaseActivity {
                 break;
             case R.id.slide:
                 startActivity(new Intent(this, SlideMenuActivity.class));
+                break;
+            case R.id.drag:
+                startActivity(new Intent(this, VerticalDragActivity.class));
                 break;
         }
     }

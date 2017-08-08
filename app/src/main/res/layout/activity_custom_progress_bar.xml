@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,7 +12,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
-        app:circleWidth="10dp"/>
+        app:circleWidth="10dp" />
 
     <FrameLayout
         android:layout_width="300dp"
@@ -26,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             app:min_circle_radio="300"
-            app:ring_width="40"/>
+            app:ring_width="40" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -35,7 +34,7 @@
             android:layout_marginBottom="60dp"
             android:text="信息完成度"
             android:textColor="#CFD5DE"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
 
         <LinearLayout
@@ -51,13 +50,13 @@
                 android:layout_height="wrap_content"
                 android:text="0"
                 android:textColor="#506946"
-                android:textSize="80sp"/>
+                android:textSize="80sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="%"
-                android:textSize="28sp"/>
+                android:textSize="28sp" />
         </LinearLayout>
     </FrameLayout>
 
@@ -70,5 +69,5 @@
         app:min_circle_radio="100"
         app:ring_color_select="4"
         app:ring_width="10"
-        app:select="7"/>
+        app:select="7" />
 </LinearLayout>
