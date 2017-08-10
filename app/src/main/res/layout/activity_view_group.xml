@@ -9,6 +9,13 @@
 
 
     <Button
+        android:id="@+id/vg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ViewGroup的Touch事件分发"
+        android:textAllCaps="false"/>
+
+    <Button
         android:id="@+id/ViewDragHelperBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,7 +28,8 @@
         android:layout_height="wrap_content"
         android:text="Activity实现侧滑返回"
         android:textAllCaps="false"/>
-     <Button
+
+    <Button
         android:id="@+id/tag"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,7 +42,8 @@
         android:layout_height="wrap_content"
         android:text="侧滑菜单"
         android:textAllCaps="false"/>
- <Button
+
+    <Button
         android:id="@+id/drag"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

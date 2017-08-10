@@ -27,7 +27,7 @@ public class ViewGroupActivity extends BaseActivity {
         super.doSetToolBarTitle("ViewGroup");
     }
 
-    @OnClick({R.id.ViewDragHelperBtn, R.id.back, R.id.tag, R.id.slide, R.id.drag})
+    @OnClick({R.id.ViewDragHelperBtn, R.id.back, R.id.tag, R.id.slide, R.id.drag,R.id.vg})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ViewDragHelperBtn:
@@ -45,6 +45,10 @@ public class ViewGroupActivity extends BaseActivity {
             case R.id.drag:
                 startActivity(new Intent(this, VerticalDragActivity.class));
                 break;
+            case R.id.vg:
+                startActivity(new Intent(this, zhiwenyan.cmccaifu.com.android2017.ViewGroup.touch.ViewGroupActivity.class));
+                break;
+
         }
     }
 }

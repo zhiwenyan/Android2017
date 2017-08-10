@@ -55,7 +55,7 @@ public class BannerViewPager extends ViewPager {
     }
 
     /**
-     * 设置切换页面的                    持续时间
+     * 设置切换页面的持续时间
      *
      * @param scrollerDuration
      */

@@ -22,7 +22,7 @@ public class VerticalDragActivity extends BaseActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.rv);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         List<Character> list = new ArrayList<>();
-        for (char i = 'A'; i < 'Z'; i++) {
+        for (char i = 'A'; i <= 'Z'; i++) {
             list.add(i);
         }
         DragAdapter adapter = new DragAdapter(this, list, R.layout.drag_item_layout);

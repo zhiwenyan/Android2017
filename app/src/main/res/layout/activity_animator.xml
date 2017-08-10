@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,78 +8,88 @@
     android:padding="8dp"
     tools:context="zhiwenyan.cmccaifu.com.android2017.animator.AnimatorActivity">
 
-    <zhiwenyan.cmccaifu.com.android2017.animator.CircleView
-        android:id="@+id/circleView"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        />
-
-    <TextView
-        android:id="@+id/mTarget"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:background="#00b2f9"/>
-
-    <Button
-        android:id="@+id/transTv"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="平移"/>
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/scaleTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="缩放"/>
+        <zhiwenyan.cmccaifu.com.android2017.animator.CircleView
+            android:id="@+id/circleView"
+            android:layout_width="20dp"
+            android:layout_height="20dp"/>
 
-    <Button
-        android:id="@+id/rorateTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="旋转"/>
+        <TextView
+            android:id="@+id/mTarget"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#00b2f9"/>
 
-    <Button
-        android:id="@+id/alphaTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="透明度"/>
+        <Button
+            android:id="@+id/transTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="平移"/>
 
-    <Button
-        android:id="@+id/groupAnimTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="组合"/>
+        <Button
+            android:id="@+id/scaleTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="缩放"/>
 
+        <Button
+            android:id="@+id/rorateTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="旋转"/>
 
-    <Button
-        android:id="@+id/ValuesHolderTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ValuesHolder "
-        android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/alphaTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="透明度"/>
 
-    <Button
-        android:id="@+id/PropertyValuesHolderTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="PropertyValuesHolder"
-        android:textAllCaps="false"/>
-
-
-    <Button
-        android:id="@+id/keyFrameTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="KeyFrame"
-        android:textAllCaps="false"/>
-
-    <Button
-        android:id="@+id/simpleAnimator"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="自定义抛物线(simpleAnimator)"
-        android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/groupAnimTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="组合"/>
 
 
-</LinearLayout>
+        <Button
+            android:id="@+id/ValuesHolderTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ValuesHolder "
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/PropertyValuesHolderTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PropertyValuesHolder"
+            android:textAllCaps="false"/>
+
+
+        <Button
+            android:id="@+id/keyFrameTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="KeyFrame"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/simpleAnimator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自定义抛物线(simpleAnimator)"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/wubaCityBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="仿58同城属性动画"/>
+    </LinearLayout>
+
+</ScrollView>

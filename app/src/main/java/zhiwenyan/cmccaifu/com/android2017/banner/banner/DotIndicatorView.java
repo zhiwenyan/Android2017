@@ -38,6 +38,7 @@ public class DotIndicatorView extends View {
         if (mDrawable != null) {
 //            mDrawable.setBounds(0, 0, getMeasuredWidth(), getMeasuredHeight());
 //            mDrawable.draw(canvas);
+
             Bitmap bitmap = drawableToBitmap(mDrawable);
             Bitmap circleBitmap = getCircleBitmap(bitmap);
             canvas.drawBitmap(circleBitmap, 0, 0, null);
@@ -51,20 +52,32 @@ public class DotIndicatorView extends View {
         invalidate();
     }
 
+    /**
+     * drawable---》bitmap
+     *
+     * @param drawable
+     * @return
+     */
     private Bitmap drawableToBitmap(Drawable drawable) {
         if (drawable instanceof BitmapDrawable) {
             return ((BitmapDrawable) drawable).getBitmap();
         }
+        //其他类型 ColorDrawable
         //创建一个什么也没有的Bitmap；
         Bitmap outBitmap = Bitmap.createBitmap(getMeasuredWidth(),
                 getMeasuredHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(outBitmap);
-        //把drawable画到Bitmap上
+        //把drawable画到Bitmap上   --》将drawable绘制在canvas内部
         drawable.setBounds(0, 0, getMeasuredWidth(), getMeasuredHeight());
         drawable.draw(canvas);
         return outBitmap;
     }
 
+    /**
+     *
+     * @param bitmap
+     * @return
+     */
     private Bitmap getCircleBitmap(Bitmap bitmap) {
         //创建一个Bitmap
         Bitmap circleBitmap = Bitmap.createBitmap(getMeasuredWidth(),
@@ -74,8 +87,9 @@ public class DotIndicatorView extends View {
         paint.setAntiAlias(true);
         paint.setFilterBitmap(true);
         paint.setDither(true); //防止抖动
+        //在画布上绘制一个圆
         canvas.drawCircle(getMeasuredWidth() / 2, getMeasuredHeight() / 2, getMeasuredWidth() / 2, paint);
-        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
         //在把原来的bitmap绘制到圆上面
         canvas.drawBitmap(bitmap, 0, 0, paint);
         return circleBitmap;

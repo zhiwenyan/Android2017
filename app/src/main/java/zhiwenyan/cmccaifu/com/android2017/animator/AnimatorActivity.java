@@ -8,6 +8,7 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.graphics.PointF;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
@@ -49,7 +50,7 @@ public class AnimatorActivity extends BaseActivity {
 
 
     @OnClick({R.id.transTv, R.id.scaleTv, R.id.rorateTv, R.id.alphaTv, R.id.groupAnimTv,
-            R.id.ValuesHolderTv, R.id.PropertyValuesHolderTv, R.id.keyFrameTv,R.id.simpleAnimator})
+            R.id.ValuesHolderTv, R.id.PropertyValuesHolderTv, R.id.keyFrameTv, R.id.simpleAnimator, R.id.wubaCityBtn})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.transTv:
@@ -147,6 +148,9 @@ public class AnimatorActivity extends BaseActivity {
                         mCircleView.setY(point.y);
                     }
                 });
+                break;
+            case R.id.wubaCityBtn:
+                startActivity(new Intent(this,WubaCityActivity.class));
                 break;
         }
     }

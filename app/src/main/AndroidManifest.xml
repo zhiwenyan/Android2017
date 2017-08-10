@@ -167,6 +167,10 @@
 
         <activity android:name=".RecyclerViewAnyins.PhotoActivity">
         </activity>
+        <activity android:name=".ViewGroup.touch.ViewGroupActivity">
+        </activity>
+        <activity android:name=".animator.WubaCityActivity">
+        </activity>
     </application>
 
 </manifest>

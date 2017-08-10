@@ -5,15 +5,13 @@ import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v4.widget.ViewDragHelper;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AbsListView;
 import android.widget.FrameLayout;
 
 /**
@@ -27,7 +25,7 @@ public class VerticalDragListView extends FrameLayout {
     private View mMenuView;
     private View mDragListView;
     private int mMenuHeight;
-    private boolean mIsMenuOpen = false;
+    private boolean mIsMenuOpen = false;  //菜单是否打开
 
 
     public VerticalDragListView(@NonNull Context context) {
@@ -59,9 +57,8 @@ public class VerticalDragListView extends FrameLayout {
                 break;
             case MotionEvent.ACTION_MOVE:
                 float moveY = ev.getY();
-
-                if (moveY - mDownY > 0 && canChildScrollUp()) {
-                    //向下滑动&&滚动到了顶部拦截，不让RecycleView做处理
+                //向下滑动&&滚动到了顶部拦截，不让RecycleView做处理
+                if (moveY - mDownY > 0 && !canChildScrollUp()) {
                     return true;
                 }
                 break;
@@ -78,9 +75,8 @@ public class VerticalDragListView extends FrameLayout {
             if (mDragListView instanceof RecyclerView) {
                 final RecyclerView recyclerView = (RecyclerView) mDragListView;
                 LinearLayoutManager manager = (LinearLayoutManager) recyclerView.getLayoutManager();
-                return recyclerView.getChildCount() > 0
-                        && (manager.findLastVisibleItemPosition() > 0 || recyclerView.getChildAt(0)
-                        .getTop() < recyclerView.getPaddingTop());
+                return recyclerView.getChildCount() > 0 && (manager.findFirstVisibleItemPosition() > 0
+                        || recyclerView.getChildAt(0).getTop() < recyclerView.getPaddingTop());
             } else {
                 return ViewCompat.canScrollVertically(mDragListView, -1) || mDragListView.getScrollY() > 0;
             }
@@ -88,6 +84,7 @@ public class VerticalDragListView extends FrameLayout {
             return ViewCompat.canScrollVertically(mDragListView, -1);
         }
     }
+
 
     private ViewDragHelper.Callback mCallback = new ViewDragHelper.Callback() {
         @Override
@@ -104,7 +101,6 @@ public class VerticalDragListView extends FrameLayout {
                 top = mMenuHeight;
             }
             return top;
-
         }
 
         @Override
@@ -152,6 +148,7 @@ public class VerticalDragListView extends FrameLayout {
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
+        Log.i("TAG", "onLayout: " + changed);
         if (changed) {
             View menuView = getChildAt(0);
             mMenuHeight = menuView.getMeasuredHeight();
