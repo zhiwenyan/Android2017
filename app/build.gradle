@@ -35,6 +35,7 @@ dependencies {
     //    compile 'io.reactivex.rxjava2:rxjava:2.1.0'
     //    compile 'com.github.ctiao:DanmakuFlameMaster:0.8.3'
     //    compile 'com.github.ctiao:ndkbitmap-armv7a:0.8.3'
+    compile files('libs/zmxy-sdk-java-20170727203257.jar')
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
     compile 'com.android.support:appcompat-v7:25.3.0'
     compile 'com.android.support:design:25.3.0'
@@ -49,5 +50,4 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.2.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
     testCompile 'junit:junit:4.12'
-    compile files('libs/zmxy-sdk-java-20170727203257.jar')
 }

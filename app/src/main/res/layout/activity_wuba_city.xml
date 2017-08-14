@@ -9,7 +9,16 @@
 
 
     <zhiwenyan.cmccaifu.com.android2017.animator.LoadingView
+        android:id="@+id/loadView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"/>
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="HelloWorld"
+        android:visibility="gone"/>
 </RelativeLayout>
