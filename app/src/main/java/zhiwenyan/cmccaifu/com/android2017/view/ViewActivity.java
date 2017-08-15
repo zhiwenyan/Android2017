@@ -15,6 +15,7 @@ import zhiwenyan.cmccaifu.com.android2017.view.activity.SimileViewActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.canvas.CanvasActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.customview.CustomActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.matrix.MatrixActivity;
+import zhiwenyan.cmccaifu.com.android2017.view.multiView.MultiViewActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.path.BezierActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.path.PathActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.progressbar.ProgressActivity;
@@ -37,7 +38,7 @@ public class ViewActivity extends BaseActivity {
 
     @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5,
             R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9, R.id.btn10, R.id.btn11,
-            R.id.btn12, R.id.btn13, R.id.btn15,R.id.btn16})
+            R.id.btn12, R.id.btn13, R.id.btn15, R.id.btn16, R.id.btn18})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn1:
@@ -84,6 +85,9 @@ public class ViewActivity extends BaseActivity {
                 break;
             case R.id.btn16:
                 startActivity(new Intent(this, ProgressActivity.class));
+                break;
+            case R.id.btn18:
+                startActivity(new Intent(this, MultiViewActivity.class));
                 break;
 
         }

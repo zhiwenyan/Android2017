@@ -87,9 +87,8 @@
         <activity android:name=".view.CustomProgressBar.CustomProgressBarActivity"/>
         <activity android:name=".rxjava.RxJavaActivity"/>
         <activity android:name=".cache.lru.PhotoWallActivity"/>
-
-            android:name=".activity.BottomNavigationActivity"
-            android:label="@string/title_activity_bottom_navigation"/>
+        android:name=".activity.BottomNavigationActivity"
+        android:label="@string/title_activity_bottom_navigation"/>
         <activity
             android:name=".dialog.DialogActivity"
             android:label="Dialog"/>
@@ -169,6 +168,8 @@
         <activity android:name=".animator.WubaCityActivity">
         </activity>
         <activity android:name=".view.progressbar.ProgressActivity">
+        </activity>
+        <activity android:name=".view.multiView.MultiViewActivity">
         </activity>
     </application>
 

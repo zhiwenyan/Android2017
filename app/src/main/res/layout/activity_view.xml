@@ -116,6 +116,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="View的Touch事件"/>
+
+        <Button
+            android:id="@+id/btn18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="多条目菜单筛选"/>
     </LinearLayout>
 
 </ScrollView>

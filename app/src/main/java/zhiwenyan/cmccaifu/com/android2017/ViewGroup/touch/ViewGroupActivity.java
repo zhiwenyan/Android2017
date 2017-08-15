@@ -28,7 +28,6 @@ public class ViewGroupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i("TAG", "Activity-->onClick: ");
-
             }
         });
     }
