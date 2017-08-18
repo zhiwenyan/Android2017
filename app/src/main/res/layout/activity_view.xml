@@ -135,6 +135,13 @@
             android:layout_height="wrap_content"
             android:text="loading"
             android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="贝赛尔曲线"
+            android:textAllCaps="false"/>
     </LinearLayout>
 
 </ScrollView>
