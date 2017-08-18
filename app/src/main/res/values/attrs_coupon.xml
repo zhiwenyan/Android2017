@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CouponView">
+        <attr name="coupon_bg_color" format="color"/>
+        <attr name="coupon_corners" format="dimension"/>
+    </declare-styleable>
+</resources>

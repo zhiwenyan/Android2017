@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="zhiwenyan.cmccaifu.com.android2017.view.lock.LockActivity">
+    tools:context="zhiwenyan.cmccaifu.com.android2017.view.customview.LockActivity">
 
 
     <zhiwenyan.cmccaifu.com.android2017.view.lock.LockView

@@ -122,6 +122,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="多条目菜单筛选"/>
+
+        <Button
+            android:id="@+id/btn20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="优惠劵"/>
+
+        <Button
+            android:id="@+id/btn21"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="loading"
+            android:textAllCaps="false"/>
     </LinearLayout>
 
 </ScrollView>

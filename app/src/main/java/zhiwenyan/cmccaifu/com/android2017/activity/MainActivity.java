@@ -14,6 +14,7 @@ import zhiwenyan.cmccaifu.com.android2017.IPC.MessengerActivity;
 import zhiwenyan.cmccaifu.com.android2017.IPC.ServiceActivity;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.RecycleActivity;
+import zhiwenyan.cmccaifu.com.android2017.Sensor.SensorActivity;
 import zhiwenyan.cmccaifu.com.android2017.Thread.ThreadActivity;
 import zhiwenyan.cmccaifu.com.android2017.Thread.ThreadPoolActivity;
 import zhiwenyan.cmccaifu.com.android2017.ViewGroup.ViewGroupActivity;
@@ -64,7 +65,7 @@ public class MainActivity extends BaseActivity {
             R.id.recylerTv, R.id.threadTv, R.id.threadPoolTv, R.id.frameAnimTv, R.id.httpTv,
             R.id.okHttpTv, R.id.retrofit, R.id.bannerTv, R.id.tabTv, R.id.viewTv, R.id.viewgroupTv,
             R.id.threedTv, R.id.lruTv, R.id.drawTv, R.id.coorTv, R.id.messenger, R.id.startService,
-            R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager, R.id.bntv, R.id.device})
+            R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager, R.id.bntv, R.id.device,R.id.sensor})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -170,6 +171,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.device:
                 intent = new Intent(this, DeviceActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.sensor:
+                intent=new Intent(this, SensorActivity.class);
                 startActivity(intent);
                 break;
         }
