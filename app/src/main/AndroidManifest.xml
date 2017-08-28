@@ -197,6 +197,8 @@
             android:name=".activity.SettingsActivity"
             android:label="@string/title_activity_settings">
         </activity>
+        <activity android:name=".view.kugou.KugouActivity">
+        </activity>
     </application>
 
 </manifest>

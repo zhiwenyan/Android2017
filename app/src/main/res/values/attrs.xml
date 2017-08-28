@@ -72,7 +72,4 @@
         <attr name="changeColor" format="color"/>
     </declare-styleable>
 
-
-
-
 </resources>

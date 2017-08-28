@@ -14,7 +14,7 @@ public class BubbleUtils {
      * @param context
      * @return
      */
-    public static int dip2px( float dip, Context context) {
+    public static int dip2px(float dip, Context context) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, displayMetrics);
     }
@@ -31,7 +31,7 @@ public class BubbleUtils {
             //根据资源ID获取响应的尺寸值
             return context.getResources().getDimensionPixelSize(resourceId);
         }
-        return dip2px(25, context);
+        return dip2px(24, context);
     }
 
     /**
@@ -64,12 +64,9 @@ public class BubbleUtils {
     /**
      * 根据分度值，计算从start到end中，fraction位置的值。fraction范围为0 -> 1
      *
-     * @param fraction
-     *            = 1
-     * @param start
-     *            = 10
-     * @param end
-     *            = 3
+     * @param fraction = 1
+     * @param start    = 10
+     * @param end      = 3
      * @return
      */
     public static float evaluateValue(float fraction, Number start, Number end) {
@@ -84,12 +81,9 @@ public class BubbleUtils {
      * Get the point of intersection between circle and line.
      * 获取通过指定圆心，斜率为lineK的直线与圆的交点。
      *
-     * @param pMiddle
-     *            The circle center point.
-     * @param radius
-     *            The circle radius.
-     * @param lineK
-     *            The slope of line which cross the pMiddle.
+     * @param pMiddle The circle center point.
+     * @param radius  The circle radius.
+     * @param lineK   The slope of line which cross the pMiddle.
      * @return
      */
     public static PointF[] getIntersectionPoints(PointF pMiddle, float radius,
