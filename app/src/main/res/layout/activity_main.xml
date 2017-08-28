@@ -526,6 +526,19 @@
                 android:padding="8dp"
                 android:text="传感器应用"
                 android:textColor="@color/colorWhite"/>
+
+            <TextView
+                android:id="@+id/rg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:background="#5be6ff"
+                android:gravity="center_horizontal"
+                android:padding="8dp"
+                android:text="RadioButton"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"/>
         </LinearLayout>
     </LinearLayout>
 

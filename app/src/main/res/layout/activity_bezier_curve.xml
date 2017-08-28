@@ -8,8 +8,19 @@
     tools:context="zhiwenyan.cmccaifu.com.android2017.view.BezierCurve.BezierCurveActivity">
 
 
-    <zhiwenyan.cmccaifu.com.android2017.view.BezierCurve.BezierCurveView
+    <zhiwenyan.cmccaifu.com.android2017.view.BezierCurve.MessageBubbleView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"/>
+
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@color/colorAccent"
+        android:padding="8dp"
+        android:text="TextView"
+        android:textColor="@color/white"/>
 </RelativeLayout>

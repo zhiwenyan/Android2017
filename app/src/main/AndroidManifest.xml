@@ -179,6 +179,24 @@
         </activity>
         <activity android:name=".view.BezierCurve.BezierCurveActivity">
         </activity>
+        <activity android:name=".activity.RadioActivity">
+        </activity>
+
+        <receiver android:name=".broadcast.BootBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.ShutdownBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:label="@string/title_activity_settings">
+        </activity>
     </application>
 
 </manifest>

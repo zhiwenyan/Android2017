@@ -65,7 +65,8 @@ public class MainActivity extends BaseActivity {
             R.id.recylerTv, R.id.threadTv, R.id.threadPoolTv, R.id.frameAnimTv, R.id.httpTv,
             R.id.okHttpTv, R.id.retrofit, R.id.bannerTv, R.id.tabTv, R.id.viewTv, R.id.viewgroupTv,
             R.id.threedTv, R.id.lruTv, R.id.drawTv, R.id.coorTv, R.id.messenger, R.id.startService,
-            R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager, R.id.bntv, R.id.device,R.id.sensor})
+            R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager, R.id.bntv, R.id.device,R.id.sensor
+    ,R.id.rg})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -175,6 +176,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.sensor:
                 intent=new Intent(this, SensorActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.rg:
+                intent=new Intent(this, RadioActivity.class);
                 startActivity(intent);
                 break;
         }

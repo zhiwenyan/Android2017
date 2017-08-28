@@ -23,7 +23,7 @@ public class Bezier extends View {
     private PointF start, end, control;
 
     public Bezier(Context context) {
-        this(context,null);
+        this(context, null);
 
     }
 
@@ -32,7 +32,7 @@ public class Bezier extends View {
         mPaint = new Paint();
         mPaint.setColor(Color.BLACK);
         mPaint.setStrokeWidth(8);
-        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStyle(Paint.Style.FILL);
         mPaint.setTextSize(60);
 
         start = new PointF(0, 0);
@@ -88,6 +88,7 @@ public class Bezier extends View {
 
         path.moveTo(start.x, start.y);
         path.quadTo(control.x, control.y, end.x, end.y);
+        path.close();
 
         canvas.drawPath(path, mPaint);
     }
