@@ -60,8 +60,8 @@ public class ListDataScreenView extends LinearLayout {
 
         mShadowView = new View(mContext);
         mShadowView.setBackgroundColor(mShadowViewColor);
-      //  mShadowView.setAlpha(0f);
-      //  mShadowView.setVisibility(GONE);
+        //  mShadowView.setAlpha(0f);
+        //  mShadowView.setVisibility(GONE);
         addView(mShadowView);
 
 

@@ -52,13 +52,13 @@ public class LetterSideBarView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        float singleHeight = (float) getHeight() / mLetters.length;
         for (int i = 0; i < mLetters.length; i++) {
 //
 //            int x = (int) (getWidth() - paint.measureText(strs[i])) / 2;
 //            int y = getHeight() / strs.length * (i + 1);
 //            canvas.drawText(strs[i], x, y, paint);
             // 每个字母所占用的高度
-            float singleHeight = (float) getHeight() / mLetters.length;
             // 不断循环把绘制字母
             String letter = mLetters[i];
             // 获取字体的宽度

@@ -85,6 +85,7 @@ public class OkhttpActivity extends BaseActivity {
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
+
             }
 
             @Override
@@ -137,7 +138,6 @@ public class OkhttpActivity extends BaseActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-
                 updateUI(response.body().string());
             }
         });

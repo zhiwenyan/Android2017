@@ -199,6 +199,14 @@
         </activity>
         <activity android:name=".view.kugou.KugouActivity">
         </activity>
+        <activity android:name=".view.yahoo.YahooActivity">
+        </activity>
+        <activity android:name=".classLoader.ClassLoaderActivity">
+        </activity>
+        <activity android:name=".indicatorViewPager.CommonViewPagerActivity">
+        </activity>
+        <activity android:name=".sqlite.SqliteActivity">
+        </activity>
     </application>
 
 </manifest>

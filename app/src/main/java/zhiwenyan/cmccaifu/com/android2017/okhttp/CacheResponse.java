@@ -19,7 +19,6 @@ public final class CacheResponse {
     private final OkHttpClient client;
     public static final String URL = "http://pb9.pstatp.com/origin/24990000d4c26180d691";
 
-
     public CacheResponse(File cacheDirectory) throws Exception {
         int cacheSize = 10 * 1024 * 1024; // 10 MiB
         Cache cache = new Cache(cacheDirectory, cacheSize);

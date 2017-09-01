@@ -154,7 +154,7 @@ public class SlideMenu extends HorizontalScrollView {
                 } else {
                     openMenu();
                 }
-               return false;
+                return false;
         }
         return super.onTouchEvent(ev);
     }

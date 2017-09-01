@@ -100,13 +100,10 @@
         android:id="@+id/ivFifthImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_centerHorizontal="true"
         android:src="@mipmap/s_1_5"
         app:layout_heightPercent="10%"
-
         app:layout_marginTopPercent="33%"
-
         app:layout_widthPercent="15%"
         app:translationXIn="0.28"
         app:translationXOut="0.28"/>
@@ -115,13 +112,10 @@
         android:id="@+id/ivEighthImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_centerHorizontal="true"
         android:src="@mipmap/s_1_8"
         app:layout_heightPercent="10%"
-
         app:layout_marginTopPercent="22%"
-
         app:layout_widthPercent="25%"
         app:translationXIn="0.14"
         app:translationXOut="0.14"/>
@@ -131,9 +125,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-
         android:gravity="center"
-
         android:text="@string/text_web_dev"
         android:textColor="@android:color/white"
         android:textSize="18sp"

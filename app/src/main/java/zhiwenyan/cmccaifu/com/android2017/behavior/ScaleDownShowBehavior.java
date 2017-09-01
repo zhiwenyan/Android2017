@@ -2,6 +2,7 @@
 package zhiwenyan.cmccaifu.com.android2017.behavior;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewCompat;
@@ -16,9 +17,15 @@ public class ScaleDownShowBehavior extends FloatingActionButton.Behavior {
     private boolean isAnimateIng = false;   // 是否正在动画
     private boolean isShow = true;  // 是否已经显示
 
+
     //需要带参数的AttributeSet因为XML需要调用
     public ScaleDownShowBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
+    }
+
+    @Override
+    public void onAttachedToLayoutParams(@NonNull CoordinatorLayout.LayoutParams lp) {
+        super.onAttachedToLayoutParams(lp);
     }
 
     @Override

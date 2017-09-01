@@ -370,17 +370,17 @@
                 android:text="ViewPager"
                 android:textColor="@color/colorWhite"/>
 
-            <TextView
-                android:id="@+id/tabTv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#d4c176"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="Tab"
-                android:textColor="@color/colorWhite"/>
+            <!--<TextView-->
+            <!--android:id="@+id/tabTv"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="8dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="#d4c176"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:padding="8dp"-->
+            <!--android:text="Tab"-->
+            <!--android:textColor="@color/colorWhite"/>-->
 
             <TextView
                 android:id="@+id/threedTv"
@@ -406,6 +406,26 @@
                 android:padding="8dp"
                 android:text="卡片效果"
                 android:textColor="@color/colorWhite"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/commonViewPager"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#d4c176"
+                android:gravity="center_horizontal"
+                android:padding="8dp"
+                android:text="通用的ViewPager指示器"
+                android:textColor="@color/colorWhite"/>
+
 
         </LinearLayout>
 
@@ -539,6 +559,33 @@
                 android:text="RadioButton"
                 android:textAllCaps="false"
                 android:textColor="@color/colorWhite"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="数据库"
+            android:textColor="#8964f9"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/sqliteTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#8964f9"
+                android:gravity="center_horizontal"
+                android:padding="8dp"
+                android:text="Sqlite"
+                android:textColor="@color/colorWhite"/>
+
+
         </LinearLayout>
     </LinearLayout>
 

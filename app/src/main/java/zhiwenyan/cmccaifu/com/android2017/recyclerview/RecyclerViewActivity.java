@@ -49,7 +49,7 @@ public class RecyclerViewActivity extends BaseActivity {
         mRv.setHasFixedSize(true);
         mRv.setItemAnimator(new DefaultItemAnimator());
         // mRv.addItemDecoration(new RecycleViewDivider(this, LinearLayoutManager.HORIZONTAL));
-        mAdapter = new RecyclerAdapter(getListItem(),R.layout.list_item);
+        mAdapter = new RecyclerAdapter(getListItem(), R.layout.list_item);
         mAdapter.setLastPosition(4);
         mAdapter.addHeaderView(this, R.layout.head_layout);
         mRv.setAdapter(mAdapter);

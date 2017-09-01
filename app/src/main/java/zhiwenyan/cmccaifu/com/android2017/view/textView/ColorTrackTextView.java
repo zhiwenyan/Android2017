@@ -76,6 +76,11 @@ public class ColorTrackTextView extends TextView {
         return paint;
     }
 
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
+
     //一个字体两种颜色
     //利用clipRect的Api,可以裁剪
     @Override

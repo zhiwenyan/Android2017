@@ -20,7 +20,6 @@ import zhiwenyan.cmccaifu.com.android2017.Thread.ThreadPoolActivity;
 import zhiwenyan.cmccaifu.com.android2017.ViewGroup.ViewGroupActivity;
 import zhiwenyan.cmccaifu.com.android2017.animation.AnimationActivity;
 import zhiwenyan.cmccaifu.com.android2017.animator.AnimatorActivity;
-import zhiwenyan.cmccaifu.com.android2017.banner.TabedActivity;
 import zhiwenyan.cmccaifu.com.android2017.banner.banner.BannerActivity;
 import zhiwenyan.cmccaifu.com.android2017.banner.cardViewPager.CardViewPagerActivity;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
@@ -28,12 +27,14 @@ import zhiwenyan.cmccaifu.com.android2017.behavior.BehaviorActivity;
 import zhiwenyan.cmccaifu.com.android2017.cache.ThreeCacheActivity;
 import zhiwenyan.cmccaifu.com.android2017.cache.lru.PhotoWallActivity;
 import zhiwenyan.cmccaifu.com.android2017.glide.GlideActivity;
+import zhiwenyan.cmccaifu.com.android2017.indicatorViewPager.CommonViewPagerActivity;
 import zhiwenyan.cmccaifu.com.android2017.materialdesign.DrawActivity;
 import zhiwenyan.cmccaifu.com.android2017.materialdesign.ScrollingActivity;
 import zhiwenyan.cmccaifu.com.android2017.mvp.MVPActivity;
 import zhiwenyan.cmccaifu.com.android2017.net.HttpURLConnectionActivity;
 import zhiwenyan.cmccaifu.com.android2017.okhttp.OkhttpActivity;
 import zhiwenyan.cmccaifu.com.android2017.retrofit.RetrofitActivity;
+import zhiwenyan.cmccaifu.com.android2017.sqlite.SqliteActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.ViewActivity;
 
 public class MainActivity extends BaseActivity {
@@ -63,10 +64,10 @@ public class MainActivity extends BaseActivity {
 
     @OnClick({R.id.propertyAnimTv, R.id.tweenAnimTv, R.id.mvpTv, R.id.glideTv, R.id.threeTv,
             R.id.recylerTv, R.id.threadTv, R.id.threadPoolTv, R.id.frameAnimTv, R.id.httpTv,
-            R.id.okHttpTv, R.id.retrofit, R.id.bannerTv, R.id.tabTv, R.id.viewTv, R.id.viewgroupTv,
+            R.id.okHttpTv, R.id.retrofit, R.id.bannerTv, R.id.viewTv, R.id.viewgroupTv,R.id.commonViewPager,
             R.id.threedTv, R.id.lruTv, R.id.drawTv, R.id.coorTv, R.id.messenger, R.id.startService,
             R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager, R.id.bntv, R.id.device,R.id.sensor
-    ,R.id.rg})
+    ,R.id.rg,R.id.sqliteTv})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -122,8 +123,8 @@ public class MainActivity extends BaseActivity {
                 intent = new Intent(this, BannerActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.tabTv:
-                intent = new Intent(this, TabedActivity.class);
+            case R.id.commonViewPager:
+                intent = new Intent(this, CommonViewPagerActivity.class);
                 startActivity(intent);
                 break;
             case R.id.viewTv:
@@ -180,6 +181,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.rg:
                 intent=new Intent(this, RadioActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.sqliteTv:
+                intent=new Intent(this, SqliteActivity.class);
                 startActivity(intent);
                 break;
         }

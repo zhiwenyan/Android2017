@@ -84,6 +84,7 @@ public class HuaWeiView extends View {
 
     private void drawWave(Canvas canvas) {
 
+
     }
 
     private void drawText(Canvas canvas) {

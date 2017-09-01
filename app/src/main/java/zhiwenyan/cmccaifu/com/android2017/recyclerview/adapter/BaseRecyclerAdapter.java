@@ -186,6 +186,7 @@ public class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerView.Vi
         notifyItemRemoved(position);
 
     }
+
     private boolean isFooterPosition(int position) {
         return (getItemCount() - 1) == position;
     }

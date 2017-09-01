@@ -149,6 +149,13 @@
             android:layout_height="wrap_content"
             android:text="酷狗视差动画"
             android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/yahoo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="雅虎摘要动画"
+            android:textAllCaps="false"/>
     </LinearLayout>
 
 </ScrollView>

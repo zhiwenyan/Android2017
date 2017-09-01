@@ -3,9 +3,6 @@ package zhiwenyan.cmccaifu.com.android2017;
 import android.app.Application;
 import android.content.Context;
 
-
-
-
 /**
  * 全局的Application
  */

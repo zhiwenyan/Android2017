@@ -8,43 +8,6 @@ import java.util.List;
 
 public class BookResponse {
 
-
-    /**
-     * rating : {"max":10,"numRaters":2,"average":"0.0","min":0}
-     * subtitle :
-     * author : ["罗斯玛丽・汤姆森"]
-     * pubdate : 2003-5-1
-     * tags : [{"count":1,"name":"人际","title":"人际"},{"count":1,"name":"摇滚","title":"摇滚"},{"count":1,"name":"民谣","title":"民谣"},{"count":1,"name":"管理","title":"管理"},{"count":1,"name":"职场","title":"职场"}]
-     * origin_title :
-     * image : https://img3.doubanio.com/mpic/s1154446.jpg
-     * binding : 平装
-     * translator : ["方薇"]
-     * catalog : 序言
-     第一章 人力资源管理者的作用
-     第二章 与人交流
-     第三章 决策与计划
-     第四章 工作满意度、报酬与忠诚
-     第五章 绩效与职业生涯管理
-     第六章 培训与发展
-     第七章 入门、训练、指导和授权
-     第八章 团队协作
-     第九章 合适的人做合适的工作
-     第十章 敏感问题
-     * pages : 304
-     * images : {"small":"https://img3.doubanio.com/spic/s1154446.jpg","large":"https://img3.doubanio.com/lpic/s1154446.jpg","medium":"https://img3.doubanio.com/mpic/s1154446.jpg"}
-     * alt : https://book.douban.com/subject/1003077/
-     * id : 1003077
-     * publisher : 中信出版社
-     * isbn10 : 780073692X
-     * isbn13 : 9787800736926
-     * title : 管人管到位
-     * url : https://api.douban.com/v2/book/1003077
-     * alt_title :
-     * author_intro : 罗斯玛丽・汤姆森是当前人力资源管理方面的杰出作家和教练，在英国开入大学（Open University)商学院任教。
-     * summary : 管理问题说到底是一具管人的问题，无论是资金，还是供货，销售或者设备故障，追根溯源，都能找到人为因素。对一个组织来说，管理的一人主要目的就是，使得人员不至于成为管理者乃至整个组织的问题或者麻烦；另一方面，人员是无价之宝，它是组织最重要的资本。管人管到位，确保组织高效运转，增强组织的竞争力，管理者责无旁贷。杰出的管理教练和学者罗斯玛丽・汤姆森分析了管理者每天都要遇到的普遍存在的问题，为我们提供了一系列解决问题的方法。而人员管理的最高目标并不仅限于解决问题，对于如何调动员工的积极性、保持高绩效和持续竞争力，本收提出了有益的忠告和有效的技巧。书中讨论的十个问题都自成一体，分别介绍有关人力资源管理的不同方面的主题。每一章节还设置了一个虚拟的管理人员，你可以根据自己的理解和体验，去试着解决那些棘手的问题，同时也检验自己的收获。
-     * price : 19.00
-     */
-
     private RatingBean rating;
     private String subtitle;
     private String pubdate;
@@ -254,12 +217,6 @@ public class BookResponse {
     }
 
     public static class RatingBean {
-        /**
-         * max : 10
-         * numRaters : 2
-         * average : 0.0
-         * min : 0
-         */
 
         private int max;
         private int numRaters;
@@ -300,11 +257,7 @@ public class BookResponse {
     }
 
     public static class ImagesBean {
-        /**
-         * small : https://img3.doubanio.com/spic/s1154446.jpg
-         * large : https://img3.doubanio.com/lpic/s1154446.jpg
-         * medium : https://img3.doubanio.com/mpic/s1154446.jpg
-         */
+
 
         private String small;
         private String large;
@@ -336,11 +289,7 @@ public class BookResponse {
     }
 
     public static class TagsBean {
-        /**
-         * count : 1
-         * name : 人际
-         * title : 人际
-         */
+
 
         private int count;
         private String name;
