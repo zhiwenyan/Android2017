@@ -156,6 +156,12 @@
             android:layout_height="wrap_content"
             android:text="雅虎摘要动画"
             android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/chart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="图标"/>
     </LinearLayout>
 
 </ScrollView>
