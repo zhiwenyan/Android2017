@@ -17,7 +17,7 @@ public class DialogActivity extends BaseActivity {
     protected int getLayoutId() {
         return R.layout.activity_dialog;
     }
-
+//121.40.231.176
 
     @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5})
     public void onClick(View view) {

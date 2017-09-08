@@ -75,4 +75,12 @@
     <declare-styleable name="TrackIndicatorView">
         <attr name="tabVisibleNums" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="GraphView">
+        <attr name="graphTitle" format="string"/>
+        <attr name="xAxisName" format="string"/>
+        <attr name="yAxisName" format="string"/>
+        <attr name="axisTextSize" format="dimension|integer"/>
+        <attr name="axisTextColor" format="integer|color"/>
+    </declare-styleable>
 </resources>

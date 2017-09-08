@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.TypedValue;
 
 /**
- * Created by Administrator on 2017/3/1.
+ * Created by yanzhiwen on 2017/3/1.
  */
 
 public class EnvUtil {
