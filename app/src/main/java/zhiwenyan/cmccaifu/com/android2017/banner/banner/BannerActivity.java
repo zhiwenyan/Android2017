@@ -25,7 +25,7 @@ public class BannerActivity extends BaseActivity {
     @Override
     protected void init() {
         doSetToolBarTitle("自定义Banner实现无限轮播");
-        String info = HttpUtils.getInstance(url).execute(   );
+        String info = HttpUtils.getInstance(url).execute();
        // Toast.makeText(this, info, Toast.LENGTH_SHORT).show();
         mBannerView = (BannerView) findViewById(R.id.bannerView);
         mBannerView.setAdapter(new BannerAdapter() {

@@ -63,10 +63,10 @@ public class CommonViewPagerActivity extends AppCompatActivity {
             }
 
             @Override
-           public View getBottomTrackView() {
-                View view=new View(CommonViewPagerActivity.this);
+            public View getBottomTrackView() {
+                View view = new View(CommonViewPagerActivity.this);
                 view.setBackgroundColor(Color.RED);
-                view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,8));
+                view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 8));
                 return view;
             }
         }, mViewPager);
@@ -81,28 +81,5 @@ public class CommonViewPagerActivity extends AppCompatActivity {
                 return mFragments.size();
             }
         });
-        mViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                if (positionOffset > 0) {
-                    // 获取左边
-                    ColorTrackTextView left = mIndicators.get(position);
-                    // 设置朝向
-                    left.setDirection(ColorTrackTextView.Direction.RIGHT_TO_LEFT);
-                    // 设置进度  positionOffset 是从 0 一直变化到 1
-                    left.setCurrentProgress(1 - positionOffset);
-
-                    // 获取右边
-                    ColorTrackTextView right = mIndicators.get(position + 1);
-                    right.setDirection(ColorTrackTextView.Direction.LEDT_TO_RIGHT);
-                    right.setCurrentProgress(positionOffset);
-                }
-            }
-        });
-        // 默认一进入就选中第一个
-        ColorTrackTextView left = mIndicators.get(0);
-        left.setDirection(ColorTrackTextView.Direction.RIGHT_TO_LEFT);
-        left.setCurrentProgress(1);
-
     }
 }

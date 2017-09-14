@@ -6,9 +6,11 @@ import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 
 import zhiwenyan.cmccaifu.com.android2017.R;
+import zhiwenyan.cmccaifu.com.android2017.view.textView.ColorTrackTextView;
 
 /**
  * Created by yanzhiwen on 2017/8/31.
@@ -59,9 +61,7 @@ public class TrackIndicatorView extends HorizontalScrollView implements ViewPage
             }
         }
         //默认点亮第一个位置
-        // mAdapter.highIndicator(mIndicatorGroup.getChildAt(0));
-
-
+        mAdapter.highIndicator(mIndicatorGroup.getItemView(0));
     }
 
     public void setAdapter(IndicatorAdapter adapter, ViewPager viewPager) {
@@ -75,12 +75,30 @@ public class TrackIndicatorView extends HorizontalScrollView implements ViewPage
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        mCurrentPosition=position;
+        mCurrentPosition = position;
         if (mIsExecuteScroll) {
             scrollCurrentIndicator(position, positionOffset);
             mIndicatorGroup.scrollBottomTrackView(position, positionOffset);
             //如果是点击 不执行onPageScrolled方法
+
+            if (positionOffset > 0) {
+                // 获取左边
+                ColorTrackTextView left = (ColorTrackTextView) mIndicatorGroup.getItemView(position);
+                // 设置朝向
+                left.setDirection(ColorTrackTextView.Direction.RIGHT_TO_LEFT);
+                // 设置进度  positionOffset 是从 0 一直变化到 1
+                left.setCurrentProgress(1 - positionOffset);
+
+                // 获取右边
+                ColorTrackTextView right = (ColorTrackTextView) mIndicatorGroup.getItemView(position + 1);
+                right.setDirection(ColorTrackTextView.Direction.LEDT_TO_RIGHT);
+                right.setCurrentProgress(positionOffset);
+            }
         }
+//        // 默认一进入就选中第一个
+//        ColorTrackTextView left = (ColorTrackTextView) mIndicatorGroup.getItemView(0);
+//        left.setDirection(ColorTrackTextView.Direction.RIGHT_TO_LEFT);
+//        left.setCurrentProgress(1);
 
     }
 
@@ -115,15 +133,18 @@ public class TrackIndicatorView extends HorizontalScrollView implements ViewPage
     }
 
     int parentWidth;
+
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
         if (changed) {
-             parentWidth = getWidth();
+            parentWidth = getMeasuredWidth();
             mItemWidth = getItemWidth();
             for (int i = 0; i < mAdapter.getCount(); i++) {
-                //指定Item的宽度  180
-                mIndicatorGroup.getItemView(i).getLayoutParams().width = mItemWidth;
+                ColorTrackTextView colorTrackTextView = (ColorTrackTextView) mIndicatorGroup.getItemView(i);
+                ViewGroup.LayoutParams params = colorTrackTextView.getLayoutParams();
+                params.width = mItemWidth;
+                colorTrackTextView.setLayoutParams(params);
             }
             //添加指示器
             mIndicatorGroup.addBottomTrackView(mAdapter.getBottomTrackView(), mItemWidth);
@@ -165,11 +186,11 @@ public class TrackIndicatorView extends HorizontalScrollView implements ViewPage
     }
 
     public int getItemWidth() {
-        int parentWidth = getWidth();
+        int parentWidth = getMeasuredWidth();
         if (mTabVisibleNums != 0) {
             return parentWidth / mTabVisibleNums;
         }
-        //没有指定
+        //没有指定  --->拿最宽的作为每个itemView的宽度
         int itemWidth = 0;
         int maxItemWidth = 0;
         int allWidth = 0;
@@ -177,16 +198,12 @@ public class TrackIndicatorView extends HorizontalScrollView implements ViewPage
             //指定Item的宽度
             int currentWidth = mIndicatorGroup.getChildAt(i).getWidth();
             maxItemWidth = Math.max(currentWidth, maxItemWidth);
-             allWidth += currentWidth;
+            allWidth += currentWidth;
         }
-
         itemWidth = maxItemWidth;
         if (allWidth < parentWidth) {
             itemWidth = parentWidth / mAdapter.getCount();
         }
-
         return itemWidth;
     }
-
-
 }

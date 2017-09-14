@@ -27,6 +27,7 @@ public class LetterSideBarView extends View {
         this(context, null);
     }
 
+
     public LetterSideBarView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }

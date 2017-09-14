@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="8dp"
         android:paddingTop="8dp"
-        app:tabVisibleNums="6">
+        app:tabVisibleNums="5">
 
     </zhiwenyan.cmccaifu.com.android2017.indicatorViewPager.TrackIndicatorView>
 

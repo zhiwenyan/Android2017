@@ -5,17 +5,17 @@ import android.view.ViewGroup;
 
 /**
  * Created by + on 2017/8/15.
+ * <p>
+ * 筛选菜单的Adapter
  */
 
 public abstract class BaseMenuAdapter {
     /**
-     *
      * @return
      */
     public abstract int getCount();
 
     /**
-     *
      * @param position
      * @param parent
      * @return
@@ -23,7 +23,6 @@ public abstract class BaseMenuAdapter {
     public abstract View getTabView(int position, ViewGroup parent);
 
     /**
-     *
      * @param position
      * @param parent
      * @return

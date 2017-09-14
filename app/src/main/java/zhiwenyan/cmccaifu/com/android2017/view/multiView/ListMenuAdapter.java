@@ -9,7 +9,7 @@ import android.widget.TextView;
 import zhiwenyan.cmccaifu.com.android2017.R;
 
 /**
- * Created by fumi_it1 on 2017/8/15.
+ * Created by yanzhiwen on 2017/8/15.
  */
 
 public class ListMenuAdapter extends BaseMenuAdapter {
@@ -27,6 +27,7 @@ public class ListMenuAdapter extends BaseMenuAdapter {
 
     @Override
     public View getTabView(int position, ViewGroup parent) {
+        //真正开发过程中，不同的位置显示的布局不一样
         TextView tabView = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_menu_item, parent, false);
         tabView.setText(mItems[position]);
         return tabView;

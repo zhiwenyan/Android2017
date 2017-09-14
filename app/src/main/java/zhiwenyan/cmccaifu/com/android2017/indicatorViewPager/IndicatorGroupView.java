@@ -68,7 +68,8 @@ public class IndicatorGroupView extends FrameLayout {
         int currentLeftMargin = mParams.leftMargin;
         int finalLeftMargin = (int) (position + positionOffset) * mItemWidth;
         int distance = finalLeftMargin - currentLeftMargin;
-        ValueAnimator animator = ObjectAnimator.ofFloat(currentLeftMargin, Math.abs(finalLeftMargin)).setDuration((long) (Math.abs(distance) * 0.3f));
+        ValueAnimator animator = ObjectAnimator.ofFloat(currentLeftMargin,
+                Math.abs(finalLeftMargin)).setDuration((long) (Math.abs(distance) * 0.3f));
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -93,8 +94,6 @@ public class IndicatorGroupView extends FrameLayout {
                 float currentLeftMargin = (float) animation.getAnimatedValue();
                 mParams.leftMargin = (int) currentLeftMargin;
                 mBottomTrackView.setLayoutParams(mParams);
-
-
             }
         });
         animator.setInterpolator(new DecelerateInterpolator());

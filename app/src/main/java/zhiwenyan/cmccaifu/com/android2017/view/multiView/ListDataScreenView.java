@@ -1,5 +1,7 @@
 package zhiwenyan.cmccaifu.com.android2017.view.multiView;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Color;
@@ -14,14 +16,14 @@ import android.widget.LinearLayout;
  * Created by zhiwenyan on 2017/8/14.
  */
 
-public class ListDataScreenView extends LinearLayout {
+public class ListDataScreenView extends LinearLayout implements View.OnClickListener {
     private LinearLayout mTabMenuView;
     private Context mContext;
-    private FrameLayout mMiddleView;
+    private FrameLayout mMenuMiddleView;
     private View mShadowView;
     private int mShadowViewColor = Color.parseColor("#cecece");
     private int menuContentHeight;
-    private FrameLayout mContainerView;
+    private FrameLayout mMenuContainerView;
     private BaseMenuAdapter mBaseMenuAdapter;
     private int mCurrentPosition = -1;
 
@@ -42,27 +44,35 @@ public class ListDataScreenView extends LinearLayout {
     private void initLayout() {
         setOrientation(VERTICAL);
         mTabMenuView = new LinearLayout(mContext);
-        LinearLayout.LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        //创建头部用来存放 Tab
+        LinearLayout.LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
         mTabMenuView.setLayoutParams(params);
         addView(mTabMenuView);
-
-        mMiddleView = new FrameLayout(mContext);
+        // 创建 FrameLayout 用来存放 = 阴影（View） + 菜单内容布局(FrameLayout)
+        mMenuMiddleView = new FrameLayout(mContext);
         LinearLayout.LayoutParams middleParam = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0);
         middleParam.weight = 1;
-        mMiddleView.setLayoutParams(middleParam);
-        addView(mMiddleView);
-
-
+        mMenuMiddleView.setLayoutParams(middleParam);
         //创建菜单，用来存放菜单内容
-        mContainerView = new FrameLayout(mContext);
-        mContainerView.setBackgroundColor(Color.WHITE);
-        addView(mContainerView);
-
+        mMenuContainerView = new FrameLayout(mContext);
+        mMenuContainerView.setBackgroundColor(Color.WHITE);
+        addView(mMenuContainerView);
+        //创建阴影 可以不用设置 LayoutParams 默认就是 MATCH_PARENT ，MATCH_PARENT
         mShadowView = new View(mContext);
         mShadowView.setBackgroundColor(mShadowViewColor);
-        //  mShadowView.setAlpha(0f);
-        //  mShadowView.setVisibility(GONE);
-        addView(mShadowView);
+        //刚开始第一次ShadowView隐藏
+        mShadowView.setAlpha(0f);
+        mShadowView.setOnClickListener(this);
+        mShadowView.setVisibility(GONE);
+        mMenuMiddleView.addView(mShadowView);
+
+        // 创建菜单用来存放菜单内容
+        mMenuContainerView = new FrameLayout(mContext);
+        mMenuContainerView.setBackgroundColor(Color.WHITE);
+        mMenuMiddleView.addView(mMenuContainerView);
+
+        addView(mMenuMiddleView);
 
 
     }
@@ -70,14 +80,17 @@ public class ListDataScreenView extends LinearLayout {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        //内容的高度
+        //内容的高度占屏幕的高度75%·
         int height = MeasureSpec.getSize(heightMeasureSpec);
-        menuContentHeight = (int) (height * 75f / 100);
-        ViewGroup.LayoutParams params = mContainerView.getLayoutParams();
-        params.height = menuContentHeight;
-        mContainerView.setLayoutParams(params);
-        // mContainerView.setTranslationY(-menuContentHeight);
+        if (menuContentHeight == 0 && height > 0) {
+            menuContentHeight = (int) (height * .75f);
+            ViewGroup.LayoutParams params = mMenuContainerView.getLayoutParams();
+            params.height = menuContentHeight;
+            mMenuContainerView.setLayoutParams(params);
+            mMenuContainerView.setTranslationY(-menuContentHeight);
+        }
     }
+
 
     /**
      * 设置Adapter
@@ -89,18 +102,17 @@ public class ListDataScreenView extends LinearLayout {
         //获取有多少条
         int count = mBaseMenuAdapter.getCount();
         for (int i = 0; i < count; i++) {
-            //菜单的tab
+            //菜单的tabView
             View tabView = mBaseMenuAdapter.getTabView(i, mTabMenuView);
             mTabMenuView.addView(tabView);
             LinearLayout.LayoutParams params = (LayoutParams) tabView.getLayoutParams();
             params.weight = 1;
             tabView.setLayoutParams(params);
             setTabClick(tabView, i);
-            //菜单的内容
-            View menuView = mBaseMenuAdapter.getMenuView(i, mContainerView);
+            //获取菜单的内容
+            View menuView = mBaseMenuAdapter.getMenuView(i, mMenuContainerView);
             menuView.setVisibility(GONE);
-            mContainerView.addView(menuView);
-
+            mMenuContainerView.addView(menuView);
         }
         //刚开始的时候menu和shadow不显示
     }
@@ -109,13 +121,11 @@ public class ListDataScreenView extends LinearLayout {
         tabView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("------------onClick");
                 if (mCurrentPosition == -1) {
                     openMenu(position, tabView);
                 } else {
                     closeMenu(position, tabView);
                 }
-
             }
         });
     }
@@ -127,12 +137,12 @@ public class ListDataScreenView extends LinearLayout {
      * @param tabView
      */
     private void openMenu(int position, View tabView) {
-        ObjectAnimator translationAnimator = ObjectAnimator.ofFloat(mContainerView, "translationY", -menuContentHeight, 0);
-        translationAnimator.setDuration(888);
-        translationAnimator.start();
         mShadowView.setVisibility(VISIBLE);
+        ObjectAnimator translationAnimator = ObjectAnimator.ofFloat(mMenuContainerView, "translationY", -menuContentHeight, 0);
+        translationAnimator.setDuration(350);
+        translationAnimator.start();
         ObjectAnimator alphaAnimator = ObjectAnimator.ofFloat(mShadowView, "alpha", 0f, 1f);
-        alphaAnimator.setDuration(888);
+        alphaAnimator.setDuration(350);
         alphaAnimator.start();
         mCurrentPosition = position;
 
@@ -144,15 +154,29 @@ public class ListDataScreenView extends LinearLayout {
      * @param position
      * @param tabView
      */
-    private void closeMenu(int position, View tabView) {
-        ObjectAnimator translationAnimator = ObjectAnimator.ofFloat(mContainerView, "translationY", 0, -menuContentHeight);
-        translationAnimator.setDuration(888);
+    private void closeMenu(final int position, View tabView) {
+        ObjectAnimator translationAnimator = ObjectAnimator.ofFloat(mMenuContainerView, "translationY", 0, -menuContentHeight);
+        translationAnimator.setDuration(350);
         translationAnimator.start();
-        ObjectAnimator alphaAnimator = ObjectAnimator.ofFloat(mShadowView, "alpha", 1f, 0f);
-        alphaAnimator.setDuration(888);
-        alphaAnimator.start();
         mShadowView.setVisibility(VISIBLE);
+        ObjectAnimator alphaAnimator = ObjectAnimator.ofFloat(mShadowView, "alpha", 1f, 0f);
+        alphaAnimator.setDuration(350);
+        alphaAnimator.start();
+        alphaAnimator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                View menuView = mMenuContainerView.getChildAt(position);
+                menuView.setVisibility(GONE);
+
+            }
+        });
         mCurrentPosition = -1;
     }
 
+    //阴影部分点击事件
+    @Override
+    public void onClick(View v) {
+
+    }
 }
