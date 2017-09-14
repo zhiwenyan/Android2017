@@ -26,6 +26,7 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
     private FrameLayout mMenuContainerView;
     private BaseMenuAdapter mBaseMenuAdapter;
     private int mCurrentPosition = -1;
+    private int mClosePostion;
 
     public ListDataScreenView(Context context) {
         this(context, null);
@@ -124,6 +125,7 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
                 if (mCurrentPosition == -1) {
                     openMenu(position, tabView);
                 } else {
+                    mClosePostion=position;
                     closeMenu(position, tabView);
                 }
             }
@@ -162,21 +164,21 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
         ObjectAnimator alphaAnimator = ObjectAnimator.ofFloat(mShadowView, "alpha", 1f, 0f);
         alphaAnimator.setDuration(350);
         alphaAnimator.start();
+        //动画结束时，隐藏当前菜单
         alphaAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
                 View menuView = mMenuContainerView.getChildAt(position);
                 menuView.setVisibility(GONE);
-
             }
         });
         mCurrentPosition = -1;
     }
 
-    //阴影部分点击事件
+    //阴影部点击事件
     @Override
     public void onClick(View v) {
-
+        closeMenu(mClosePostion,null);
     }
 }
