@@ -28,4 +28,22 @@ public abstract class BaseMenuAdapter {
      * @return
      */
     public abstract View getMenuView(int position, ViewGroup parent);
+
+    /**
+     * 菜单打开
+     *
+     * @param tabView
+     */
+    public void openMenu(View tabView) {
+
+    }
+
+    /**
+     * 菜单关闭
+     *
+     * @param tabView
+     */
+    public void closeMenu(View tabView) {
+
+    }
 }

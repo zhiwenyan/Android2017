@@ -26,7 +26,8 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
     private FrameLayout mMenuContainerView;
     private BaseMenuAdapter mBaseMenuAdapter;
     private int mCurrentPosition = -1;
-    private int mClosePostion;
+    private int mClosePosition;
+    private boolean mAnimatorExecute;
 
     public ListDataScreenView(Context context) {
         this(context, null);
@@ -125,8 +126,18 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
                 if (mCurrentPosition == -1) {
                     openMenu(position, tabView);
                 } else {
-                    mClosePostion=position;
-                    closeMenu(position, tabView);
+                    if (mCurrentPosition == position) {
+                        //打开了，，关闭
+                        mClosePosition = position;
+                        closeMenu(position, null);
+                    } else {
+                        View currentMenu = mMenuContainerView.getChildAt(mCurrentPosition);
+                        currentMenu.setVisibility(GONE);
+                        mCurrentPosition = position;
+                        currentMenu = mMenuContainerView.getChildAt(mCurrentPosition);
+                        currentMenu.setVisibility(VISIBLE);
+                        mBaseMenuAdapter.openMenu(mTabMenuView.getChildAt(mCurrentPosition));
+                    }
                 }
             }
         });
@@ -138,15 +149,36 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
      * @param position
      * @param tabView
      */
-    private void openMenu(int position, View tabView) {
+    private void openMenu(final int position, final View tabView) {
+        if (mAnimatorExecute) {
+            return;
+        }
         mShadowView.setVisibility(VISIBLE);
+        //获取当前位置显示当前的菜单
+        View menuView = mMenuContainerView.getChildAt(position);
+        menuView.setVisibility(VISIBLE);
+        //打开启动动画
         ObjectAnimator translationAnimator = ObjectAnimator.ofFloat(mMenuContainerView, "translationY", -menuContentHeight, 0);
         translationAnimator.setDuration(350);
         translationAnimator.start();
         ObjectAnimator alphaAnimator = ObjectAnimator.ofFloat(mShadowView, "alpha", 0f, 1f);
         alphaAnimator.setDuration(350);
+        alphaAnimator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                mAnimatorExecute = false;
+                mCurrentPosition = position;
+            }
+
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+                mAnimatorExecute = true;
+                mBaseMenuAdapter.openMenu(tabView);
+
+            }
+        });
         alphaAnimator.start();
-        mCurrentPosition = position;
 
     }
 
@@ -156,14 +188,16 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
      * @param position
      * @param tabView
      */
-    private void closeMenu(final int position, View tabView) {
+    private void closeMenu(final int position, final View tabView) {
+        if (mAnimatorExecute) {
+            return;
+        }
         ObjectAnimator translationAnimator = ObjectAnimator.ofFloat(mMenuContainerView, "translationY", 0, -menuContentHeight);
         translationAnimator.setDuration(350);
         translationAnimator.start();
         mShadowView.setVisibility(VISIBLE);
         ObjectAnimator alphaAnimator = ObjectAnimator.ofFloat(mShadowView, "alpha", 1f, 0f);
         alphaAnimator.setDuration(350);
-        alphaAnimator.start();
         //动画结束时，隐藏当前菜单
         alphaAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -171,14 +205,25 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
                 super.onAnimationEnd(animation);
                 View menuView = mMenuContainerView.getChildAt(position);
                 menuView.setVisibility(GONE);
+                mCurrentPosition = -1;
+                mAnimatorExecute = false;
+                mShadowView.setVisibility(GONE);
+            }
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+                mAnimatorExecute = true;
+                mBaseMenuAdapter.closeMenu(tabView);
+
             }
         });
-        mCurrentPosition = -1;
+        alphaAnimator.start();
+
     }
 
     //阴影部点击事件
     @Override
     public void onClick(View v) {
-        closeMenu(mClosePostion,null);
+        closeMenu(mClosePosition, null);
     }
 }

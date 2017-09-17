@@ -1,6 +1,7 @@
 package zhiwenyan.cmccaifu.com.android2017.view.multiView;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ public class ListMenuAdapter extends BaseMenuAdapter {
         //真正开发过程中，不同的位置显示的布局不一样
         TextView tabView = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_menu_item, parent, false);
         tabView.setText(mItems[position]);
+        tabView.setTextColor(Color.BLACK);
         return tabView;
     }
 
@@ -45,5 +47,17 @@ public class ListMenuAdapter extends BaseMenuAdapter {
         TextView menuView = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_menu_content_item, parent, false);
         menuView.setText(mItems[position]);
         return menuView;
+    }
+
+    @Override
+    public void openMenu(View tabView) {
+        TextView tabTv = (TextView) tabView;
+        tabTv.setTextColor(Color.RED);
+    }
+
+    @Override
+    public void closeMenu(View tabView) {
+        TextView tabTv = (TextView) tabView;
+        tabTv.setTextColor(Color.BLACK);
     }
 }

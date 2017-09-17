@@ -16,6 +16,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         initToolBar();
         init();
 
+
     }
 
     protected void initToolBar() {
