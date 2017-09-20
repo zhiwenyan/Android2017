@@ -44,6 +44,22 @@ public abstract class BaseMenuAdapter {
      * @param tabView
      */
     public void closeMenu(View tabView) {
+    }
 
+    //微信公众号  注册订阅放入就放如集合
+    private MenuObserver mObserver;
+
+    public void registerDataSetObserver(MenuObserver observer) {
+        mObserver = observer;
+    }
+
+    public void unregisterDataSetObserver(MenuObserver observer) {
+        mObserver = null;
+    }
+
+    public void closeMenu() {
+        if (mObserver != null) {
+            mObserver.closeMenu();
+        }
     }
 }

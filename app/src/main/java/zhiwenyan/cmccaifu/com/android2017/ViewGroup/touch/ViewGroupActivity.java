@@ -26,24 +26,12 @@ public class ViewGroupActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(tv).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i("TAG", "tv-->onClick: ");
-            }
-        });
+//        findViewById(tv).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.i("TAG", "tv-->onClick: ");
+//            }
+//        });
     }
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.i("TAG", "ViewGroupActivity--->dispatchTouchEvent" + ev.getAction());
-        return super.dispatchTouchEvent(ev);
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        Log.i("TAG", "ViewGroupActivity--->onTouchEvent" + event.getAction());
-        return super.onTouchEvent(event);
-
-    }
 }

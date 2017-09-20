@@ -5,7 +5,6 @@
     android:id="@+id/viewPager"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_orange_dark"
     tools:context="zhiwenyan.cmccaifu.com.android2017.view.kugou.KugouActivity">
 
 </zhiwenyan.cmccaifu.com.android2017.view.kugou.parallax.animation.ParallaxViewPager>

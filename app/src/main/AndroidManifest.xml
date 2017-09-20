@@ -209,6 +209,10 @@
         </activity>
         <activity android:name=".view.chart.ChartActivity">
         </activity>
+        <activity android:name=".Handler.HandlerActivity">
+        </activity>
+        <activity android:name=".Handler.Main3Activity">
+        </activity>
     </application>
 
 </manifest>

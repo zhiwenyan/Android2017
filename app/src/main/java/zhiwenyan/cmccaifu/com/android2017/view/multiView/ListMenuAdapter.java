@@ -46,6 +46,14 @@ public class ListMenuAdapter extends BaseMenuAdapter {
     public View getMenuView(int position, ViewGroup parent) {
         TextView menuView = (TextView) LayoutInflater.from(mContext).inflate(R.layout.list_menu_content_item, parent, false);
         menuView.setText(mItems[position]);
+        menuView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //点击关闭菜单，要调用View的方法
+                //Toast.makeText(mContext, "关闭菜单", Toast.LENGTH_SHORT).show();
+                closeMenu();
+            }
+        });
         return menuView;
     }
 

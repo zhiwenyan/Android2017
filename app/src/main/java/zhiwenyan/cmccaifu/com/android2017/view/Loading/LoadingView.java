@@ -102,7 +102,6 @@ public class LoadingView extends RelativeLayout {
                 mMiddleView.exchangeColor(leftColor);
                 mRightView.exchangeColor(middleColor);
                 mLeftView.exchangeColor(rightColor);
-
             }
         });
         animatorSet.start();

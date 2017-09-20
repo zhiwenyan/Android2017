@@ -26,7 +26,6 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
     private FrameLayout mMenuContainerView;
     private BaseMenuAdapter mBaseMenuAdapter;
     private int mCurrentPosition = -1;
-    private int mClosePosition;
     private boolean mAnimatorExecute;
 
     public ListDataScreenView(Context context) {
@@ -79,6 +78,15 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
 
     }
 
+    // 挤到一堆去了 ，菜单的 Tab 不见了(解决) ，宽度不是等宽，weight要是为1
+    // 内容的高度应该不是全部  应该是整个 View的 75%
+    // 进来的时候阴影不显示 ，内容也是不显示的（把它移上去）
+    // 内容还没有显示出来,打开的时候显示当前位置的菜单，关闭的时候隐藏，阴影点击应该要关闭菜单
+    // 动画在执行的情况下就不要在响应动画事件
+    // 打开和关闭 变化tab的显示 ， 肯定不能把代码写到 ListDataScreen 里面来
+    // 当菜单是打开的状态 不要执行动画只要切换
+
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -93,6 +101,17 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
         }
     }
 
+    /**
+     * 具体的观察者的类对象
+     */
+    public class AdapterMenuObserver extends MenuObserver {
+        @Override
+        public void closeMenu() {
+            ListDataScreenView.this.closeMenu();
+        }
+    }
+
+    private AdapterMenuObserver mMenuObserver;
 
     /**
      * 设置Adapter
@@ -100,7 +119,18 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
      * @param adapter
      */
     public void setAdapter(BaseMenuAdapter adapter) {
+        //观察者 ---》微信公众号的用户
+        if (mBaseMenuAdapter != null && mMenuObserver != null) {
+            //取消订阅
+            adapter.unregisterDataSetObserver(mMenuObserver);
+        }
         this.mBaseMenuAdapter = adapter;
+        //注册观察者 具体的观察者对象 订阅
+        mMenuObserver = new AdapterMenuObserver();
+        mBaseMenuAdapter.registerDataSetObserver(mMenuObserver);
+        //mBaseMenuAdapter.closeMenu();
+
+
         //获取有多少条
         int count = mBaseMenuAdapter.getCount();
         for (int i = 0; i < count; i++) {
@@ -128,11 +158,11 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
                 } else {
                     if (mCurrentPosition == position) {
                         //打开了，，关闭
-                        mClosePosition = position;
-                        closeMenu(position, null);
+                        closeMenu();
                     } else {
                         View currentMenu = mMenuContainerView.getChildAt(mCurrentPosition);
                         currentMenu.setVisibility(GONE);
+                        mBaseMenuAdapter.closeMenu(mTabMenuView.getChildAt(mCurrentPosition));
                         mCurrentPosition = position;
                         currentMenu = mMenuContainerView.getChildAt(mCurrentPosition);
                         currentMenu.setVisibility(VISIBLE);
@@ -170,7 +200,6 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
                 mCurrentPosition = position;
             }
 
-
             @Override
             public void onAnimationStart(Animator animation) {
                 mAnimatorExecute = true;
@@ -184,11 +213,8 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
 
     /**
      * 关闭菜单
-     *
-     * @param position
-     * @param tabView
      */
-    private void closeMenu(final int position, final View tabView) {
+    public void closeMenu() {
         if (mAnimatorExecute) {
             return;
         }
@@ -203,7 +229,7 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                View menuView = mMenuContainerView.getChildAt(position);
+                View menuView = mMenuContainerView.getChildAt(mCurrentPosition);
                 menuView.setVisibility(GONE);
                 mCurrentPosition = -1;
                 mAnimatorExecute = false;
@@ -213,7 +239,7 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
             @Override
             public void onAnimationStart(Animator animation) {
                 mAnimatorExecute = true;
-                mBaseMenuAdapter.closeMenu(tabView);
+                mBaseMenuAdapter.closeMenu(mTabMenuView.getChildAt(mCurrentPosition));
 
             }
         });
@@ -224,6 +250,6 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
     //阴影部点击事件
     @Override
     public void onClick(View v) {
-        closeMenu(mClosePosition, null);
+        closeMenu();
     }
 }
