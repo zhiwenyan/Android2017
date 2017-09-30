@@ -42,6 +42,7 @@ public class MessengerActivity extends BaseActivity {
     protected void init() {
         super.init();
         Intent intent = new Intent(this, MessengerService.class);
+        startService(intent);
         bindService(intent, mServiceConnection, BIND_AUTO_CREATE);
     }
 

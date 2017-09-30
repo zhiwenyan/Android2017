@@ -7,8 +7,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.Enumeration;
+
 import butterknife.InjectView;
 import butterknife.OnClick;
+import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple1.IOHandler;
+import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple1.IOHandlerFactory;
+import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple2.IOFactory;
+import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple2.MemoryIOFactory;
+
 import zhiwenyan.cmccaifu.com.android2017.IPC.AidlActivity;
 import zhiwenyan.cmccaifu.com.android2017.IPC.MessengerActivity;
 import zhiwenyan.cmccaifu.com.android2017.IPC.ServiceActivity;
@@ -53,6 +64,22 @@ public class MainActivity extends BaseActivity {
         Log.i("TAG", "onResume: " + this.getSharedPreferences("code", Context.MODE_PRIVATE));
         Log.i("TAG", "onResume: " + this.getCacheDir().getAbsolutePath());
         Log.i("TAG", "onResume: " + this.getExternalCacheDir().getAbsolutePath());
+        //简单工厂方法模式
+        IOHandler ioHandler = IOHandlerFactory.createIOHandler(IOHandlerFactory.IOType.MEMORY);
+        ioHandler.save("userName", "steven");
+        String value = ioHandler.getString("userName");
+        Log.i("TAG", "onResume: " + value);
+
+        //工厂方法模式
+        IOFactory ioFactory = new MemoryIOFactory();
+        zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple2.IOHandler ioHandler2 = ioFactory.createIOHandler();
+        ioHandler2.save("userName", "steven");
+
+        //类
+        zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple5.IOHandler ioHandler3 =
+                zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple5.IOHandlerFactory.getDefaultIOHandler();
+
+        zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.IOHandlerFactory.getmInstance().getDefaultIOHandler();
 
     }
 
@@ -64,10 +91,10 @@ public class MainActivity extends BaseActivity {
 
     @OnClick({R.id.propertyAnimTv, R.id.tweenAnimTv, R.id.mvpTv, R.id.glideTv, R.id.threeTv,
             R.id.recylerTv, R.id.threadTv, R.id.threadPoolTv, R.id.frameAnimTv, R.id.httpTv,
-            R.id.okHttpTv, R.id.retrofit, R.id.bannerTv, R.id.viewTv, R.id.viewgroupTv,R.id.commonViewPager,
+            R.id.okHttpTv, R.id.retrofit, R.id.bannerTv, R.id.viewTv, R.id.viewgroupTv, R.id.commonViewPager,
             R.id.threedTv, R.id.lruTv, R.id.drawTv, R.id.coorTv, R.id.messenger, R.id.startService,
-            R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager, R.id.bntv, R.id.device,R.id.sensor
-    ,R.id.rg,R.id.sqliteTv})
+            R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager, R.id.bntv, R.id.device, R.id.sensor
+            , R.id.rg, R.id.sqliteTv})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -176,15 +203,15 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
                 break;
             case R.id.sensor:
-                intent=new Intent(this, SensorActivity.class);
+                intent = new Intent(this, SensorActivity.class);
                 startActivity(intent);
                 break;
             case R.id.rg:
-                intent=new Intent(this, RadioActivity.class);
+                intent = new Intent(this, RadioActivity.class);
                 startActivity(intent);
                 break;
             case R.id.sqliteTv:
-                intent=new Intent(this, SqliteActivity.class);
+                intent = new Intent(this, SqliteActivity.class);
                 startActivity(intent);
                 break;
         }
@@ -193,5 +220,27 @@ public class MainActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return true;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    public static String getIP(Context context) {
+        try {
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
+                NetworkInterface intf = en.nextElement();
+                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
+                    InetAddress inetAddress = enumIpAddr.nextElement();
+                    if (!inetAddress.isLoopbackAddress() && (inetAddress instanceof Inet4Address)) {
+                        return inetAddress.getHostAddress().toString();
+                    }
+                }
+            }
+        } catch (SocketException ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 }

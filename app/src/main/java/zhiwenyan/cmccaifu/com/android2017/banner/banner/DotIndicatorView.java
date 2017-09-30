@@ -72,7 +72,6 @@ public class DotIndicatorView extends View {
         drawable.draw(canvas);
         return outBitmap;
     }
-
     /**
      *
      * @param bitmap
@@ -89,7 +88,7 @@ public class DotIndicatorView extends View {
         paint.setDither(true); //防止抖动
         //在画布上绘制一个圆
         canvas.drawCircle(getMeasuredWidth() / 2, getMeasuredHeight() / 2, getMeasuredWidth() / 2, paint);
-        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         //在把原来的bitmap绘制到圆上面
         canvas.drawBitmap(bitmap, 0, 0, paint);
         return circleBitmap;

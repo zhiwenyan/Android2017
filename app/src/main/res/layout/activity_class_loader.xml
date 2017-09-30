@@ -7,4 +7,9 @@
     android:layout_height="match_parent"
     tools:context="zhiwenyan.cmccaifu.com.android2017.classLoader.ClassLoaderActivity">
 
+    <QuickContactBadge
+        android:id="@+id/quickContactBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/a"/>
 </android.support.constraint.ConstraintLayout>

@@ -6,7 +6,7 @@ import android.util.Log;
 
 public class LogUtil {
 
-    public static final String TAG = "CashMall";
+    public static final String TAG = "Android2017";
 
     public static void d(String msg) {
         if (Deployment.logEnabled)

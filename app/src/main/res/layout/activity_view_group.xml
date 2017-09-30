@@ -50,5 +50,12 @@
         android:text="折叠式菜单"
         android:textAllCaps="false"/>
 
+    <Button
+        android:id="@+id/Scroller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scroller"
+        android:textAllCaps="false"/>
+
 
 </LinearLayout>
