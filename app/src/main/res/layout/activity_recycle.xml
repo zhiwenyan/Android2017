@@ -22,6 +22,13 @@
         android:text="打造万能的Adapter（多种条目）"
         android:textAllCaps="false"/>
 
+    <Button
+        android:id="@+id/sectionItemDecoration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="sectionItemDecoration"
+        android:textAllCaps="false"/>
+
 
     <Button
         android:id="@+id/headAndFooterBtn"

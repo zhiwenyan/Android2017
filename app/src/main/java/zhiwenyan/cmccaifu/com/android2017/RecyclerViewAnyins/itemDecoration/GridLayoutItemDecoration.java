@@ -50,8 +50,8 @@ public class GridLayoutItemDecoration extends RecyclerView.ItemDecoration {
         for (int i = 0; i < childCount; i++) {
             View childView = parent.getChildAt(i);
 //            RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) childView.getLayoutParams();
-            int left = childView.getLeft();
-            int right = childView.getRight() + mDrawable.getIntrinsicWidth();
+            int left = childView.getLeft() - parent.getPaddingLeft();
+            int right = childView.getRight() + mDrawable.getIntrinsicWidth() - parent.getPaddingRight();
             int top = childView.getBottom();
             int bottom = top + mDrawable.getIntrinsicHeight();
             mDrawable.setBounds(left, top, right, bottom);
@@ -109,7 +109,6 @@ public class GridLayoutItemDecoration extends RecyclerView.ItemDecoration {
         if (layoutManager instanceof GridLayoutManager) {
             GridLayoutManager gridLayoutManager = (GridLayoutManager) layoutManager;
             return gridLayoutManager.getSpanCount();
-
         }
         return 1;
     }

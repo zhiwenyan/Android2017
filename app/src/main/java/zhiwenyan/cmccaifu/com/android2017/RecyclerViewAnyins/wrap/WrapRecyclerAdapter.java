@@ -148,7 +148,6 @@ public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         if (mFooters.indexOfValue(view) >= 0) {
             mFooters.removeAt(mFooters.indexOfValue(view));
             notifyDataSetChanged();
-
         }
     }
 }

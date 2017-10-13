@@ -181,7 +181,7 @@ public class SlideMenu extends HorizontalScrollView {
                 toggleMenu();
             }
             //停止分发事件
-            return false;
+            return true;
         }
         return super.dispatchTouchEvent(ev);
     }

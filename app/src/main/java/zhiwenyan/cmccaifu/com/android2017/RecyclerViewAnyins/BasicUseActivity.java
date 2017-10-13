@@ -14,7 +14,7 @@ import java.util.List;
 
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.adapter.RecyclerAdapter;
-import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.itemDecoration.DefaultItemDecoration;
+import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.itemDecoration.LinearLayoutItemDecoration;
 
 public class BasicUseActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
@@ -27,7 +27,7 @@ public class BasicUseActivity extends AppCompatActivity {
         initData();
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        mRecyclerView.addItemDecoration(new DefaultItemDecoration(this, R.drawable.default_item));
+        mRecyclerView.addItemDecoration(new LinearLayoutItemDecoration(this, R.drawable.default_item));
         RecyclerAdapter adapter = new RecyclerAdapter(mList);
         mRecyclerView.setAdapter(adapter);
 

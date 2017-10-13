@@ -9,6 +9,7 @@ import butterknife.OnClick;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.ViewGroup.Drag.VerticalDragActivity;
 import zhiwenyan.cmccaifu.com.android2017.ViewGroup.Scroller.ScrollerActivity;
+import zhiwenyan.cmccaifu.com.android2017.ViewGroup.refuse.RefuseActivity;
 import zhiwenyan.cmccaifu.com.android2017.ViewGroup.slideMenu.SlideMenuActivity;
 import zhiwenyan.cmccaifu.com.android2017.ViewGroup.tagLayout.TagLayoutActivity;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
@@ -28,7 +29,7 @@ public class ViewGroupActivity extends BaseActivity {
         super.doSetToolBarTitle("ViewGroup");
     }
 
-    @OnClick({R.id.ViewDragHelperBtn, R.id.back, R.id.tag, R.id.slide, R.id.drag, R.id.vg,R.id.Scroller})
+    @OnClick({R.id.ViewDragHelperBtn, R.id.back, R.id.tag, R.id.slide, R.id.drag, R.id.vg, R.id.Scroller, R.id.refuse})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ViewDragHelperBtn:
@@ -51,6 +52,10 @@ public class ViewGroupActivity extends BaseActivity {
                 break;
             case R.id.Scroller:
                 startActivity(new Intent(this, ScrollerActivity.class));
+                break;
+            case R.id.refuse:
+                startActivity(new Intent(this, RefuseActivity.class));
+
                 break;
 
         }

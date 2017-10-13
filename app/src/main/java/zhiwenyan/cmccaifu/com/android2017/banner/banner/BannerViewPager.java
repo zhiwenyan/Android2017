@@ -69,8 +69,8 @@ public class BannerViewPager extends ViewPager {
     }
 
     /*
-        开启轮播
-         */
+       开启轮播
+       */
     public void startLoop() {
         mHandler.removeMessages(SCROLL_MSG);
         mHandler.sendEmptyMessageDelayed(SCROLL_MSG, mCutDownTime);

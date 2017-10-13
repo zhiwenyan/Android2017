@@ -2,11 +2,13 @@ package zhiwenyan.cmccaifu.com.android2017.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Environment;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import java.io.File;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -64,6 +66,9 @@ public class MainActivity extends BaseActivity {
         Log.i("TAG", "onResume: " + this.getSharedPreferences("code", Context.MODE_PRIVATE));
         Log.i("TAG", "onResume: " + this.getCacheDir().getAbsolutePath());
         Log.i("TAG", "onResume: " + this.getExternalCacheDir().getAbsolutePath());
+        Log.i("TAG", "onResume: " + Environment.getExternalStorageDirectory());
+        File file=new File(Environment.getExternalStorageDirectory()+"/"+this.getPackageName()+"/test.apk");
+        Log.i("TAG", "onResume: "+file.getPath());
         //简单工厂方法模式
         IOHandler ioHandler = IOHandlerFactory.createIOHandler(IOHandlerFactory.IOType.MEMORY);
         ioHandler.save("userName", "steven");

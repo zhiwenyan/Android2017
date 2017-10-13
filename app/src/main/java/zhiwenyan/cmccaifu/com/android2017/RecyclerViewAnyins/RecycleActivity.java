@@ -14,7 +14,7 @@ public class RecycleActivity extends BaseActivity {
         return R.layout.activity_recycle;
     }
 
-    @OnClick({R.id.basicBtn, R.id.adapterBtn, R.id.headAndFooterBtn,R.id.dragBtn})
+    @OnClick({R.id.basicBtn, R.id.adapterBtn, R.id.headAndFooterBtn,R.id.dragBtn,R.id.sectionItemDecoration})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.basicBtn:
@@ -28,6 +28,10 @@ public class RecycleActivity extends BaseActivity {
                 break;
             case R.id.dragBtn:
                 startActivity(new Intent(this,ItemDragActivity.class));
+                break;
+            case R.id.sectionItemDecoration:
+                startActivity(new Intent(this,SectionItemDecorationActivity.class));
+
                 break;
         }
     }

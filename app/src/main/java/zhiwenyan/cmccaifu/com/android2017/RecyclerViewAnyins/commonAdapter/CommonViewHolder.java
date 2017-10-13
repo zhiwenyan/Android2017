@@ -58,6 +58,9 @@ public class CommonViewHolder extends RecyclerView.ViewHolder {
         return this;
     }
 
+
+
+
     /**
      * 网络图片处理
      *

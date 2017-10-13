@@ -21,7 +21,6 @@ public class LinearLayoutItemDecoration extends RecyclerView.ItemDecoration {
         mDrawable = ContextCompat.getDrawable(context, drawableId);
     }
 
-
     /**
      * 留出空间
      *
