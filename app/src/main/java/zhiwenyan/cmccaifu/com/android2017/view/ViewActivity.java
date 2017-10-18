@@ -28,6 +28,7 @@ import zhiwenyan.cmccaifu.com.android2017.view.scanloading.ScanLoadingActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.shapeview.ShapeViewActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.textView.ColorTrackTextViewActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.touchView.ViewTouchActivity;
+import zhiwenyan.cmccaifu.com.android2017.view.wave.WaveViewActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.yahoo.YahooActivity;
 
 public class ViewActivity extends BaseActivity {
@@ -46,7 +47,7 @@ public class ViewActivity extends BaseActivity {
     @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5,
             R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9, R.id.btn10, R.id.btn11,
             R.id.btn12, R.id.btn13, R.id.btn15, R.id.btn16, R.id.btn18, R.id.btn20, R.id.btn21, R.id.btn22,
-            R.id.kugou, R.id.yahoo, R.id.chart,R.id.btn26})
+            R.id.kugou, R.id.yahoo, R.id.chart, R.id.btn26, R.id.btn27})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn1:
@@ -117,6 +118,9 @@ public class ViewActivity extends BaseActivity {
                 break;
             case R.id.btn26:
                 startActivity(new Intent(this, ScanLoadingActivity.class));
+                break;
+            case R.id.btn27:
+                startActivity(new Intent(this, WaveViewActivity.class));
                 break;
 
         }

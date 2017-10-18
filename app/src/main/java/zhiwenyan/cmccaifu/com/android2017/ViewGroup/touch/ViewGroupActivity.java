@@ -2,8 +2,13 @@ package zhiwenyan.cmccaifu.com.android2017.ViewGroup.touch;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 
 import zhiwenyan.cmccaifu.com.android2017.R;
+
+import static zhiwenyan.cmccaifu.com.android2017.R.id.tv;
 
 public class ViewGroupActivity extends AppCompatActivity {
 
@@ -13,35 +18,24 @@ public class ViewGroupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_group2);
 
 
-//        findViewById(tv).setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                Log.i("TAG", "tv-->OnTouchListener: " + event.getAction());
-//                return false;
-//            }
-//        });
+        findViewById(tv).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.i("TAG", "tv-->OnTouchListener: " + event.getAction());
+                return false;
+            }
+        });
 
-//        findViewById(tv).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Log.i("TAG", "tv-->onClick: ");
-//            }
-//        });
+        findViewById(tv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("TAG", "tv-->onClick: ");
+            }
+        });
     }
 
-//    @Override
-//    public boolean dispatchTouchEvent(MotionEvent ev) {
-//        Log.i("TAG", "Activity-->dispatchTouchEvent: " + ev.getAction());
-//        return super.dispatchTouchEvent(ev);
-//    }
-//
-//    @Override
-//    public boolean onTouchEvent(MotionEvent event) {
-//        Log.i("TAG", "Activity-->onTouchEvent: " + event.getAction());
-//        return super.onTouchEvent(event);
-//    }
 
-    /**
+    /*
      * 实现onInterceptTouchEvent方法可以用来拦截父ViewGroup传递下来的所有触屏事件，
      * 可以将所有触屏事件交由此ViewGroup自身的onTouchEvent来处理，也可以继续传递给其子View来处理。
 

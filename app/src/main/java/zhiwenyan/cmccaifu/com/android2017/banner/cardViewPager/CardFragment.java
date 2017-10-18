@@ -19,7 +19,6 @@ public class CardFragment extends Fragment {
     private CardView mCardView;
 
     public CardFragment() {
-        // Required empty public constructor
     }
 
 

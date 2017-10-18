@@ -32,7 +32,7 @@ public class TouchViewGroup extends LinearLayout {
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         Log.i("TAG", "ViewGroup-->onInterceptTouchEvent: " + ev.getAction());
-        return true;
+        return super.onInterceptTouchEvent(ev);
     }
 
     @Override

@@ -87,7 +87,8 @@ public class IndicatorGroupView extends FrameLayout {
         int finalLeftMargin = position * mItemWidth;
         int currentLeftMargin = mParams.leftMargin;
         int distance = finalLeftMargin - currentLeftMargin;
-        ValueAnimator animator = ObjectAnimator.ofFloat(currentLeftMargin, finalLeftMargin).setDuration((long) (Math.abs(distance) * 0.3f));
+        ValueAnimator animator = ObjectAnimator.ofFloat(currentLeftMargin,
+                finalLeftMargin).setDuration((long) (Math.abs(distance) * 0.3f));
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {

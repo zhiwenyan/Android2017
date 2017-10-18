@@ -39,7 +39,5 @@ public class TouchView extends View {
     public boolean onTouchEvent(MotionEvent event) {
         Log.i("TAG", "View-->onTouchEvent: " + event.getAction());
         return true;
-
-
     }
 }

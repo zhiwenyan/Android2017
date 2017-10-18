@@ -168,6 +168,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ScanLoadingView"/>
+
+        <Button
+            android:id="@+id/btn27"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WaveView"
+            android:textAllCaps="true"/>
     </LinearLayout>
 
 </ScrollView>
