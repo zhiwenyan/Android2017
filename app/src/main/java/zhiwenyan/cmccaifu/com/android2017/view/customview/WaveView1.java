@@ -9,6 +9,7 @@ import android.graphics.Path;
 import android.graphics.Point;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
 
 /**
@@ -22,7 +23,7 @@ public class WaveView1 extends View {
     private int mHeight;
     private Path mSinPath;
     //sin曲线 1/4周期个宽度
-    private int mCycle = 60;
+    private int mCycle;
     private int mWidth;
     //sin 曲线振幅的高度
     private int mWaveHeight = 100;
@@ -51,13 +52,16 @@ public class WaveView1 extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         mWidth = MeasureSpec.getSize(widthMeasureSpec);
         mHeight = MeasureSpec.getSize(heightMeasureSpec);
-        mStartPoint = new Point(0, mHeight / 2);
+        mCycle = mWidth / 4;
+        //默认从屏幕外先绘制3/4个周期 使得波峰在中间
+        mStartPoint = new Point(-mCycle * 4, mHeight / 2);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        mStartPoint.y = (int) (mHeight - (mProgress / 100.0) * mHeight);
+        //   mStartPoint.y = (int) (mHeight - (mProgress / 100.0) * mHeight);
+
         mSinPath.moveTo(mStartPoint.x, mStartPoint.y);
         int j = 1;
         for (int i = 1; i <= mWidth / mCycle; i++) {
@@ -78,7 +82,17 @@ public class WaveView1 extends View {
         mSinPath.lineTo(mStartPoint.x, mStartPoint.y);//起点
         mSinPath.close();
         canvas.drawPath(mSinPath, mSinPaint);
+
+        if (mStartPoint.x + mCycle / 4 >= 0) {
+            //满了一个周期则恢复默认起点继续平移
+            mStartPoint.x = -mCycle * 4;
+        }
+        //每次移动1/4个周期
+        mStartPoint.x += mCycle / 4;
+        postInvalidateDelayed(200);
+        mSinPath.reset();
     }
+
 
     public void setProgress(final int progress, int duration) {
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, progress);
@@ -92,5 +106,10 @@ public class WaveView1 extends View {
             }
         });
         valueAnimator.start();
+    }
+
+
+    private int dp2px(float value) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, getResources().getDisplayMetrics());
     }
 }

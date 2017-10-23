@@ -38,8 +38,8 @@ public class PtrLayout extends ViewGroup {
             width = Math.max(width, child.getMeasuredWidth());
             height += child.getMeasuredHeight();
         }
-        setMeasuredDimension(widthMode == MeasureSpec.EXACTLY ?
-                widthSize : width, heightMode == MeasureSpec.EXACTLY ? heightSize : height);
+        setMeasuredDimension(widthMode == MeasureSpec.EXACTLY ? widthSize : width,
+                heightMode == MeasureSpec.EXACTLY ? heightSize : height);
     }
 
     @Override

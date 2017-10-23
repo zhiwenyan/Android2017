@@ -17,6 +17,6 @@ public class WaveViewActivity extends AppCompatActivity {
         mWaveView = (WaveView) findViewById(R.id.waveView);
         mWaveView.setProgress(100, 10000);
         mWaveView1 = (WaveView1) findViewById(R.id.waveView1);
-        mWaveView1.setProgress(100, 10000);
+        //mWaveView1.setProgress(100, 10000);
     }
 }

@@ -80,6 +80,7 @@ public class QQRunView extends View {
         int width = MeasureSpec.getSize(widthMeasureSpec);
         int height = MeasureSpec.getSize(heightMeasureSpec);
         setMeasuredDimension(width > height ? height : width, width > height ? height : width);
+
     }
 
     @Override

@@ -14,8 +14,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import zhiwenyan.cmccaifu.com.android2017.utils.LogUtil;
-
 /**
  * Created by zhiwenyan on 08/07/2017.
  * <p>
@@ -48,7 +46,6 @@ public class VerticalDragListView extends FrameLayout {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        LogUtil.i(ev.getAction()+"0000000000");
         //菜单打开拦截
         if (mIsMenuOpen) {
             return true;
@@ -66,7 +63,6 @@ public class VerticalDragListView extends FrameLayout {
                 }
                 break;
             case MotionEvent.ACTION_UP:
-
                 break;
         }
         return super.onInterceptTouchEvent(ev);
@@ -120,6 +116,7 @@ public class VerticalDragListView extends FrameLayout {
                 invalidate();
             }
         }
+
     };
 
 

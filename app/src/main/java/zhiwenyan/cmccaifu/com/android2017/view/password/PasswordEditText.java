@@ -10,7 +10,6 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
 
 import zhiwenyan.cmccaifu.com.android2017.R;
 
@@ -19,7 +18,7 @@ import zhiwenyan.cmccaifu.com.android2017.R;
  * 自定义密码输入框
  */
 
-public class PasswordEditText extends EditText {
+public class PasswordEditText extends android.support.v7.widget.AppCompatEditText {
     // 画笔
     private Paint mPaint;
     // 一个密码所占的宽度
