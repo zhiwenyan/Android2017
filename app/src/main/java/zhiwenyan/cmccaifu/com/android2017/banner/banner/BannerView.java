@@ -42,7 +42,6 @@ public class BannerView extends RelativeLayout {
     }
 
     /**
-     *
      * 初始化View
      */
     private void initView() {

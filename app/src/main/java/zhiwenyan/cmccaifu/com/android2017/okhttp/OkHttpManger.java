@@ -52,7 +52,7 @@ public final class OkHttpManger {
         this.okHttpHandler = new Handler(Looper.getMainLooper());
     }
 
-    public static final OkHttpManger getInstance() {
+    public static OkHttpManger getInstance() {
         return SingleFactory.manger;
     }
 

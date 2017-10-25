@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -23,6 +24,7 @@ import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.Model.Movies;
 import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.commonAdapter.CommonRecycleAdapter;
 import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.commonAdapter.CommonViewHolder;
+import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.itemDecoration.GroupListener;
 import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.itemDecoration.SectionItemDecoration;
 
 public class SectionItemDecorationActivity extends AppCompatActivity {
@@ -73,10 +75,21 @@ public class SectionItemDecorationActivity extends AppCompatActivity {
         });
     }
 
-    private void showData(List<Movies.DataBean.ComingBean> lists) {
+    private void showData(final List<Movies.DataBean.ComingBean> lists) {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(linearLayoutManager);
-        mRecyclerView.addItemDecoration(new SectionItemDecoration(this, R.drawable.item_decration, lists));
+        mRecyclerView.addItemDecoration(new SectionItemDecoration(this, R.drawable.item_decration, R.drawable.default_item, lists, new GroupListener() {
+            @Override
+            public String getGroupName(int position) {
+                return lists.get(position).getComingTitle();
+            }
+
+            @Override
+            public View getGroupView(int position) {
+                View view = getLayoutInflater().inflate(R.layout.section_layout, null, false);
+                return view;
+            }
+        }));
         MovieAdapter movieAdapter = new MovieAdapter(this, lists, R.layout.section_layout);
         mRecyclerView.setAdapter(movieAdapter);
     }
