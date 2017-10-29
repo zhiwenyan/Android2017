@@ -9,7 +9,7 @@ public class Test {
  * Target角色
  */
 public interface FiveVolt {
-    public int getVolt5();
+    int getVolt5();
 }
 
     /**

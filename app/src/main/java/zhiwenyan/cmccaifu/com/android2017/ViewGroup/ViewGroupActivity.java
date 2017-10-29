@@ -1,6 +1,7 @@
 package zhiwenyan.cmccaifu.com.android2017.ViewGroup;
 
 import android.content.Intent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
@@ -59,5 +60,10 @@ public class ViewGroupActivity extends BaseActivity {
                 break;
 
         }
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        return super.dispatchTouchEvent(ev);
     }
 }

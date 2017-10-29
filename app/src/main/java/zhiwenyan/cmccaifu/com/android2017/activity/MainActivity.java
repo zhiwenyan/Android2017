@@ -1,5 +1,7 @@
 package zhiwenyan.cmccaifu.com.android2017.activity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Environment;
@@ -230,6 +232,14 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        Dialog dialog=new AlertDialog.Builder(this)
+                .setTitle("标题")
+                .setMessage("消息")
+                //在create()之前去设置存放参数
+                //create()主要是用于创建我们的Dialog对象，然后把参数取出来s设置给Dialog。
+                .create();
+
+//        dialog.show();
     }
 
     public static String getIP(Context context) {

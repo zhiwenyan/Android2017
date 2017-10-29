@@ -129,7 +129,7 @@ public class ZmCreditUtil {
         DefaultZhimaClient client = new DefaultZhimaClient(gatewayUrl, appId, privateKey,
                 zhimaPublicKey);
         try {
-            ZhimaCreditScoreGetResponse response = (ZhimaCreditScoreGetResponse) client.execute(req);
+            ZhimaCreditScoreGetResponse response = client.execute(req);
             System.out.println(response.getBizNo());
             System.out.println(response.getZmScore());
             System.out.println(response.isSuccess());
@@ -162,7 +162,7 @@ public class ZmCreditUtil {
         req.setExtBizParam("{}");// 必要参数
         DefaultZhimaClient client = new DefaultZhimaClient(gatewayUrl, appId, privateKey, zhimaPublicKey);
         try {
-            ZhimaCustomerCertificationInitializeResponse response = (ZhimaCustomerCertificationInitializeResponse) client.execute(req);
+            ZhimaCustomerCertificationInitializeResponse response = client.execute(req);
             System.out.println(response.isSuccess());
             if (response.isSuccess()) {
                 BizNo = response.getBizNo();
@@ -208,7 +208,7 @@ public class ZmCreditUtil {
         req.setBizNo(BizNo);// 必要参数
         DefaultZhimaClient client = new DefaultZhimaClient(gatewayUrl, appId, privateKey, zhimaPublicKey);
         try {
-            ZhimaCustomerCertificationQueryResponse response = (ZhimaCustomerCertificationQueryResponse) client.execute(req);
+            ZhimaCustomerCertificationQueryResponse response = client.execute(req);
             System.out.println(response.isSuccess());
             System.out.println(response.getPassed());
             System.out.println(response.getIdentityInfo());

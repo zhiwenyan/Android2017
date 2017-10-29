@@ -4,10 +4,10 @@ package zhiwenyan.cmccaifu.com.android2017.banner.适配器模式;
  * Created by zhiwenyan on 6/1/17.
  */
 interface ICircle{
-    public void drawCircle();
+    void drawCircle();
 }
 interface ISquare{
-    public void drawSquare();
+    void drawSquare();
 }
 //圆形
 class Circle implements ICircle{

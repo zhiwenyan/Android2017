@@ -9,7 +9,7 @@ package zhiwenyan.cmccaifu.com.android2017.banner.适配器模式;
  * Target角色
  */
 interface FiveVolt {
-    public int getVolt5();
+    int getVolt5();
 }
 
 /**
