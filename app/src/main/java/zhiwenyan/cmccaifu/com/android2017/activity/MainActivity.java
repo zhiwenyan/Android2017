@@ -8,6 +8,7 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.io.File;
@@ -19,11 +20,11 @@ import java.util.Enumeration;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
+import zhiwenyan.cmccaifu.com.android2017.DesignPattern.builder.navigation.NavigationBar;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple1.IOHandler;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple1.IOHandlerFactory;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple2.IOFactory;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple2.MemoryIOFactory;
-
 import zhiwenyan.cmccaifu.com.android2017.IPC.AidlActivity;
 import zhiwenyan.cmccaifu.com.android2017.IPC.MessengerActivity;
 import zhiwenyan.cmccaifu.com.android2017.IPC.ServiceActivity;
@@ -69,8 +70,8 @@ public class MainActivity extends BaseActivity {
         Log.i("TAG", "onResume: " + this.getCacheDir().getAbsolutePath());
         Log.i("TAG", "onResume: " + this.getExternalCacheDir().getAbsolutePath());
         Log.i("TAG", "onResume: " + Environment.getExternalStorageDirectory());
-        File file=new File(Environment.getExternalStorageDirectory()+"/"+this.getPackageName()+"/test.apk");
-        Log.i("TAG", "onResume: "+file.getPath());
+        File file = new File(Environment.getExternalStorageDirectory() + "/" + this.getPackageName() + "/test.apk");
+        Log.i("TAG", "onResume: " + file.getPath());
         //简单工厂方法模式
         IOHandler ioHandler = IOHandlerFactory.createIOHandler(IOHandlerFactory.IOType.MEMORY);
         ioHandler.save("userName", "steven");
@@ -88,6 +89,22 @@ public class MainActivity extends BaseActivity {
 
         zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.IOHandlerFactory.getmInstance().getDefaultIOHandler();
 
+        ViewGroup parent = (ViewGroup) findViewById(R.id.view_root);
+        NavigationBar navigationBar = new NavigationBar.Builder(this, R.layout.ui_navigation_bar, parent)
+                .setText(R.id.text, "text")
+                .setOnClickListener(R.id.text, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                })
+                .create();
+        //如果想设置字体的大小、颜色，图片、等等
+        TextView textView = navigationBar.findById(R.id.text);
+
+
+        //在写代码时 高扩展 并不是要把所有的的内容和出现的问题都想到，而在新增的功能时候可以保证原来的代码不变
+        //对于开发者来说，需要用好最少知识原则，使用者并不需要关注太多
     }
 
 
@@ -232,7 +249,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Dialog dialog=new AlertDialog.Builder(this)
+        Dialog dialog = new AlertDialog.Builder(this)
                 .setTitle("标题")
                 .setMessage("消息")
                 //在create()之前去设置存放参数

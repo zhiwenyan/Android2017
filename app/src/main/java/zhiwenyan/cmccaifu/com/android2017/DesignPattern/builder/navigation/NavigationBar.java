@@ -19,7 +19,7 @@ public class NavigationBar extends AbsNavigationBar {
     /**
      * 导航栏的Builder
      */
-    public static class Builder extends AbsNavigationBar.Builder {
+    public static class Builder extends AbsNavigationBar.Builder<NavigationBar.Builder> {
 
         public Builder(Context context, int layoutId, ViewGroup parent) {
             super(context, layoutId, parent);

@@ -12,8 +12,7 @@ public class Singleton3 {
     //加上volatile关键字
     private static volatile Singleton3 mInstance;
 
-    private Singleton3() {
-    }
+    private Singleton3() {}
 
     //双重枷锁 即保证线程的安全同是效率比较高的
     //这种方式还是有问题？

@@ -6,586 +6,596 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
-    android:padding="8dp"
+
     tools:context="zhiwenyan.cmccaifu.com.android2017.activity.MainActivity">
 
+
     <LinearLayout
+        android:id="@+id/view_root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:baselineAligned="false"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="动画"
-            android:textColor="#00b2f9"/>
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
+            android:layout_marginBottom="8dp"
+            android:baselineAligned="false"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/propertyAnimTv"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#00b2f9"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="属性动画"
-                android:textColor="@color/colorWhite"/>
+                android:text="动画"
+                android:textColor="#00b2f9"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/propertyAnimTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00b2f9"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="属性动画"
+                    android:textColor="@color/colorWhite"/>
+
+                <TextView
+                    android:id="@+id/tweenAnimTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#00b2f9"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="补间动画"
+                    android:textColor="@color/colorWhite"/>
+
+                <TextView
+                    android:id="@+id/frameAnimTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#00b2f9"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="帧动画"
+                    android:textColor="@color/colorWhite"/>
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/tweenAnimTv"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#00b2f9"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="补间动画"
-                android:textColor="@color/colorWhite"/>
+                android:layout_marginTop="8dp"
+                android:text="material design"
+                android:textColor="#fc8122"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/coorTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#fc8122"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="沉浸式状态栏"
+                    android:textColor="@color/colorWhite"/>
+
+                <TextView
+                    android:id="@+id/drawTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#fc8122"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="抽屉式布局"
+                    android:textColor="@color/colorWhite"/>
+
+                <TextView
+                    android:id="@+id/recylerTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#fc8122"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="RecyclerView"
+                    android:textColor="@color/colorWhite"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+
+                <TextView
+                    android:id="@+id/toolBarTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#fc8122"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="ToolBar"
+                    android:textColor="@color/colorWhite"/>
+
+                <TextView
+                    android:id="@+id/behaviorTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#fc8122"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="自定义behavior"
+                    android:textColor="@color/colorWhite"/>
+
+                <TextView
+                    android:id="@+id/bntv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#fc8122"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="BottomNavigation"
+                    android:textColor="@color/colorWhite"/>
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/frameAnimTv"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#00b2f9"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="帧动画"
-                android:textColor="@color/colorWhite"/>
-        </LinearLayout>
+                android:layout_marginTop="8dp"
+                android:text="网络、RxJava、MVP"
+                android:textColor="#ff527b"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="material design"
-            android:textColor="#fc8122"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
-
-            <TextView
-                android:id="@+id/coorTv"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#fc8122"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="沉浸式状态栏"
-                android:textColor="@color/colorWhite"/>
+                android:layout_marginTop="8dp">
 
-            <TextView
-                android:id="@+id/drawTv"
-                android:layout_width="0dp"
+
+                <TextView
+                    android:id="@+id/httpTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#ff527b"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Http"
+                    android:textColor="@color/colorWhite"/>
+
+                <TextView
+                    android:id="@+id/okHttpTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#ff527b"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="okHttp"
+                    android:textColor="@color/colorWhite"/>
+
+                <TextView
+                    android:id="@+id/retrofit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#ff527b"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Retrofit"
+                    android:textColor="@color/colorWhite"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#fc8122"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="抽屉式布局"
-                android:textColor="@color/colorWhite"/>
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/recylerTv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#fc8122"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="RecyclerView"
-                android:textColor="@color/colorWhite"/>
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/rxJavaTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#ff527b"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="RxJava"
+                    android:textColor="@color/colorWhite"/>
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
-
-
-            <TextView
-                android:id="@+id/toolBarTv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#fc8122"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="ToolBar"
-                android:textColor="@color/colorWhite"/>
-
-            <TextView
-                android:id="@+id/behaviorTv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#fc8122"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="自定义behavior"
-                android:textColor="@color/colorWhite"/>
-
-            <TextView
-                android:id="@+id/bntv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#fc8122"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="BottomNavigation"
-                android:textColor="@color/colorWhite"/>
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="网络、RxJava、MVP"
-            android:textColor="#ff527b"/>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
+                <TextView
+                    android:id="@+id/mvpTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#ff527b"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="MVP模式"
+                    android:textColor="@color/colorWhite"/>
+            </LinearLayout>
 
 
             <TextView
-                android:id="@+id/httpTv"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#ff527b"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="Http"
-                android:textColor="@color/colorWhite"/>
+                android:layout_marginTop="8dp"
+                android:text="缓存"
+                android:textColor="#ec1affec"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lruTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#ec1affec"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Lru"
+                    android:textColor="@color/colorWhite"/>
+
+                <TextView
+                    android:id="@+id/diskTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#ec1affec"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="磁盘缓存"
+                    android:textColor="@color/colorWhite"/>
+
+                <TextView
+                    android:id="@+id/threeTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#ec1affec"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="三级缓存"
+                    android:textColor="@color/colorWhite"/>
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/okHttpTv"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#ff527b"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="okHttp"
-                android:textColor="@color/colorWhite"/>
-
-            <TextView
-                android:id="@+id/retrofit"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#ff527b"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="Retrofit"
-                android:textColor="@color/colorWhite"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/rxJavaTv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#ff527b"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="RxJava"
-                android:textColor="@color/colorWhite"/>
-
-            <TextView
-                android:id="@+id/mvpTv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#ff527b"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="MVP模式"
-                android:textColor="@color/colorWhite"/>
-        </LinearLayout>
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="缓存"
-            android:textColor="#ec1affec"/>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/lruTv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#ec1affec"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="Lru"
-                android:textColor="@color/colorWhite"/>
-
-            <TextView
-                android:id="@+id/diskTv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#ec1affec"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="磁盘缓存"
-                android:textColor="@color/colorWhite"/>
-
-            <TextView
-                android:id="@+id/threeTv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#ec1affec"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="三级缓存"
-                android:textColor="@color/colorWhite"/>
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="线程"
-            android:textColor="#8964f9"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
-
-            <TextView
-                android:id="@+id/threadTv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#8964f9"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
+                android:layout_marginTop="8dp"
                 android:text="线程"
-                android:textColor="@color/colorWhite"/>
+                android:textColor="#8964f9"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/threadTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#8964f9"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="线程"
+                    android:textColor="@color/colorWhite"/>
+
+                <TextView
+                    android:id="@+id/threadPoolTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#8964f9"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="线程池"
+                    android:textColor="@color/colorWhite"/>
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/threadPoolTv"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#8964f9"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="线程池"
-                android:textColor="@color/colorWhite"/>
-        </LinearLayout>
+                android:layout_marginTop="8dp"
+                android:text="图片处理"
+                android:textColor="#5ff7a9"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="图片处理"
-            android:textColor="#5ff7a9"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
-
-            <TextView
-                android:id="@+id/glideTv"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#5ff7a9"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="Glide"
-                android:textColor="@color/colorWhite"/>
-        </LinearLayout>
+                android:layout_marginTop="8dp">
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Banner"
-            android:textColor="#d4c176"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
-
-            <TextView
-                android:id="@+id/bannerTv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#d4c176"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="ViewPager"
-                android:textColor="@color/colorWhite"/>
-
-            <!--<TextView-->
-            <!--android:id="@+id/tabTv"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="8dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:background="#d4c176"-->
-            <!--android:gravity="center_horizontal"-->
-            <!--android:padding="8dp"-->
-            <!--android:text="Tab"-->
-            <!--android:textColor="@color/colorWhite"/>-->
-
-            <TextView
-                android:id="@+id/threedTv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#d4c176"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="3D轮滑效果"
-                android:textColor="@color/colorWhite"/>
+                <TextView
+                    android:id="@+id/glideTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#5ff7a9"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Glide"
+                    android:textColor="@color/colorWhite"/>
+            </LinearLayout>
 
 
             <TextView
-                android:id="@+id/cardViewPager"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#d4c176"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="卡片效果"
-                android:textColor="@color/colorWhite"/>
+                android:layout_marginTop="8dp"
+                android:text="Banner"
+                android:textColor="#d4c176"/>
 
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/bannerTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#d4c176"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="ViewPager"
+                    android:textColor="@color/colorWhite"/>
+
+                <!--<TextView-->
+                <!--android:id="@+id/tabTv"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="8dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:background="#d4c176"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:padding="8dp"-->
+                <!--android:text="Tab"-->
+                <!--android:textColor="@color/colorWhite"/>-->
+
+                <TextView
+                    android:id="@+id/threedTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#d4c176"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="3D轮滑效果"
+                    android:textColor="@color/colorWhite"/>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
+                <TextView
+                    android:id="@+id/cardViewPager"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#d4c176"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="卡片效果"
+                    android:textColor="@color/colorWhite"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/commonViewPager"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#d4c176"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="通用的ViewPager指示器"
+                    android:textColor="@color/colorWhite"/>
+
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/commonViewPager"
-                android:layout_width="0dp"
+
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#d4c176"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="通用的ViewPager指示器"
-                android:textColor="@color/colorWhite"/>
+                android:layout_marginTop="8dp"
+                android:text="自定义View、ViewGroup"
+                android:textColor="#ff5e5b"/>
 
-
-        </LinearLayout>
-
-        <TextView
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="自定义View、ViewGroup"
-            android:textColor="#ff5e5b"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
-
-            <TextView
-                android:id="@+id/viewTv"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#ff5e5b"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="自定义View"
-                android:textColor="@color/colorWhite"/>
+                android:layout_marginTop="8dp">
 
-            <TextView
-                android:id="@+id/viewgroupTv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#ff5e5b"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="自定义ViewGroup"
-                android:textColor="@color/colorWhite"/>
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/viewTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#ff5e5b"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="自定义View"
+                    android:textColor="@color/colorWhite"/>
 
-
-        <TextView
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="IPC机制"
-            android:textColor="#5be6ff"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
-
-            <TextView
-                android:id="@+id/aidlTv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#5be6ff"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="AIDL"
-                android:textColor="@color/colorWhite"/>
-
-            <TextView
-                android:id="@+id/messenger"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#5be6ff"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="Messenger"
-                android:textColor="@color/colorWhite"/>
-
-            <TextView
-                android:id="@+id/startService"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#5be6ff"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="startService"
-                android:textColor="@color/colorWhite"/>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
+                <TextView
+                    android:id="@+id/viewgroupTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#ff5e5b"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="自定义ViewGroup"
+                    android:textColor="@color/colorWhite"/>
+            </LinearLayout>
 
 
             <TextView
-                android:id="@+id/device"
-                android:layout_width="0dp"
+
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#5be6ff"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="获取手机信息"
-                android:textColor="@color/colorWhite"/>
+                android:layout_marginTop="8dp"
+                android:text="IPC机制"
+                android:textColor="#5be6ff"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/aidlTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#5be6ff"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="AIDL"
+                    android:textColor="@color/colorWhite"/>
+
+                <TextView
+                    android:id="@+id/messenger"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#5be6ff"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Messenger"
+                    android:textColor="@color/colorWhite"/>
+
+                <TextView
+                    android:id="@+id/startService"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#5be6ff"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="startService"
+                    android:textColor="@color/colorWhite"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+
+                <TextView
+                    android:id="@+id/device"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#5be6ff"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="获取手机信息"
+                    android:textColor="@color/colorWhite"/>
+
+                <TextView
+                    android:id="@+id/sensor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#5be6ff"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="传感器应用"
+                    android:textColor="@color/colorWhite"/>
+
+                <TextView
+                    android:id="@+id/rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#5be6ff"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="RadioButton"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite"/>
+            </LinearLayout>
+
 
             <TextView
-                android:id="@+id/sensor"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#5be6ff"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="传感器应用"
-                android:textColor="@color/colorWhite"/>
+                android:layout_marginTop="8dp"
+                android:text="数据库"
+                android:textColor="#8964f9"/>
 
-            <TextView
-                android:id="@+id/rg"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:background="#5be6ff"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="RadioButton"
-                android:textAllCaps="false"
-                android:textColor="@color/colorWhite"/>
-        </LinearLayout>
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/sqliteTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#8964f9"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Sqlite"
+                    android:textColor="@color/colorWhite"/>
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="数据库"
-            android:textColor="#8964f9"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
-
-            <TextView
-                android:id="@+id/sqliteTv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#8964f9"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="Sqlite"
-                android:textColor="@color/colorWhite"/>
-
-
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
