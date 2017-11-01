@@ -14,15 +14,15 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.banner.transformer.RotateDownTransformer;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
 public class ViewPagerActivity extends BaseActivity {
-    @InjectView(R.id.viewPager)
+    @BindView(R.id.viewPager)
     ViewPager mViewPager;
-    @InjectView(R.id.add_point)
+    @BindView(R.id.add_point)
     LinearLayout mAddPoint;
     private int[] mImgs = new int[]{R.mipmap.a, R.mipmap.b, R.mipmap.c};
     private List<ImageView> mImageViews = new ArrayList<>();

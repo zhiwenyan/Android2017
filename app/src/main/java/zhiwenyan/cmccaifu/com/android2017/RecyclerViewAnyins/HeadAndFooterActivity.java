@@ -10,7 +10,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.adapter.ListContentAdapter;
 import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.commonAdapter.ItemClickListener;
@@ -20,7 +20,7 @@ import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
 public class HeadAndFooterActivity extends BaseActivity {
 
-    @InjectView(R.id.recyclerView)
+    @BindView(R.id.recyclerView)
     WrapRecyclerView mRecyclerView;
     private List<String> mList = new ArrayList<>();
     private View mHeaderView;

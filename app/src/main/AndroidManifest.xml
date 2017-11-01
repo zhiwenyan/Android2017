@@ -51,11 +51,7 @@
         <activity
             android:name=".activity.MainActivity"
             android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".animator.AnimatorActivity"/>
         <activity android:name=".okhttp.OkhttpActivity"/>
@@ -213,8 +209,7 @@
         </activity>
         <activity android:name=".Handler.HandlerActivity">
         </activity>
-        <activity android:name=".Handler.Main3Activity">
-        </activity>
+
         <activity android:name=".ViewGroup.Scroller.ScrollerActivity">
         </activity>
         <activity android:name=".view.scanloading.ScanLoadingActivity">
@@ -226,6 +221,14 @@
         <activity android:name=".RecyclerViewAnyins.SectionItemDecorationActivity">
         </activity>
         <activity android:name=".view.wave.WaveViewActivity">
+        </activity>
+        <activity android:name=".butterknife.ButterKnifeActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
     </application>
 

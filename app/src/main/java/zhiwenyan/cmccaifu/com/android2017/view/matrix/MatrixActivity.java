@@ -3,22 +3,22 @@ package zhiwenyan.cmccaifu.com.android2017.view.matrix;
 import android.view.View;
 import android.widget.Button;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
 public class MatrixActivity extends BaseActivity {
 
-    @InjectView(R.id.scaleBtn)
+    @BindView(R.id.scaleBtn)
     Button mScaleBtn;
-    @InjectView(R.id.traslateBtn)
+    @BindView(R.id.traslateBtn)
     Button mTraslateBtn;
-    @InjectView(R.id.rorationBtn)
+    @BindView(R.id.rorationBtn)
     Button mRorationBtn;
-    @InjectView(R.id.skewBtn)
+    @BindView(R.id.skewBtn)
     Button mSkewBtn;
-    @InjectView(R.id.img)
+    @BindView(R.id.img)
     MatrixView mImg;
 
     @Override

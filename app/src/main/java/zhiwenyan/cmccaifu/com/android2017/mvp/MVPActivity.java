@@ -2,8 +2,7 @@ package zhiwenyan.cmccaifu.com.android2017.mvp;
 
 import android.widget.TextView;
 
-import butterknife.InjectView;
-import butterknife.OnClick;
+import butterknife.BindView;import butterknife.OnClick;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 import zhiwenyan.cmccaifu.com.android2017.mvp.presenter.BookPresenter;
@@ -12,7 +11,7 @@ import zhiwenyan.cmccaifu.com.android2017.retrofit.model.BookSearchResponse;
 
 public class MVPActivity extends BaseActivity implements IBookView {
     BookPresenter mBookPresenter;
-    @InjectView(R.id.resultTv)
+    @BindView(R.id.resultTv)
     TextView mResultTv;
 
     @Override

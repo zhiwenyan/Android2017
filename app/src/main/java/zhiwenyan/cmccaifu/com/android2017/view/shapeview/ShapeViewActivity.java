@@ -4,20 +4,20 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.widget.ImageView;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
 public class ShapeViewActivity extends BaseActivity {
 
-    @InjectView(R.id.shapeView1)
+    @BindView(R.id.shapeView1)
     MultiShapeView mShapeView1;
-    @InjectView(R.id.shapeView2)
+    @BindView(R.id.shapeView2)
     MultiShapeView mShapeView2;
-    @InjectView(R.id.shapeView3)
+    @BindView(R.id.shapeView3)
     MultiShapeView mShapeView3;
 
-    @InjectView(R.id.img)
+    @BindView(R.id.img)
     ImageView mImg;
 
     @Override

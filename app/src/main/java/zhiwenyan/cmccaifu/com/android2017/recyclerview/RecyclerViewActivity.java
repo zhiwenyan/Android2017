@@ -10,7 +10,7 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.ViewGroup.SwipeBackLayout;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
@@ -19,12 +19,12 @@ import zhiwenyan.cmccaifu.com.android2017.recyclerview.adapter.RecyclerAdapter;
 
 public class RecyclerViewActivity extends BaseActivity {
 
-    @InjectView(R.id.rv)
+    @BindView(R.id.rv)
     RecyclerView mRv;
-    @InjectView(R.id.refreshLayout)
+    @BindView(R.id.refreshLayout)
     SwipeRefreshLayout mRefreshLayout;
 
-    @InjectView(R.id.swipeBackLayout)
+    @BindView(R.id.swipeBackLayout)
     SwipeBackLayout mSwipeBackLayout;
     private List<item> mItems = new ArrayList<>();
     RecyclerAdapter mAdapter;

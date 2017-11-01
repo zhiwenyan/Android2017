@@ -9,7 +9,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -30,7 +30,7 @@ import zhiwenyan.cmccaifu.com.android2017.retrofit.service.FileUploadService;
 
 public class RetrofitActivity extends BaseActivity {
 
-    @InjectView(R.id.resultTv)
+    @BindView(R.id.resultTv)
     TextView mResultTv;
     Retrofit mRetrofit;
     private static final String BASE_URL = "https://api.douban.com/v2/";

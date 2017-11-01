@@ -3,16 +3,16 @@ package zhiwenyan.cmccaifu.com.android2017.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
 public class SwapeBackActivity extends BaseActivity {
 
-    @InjectView(R.id.swipeBackLayout)
+    @BindView(R.id.swipeBackLayout)
     SwipeBackLayout mSwipeBackLayout;
-    @InjectView(R.id.text)
+    @BindView(R.id.text)
     TextView mText;
 
 

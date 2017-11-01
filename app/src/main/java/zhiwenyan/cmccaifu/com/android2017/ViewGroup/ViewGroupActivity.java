@@ -5,7 +5,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.ViewGroup.Drag.VerticalDragActivity;
@@ -17,7 +17,7 @@ import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
 public class ViewGroupActivity extends BaseActivity {
 
-    @InjectView(R.id.ViewDragHelperBtn)
+    @BindView(R.id.ViewDragHelperBtn)
     Button mViewDragHelper;
 
     @Override

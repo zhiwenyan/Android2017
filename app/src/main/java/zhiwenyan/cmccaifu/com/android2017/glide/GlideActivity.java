@@ -5,7 +5,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
@@ -13,10 +13,10 @@ import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 public class GlideActivity extends BaseActivity {
 
     public static final String URL = "http://img1.xcarimg.com/b101/s5797/m_20140114092801483977.jpg";
-    @InjectView(R.id.loadImg)
+    @BindView(R.id.loadImg)
     ImageView mLoadImg;
 
-    @InjectView(R.id.loadImg1)
+    @BindView(R.id.loadImg1)
     ImageView mRoundLoadImg;
 
     @Override

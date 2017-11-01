@@ -8,13 +8,13 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 import zhiwenyan.cmccaifu.com.android2017.recyclerview.adapter.BaseRecyclerAdapter;
 
 public class ThreeDActivity extends BaseActivity {
-    @InjectView(R.id.rv)
+    @BindView(R.id.rv)
     RecyclerView mRv;
     private List<img> mImgs = new ArrayList<>();
 

@@ -12,7 +12,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         initToolBar();
         init();
 

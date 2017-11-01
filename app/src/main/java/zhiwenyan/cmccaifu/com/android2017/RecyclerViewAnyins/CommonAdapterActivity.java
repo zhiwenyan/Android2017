@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.Model.ChatData;
 import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.commonAdapter.CommonRecycleAdapter;
@@ -17,7 +17,7 @@ import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
 public class CommonAdapterActivity extends BaseActivity {
 
-    @InjectView(R.id.commonRecycler)
+    @BindView(R.id.commonRecycler)
     RecyclerView mCommonRecycler;
     private List<ChatData> mDatas = new ArrayList<>();
 

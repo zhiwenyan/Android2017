@@ -2,7 +2,7 @@ package zhiwenyan.cmccaifu.com.android2017.view.activity;
 
 import java.util.ArrayList;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.pieview.PieData;
@@ -11,7 +11,7 @@ import zhiwenyan.cmccaifu.com.android2017.view.pieview.PieView;
 
 public class PieActivity extends BaseActivity {
 
-    @InjectView(R.id.pieView)
+    @BindView(R.id.pieView)
     PieView mPieView;
 
     @Override

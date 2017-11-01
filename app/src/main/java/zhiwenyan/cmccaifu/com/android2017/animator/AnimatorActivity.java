@@ -17,25 +17,25 @@ import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
 public class AnimatorActivity extends BaseActivity {
 
-    @InjectView(R.id.transTv)
+    @BindView(R.id.transTv)
     Button mTransTv;
-    @InjectView(R.id.scaleTv)
+    @BindView(R.id.scaleTv)
     Button mScaleTv;
-    @InjectView(R.id.rorateTv)
+    @BindView(R.id.rorateTv)
     Button mRorateTv;
-    @InjectView(R.id.alphaTv)
+    @BindView(R.id.alphaTv)
     Button mAlphaTv;
 
-    @InjectView(R.id.mTarget)
+    @BindView(R.id.mTarget)
     TextView mTarget;
-    @InjectView(R.id.circleView)
+    @BindView(R.id.circleView)
     CircleView mCircleView;
 
     @Override

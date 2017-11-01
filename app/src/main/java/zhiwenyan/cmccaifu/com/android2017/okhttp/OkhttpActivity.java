@@ -6,7 +6,7 @@ import android.widget.TextView;
 import java.io.File;
 import java.io.IOException;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.Cache;
 import okhttp3.Call;
@@ -20,7 +20,7 @@ import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
 public class OkhttpActivity extends BaseActivity {
-    @InjectView(R.id.resultTv)
+    @BindView(R.id.resultTv)
     TextView mResultTv;
     private OkHttpClient mOkHttpClient = new OkHttpClient();
 

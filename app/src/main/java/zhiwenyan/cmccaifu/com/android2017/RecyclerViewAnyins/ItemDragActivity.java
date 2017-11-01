@@ -9,14 +9,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.adapter.ItemDragAdapter;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
 public class ItemDragActivity extends BaseActivity {
 
-    @InjectView(R.id.rv)
+    @BindView(R.id.rv)
     RecyclerView mRv;
     private List<String> mList = new ArrayList<>();
     private ItemDragAdapter mAdapter;

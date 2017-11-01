@@ -18,7 +18,7 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.builder.navigation.NavigationBar;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple1.IOHandler;
@@ -55,11 +55,11 @@ import zhiwenyan.cmccaifu.com.android2017.view.ViewActivity;
 
 public class MainActivity extends BaseActivity {
 
-    @InjectView(R.id.propertyAnimTv)
+    @BindView(R.id.propertyAnimTv)
     TextView mPropertyAnimTv;
-    @InjectView(R.id.tweenAnimTv)
+    @BindView(R.id.tweenAnimTv)
     TextView mTweenAnimTv;
-    @InjectView(R.id.frameAnimTv)
+    @BindView(R.id.frameAnimTv)
     TextView mrameAnimTv;
 
 

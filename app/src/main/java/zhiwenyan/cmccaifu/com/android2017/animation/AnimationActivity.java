@@ -9,14 +9,14 @@ import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
 public class AnimationActivity extends BaseActivity {
 
-    @InjectView(R.id.target)
+    @BindView(R.id.target)
     TextView mTarget;
 
     @Override

@@ -15,6 +15,8 @@ public class HandlerActivity extends AppCompatActivity {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
+            //主线程  线程之间的通信
+            mTextView.setText("textView");
         }
     };
 
@@ -32,7 +34,7 @@ public class HandlerActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 Looper.prepare();
-                Handler handler=new Handler();
+                Handler handler = new Handler();
                 Message message = Message.obtain();
                 Looper.loop();
                 message.obj = "Handler Test";
@@ -40,4 +42,5 @@ public class HandlerActivity extends AppCompatActivity {
             }
         }).start();
     }
+
 }

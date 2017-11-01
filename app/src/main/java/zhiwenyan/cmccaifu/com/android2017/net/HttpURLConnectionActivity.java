@@ -12,13 +12,13 @@ import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
 public class HttpURLConnectionActivity extends BaseActivity {
-    @InjectView(R.id.tv)
+    @BindView(R.id.tv)
     TextView mTv;
 
     @Override

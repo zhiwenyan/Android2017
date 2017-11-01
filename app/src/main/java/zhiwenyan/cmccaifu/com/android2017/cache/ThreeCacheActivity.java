@@ -10,18 +10,18 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
 public class ThreeCacheActivity extends BaseActivity {
 
-    @InjectView(R.id.get)
+    @BindView(R.id.get)
     Button mGet;
-    @InjectView(R.id.infoTv)
+    @BindView(R.id.infoTv)
     TextView mInfoTv;
-    @InjectView(R.id.img)
+    @BindView(R.id.img)
     ImageView mImg;
 
     MyBitmapUtils myBitmapUtils;

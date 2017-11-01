@@ -2,13 +2,13 @@ package zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins;
 
 import android.support.v7.widget.RecyclerView;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
 public class JokeListActivity extends BaseActivity {
 
-    @InjectView(R.id.rv)
+    @BindView(R.id.rv)
     RecyclerView mRv;
 
     @Override

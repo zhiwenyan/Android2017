@@ -26,22 +26,22 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 import zhiwenyan.cmccaifu.com.android2017.R;
 
 public class DeviceActivity extends AppCompatActivity {
 
-    @InjectView(R.id.btn1)
+    @BindView(R.id.btn1)
     Button btn1;
-    @InjectView(R.id.btn2)
+    @BindView(R.id.btn2)
     Button btn2;
-    @InjectView(R.id.btn3)
+    @BindView(R.id.btn3)
     Button btn3;
-    @InjectView(R.id.btn4)
+    @BindView(R.id.btn4)
     Button btn4;
-    @InjectView(R.id.phoneInfo)
+    @BindView(R.id.phoneInfo)
     TextView phoneInfo;
 
 
@@ -49,7 +49,7 @@ public class DeviceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
     }
 
     @OnClick({R.id.btn1, R.id.btn2, R.id.btn3})

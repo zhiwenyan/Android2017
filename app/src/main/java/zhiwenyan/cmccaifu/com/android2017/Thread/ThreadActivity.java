@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
@@ -18,17 +18,17 @@ import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 public class ThreadActivity extends BaseActivity implements View.OnClickListener {
 
 
-    @InjectView(R.id.progressBar)
+    @BindView(R.id.progressBar)
     ProgressBar progressBar;
-    @InjectView(R.id.tv_start)
+    @BindView(R.id.tv_start)
     TextView tvStart;
-    @InjectView(R.id.tv_cancel)
+    @BindView(R.id.tv_cancel)
     TextView tvCancel;
-    @InjectView(R.id.tv_info1)
+    @BindView(R.id.tv_info1)
     TextView tvInfo1;
-    @InjectView(R.id.tv_info2)
+    @BindView(R.id.tv_info2)
     TextView tvInfo2;
-    @InjectView(R.id.cb_cancel)
+    @BindView(R.id.cb_cancel)
     CheckBox cbCancel;
 
     private Callable<String> callable;
