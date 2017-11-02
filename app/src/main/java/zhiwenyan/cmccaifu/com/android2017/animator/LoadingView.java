@@ -62,8 +62,8 @@ public class LoadingView extends LinearLayout {
             return;
 
         ObjectAnimator translationY = ObjectAnimator.ofFloat(mShapeView, "translationY", 0, mTransY);
+        translationY.start();
         ObjectAnimator scaleAnimator = ObjectAnimator.ofFloat(mShadowView, "scaleX", 1.0f, 0.3f);
-
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.setInterpolator(new AccelerateInterpolator());  //插值器
         animatorSet.playTogether(translationY, scaleAnimator);

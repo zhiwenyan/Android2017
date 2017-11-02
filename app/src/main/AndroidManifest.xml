@@ -209,7 +209,6 @@
         </activity>
         <activity android:name=".Handler.HandlerActivity">
         </activity>
-
         <activity android:name=".ViewGroup.Scroller.ScrollerActivity">
         </activity>
         <activity android:name=".view.scanloading.ScanLoadingActivity">
@@ -223,7 +222,8 @@
         <activity android:name=".view.wave.WaveViewActivity">
         </activity>
         <activity android:name=".butterknife.ButterKnifeActivity">
-
+        </activity>
+        <activity android:name=".DesignPattern.adapter.simple4.StevenListViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

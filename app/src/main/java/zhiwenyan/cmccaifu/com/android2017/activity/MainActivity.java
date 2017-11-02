@@ -20,6 +20,7 @@ import java.util.Enumeration;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import timber.log.Timber;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.builder.navigation.NavigationBar;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple1.IOHandler;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple1.IOHandlerFactory;
@@ -101,10 +102,12 @@ public class MainActivity extends BaseActivity {
                 .create();
         //如果想设置字体的大小、颜色，图片、等等
         TextView textView = navigationBar.findById(R.id.text);
-
-
         //在写代码时 高扩展 并不是要把所有的的内容和出现的问题都想到，而在新增的功能时候可以保证原来的代码不变
         //对于开发者来说，需要用好最少知识原则，使用者并不需要关注太多
+
+
+        //日志输出
+        Timber.d("TAG", "log");
     }
 
 

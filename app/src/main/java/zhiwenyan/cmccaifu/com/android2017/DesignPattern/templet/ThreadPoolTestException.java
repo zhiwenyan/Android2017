@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Created by yanzhiwen on 2017/11/1.
  */
 
-public class ThreadPoolTest {
+public class ThreadPoolTestException {
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     // We want at least 2 threads and at most 4 threads in the core pool,
     // preferring to have 1 less than the CPU count to avoid saturating
@@ -29,17 +29,25 @@ public class ThreadPoolTest {
             return new Thread(r, "AsyncTask #" + mCount.getAndIncrement());
         }
     };
-
     private static final BlockingQueue<Runnable> sPoolWorkQueue =
-            new LinkedBlockingQueue<>(128);
+            new LinkedBlockingQueue<>(6);
+
+    //BlockingQueue 先进先出的队列
+    //SynchronousQueue 线程安全的队列，它里面没有固定的缓存（OkHttp）
+    //PriorityBlockingQueue 无序的可以根据优先级排序
 
     /**
      * An {@link Executor} that can be used to execute tasks in parallel.
      */
     public static final Executor THREAD_POOL_EXECUTOR;
+    //RejectedExecutionException 报错的原因，其实是AsyncTask一些隐患，比如去执行200个Runnable 肯定会报错
 
+
+    //线程队列4 最大核心线程数是10 缓存队列是6 20个Runnable
+    //20个任务需要执行，但是核心线程数只有4个，还有14个任务对列 非核心线程数还有6个，这时候会开6个线程去执行，
+    //目前达到10个最大线程数，还有8个Runnable没有办法执行，则会抛出异常
     static {
-        ThreadPoolExecutor  threadPoolExecutor = new ThreadPoolExecutor(
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
                 4,  //核心线程数
                 10, //线程池中最大的线程数
                 60,  //线程的存活时间，没事干的时候，空闲的时间
@@ -55,7 +63,6 @@ public class ThreadPoolTest {
                 });
         threadPoolExecutor.allowCoreThreadTimeOut(true);
         THREAD_POOL_EXECUTOR = threadPoolExecutor;
-
 
 
         for (int i = 0; i < 20; i++) {
