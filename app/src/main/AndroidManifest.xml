@@ -51,7 +51,6 @@
         <activity
             android:name=".activity.MainActivity"
             android:launchMode="singleTask">
-
         </activity>
         <activity android:name=".animator.AnimatorActivity"/>
         <activity android:name=".okhttp.OkhttpActivity"/>
@@ -229,6 +228,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".DesignPattern.observeable.simple5.InsuranceActivity">
         </activity>
     </application>
 

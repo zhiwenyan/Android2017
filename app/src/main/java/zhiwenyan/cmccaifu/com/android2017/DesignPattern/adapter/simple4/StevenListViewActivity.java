@@ -2,7 +2,6 @@ package zhiwenyan.cmccaifu.com.android2017.DesignPattern.adapter.simple4;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,12 +21,14 @@ public class StevenListViewActivity extends AppCompatActivity {
             mDatas.add(i + "");
         }
 
-        for (String item : mDatas) {
-            android.widget.TextView itemView =
-                    (android.widget.TextView) LayoutInflater.from(this).inflate(R.layout.steven_list_item, null);
-            itemView.setText(item);
-            mListView.addView(itemView);
-
-        }
+//        for (String item : mDatas) {
+//            android.widget.TextView itemView =
+//                    (android.widget.TextView) LayoutInflater.from(this).inflate(R.layout.steven_list_item, null);
+//            itemView.setText(item);
+//            mListView.addView(itemView);
+//
+//        }
+        //adapter
+        mListView.setAdapter(new ListAdapter(mDatas,this));
     }
 }

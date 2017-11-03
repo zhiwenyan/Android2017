@@ -12,6 +12,7 @@ import android.widget.ScrollView;
 
 public class StevenListView extends ScrollView {
     private LinearLayout mContainer;
+    private ListAdapter mListAdapter; //目标接口
 
     public StevenListView(Context context) {
         this(context, null);
@@ -36,5 +37,14 @@ public class StevenListView extends ScrollView {
     @Override
     public void addView(View child) {
         mContainer.addView(child);
+    }
+
+    public void setAdapter(ListAdapter adapter) {
+        mListAdapter = adapter;
+        int count = mListAdapter.getCount();
+        for (int i = 0; i < count; i++) {
+            View childView = mListAdapter.getView(i, mContainer);
+            mContainer.addView(childView);
+        }
     }
 }

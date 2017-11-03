@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.io.File;
@@ -110,6 +111,13 @@ public class MainActivity extends BaseActivity {
         Timber.d("TAG", "log");
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        ListView listView=new ListView(this);
+        //listView.setAdapter();
+
+    }
 
     @Override
     protected int getLayoutId() {
