@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:name=".CashMall"
@@ -230,6 +231,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".DesignPattern.observeable.simple5.InsuranceActivity">
+        </activity>
+        <activity android:name=".DesignPattern.decker.simple2.WrapRecyclerActivity">
         </activity>
     </application>
 
