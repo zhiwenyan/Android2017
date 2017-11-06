@@ -224,15 +224,16 @@
         <activity android:name=".butterknife.ButterKnifeActivity">
         </activity>
         <activity android:name=".DesignPattern.adapter.simple4.StevenListViewActivity">
+
+        </activity>
+        <activity android:name=".DesignPattern.observeable.simple5.InsuranceActivity">
+        </activity>
+        <activity android:name=".DesignPattern.decker.simple2.WrapRecyclerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-        <activity android:name=".DesignPattern.observeable.simple5.InsuranceActivity">
-        </activity>
-        <activity android:name=".DesignPattern.decker.simple2.WrapRecyclerActivity">
         </activity>
     </application>
 

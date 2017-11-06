@@ -8,20 +8,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import zhiwenyan.cmccaifu.com.android2017.R;
 
 public class WrapRecyclerActivity extends AppCompatActivity {
-    private RecyclerView mRecyclerView;
+    private WrapRecyclerView mRecyclerView;
+    private List<Integer> mItems = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycler_view);
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        setContentView(R.layout.activity_wrap_recycler);
+        for (int i = 0; i < 20; i++) {
+            mItems.add(i);
+        }
+        mRecyclerView = (WrapRecyclerView) findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         RecyclerAdapter RecyclerAdapter = new RecyclerAdapter();
-        WrapRecyclerAdapter wrapRecyclerAdapter = new WrapRecyclerAdapter(RecyclerAdapter);
-        mRecyclerView.setAdapter(wrapRecyclerAdapter);
+        //  WrapRecyclerAdapter wrapRecyclerAdapter = new WrapRecyclerAdapter(RecyclerAdapter);
+        View headView = LayoutInflater.from(this).inflate(R.layout.header_view, mRecyclerView, false);
+        mRecyclerView.setAdapter(RecyclerAdapter);
+        mRecyclerView.addHeaderView(headView);
+        //面向对象六大基本原则在哪里？最少知识原则又在哪里？必须要让ListView那样支持
+
+        //不要代码过度封装
+
     }
 
     private class RecyclerAdapter extends RecyclerView.Adapter<ViewHolder> {
@@ -34,13 +47,21 @@ public class WrapRecyclerActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
-            holder.mTextView.setText("position->" + position);
+        public void onBindViewHolder(ViewHolder holder, final int position) {
+
+            holder.mTextView.setText("position->" + mItems.get(position));
+            holder.mTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mItems.remove(position);
+                    notifyDataSetChanged();
+                }
+            });
         }
 
         @Override
         public int getItemCount() {
-            return 100;
+            return mItems.size();
         }
     }
 

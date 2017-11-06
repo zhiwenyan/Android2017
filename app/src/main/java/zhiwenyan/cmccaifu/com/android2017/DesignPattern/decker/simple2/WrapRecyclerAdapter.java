@@ -22,6 +22,13 @@ public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     public WrapRecyclerAdapter(RecyclerView.Adapter adapter) {
         mRealAdapter = adapter;
+        mRealAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onChanged() {
+               // super.onChanged();
+                notifyDataSetChanged();
+            }
+        });
         mHeaderViews = new ArrayList<>();
         mFooterViews = new ArrayList<>();
     }
@@ -62,7 +69,23 @@ public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
+        // 这个方法先不写，测试一下
+        // 头部和底部是都不需要做处理的，只要 mRealAdapter 要去做处理
+        int numHeaders = getHeadersCount();
+        if (position < numHeaders) {
+            return ;
+        }
+
+        final int adjPosition = position - numHeaders;
+        int adapterCount = 0;
+        if (mRealAdapter != null) {
+            adapterCount = mRealAdapter.getItemCount();
+            if (adjPosition < adapterCount) {
+                mRealAdapter.onBindViewHolder(holder,position);
+            }
+        }
     }
+
 
     @Override
     public int getItemCount() {
