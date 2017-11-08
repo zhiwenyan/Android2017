@@ -32,12 +32,50 @@ public class TouchViewGroup extends LinearLayout {
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         Log.i("TAG", "ViewGroup-->onInterceptTouchEvent: " + ev.getAction());
-        return super.onInterceptTouchEvent(ev);
+        return true;
     }
 
+
+//    I/TAG: ViewGroup-->dispatchTouchEvent: 0
+//    I/TAG: ViewGroup-->onInterceptTouchEvent: 0
+//    I/TAG: View-->dispatchTouchEvent: 0
+//    I/TAG: tv-->OnTouchListener: 0
+//    I/TAG: View-->onTouchEvent: 0
+//    I/TAG: ViewGroup-->dispatchTouchEvent: 1
+//    I/TAG: ViewGroup-->onInterceptTouchEvent: 1
+//    I/TAG: View-->dispatchTouchEvent: 1
+//    I/TAG: tv-->OnTouchListener: 1
+//    I/TAG: View-->onTouchEvent: 1
+//    I/TAG: tv-->onClick:
+
+
+//    I/TAG: ViewGroup-->dispatchTouchEvent: 0
+//    I/TAG: ViewGroup-->onInterceptTouchEvent: 0
+//    I/TAG: View-->dispatchTouchEvent: 0
+//    I/TAG: tv-->OnTouchListener: 0
+//    I/TAG: View-->onTouchEvent: 0
+//    I/TAG: ViewGroup-->dispatchTouchEvent: 1
+//    I/TAG: ViewGroup-->onInterceptTouchEvent: 1
+//    I/TAG: View-->dispatchTouchEvent: 1
+//    I/TAG: tv-->OnTouchListener: 1
+//    I/TAG: View-->onTouchEvent: 1
+//    I/TAG: tv-->onClick:
+
+
+//    I/TAG: ViewGroup-->dispatchTouchEvent: 0
+//    I/TAG: ViewGroup-->onInterceptTouchEvent: 0
+//    I/TAG: View-->dispatchTouchEvent: 0
+//    I/TAG: tv-->OnTouchListener: 0
+//    I/TAG: View-->onTouchEvent: 0
+//    I/TAG: ViewGroup-->dispatchTouchEvent: 1
+//    I/TAG: ViewGroup-->onInterceptTouchEvent: 1
+//    I/TAG: View-->dispatchTouchEvent: 1
+//    I/TAG: tv-->OnTouchListener: 1
+//    I/TAG: View-->onTouchEvent: 1
+//    I/TAG: tv-->onClick:
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         Log.i("TAG", "ViewGroup-->onTouchEvent: " + event.getAction());
-        return super.onTouchEvent(event);
+        return true;
     }
 }

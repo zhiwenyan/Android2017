@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<zhiwenyan.cmccaifu.com.android2017.view.KuoguMenu.KugouMenu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/home_menu_bg1"
+    app:menuMarginRight="60dp"
+    tools:context="zhiwenyan.cmccaifu.com.android2017.view.KuoguMenu.KugouMenuActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <include layout="@layout/layout_home_menu"/>
+
+        <include layout="@layout/layout_home_content"/>
+
+
+    </LinearLayout>
+</zhiwenyan.cmccaifu.com.android2017.view.KuoguMenu.KugouMenu>

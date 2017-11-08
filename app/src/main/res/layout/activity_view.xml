@@ -175,6 +175,20 @@
             android:layout_height="wrap_content"
             android:text="WaveView"
             android:textAllCaps="true"/>
+
+        <Button
+            android:id="@+id/btn28"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自定义评分控件"
+            android:textAllCaps="true"/>
+
+        <Button
+            android:id="@+id/btn29"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="酷狗Menu"
+            android:textAllCaps="true"/>
     </LinearLayout>
 
 </ScrollView>

@@ -34,7 +34,11 @@ public class ViewGroupActivity extends AppCompatActivity {
         });
     }
 
-
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        Log.i("TAG", "A---onTouchEvent: " + event.getAction());
+//        return super.onTouchEvent(event);
+//    }
     /*
      * 实现onInterceptTouchEvent方法可以用来拦截父ViewGroup传递下来的所有触屏事件，
      * 可以将所有触屏事件交由此ViewGroup自身的onTouchEvent来处理，也可以继续传递给其子View来处理。
@@ -49,8 +53,8 @@ public class ViewGroupActivity extends AppCompatActivity {
      如果ViewGroup的onTouchEvent返回false，down传递给父ViewGroup，后续事件不再传递给该ViewGroup；
      如果ViewGroup的onTouchEvent返回true，后续事件不再经过该ViewGroup的onInterceptTouchEvent方法，直接传递给onTouchEvent方法处理
 
-     onInterceptTouchEvent返回ture，down事件将转交该ViewGroup的onTouchEvent来处理；若onTouchEvent返回true，
-     后续事件将不再经过该ViewGroup的onInterceptTouchEvent方法，直接交由该ViewGroup的onTouchEvent方法处理；
+     onInterceptTouchEvent返回ture，down事件将转交该ViewGroup的onTouchEvent来处理；
+     若onTouchEvent返回true，后续事件将不再经过该ViewGroup的onInterceptTouchEvent方法，直接交由该ViewGroup的onTouchEvent方法处理；
      若onTouchEvent方法返回false，后续事件都将交由父ViewGroup处理，不再经过该ViewGroup的onInterceptTouchEvent方法和onTouchEvent方法
 
      看来onInterceptTouchEvent的ACTION_MOVE事件不执行的原因就是子view的down事件返回了fasle，然后ViewGroup的onTouchEvent 的down事件返回false，

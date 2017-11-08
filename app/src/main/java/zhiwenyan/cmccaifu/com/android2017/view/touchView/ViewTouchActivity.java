@@ -34,4 +34,6 @@ public class ViewTouchActivity extends AppCompatActivity {
         Log.i("TAG", "OnTouchListener-->onTouchEvent: " + event.getAction());
         return super.onTouchEvent(event);
     }
+
+
 }
