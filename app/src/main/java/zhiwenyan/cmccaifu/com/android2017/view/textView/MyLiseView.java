@@ -26,6 +26,7 @@ public class MyLiseView extends ListView {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         //解决显示不全的问题
         heightMeasureSpec = MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE >> 2, MeasureSpec.AT_MOST);
+        //heightMeasureSpec 32位的值 30位Integer.MAX_VALUE >> 2 2为MeasureSpec.AT_MOS
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
     }

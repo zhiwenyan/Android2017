@@ -28,5 +28,7 @@ public class InsuranceActivity extends AppCompatActivity {
 
     @OnClick(R.id.submitBtn)
     public void onClick() {
+
+
     }
 }

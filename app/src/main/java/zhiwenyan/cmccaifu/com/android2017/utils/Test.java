@@ -28,7 +28,7 @@ class word extends Thread {
 
 public class Test {
     public static final String REGEX_EMAIL = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
-//1304109092丑@qq.com
+
     /**
      * 验证邮箱
      *
@@ -38,6 +38,7 @@ public class Test {
     public static boolean isEmail(final String input) {
         return isMatch(REGEX_EMAIL, input);
     }
+
     /**
      * 判断是否匹配正则
      *
@@ -54,9 +55,9 @@ public class Test {
         word w = new word();
         w.start();
         //15.0,76.85;
-        float a=15.0f;
-        float b=76.85f;
-        System.out.println(b-a);
+        float a = 15.0f;
+        float b = 76.85f;
+        System.out.println(b - a);
 
     }
 }
