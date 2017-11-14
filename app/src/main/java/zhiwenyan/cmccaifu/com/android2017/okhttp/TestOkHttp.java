@@ -9,7 +9,6 @@ import okhttp3.OkHttpClient;
 public class TestOkHttp {
     private OkHttpClient mOkHttpClient=new OkHttpClient();
 
-
     public static void main(String[] args) {
 
     }

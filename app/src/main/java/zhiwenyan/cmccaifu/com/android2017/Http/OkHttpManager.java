@@ -97,6 +97,7 @@ public class OkHttpManager {
                 .build();
 
         //服务器发送异步请求
+        //队列处理  enqueue
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull final IOException e) {
@@ -178,11 +179,12 @@ public class OkHttpManager {
             return;
         }
 
-
+        //构建一个请求
         Request request = new Request.Builder()
                 .tag(tag)
                 .url(url)
                 .build();
+        //newCall() 把Request转化成RealCall
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull final IOException e) {
