@@ -83,7 +83,7 @@ public class OkHttpManager {
      */
     public void get(String tag, final String url, final HttpCallBack<? extends Object> callBack) {
         if (!NetworkUtils.isConnectedByState(CashMall.getContext())) {
-            callBack.onFailure(5, "主人，请检查您的网络！！");
+            callBack.onFailure(5, "主人，请检查您的网络！");
             return;
         }
         if (!NetworkUtils.isNetAvailable(CashMall.getContext())) {
