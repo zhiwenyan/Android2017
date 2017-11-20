@@ -13,6 +13,14 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    sourceCompatibility = "1.7"
+    targetCompatibility = "1.7"
+
     buildTypes {
         release {
             minifyEnabled false
@@ -28,4 +36,6 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
+    compile 'com.google.auto.service:auto-service:1.0-rc3'
+    compile 'com.squareup:javapoet:1.8.0'
 }

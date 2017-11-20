@@ -54,7 +54,8 @@ public class AnimationActivity extends BaseActivity {
 //                Animation animation = AnimationUtils.loadAnimation(this, R.anim.simple_anim);
 //                animation.setDuration(3000);
 //                mTarget.startAnimation(animation);
-                ScaleAnimation scaleAnimation1 = new ScaleAnimation(0.1f, 1.0f, 0.1f, 1f, Animation.RELATIVE_TO_SELF, 0.5f,
+                ScaleAnimation scaleAnimation1 = new ScaleAnimation(0.1f, 1.0f, 0.1f, 1f,
+                        Animation.RELATIVE_TO_SELF, 0.5f,
                         Animation.RELATIVE_TO_SELF, 0.5f);
                 RotateAnimation rotateAnimation1 = new RotateAnimation(0f, 360f, Animation.RELATIVE_TO_SELF,
                         0.5f, Animation.RELATIVE_TO_SELF, 0.5f);

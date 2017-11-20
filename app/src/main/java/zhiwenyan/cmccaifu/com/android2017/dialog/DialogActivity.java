@@ -1,17 +1,21 @@
 package zhiwenyan.cmccaifu.com.android2017.dialog;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 
+import butterknife.BindView;
 import butterknife.OnClick;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
 public class DialogActivity extends BaseActivity {
 
+    @BindView(R.id.oppoProgress)
+    OppoProgress mOppoProgress;
 
     @Override
     protected int getLayoutId() {
@@ -19,8 +23,9 @@ public class DialogActivity extends BaseActivity {
     }
 //121.40.231.176
 
-    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5})
+    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5,R.id.oppo})
     public void onClick(View view) {
+       mOppoProgress.startAnimation();
         switch (view.getId()) {
             case R.id.btn1:
                 new AlertDialog.Builder(this)
@@ -61,6 +66,13 @@ public class DialogActivity extends BaseActivity {
                     }
                 });
                 bottomSheetDialog.show();
+                break;
+            case R.id.oppo:
+                Dialog oppoDialog=new Dialog(this,R.style.dialog);
+                oppoDialog.setContentView(R.layout.oppo_dialog);
+                oppoDialog.create();
+                oppoDialog.show();
+                break;
         }
     }
 }

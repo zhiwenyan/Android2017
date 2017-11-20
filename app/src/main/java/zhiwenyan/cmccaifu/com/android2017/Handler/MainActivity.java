@@ -1,11 +1,14 @@
 package zhiwenyan.cmccaifu.com.android2017.Handler;
 
+import android.os.Handler;
+
 /**
  * Created by yanzhiwen on 2017/11/1.
  */
 
 public class MainActivity extends Activity {
     private TextView mTextView;
+
     private Handler1 mHandler1 = new Handler1() {
         @Override
         public void handlerMessage(Message1 msg) {
@@ -13,13 +16,18 @@ public class MainActivity extends Activity {
             mTextView.setText((String) msg.obj);
         }
     };
-
     @Override
     public void onCreate() {
         super.onCreate();
         System.out.println("onCreate()方法执行了");
         mTextView = findViewById(R.id.text_view);
 
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
 
         new Thread(new Runnable() {
             @Override

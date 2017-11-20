@@ -17,8 +17,7 @@ public class ButterKnifeActivity extends AppCompatActivity {
     TextView tv1;
     @BindView(R.id.tv2)
     TextView tv2;
-    @BindView(R.id.tv3)
-    TextView tv3;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +28,8 @@ public class ButterKnifeActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         mUnbinder.unbind();
+        super.onDestroy();
     }
+
 }

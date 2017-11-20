@@ -44,6 +44,7 @@ import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 import zhiwenyan.cmccaifu.com.android2017.behavior.BehaviorActivity;
 import zhiwenyan.cmccaifu.com.android2017.cache.ThreeCacheActivity;
 import zhiwenyan.cmccaifu.com.android2017.cache.lru.PhotoWallActivity;
+import zhiwenyan.cmccaifu.com.android2017.dialog.DialogActivity;
 import zhiwenyan.cmccaifu.com.android2017.glide.GlideActivity;
 import zhiwenyan.cmccaifu.com.android2017.indicatorViewPager.CommonViewPagerActivity;
 import zhiwenyan.cmccaifu.com.android2017.materialdesign.DrawActivity;
@@ -114,7 +115,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        ListView listView=new ListView(this);
+        ListView listView = new ListView(this);
         //listView.setAdapter();
 
     }
@@ -129,7 +130,7 @@ public class MainActivity extends BaseActivity {
             R.id.okHttpTv, R.id.retrofit, R.id.bannerTv, R.id.viewTv, R.id.viewgroupTv, R.id.commonViewPager,
             R.id.threedTv, R.id.lruTv, R.id.drawTv, R.id.coorTv, R.id.messenger, R.id.startService,
             R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager, R.id.bntv, R.id.device, R.id.sensor
-            , R.id.rg, R.id.sqliteTv})
+            , R.id.rg, R.id.sqliteTv, R.id.dialogTv})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -247,6 +248,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.sqliteTv:
                 intent = new Intent(this, SqliteActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.dialogTv:
+                intent = new Intent(this, DialogActivity.class);
                 startActivity(intent);
                 break;
         }

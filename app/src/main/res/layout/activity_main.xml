@@ -596,6 +596,32 @@
 
 
             </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Dialog"
+                android:textColor="#22fff8"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/dialogTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#22fff8"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Dialog"
+                    android:textColor="@color/colorWhite"/>
+
+
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

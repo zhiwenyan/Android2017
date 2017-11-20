@@ -5,14 +5,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 
 public abstract class BaseActivity extends AppCompatActivity {
+    private Unbinder mUnbinder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
-        ButterKnife.bind(this);
+        mUnbinder = ButterKnife.bind(this);
         initToolBar();
         init();
 
@@ -43,5 +46,11 @@ public abstract class BaseActivity extends AppCompatActivity {
             this.finish();
         }
         return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mUnbinder.unbind();
     }
 }

@@ -3,6 +3,7 @@ package zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -55,12 +56,12 @@ public class SectionItemDecorationActivity extends AppCompatActivity {
         okHttpClient.newCall(request.build()).enqueue(new Callback() {
 
             @Override
-            public void onFailure(Call call, IOException e) {
+            public void onFailure(@NonNull Call call, IOException e) {
                 e.printStackTrace();
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                 String result = response.body().string();
                 Movies movies = new Gson().fromJson(result, Movies.class);
                 final List<Movies.DataBean.ComingBean> mLists = movies.getData().getComing();

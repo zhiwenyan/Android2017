@@ -58,7 +58,6 @@ public class Test {
         float a = 15.0f;
         float b = 76.85f;
         System.out.println(b - a);
-
     }
 }
 
