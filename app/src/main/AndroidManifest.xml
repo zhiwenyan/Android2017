@@ -52,11 +52,7 @@
         <activity
             android:name=".activity.MainActivity"
             android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".animator.AnimatorActivity"/>
         <activity android:name=".okhttp.OkhttpActivity"/>
@@ -241,9 +237,15 @@
         <activity android:name=".DesignPattern.observeable.simple5.Main3Activity">
         </activity>
         <activity android:name=".DesignPattern.iterator.simple3.bottomTab.BottomTabItemActivity">
-
         </activity>
         <activity android:name=".eventbus.EventBusActivity">
+        </activity>
+        <activity android:name=".okhttp.okhttp.OKHttpSourceActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
     </application>
 

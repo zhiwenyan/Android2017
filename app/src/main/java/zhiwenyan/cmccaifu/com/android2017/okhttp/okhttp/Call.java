@@ -5,5 +5,8 @@ package zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp;
  * Data：11/20/2017-2:25 PM
  * Author: yanzhiwen
  */
-public class Call {
+public interface Call {
+    void enqueue(CallBack callBack);
+
+    Response execute();
 }

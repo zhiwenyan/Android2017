@@ -6,5 +6,22 @@ package zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp;
  * Author: yanzhiwen
  */
 public enum Method {
-    POST, GET, HEAD, PUT, DELETE, PATCH
+    POST("post"), GET("get"), HEAD("head"), PUT("put"), DELETE("delete"), PATCH("patch");
+    String name;
+
+    Method(String name) {
+        this.name = name;
+    }
+
+    public boolean doOutPut() {
+        switch (this) {
+            case PUT:
+            case POST:
+                return true;
+            default:
+                break;
+        }
+        return false;
+
+    }
 }

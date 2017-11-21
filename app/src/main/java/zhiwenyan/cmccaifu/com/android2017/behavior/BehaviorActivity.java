@@ -4,12 +4,16 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
-import butterknife.BindView;import zhiwenyan.cmccaifu.com.android2017.R;
+import butterknife.BindView;
+import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
 public class BehaviorActivity extends BaseActivity {
     @BindView(R.id.btn)
     Button mBtn;
+
+
+
 
     @Override
     protected int getLayoutId() {

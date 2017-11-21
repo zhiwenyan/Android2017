@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Environment;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -56,7 +57,7 @@ import zhiwenyan.cmccaifu.com.android2017.retrofit.RetrofitActivity;
 import zhiwenyan.cmccaifu.com.android2017.sqlite.SqliteActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.ViewActivity;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity{
 
     @BindView(R.id.propertyAnimTv)
     TextView mPropertyAnimTv;
@@ -64,7 +65,6 @@ public class MainActivity extends BaseActivity {
     TextView mTweenAnimTv;
     @BindView(R.id.frameAnimTv)
     TextView mrameAnimTv;
-
 
     @Override
     protected void onResume() {

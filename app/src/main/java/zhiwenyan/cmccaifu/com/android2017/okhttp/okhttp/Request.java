@@ -12,12 +12,13 @@ public class Request {
     final String url;
     final Method method;
     final Map<String, String> headers;
-
+    final RequestBody mRequestBody;
 
     public Request(Builder builder) {
         this.url = builder.url;
         this.method = builder.method;
         this.headers = builder.headers;
+        this.mRequestBody = builder.mRequestBody;
     }
 
     public static class Builder {
@@ -25,6 +26,7 @@ public class Request {
         String url;
         Method method;
         Map<String, String> headers = new HashMap<>();
+        RequestBody mRequestBody;
 
         public Builder() {
             method = Method.GET;
@@ -42,12 +44,18 @@ public class Request {
 
         protected Builder post(RequestBody requestBody) {
             method = Method.POST;
+            this.mRequestBody = requestBody;
             return this;
         }
 
         protected Builder header(String value, String key) {
             headers.put(value, key);
             return this;
+        }
+
+
+        protected Request builder() {
+            return new Request(this);
         }
 
     }

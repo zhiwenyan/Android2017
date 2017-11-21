@@ -13,6 +13,7 @@ import android.view.View;
  */
 
 public class CircleView extends View {
+
     private Paint mPaint;
 
 
