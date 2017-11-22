@@ -15,17 +15,17 @@ public class OKHttpSourceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_okhttp_source);
         OkHttpClient okHttpClient = new OkHttpClient.Builder().builder();
-        RequestBody requestBody=new RequestBody().addParam("","");
-        Request request = new Request.Builder().url("https://www.baidu.com/").post(requestBody).builder();
+//        RequestBody requestBody=new RequestBody().addParam("",“);
+        Request request = new Request.Builder().url("https://www.baidu.com/").builder();
         okHttpClient.newCall(request).enqueue(new CallBack() {
             @Override
             public void onFailure(Call call, IOException e) {
-
+                Log.e("TAG", "onFailure: 出错了"+e.getMessage());
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                Log.i("TAG", "onResponse: "+response.string());
+                Log.i("TAG", "onResponse: " + response.string());
             }
         });
     }

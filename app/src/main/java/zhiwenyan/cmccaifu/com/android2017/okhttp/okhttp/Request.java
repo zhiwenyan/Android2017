@@ -9,16 +9,32 @@ import java.util.Map;
  * Author: yanzhiwen
  */
 public class Request {
-    final String url;
-    final Method method;
-    final Map<String, String> headers;
-    final RequestBody mRequestBody;
+    public final String url;
+    public final Method method;
+    public final Map<String, String> headers;
+    public final RequestBody mRequestBody;
 
     public Request(Builder builder) {
         this.url = builder.url;
         this.method = builder.method;
         this.headers = builder.headers;
         this.mRequestBody = builder.mRequestBody;
+    }
+
+    public void header(String key, String value) {
+        headers.put(key, value);
+    }
+
+    public Method getMethod() {
+        return method;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public RequestBody getRequestBody() {
+        return mRequestBody;
     }
 
     public static class Builder {
@@ -37,24 +53,23 @@ public class Request {
             return this;
         }
 
-        protected Builder get() {
-
+        public Builder get() {
             return this;
         }
 
-        protected Builder post(RequestBody requestBody) {
+        public Builder post(RequestBody requestBody) {
             method = Method.POST;
             this.mRequestBody = requestBody;
             return this;
         }
 
-        protected Builder header(String value, String key) {
+        public Builder header(String value, String key) {
             headers.put(value, key);
             return this;
         }
 
 
-        protected Request builder() {
+        public Request builder() {
             return new Request(this);
         }
 

@@ -4,11 +4,14 @@ package zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp;
 import android.util.Log;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.net.ssl.HttpsURLConnection;
+import zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.interceptor.BridgeInterceptor;
+import zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.interceptor.CallServerInterceptor;
+import zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.interceptor.Interceptor;
+import zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.interceptor.RealInterceptorChain;
+
 
 /**
  * Description:
@@ -52,37 +55,13 @@ public class RealCall implements Call {
         public void execute() {
             //访问网络Request->Response
             Log.e("TAG", "execute: ");
-
             try {
-                URL url = new URL(mOrginRequest.url);
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-                if (urlConnection instanceof HttpsURLConnection) {
-                    urlConnection = (HttpsURLConnection) url.openConnection();
-
-                }
-                //  httpURLConnection.setReadTimeout(8*1000);
-                urlConnection.setRequestMethod(mOrginRequest.method.name);
-                urlConnection.setDoInput(mOrginRequest.method.doOutPut());
-                //写
-                RequestBody requestBody = mOrginRequest.mRequestBody;
-                if (requestBody != null) {
-                    //头信息
-                    urlConnection.setRequestProperty("Content-Type", requestBody.getContentType());
-                    urlConnection.setRequestProperty("Content-length", Long.toString(requestBody.getContentLength()));
-                }
-                //连接
-                urlConnection.connect();
-                if (requestBody != null) {
-                    requestBody.onWriteBody(urlConnection.getOutputStream());
-                }
-                //写内容
-                int code = urlConnection.getResponseCode();
-                if (code == 200) {
-                    InputStream inputStream = urlConnection.getInputStream();
-                    //转成
-                    Response response = new Response(inputStream);
-                    mCallBack.onResponse(RealCall.this, response);
-                }
+                List<Interceptor> interceptors = new ArrayList<>();
+                interceptors.add(new BridgeInterceptor());
+                interceptors.add(new CallServerInterceptor());
+                Interceptor.Chain chain = new RealInterceptorChain(interceptors, 0, mOrginRequest);
+                Response response = chain.proceed(mOrginRequest);
+                mCallBack.onResponse(RealCall.this, response);
             } catch (IOException e) {
                 e.printStackTrace();
                 mCallBack.onFailure(RealCall.this, e);
