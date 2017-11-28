@@ -23,9 +23,9 @@ public class DialogActivity extends BaseActivity {
     }
 //121.40.231.176
 
-    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5,R.id.oppo})
+    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5, R.id.oppo})
     public void onClick(View view) {
-       mOppoProgress.startAnimation();
+        mOppoProgress.startAnimation();
         switch (view.getId()) {
             case R.id.btn1:
                 new AlertDialog.Builder(this)
@@ -68,7 +68,7 @@ public class DialogActivity extends BaseActivity {
                 bottomSheetDialog.show();
                 break;
             case R.id.oppo:
-                Dialog oppoDialog=new Dialog(this,R.style.dialog);
+                Dialog oppoDialog = new Dialog(this, R.style.dialog);
                 oppoDialog.setContentView(R.layout.oppo_dialog);
                 oppoDialog.create();
                 oppoDialog.show();

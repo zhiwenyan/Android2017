@@ -98,7 +98,7 @@ public class BannerViewPager extends ViewPager {
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
             //Adapter设计模式为了完全让用户自定义
-            // position 0-2的31次方
+            //position 0-2的31次方
             View bannerItemView = mBannerAdapter.getView(position % mBannerAdapter.getCount());
             container.addView(bannerItemView);
             return bannerItemView;

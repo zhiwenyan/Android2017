@@ -20,7 +20,7 @@ public class OKHttpSourceActivity extends AppCompatActivity {
         okHttpClient.newCall(request).enqueue(new CallBack() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.e("TAG", "onFailure: 出错了"+e.getMessage());
+                Log.e("TAG", "onFailure: 出错了" + e.getMessage());
             }
 
             @Override

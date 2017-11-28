@@ -52,7 +52,6 @@
         <activity
             android:name=".activity.MainActivity"
             android:launchMode="singleTask">
-
         </activity>
         <activity android:name=".animator.AnimatorActivity"/>
         <activity android:name=".okhttp.OkhttpActivity"/>
@@ -241,11 +240,15 @@
         <activity android:name=".eventbus.EventBusActivity">
         </activity>
         <activity android:name=".okhttp.okhttp.OKHttpSourceActivity">
+        </activity>
+        <activity android:name=".DesignPattern.aop.AopActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".okhttp.okhttp.postFile.PostFileActivity">
         </activity>
     </application>
 
