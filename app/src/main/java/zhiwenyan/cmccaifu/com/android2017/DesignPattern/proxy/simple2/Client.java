@@ -41,7 +41,7 @@ public class Client {
         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
             //执行方法  目标接口调用的方法都会到这里
             System.out.println(method.getName());
-            //调用
+            //调用被代理的对象
             Object object = method.invoke(mObject, args);
             return object;
         }

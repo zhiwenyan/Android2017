@@ -3,16 +3,16 @@ GET
 0
 HTTP/1.1 200 OK
 10
-Server: nginx/1.10.0 (Ubuntu)
-Date: Wed, 19 Apr 2017 03:53:24 GMT
 Content-Type: text/plain
 Content-Length: 1759
-Last-Modified: Tue, 27 May 2014 02:35:47 GMT
 Connection: keep-alive
-ETag: "5383fa03-6df"
 Accept-Ranges: bytes
-OkHttp-Sent-Millis: 1492574003977
-OkHttp-Received-Millis: 1492574004385
+Server: nginx/1.10.0 (Ubuntu)
+Date: Wed, 29 Nov 2017 06:22:55 GMT
+Last-Modified: Tue, 27 May 2014 02:35:47 GMT
+ETag: "5383fa03-6df"
+OkHttp-Sent-Millis: 1511936576254
+OkHttp-Received-Millis: 1511936576528
 
 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 4

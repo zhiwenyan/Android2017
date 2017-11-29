@@ -8,11 +8,13 @@ import android.widget.TextView;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -35,13 +37,19 @@ public class RetrofitActivity extends BaseActivity {
     Retrofit mRetrofit;
     private static final String BASE_URL = "https://api.douban.com/v2/";
     BookService mBookService;
+    OkHttpClient mOkHttpClient;
 
     @Override
     protected void init() {
+        mOkHttpClient = new OkHttpClient.Builder()
+                .connectTimeout(12, TimeUnit.SECONDS)
+                .build();
         mRetrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
+                .client(mOkHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+        //主要的思想在这里
         mBookService = mRetrofit.create(BookService.class);
     }
 
@@ -118,7 +126,9 @@ public class RetrofitActivity extends BaseActivity {
     }
 
     private void getPath() {
+        //Call<T> 基于OKHttp的Call BookResponse 后台接口的返回值
         Call<BookResponse> call = mBookService.getBook("1003077");
+        //加入队列执行
         call.enqueue(new Callback<BookResponse>() {
             @Override
             public void onResponse(Call<BookResponse> call, Response<BookResponse> response) {
@@ -133,7 +143,7 @@ public class RetrofitActivity extends BaseActivity {
     }
 
     private void getPostFlied() {
-        Call<String> call = mBookService.addReviews("1003088", "三国", "Hello 三国", "5");
+        Call<String> call = mBookService.addReviews("1003088", "三国", "三国", "5");
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
