@@ -1,5 +1,6 @@
 package zhiwenyan.cmccaifu.com.android2017.banner.banner;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
@@ -22,6 +23,7 @@ public class BannerViewPager extends ViewPager {
     private int mCutDownTime = 3000;
     private BannerScroller mBannerScroller;
 
+    @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
