@@ -11,6 +11,7 @@ import java.lang.reflect.Proxy;
 public class Client {
     public static void main(String[] args) {
         Man man = new Man("Steven");
+
         //返回的是IBank的实例
         IBank iBank = (IBank) Proxy.newProxyInstance(IBank.class.getClassLoader()  //ClassLoader
                 , new Class<?>[]{IBank.class}    //目标接口

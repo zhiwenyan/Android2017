@@ -3,7 +3,6 @@ package zhiwenyan.cmccaifu.com.android2017.utils;
 import android.util.Log;
 
 
-
 public class LogUtil {
 
     public static final String TAG = "Android2017";

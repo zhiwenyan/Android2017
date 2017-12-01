@@ -1,5 +1,7 @@
 package zhiwenyan.cmccaifu.com.android2017.utils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 /**
@@ -58,6 +60,22 @@ public class Test {
         float a = 15.0f;
         float b = 76.85f;
         System.out.println(b - a);
+        List<Integer> lists = new ArrayList<>();
+        lists.add(1);
+        lists.add(2);
+        lists.add(3);
+        lists.add(2);
+        lists.add(1);
+        for (int i = 0; i < lists.size(); i++) {
+            //每一个元素去比较下
+            for (int j = i + 1; j < lists.size(); j++) {
+                //重复的元素相等
+                if (lists.get(i).equals(lists.get(j))) {
+                    System.out.println("重复的元素" + lists.get(i) + "重复的位置" + i + "," + j);
+                }
+            }
+        }
+
     }
 }
 

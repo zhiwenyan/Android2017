@@ -58,20 +58,4 @@ public class CacheResponse {
         new CacheResponse(new File("CacheResponse.tmp")).run();
     }
 
-//    Response 1 response:          Response{protocol=http/1.1, code=200, message=OK, url=https://publicobject.com/helloworld.txt}
-//        Response 1 cache response:    Response{protocol=http/1.1, code=200, message=OK, url=https://publicobject.com/helloworld.txt}
-//            Response 1 network response:  Response{protocol=http/1.1, code=304, message=Not Modified, url=https://publicobject.com/helloworld.txt}
-//                Response 2 response:          Response{protocol=http/1.1, code=200, message=OK, url=https://publicobject.com/helloworld.txt}
-//                    Response 2 cache response:    Response{protocol=http/1.1, code=200, message=OK, url=https://publicobject.com/helloworld.txt}
-//                        Response 2 network response:  null
-//                        Response 2 equals Response 1? true
-
-
-//    Response 1 response:          Response{protocol=http/1.1, code=200, message=OK, url=https://publicobject.com/helloworld.txt}
-//        Response 1 cache response:    Response{protocol=http/1.1, code=200, message=OK, url=https://publicobject.com/helloworld.txt}
-//            Response 1 network response:  null
-//            Response 2 response:          Response{protocol=http/1.1, code=200, message=OK, url=https://publicobject.com/helloworld.txt}
-//                Response 2 cache response:    Response{protocol=http/1.1, code=200, message=OK, url=https://publicobject.com/helloworld.txt}
-//                    Response 2 network response:  null
-//                    Response 2 equals Response 1? true
 }

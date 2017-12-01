@@ -2,10 +2,10 @@ package zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.downLoad;
 
 /**
  * Description:
- * Data：11/29/2017-4:57 PM
+ * Data：11/30/2017-3:00 PM
  *
  * @author: yanzhiwen
  */
-public class DownloadDiapatcher {
+public class DownLoadEntity {
 
 }

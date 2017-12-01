@@ -9,7 +9,7 @@ public class Singleton2 {
 
     //只有使用的时候去new
     //多线程的并发问题
-    private static  Singleton2 mInstance;
+    private static Singleton2 mInstance;
 
     private Singleton2() {
     }
