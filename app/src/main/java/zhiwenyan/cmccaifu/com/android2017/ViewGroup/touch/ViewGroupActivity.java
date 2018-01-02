@@ -26,14 +26,21 @@ public class ViewGroupActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(tv).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i("TAG", "tv-->onClick: ");
-            }
-        });
+//        findViewById(tv).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.i("TAG", "tv-->onClick: ");
+//            }
+//        });
     }
-
+    /**
+     * View的
+     *
+     *
+     *
+     *
+     *
+     */
 //    @Override
 //    public boolean onTouchEvent(MotionEvent event) {
 //        Log.i("TAG", "A---onTouchEvent: " + event.getAction());
@@ -60,4 +67,12 @@ public class ViewGroupActivity extends AppCompatActivity {
      看来onInterceptTouchEvent的ACTION_MOVE事件不执行的原因就是子view的down事件返回了fasle，然后ViewGroup的onTouchEvent 的down事件返回false，
      后续事件不再传递给该ViewGroup了。。
      */
+//    touch事件在onInterceptTouchEvent方法中的传递由父ViewGroup到子ViewGroup，在onTouchEvent方法中传递则相反。
+//
+//    onInterceptTouchEvent方法和onTouchEvent方法的返回值为true都代表消费了事件，反之则为false
+//
+//    onInterceptTouchEvent消费事件表示将事件直接传递给ViewGroup自身的onTouchEvent事件，后续事件不再经过onInterceptTouchEvent方法；不消费事件则表示将事件传递给子View处理
+//
+//    onTouchEvent消费事件表示不再向上传递，后续事件继续传递给该View的onTouchEvent方法；不消费事件则表示将事件传递给父ViewGroup，后续事件不再传递给该View
+// (该View是ViewGroup时onInterceptTouchEvent方法也不再收到后续事件)
 }

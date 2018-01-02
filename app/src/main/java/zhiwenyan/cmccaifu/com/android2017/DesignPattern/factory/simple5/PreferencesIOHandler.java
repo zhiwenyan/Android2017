@@ -38,7 +38,7 @@ public class PreferencesIOHandler implements IOHandler {
 
     @Override
     public String getString(String key) {
-        return  PreferencesUtils.getInstance().getString(key, "");
+        return PreferencesUtils.getInstance().getString(key, "");
     }
 
     @Override

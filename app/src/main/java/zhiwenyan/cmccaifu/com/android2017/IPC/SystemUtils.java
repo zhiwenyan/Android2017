@@ -13,17 +13,18 @@ import java.util.List;
 public class SystemUtils {
     /**
      * 判断应用是否已经启动
-     * @param context 一个context
+     *
+     * @param context     一个context
      * @param packageName 要判断应用的包名
      * @return boolean
      */
-    public static boolean isAppAlive(Context context, String packageName){
+    public static boolean isAppAlive(Context context, String packageName) {
         ActivityManager activityManager =
-                (ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE);
+                (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningAppProcessInfo> processInfos
                 = activityManager.getRunningAppProcesses();
-        for(int i = 0; i < processInfos.size(); i++){
-            if(processInfos.get(i).processName.equals(packageName)){
+        for (int i = 0; i < processInfos.size(); i++) {
+            if (processInfos.get(i).processName.equals(packageName)) {
                 Log.i("NotificationLaunch",
                         String.format("the %s is running, isAppAlive return true", packageName));
                 return true;
@@ -35,7 +36,7 @@ public class SystemUtils {
     }
 
     public static void startDetailActivity(Context context, String name, String price,
-                                           String detail){
+                                           String detail) {
 //        Intent intent = new Intent(context, DetailActivity.class);
 //        intent.putExtra("name", name);
 //        intent.putExtra("price", price);

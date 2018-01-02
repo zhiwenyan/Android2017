@@ -620,6 +620,17 @@
                     android:text="Dialog"
                     android:textColor="@color/colorWhite"/>
 
+                <TextView
+                    android:id="@+id/noticeTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#22fff8"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="通知"
+                    android:textColor="@color/colorWhite"/>
+
 
             </LinearLayout>
         </LinearLayout>

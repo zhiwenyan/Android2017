@@ -107,6 +107,7 @@ public class LoadingView extends RelativeLayout {
         animatorSet.start();
     }
 
+    //优化下
     @Override
     public void setVisibility(int visibility) {
         super.setVisibility(INVISIBLE);

@@ -5,11 +5,9 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Environment;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,7 +21,6 @@ import java.util.Enumeration;
 import butterknife.BindView;
 import butterknife.OnClick;
 import timber.log.Timber;
-import zhiwenyan.cmccaifu.com.android2017.DesignPattern.builder.navigation.NavigationBar;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple1.IOHandler;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple1.IOHandlerFactory;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple2.IOFactory;
@@ -43,6 +40,7 @@ import zhiwenyan.cmccaifu.com.android2017.banner.banner.BannerActivity;
 import zhiwenyan.cmccaifu.com.android2017.banner.cardViewPager.CardViewPagerActivity;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 import zhiwenyan.cmccaifu.com.android2017.behavior.BehaviorActivity;
+import zhiwenyan.cmccaifu.com.android2017.behavior.NewMessageNotification;
 import zhiwenyan.cmccaifu.com.android2017.cache.ThreeCacheActivity;
 import zhiwenyan.cmccaifu.com.android2017.cache.lru.PhotoWallActivity;
 import zhiwenyan.cmccaifu.com.android2017.dialog.DialogActivity;
@@ -57,7 +55,7 @@ import zhiwenyan.cmccaifu.com.android2017.retrofit.RetrofitActivity;
 import zhiwenyan.cmccaifu.com.android2017.sqlite.SqliteActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.ViewActivity;
 
-public class MainActivity extends BaseActivity{
+public class MainActivity extends BaseActivity {
 
     @BindView(R.id.propertyAnimTv)
     TextView mPropertyAnimTv;
@@ -91,19 +89,19 @@ public class MainActivity extends BaseActivity{
                 zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple5.IOHandlerFactory.getDefaultIOHandler();
 
         zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.IOHandlerFactory.getmInstance().getDefaultIOHandler();
-
-        ViewGroup parent = (ViewGroup) findViewById(R.id.view_root);
-        NavigationBar navigationBar = new NavigationBar.Builder(this, R.layout.ui_navigation_bar, parent)
-                .setText(R.id.text, "text")
-                .setOnClickListener(R.id.text, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                })
-                .create();
-        //如果想设置字体的大小、颜色，图片、等等
-        TextView textView = navigationBar.findById(R.id.text);
+//
+//        ViewGroup parent = (ViewGroup) findViewById(R.id.view_root);
+//        NavigationBar navigationBar = new NavigationBar.Builder(this, R.layout.ui_navigation_bar, parent)
+//                .setText(R.id.text, "text")
+//                .setOnClickListener(R.id.text, new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//
+//                    }
+//                })
+//                .create();
+//        //如果想设置字体的大小、颜色，图片、等等
+//        TextView textView = navigationBar.findById(R.id.text);
         //在写代码时 高扩展 并不是要把所有的的内容和出现的问题都想到，而在新增的功能时候可以保证原来的代码不变
         //对于开发者来说，需要用好最少知识原则，使用者并不需要关注太多
 
@@ -130,7 +128,7 @@ public class MainActivity extends BaseActivity{
             R.id.okHttpTv, R.id.retrofit, R.id.bannerTv, R.id.viewTv, R.id.viewgroupTv, R.id.commonViewPager,
             R.id.threedTv, R.id.lruTv, R.id.drawTv, R.id.coorTv, R.id.messenger, R.id.startService,
             R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager, R.id.bntv, R.id.device, R.id.sensor
-            , R.id.rg, R.id.sqliteTv, R.id.dialogTv})
+            , R.id.rg, R.id.sqliteTv, R.id.dialogTv, R.id.noticeTv})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -253,6 +251,9 @@ public class MainActivity extends BaseActivity{
             case R.id.dialogTv:
                 intent = new Intent(this, DialogActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.noticeTv:
+                NewMessageNotification.notify(this,"Hello Notice",0);
                 break;
         }
     }

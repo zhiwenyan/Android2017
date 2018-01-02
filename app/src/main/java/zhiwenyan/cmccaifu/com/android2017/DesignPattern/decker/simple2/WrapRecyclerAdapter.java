@@ -13,10 +13,8 @@ import java.util.ArrayList;
  */
 
 public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
     //原来的RecyclerView.Adapter 并不支持添加头部和底部
     private RecyclerView.Adapter mRealAdapter;
-
     private ArrayList<View> mHeaderViews;
     private ArrayList<View> mFooterViews;
 
@@ -25,7 +23,7 @@ public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         mRealAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
             public void onChanged() {
-               // super.onChanged();
+                // super.onChanged();
                 notifyDataSetChanged();
             }
         });
@@ -73,7 +71,7 @@ public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         // 头部和底部是都不需要做处理的，只要 mRealAdapter 要去做处理
         int numHeaders = getHeadersCount();
         if (position < numHeaders) {
-            return ;
+            return;
         }
 
         final int adjPosition = position - numHeaders;
@@ -81,7 +79,7 @@ public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         if (mRealAdapter != null) {
             adapterCount = mRealAdapter.getItemCount();
             if (adjPosition < adapterCount) {
-                mRealAdapter.onBindViewHolder(holder,position);
+                mRealAdapter.onBindViewHolder(holder, position);
             }
         }
     }

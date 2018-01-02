@@ -12,13 +12,13 @@
         android:layout_centerInParent="true"
         android:text="Hello"/>
 
-    <zhiwenyan.cmccaifu.com.android2017.view.multiView.ListDataScreenView
+    <zhiwenyan.cmccaifu.com.android2017.view.multiScreenView.ListDataScreenView
         android:id="@+id/listDataScreenView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
-    </zhiwenyan.cmccaifu.com.android2017.view.multiView.ListDataScreenView>
+    </zhiwenyan.cmccaifu.com.android2017.view.multiScreenView.ListDataScreenView>
 
 
     <TextView

@@ -18,8 +18,8 @@ public class ServiceActivity extends BaseActivity {
         super.init();
         Intent intent = new Intent(this, MyService.class);
         startService(intent);
-    //    Intent intent = new Intent(this, BindService.class);
-      //  bindService(intent, mServiceConnection, BIND_AUTO_CREATE);
+        //    Intent intent = new Intent(this, BindService.class);
+        //  bindService(intent, mServiceConnection, BIND_AUTO_CREATE);
     }
 
 //    ServiceConnection mServiceConnection = new ServiceConnection() {
