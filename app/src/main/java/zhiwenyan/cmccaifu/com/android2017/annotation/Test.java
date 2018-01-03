@@ -52,12 +52,17 @@ public class Test {
             TestBean testBean = new TestBean();
             Field field = TestBean.class.getDeclaredField("name");
             field.setAccessible(true);
+            field.set(testBean,"1212");
             String name = (String) field.get(testBean);
             Class clz = Class.forName("android.app.ActivityThread");
+
+            clz.newInstance();
             Field sCurrentActivityThreadField = clz.getDeclaredField("sCurrentActivityThread");
             sCurrentActivityThreadField.setAccessible(true);
             sCurrentActivityThreadField.get(null);
         } catch (NoSuchFieldException | IllegalAccessException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
             e.printStackTrace();
         }
 

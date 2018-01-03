@@ -119,7 +119,7 @@ public class QQRunView extends View {
 
     public synchronized void setCurrentStep(int currentStep) {
         this.mCurrentStep = currentStep;
-        //不断绘制
+        //不断绘制 onDraw()
         invalidate();
     }
 }

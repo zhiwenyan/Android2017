@@ -6,10 +6,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 import zhiwenyan.cmccaifu.com.android2017.R;
 
@@ -17,7 +15,7 @@ import zhiwenyan.cmccaifu.com.android2017.R;
  * Created by zhiwenyan on 6/12/17.
  */
 
-public class ColorTrackTextView extends TextView {
+public class ColorTrackTextView extends android.support.v7.widget.AppCompatTextView {
     // 默认的字体颜色的画笔
     private Paint mOriginPaint;
     // 改变的字体颜色的画笔
@@ -33,7 +31,7 @@ public class ColorTrackTextView extends TextView {
 
 
     public enum Direction {
-        LEDT_TO_RIGHT, RIGHT_TO_LEFT
+        LEFT_TO_RIGHT, RIGHT_TO_LEFT
     }
 
     public ColorTrackTextView(Context context) {
@@ -88,7 +86,7 @@ public class ColorTrackTextView extends TextView {
     @Override
     protected void onDraw(Canvas canvas) {
         int middle = (int) (mCurrentProgress * getWidth());
-        if (mDirection == Direction.LEDT_TO_RIGHT) {
+        if (mDirection == Direction.LEFT_TO_RIGHT) {
             drawText(canvas, mChangePaint, 0, middle);
             drawText(canvas, mOriginPaint, middle, getWidth());
         } else {
@@ -101,6 +99,7 @@ public class ColorTrackTextView extends TextView {
         canvas.save();
         //绘制不变色
         Rect rect = new Rect(start, 0, end, getHeight());
+        //利用clipRect的Api,可以裁剪
         canvas.clipRect(rect);
         //super.onDraw(canvas);
         String text = getText().toString();

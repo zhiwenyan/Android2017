@@ -59,7 +59,7 @@ public class ViewPagerActivity extends AppCompatActivity {
 
                     // 获取右边
                     ColorTrackTextView right = mIndicators.get(position + 1);
-                    right.setDirection(ColorTrackTextView.Direction.LEDT_TO_RIGHT);
+                    right.setDirection(ColorTrackTextView.Direction.LEFT_TO_RIGHT);
                     right.setCurrentProgress(positionOffset);
                 }
             }

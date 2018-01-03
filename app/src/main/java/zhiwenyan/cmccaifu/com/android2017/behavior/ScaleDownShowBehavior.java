@@ -23,6 +23,11 @@ public class ScaleDownShowBehavior extends FloatingActionButton.Behavior {
         super(context, attrs);
     }
 
+    /**
+     * 刚刚解析Behavior，会调用这个方法
+     *
+     * @param lp
+     */
     @Override
     public void onAttachedToLayoutParams(@NonNull CoordinatorLayout.LayoutParams lp) {
         super.onAttachedToLayoutParams(lp);
@@ -48,6 +53,7 @@ public class ScaleDownShowBehavior extends FloatingActionButton.Behavior {
 
     }
 
+    @Override
     public void onNestedScroll(CoordinatorLayout coordinatorLayout, FloatingActionButton child,
                                View target, int dxConsumed, int dyConsumed,
                                int dxUnconsumed, int dyUnconsumed) {
@@ -72,6 +78,11 @@ public class ScaleDownShowBehavior extends FloatingActionButton.Behavior {
         }
     }
 
+    @Override
+    public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, FloatingActionButton child, View target, int dx, int dy, int[] consumed) {
+        super.onNestedPreScroll(coordinatorLayout, child, target, dx, dy, consumed);
+
+    }
 
     // 显示view
     public void translateShow(View view, ViewPropertyAnimatorListener viewPropertyAnimatorListener) {

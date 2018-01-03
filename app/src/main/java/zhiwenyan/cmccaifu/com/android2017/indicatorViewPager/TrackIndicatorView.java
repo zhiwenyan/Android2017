@@ -91,7 +91,7 @@ public class TrackIndicatorView extends HorizontalScrollView implements ViewPage
 
                 // 获取右边
                 ColorTrackTextView right = (ColorTrackTextView) mIndicatorGroup.getItemView(position + 1);
-                right.setDirection(ColorTrackTextView.Direction.LEDT_TO_RIGHT);
+                right.setDirection(ColorTrackTextView.Direction.LEFT_TO_RIGHT);
                 right.setCurrentProgress(positionOffset);
             }
         }

@@ -250,7 +250,6 @@ class LockView : View {
     }
 
 
-
     /**
      * 绘制两个点之间的连线以及箭头
      */
@@ -338,7 +337,8 @@ class LockView : View {
                 for (j in 0..mPoints[i].size - 1) {
                     val point = mPoints[i][j]
                     if (point != null) {
-                        if (MathUtil.checkInRound(point.centerX.toFloat(), point.centerY.toFloat(), mDotRadius.toFloat(), mMovingX, mMovingY)) {
+                        if (MathUtil.checkInRound(point.centerX.toFloat(), point.centerY.toFloat(),
+                                mDotRadius.toFloat(), mMovingX, mMovingY)) {
                             return point
                         }
                     }

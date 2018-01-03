@@ -20,7 +20,7 @@ public class ColorTrackTextViewActivity extends AppCompatActivity {
         findViewById(R.id.leftToRight).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mColorTrackTextView.setDirection(ColorTrackTextView.Direction.LEDT_TO_RIGHT);
+                mColorTrackTextView.setDirection(ColorTrackTextView.Direction.LEFT_TO_RIGHT);
                 ValueAnimator valueAnimator = ObjectAnimator.ofFloat(0, 1);
                 valueAnimator.setDuration(2000);
                 valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {

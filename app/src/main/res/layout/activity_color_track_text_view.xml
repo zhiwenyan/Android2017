@@ -13,6 +13,8 @@
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
         android:text="Hello Word"
         android:textColor="#000"
         android:textSize="22sp"/>
@@ -21,6 +23,7 @@
         android:id="@+id/leftToRight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_margin"
         android:text="左->右"/>
 
     <Button
