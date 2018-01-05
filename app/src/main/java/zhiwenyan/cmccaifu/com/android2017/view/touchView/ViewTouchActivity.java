@@ -29,11 +29,11 @@ public class ViewTouchActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        Log.i("TAG", "OnTouchListener-->onTouchEvent: " + event.getAction());
-        return super.onTouchEvent(event);
-    }
-
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        Log.i("TAG", "OnTouchListener-->onTouchEvent: " + event.getAction());
+//        return super.onTouchEvent(event);
+//    }
+//
 
 }

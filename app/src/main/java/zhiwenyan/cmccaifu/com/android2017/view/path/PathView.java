@@ -67,7 +67,7 @@ public class PathView extends View {
         Path rectPath = new Path();
         RectF rectF = new RectF(-100, -100, 100, 100);
         rectPath.addRect(rectF, Path.Direction.CW);
-       // rectPath.setLastPoint(-200, 200);    // <-- 重置最后一个点的位置
+        // rectPath.setLastPoint(-200, 200);    // <-- 重置最后一个点的位置
         rectPath.close();
         canvas.drawPath(rectPath, mPaint);
 

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import zhiwenyan.cmccaifu.com.android2017.R;
 
 /**
- * Description:
+ * Description: 适配器模式 对象适配
  * Data：12/29/2017-3:26 PM
  *
  * @author: yanzhiwen
@@ -39,6 +39,7 @@ public class ListScreenMenuAdapter extends BaseMenuAdapter {
 
     @Override
     public View getMenuView(int position, ViewGroup parent) {
+        //菜单的内容
         TextView menuView = (android.widget.TextView) LayoutInflater.from(mContext)
                 .inflate(R.layout.list_menu_content_item, parent, false);
         menuView.setText(mItems[position]);
@@ -48,7 +49,8 @@ public class ListScreenMenuAdapter extends BaseMenuAdapter {
                 //关闭菜单,需要调用ListDataScreenView的关闭菜单的方法
                 //方式一：可以利用事件监听
                 //方法二：可以让Adapter去持有ListDataScreenView对象，把对象传入构造函数中，赋值
-                //方式三：观察者设计模式（观察者和被观察者，注册订阅的概念）
+                //方式三：观察者设计模式（观察者和被观察者，注册订阅的概念）（listView的notifyDataChanged()）.
+                closeMenu();
             }
         });
         return menuView;
@@ -63,6 +65,5 @@ public class ListScreenMenuAdapter extends BaseMenuAdapter {
     @Override
     public void closeMenu(View tabView) {
         ((TextView) tabView).setTextColor(Color.BLACK);
-
     }
 }

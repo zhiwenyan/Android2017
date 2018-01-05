@@ -29,7 +29,7 @@ public class CustomTextView extends android.support.v7.widget.AppCompatTextView 
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-//        public static final int UNSPECIFIED = 0 << MODE_SHIFT;
+//        public static final int UNSPECIFIEDnn = 0 << MODE_SHIFT;
 //
 //        /**
 //         * Measure specification mode: The parent has determined an exact size

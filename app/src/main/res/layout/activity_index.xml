@@ -20,7 +20,7 @@
 
     <zhiwenyan.cmccaifu.com.android2017.view.customview.LetterSideBarView
         android:id="@+id/lv"
-        android:layout_width="30dp"
+        android:layout_width="32dp"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:padding="8dp"/>

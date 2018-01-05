@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -62,8 +63,12 @@ public class LetterSideBarView extends View {
             // 每个字母所占用的高度
             // 不断循环把绘制字母
             String letter = mLetters[i];
-            // 获取字体的宽度
-            float measureTextWidth = mPaint.measureText(letter);
+            // 获取字体的宽度 方式一
+            Rect rect = new Rect();
+            mPaint.getTextBounds(letter, 0, letter.length(), rect);
+            float measureTextWidth = rect.width();
+            // 获取字体的宽度 方式二
+            float measureTextWidth1 = mPaint.measureText(letter);
             // 获取内容的宽度
             int contentWidth = getWidth() - getPaddingLeft() - getPaddingRight();
             float x = getPaddingLeft() + (contentWidth - measureTextWidth) / 2;
@@ -99,7 +104,6 @@ public class LetterSideBarView extends View {
                 if (currentPosition > mLetters.length - 1) {
                     currentPosition = mLetters.length - 1;
                 }
-                //
                 mTouchLetter = mLetters[currentPosition];
                 mCurrentIsTouch = true;
                 if (mTouchListener != null) {

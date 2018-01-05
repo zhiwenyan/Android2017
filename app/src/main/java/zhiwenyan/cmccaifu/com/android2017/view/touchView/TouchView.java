@@ -25,11 +25,11 @@ public class TouchView extends View {
     public TouchView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent event) {
-        Log.i("TAG", "View--->dispatchTouchEvent: " + event.getAction());
-        return super.dispatchTouchEvent(event);
-    }
+//    @Override
+//    public boolean dispatchTouchEvent(MotionEvent event) {
+//        Log.i("TAG", "View--->dispatchTouchEvent: " + event.getAction());
+//        return super.dispatchTouchEvent(event);
+//    }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {

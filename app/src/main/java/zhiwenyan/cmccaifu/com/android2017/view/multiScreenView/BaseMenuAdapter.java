@@ -10,6 +10,26 @@ import android.view.ViewGroup;
  * @author: yanzhiwen
  */
 public abstract class BaseMenuAdapter {
+    //注册订阅放到集合中
+    private MenuObserver mMenuObserver;
+
+    public void registerDataSetObserver(MenuObserver observer) {
+        mMenuObserver = observer;
+    }
+
+    public void unregisterDataSetObserver(MenuObserver observer) {
+        mMenuObserver = null;
+    }
+
+    /**
+     * notifyDataChanged()
+     **/
+    public void closeMenu() {
+        if (mMenuObserver != null) {
+            mMenuObserver.closeMenu();
+        }
+    }
+
     //获取总共多少条
     public abstract int getCount();
 
@@ -20,10 +40,10 @@ public abstract class BaseMenuAdapter {
     public abstract View getMenuView(int position, ViewGroup view);
 
     public void openMenu(int position, View tabView) {
-
     }
 
     public void closeMenu(View tabView) {
-
     }
+
+
 }

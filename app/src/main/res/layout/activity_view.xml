@@ -144,10 +144,24 @@
             android:textAllCaps="false"/>
 
         <Button
+            android:id="@+id/btn36"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="QQ、微信雷达扫描"
+            android:textAllCaps="false"/>
+
+        <Button
             android:id="@+id/btn22"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="贝赛尔曲线"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn32"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="花束直播点赞效果"
             android:textAllCaps="false"/>
 
         <Button

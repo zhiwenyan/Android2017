@@ -11,9 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
 
 /**
- * Description:
+ * Description:多条目菜单筛选
  * Data：12/29/2017-2:22 PM
  *
  * @author: yanzhiwen
@@ -97,6 +99,19 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
     }
 
     /**
+     * 具体的观察者的类对象
+     */
+    public class AdapterMenuObserver extends MenuObserver {
+        @Override
+        public void closeMenu() {
+            //有注册就能收到通知
+            ListDataScreenView.this.closeMenu();
+        }
+    }
+
+    private AdapterMenuObserver mMenuObserver;
+
+    /**
      * 设置adapter
      *
      * @param baseMenuAdapter
@@ -105,7 +120,15 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
         if (baseMenuAdapter == null) {
             throw new NullPointerException("BaseMenuAdapter Not Null");
         }
+        if (baseMenuAdapter != null && mMenuObserver != null) {
+            mBaseMenuAdapter.unregisterDataSetObserver(mMenuObserver);
+        }
         this.mBaseMenuAdapter = baseMenuAdapter;
+
+        if (baseMenuAdapter != null) {
+            mMenuObserver = new AdapterMenuObserver();
+            mBaseMenuAdapter.registerDataSetObserver(mMenuObserver);
+        }
         //获取多少条
         int count = mBaseMenuAdapter.getCount();
         for (int i = 0; i < count; i++) {
@@ -142,6 +165,9 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
                     if (mCurrentPosition == position) {
                         closeMenu();
                     } else {
+                        View tabView = mMenuTabView.getChildAt(mCurrentPosition);
+                        ((TextView) tabView).setTextColor(Color.BLACK);
+
                         //切换下显示
                         View currentView = mMenuContentView.getChildAt(mCurrentPosition);
                         //会调用重新onMeasure方法
@@ -149,6 +175,10 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
                         mCurrentPosition = position;
                         currentView = mMenuContentView.getChildAt(mCurrentPosition);
                         currentView.setVisibility(VISIBLE);
+
+                        tabView = mMenuTabView.getChildAt(mCurrentPosition);
+                        ((TextView) tabView).setTextColor(Color.RED);
+
                     }
                 }
             }
@@ -185,9 +215,8 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
             @Override
             public void onAnimationStart(Animator animation) {
                 mExecuteAnim = true;
-                mCurrentPosition = position;
                 mBaseMenuAdapter.openMenu(position, tabView);
-
+                mCurrentPosition = position;
             }
         });
         alphaAnimator.start();
@@ -213,10 +242,9 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
                 super.onAnimationEnd(animation);
                 View menuView = mMenuContentView.getChildAt(mCurrentPosition);
                 menuView.setVisibility(GONE);
-                mCurrentPosition = -1;
                 mShadowView.setVisibility(GONE);
                 mExecuteAnim = false;
-                mBaseMenuAdapter.closeMenu(menuView);
+                mCurrentPosition = -1;
 
             }
 
@@ -224,6 +252,8 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
             public void onAnimationStart(Animator animation) {
                 super.onAnimationStart(animation);
                 mExecuteAnim = true;
+                mBaseMenuAdapter.closeMenu(mMenuTabView.getChildAt(mCurrentPosition));
+
             }
 
         });
