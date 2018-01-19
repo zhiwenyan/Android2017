@@ -103,7 +103,7 @@ public class RadarView extends View {
         super.onDraw(canvas);
         mRoteDegree = 0;
         drawCircle(canvas);
-        ///     drawCenterIcon(canvas);
+        drawCenterIcon(canvas);
         drawScan(canvas);
         if (!mIsScan) {
             post(mRunnable);
@@ -126,7 +126,7 @@ public class RadarView extends View {
 
     private void drawCenterIcon(Canvas canvas) {
         float iconWidth = (mWidth * circleProportion[0]);
-        canvas.drawBitmap(mCenterIcon, mWidth / 2, mWidth / 2, null);
+        canvas.drawBitmap(mCenterIcon, mWidth / 2 - mCenterIcon.getWidth() / 2, mHeight / 2 - mCenterIcon.getHeight() / 2, null);
     }
 
     /**

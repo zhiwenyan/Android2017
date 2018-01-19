@@ -4,7 +4,7 @@ package zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple5;
 /**
  * Created by yanzhiwen on 2017/9/30.
  * <p>
- * 工厂设计模式--抽象方法模式
+ * 工厂设计模式--抽象方法模式 通过特定的方法返回单一的对象
  */
 
 public class IOHandlerFactory {

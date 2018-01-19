@@ -53,6 +53,12 @@
         <activity
             android:name=".activity.MainActivity"
             android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
         </activity>
         <activity android:name=".animator.AnimatorActivity"/>
         <activity android:name=".okhttp.OkhttpActivity"/>
@@ -85,7 +91,6 @@
         <activity android:name=".view.matrix.MatrixActivity"/>
         <activity android:name=".view.CustomProgressBar.CustomProgressBarActivity"/>
         <activity android:name=".rxjava.RxJavaActivity">
-
         </activity>
         <activity android:name=".cache.lru.PhotoWallActivity"/>
         <activity
@@ -263,15 +268,12 @@
         </activity>
         <activity android:name=".retrofit.simple2.MainActivity">
         </activity>
-
         <activity android:name=".rxjava.simple1.Main5Activity">
         </activity>
         <activity android:name=".rxjava.rxJava.Main6Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+        </activity>
+        <activity android:name=".retrofit.Retrofit.simple.Retrofit2Activity">
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
     </application>
 

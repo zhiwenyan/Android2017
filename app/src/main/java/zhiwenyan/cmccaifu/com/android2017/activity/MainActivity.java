@@ -83,7 +83,6 @@ public class MainActivity extends BaseActivity {
         IOFactory ioFactory = new MemoryIOFactory();
         zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple2.IOHandler ioHandler2 = ioFactory.createIOHandler();
         ioHandler2.save("userName", "steven");
-
         //类
         zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple5.IOHandler ioHandler3 =
                 zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple5.IOHandlerFactory.getDefaultIOHandler();
@@ -253,7 +252,7 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
                 break;
             case R.id.noticeTv:
-                NewMessageNotification.notify(this,"Hello Notice",0);
+                NewMessageNotification.notify(this, "Hello Notice", 0);
                 break;
         }
     }
