@@ -52,12 +52,12 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
         //先创建一个xml布局，在加载，findViewById
         //1、创建头部存放
         mMenuTabView = new LinearLayout(mContext);
-        mMenuTabView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT));
+        mMenuTabView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
+                LayoutParams.WRAP_CONTENT));
         addView(mMenuTabView);
         //2、创建FrameLayout用来存放=阴影+菜单布局内容
         mMenuMiddleView = new FrameLayout(mContext);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0);
+        LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0);
         params.weight = 1;
         mMenuMiddleView.setLayoutParams(params);
         addView(mMenuMiddleView);
@@ -138,7 +138,7 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
             //设置点击事件
             setTabClick(tabView, i);
             //设置等宽
-            LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) tabView.getLayoutParams();
+            LayoutParams params = (LayoutParams) tabView.getLayoutParams();
             params.weight = 1;
             tabView.setLayoutParams(params);
             //菜单的内容

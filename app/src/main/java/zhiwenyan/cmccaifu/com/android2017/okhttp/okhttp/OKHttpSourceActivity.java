@@ -15,7 +15,7 @@ public class OKHttpSourceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_okhttp_source);
         OkHttpClient okHttpClient = new OkHttpClient.Builder().builder();
-//        RequestBody requestBody=new RequestBody().addParam("",“);
+        // RequestBody requestBody=new RequestBody().addParam("",“);
         Request request = new Request.Builder().url("https://www.baidu.com/").builder();
         okHttpClient.newCall(request).enqueue(new CallBack() {
             @Override

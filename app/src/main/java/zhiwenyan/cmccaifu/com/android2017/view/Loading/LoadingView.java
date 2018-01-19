@@ -51,7 +51,7 @@ public class LoadingView extends RelativeLayout {
 
     private CircleView getCircleView(Context context) {
         CircleView circleView = new CircleView(context);
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(dip2px(10), dip2px(10));
+        LayoutParams params = new LayoutParams(dip2px(10), dip2px(10));
         params.addRule(CENTER_IN_PARENT);
         circleView.setLayoutParams(params);
         return circleView;

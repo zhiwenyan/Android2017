@@ -46,13 +46,13 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
         setOrientation(VERTICAL);
         mTabMenuView = new LinearLayout(mContext);
         //创建头部用来存放 Tab
-        LinearLayout.LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+        LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         mTabMenuView.setLayoutParams(params);
         addView(mTabMenuView);
         // 创建 FrameLayout 用来存放 = 阴影（View） + 菜单内容布局(FrameLayout)
         mMenuMiddleView = new FrameLayout(mContext);
-        LinearLayout.LayoutParams middleParam = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0);
+        LayoutParams middleParam = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0);
         middleParam.weight = 1;
         mMenuMiddleView.setLayoutParams(middleParam);
         //创建菜单，用来存放菜单内容
@@ -137,7 +137,7 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
             //菜单的tabView
             View tabView = mBaseMenuAdapter.getTabView(i, mTabMenuView);
             mTabMenuView.addView(tabView);
-            LinearLayout.LayoutParams params = (LayoutParams) tabView.getLayoutParams();
+            LayoutParams params = (LayoutParams) tabView.getLayoutParams();
             params.weight = 1;
             tabView.setLayoutParams(params);
             setTabClick(tabView, i);

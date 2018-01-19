@@ -16,6 +16,9 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+//        jackOptions {
+//            enabled true
+//        }
     }
     buildTypes {
         release {
@@ -26,6 +29,7 @@ android {
 //    packagingOptions {
 //        exclude 'META-INF/DEPENDENCIES'
 //    }
+//    defaultConfig.jackOptions.enabled = true
 //    compileOptions {
 //        targetCompatibility 1.8
 //        sourceCompatibility 1.8
@@ -114,6 +118,8 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
     compile 'com.jakewharton.timber:timber:4.6.0'
     testCompile 'junit:junit:4.12'
+    compile 'com.squareup.okhttp3:logging-interceptor:+'
+
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile files('libs/aspectjrt.jar')

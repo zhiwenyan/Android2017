@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="zhiwenyan.cmccaifu.com.android2017.rxjava.RxJavaActivity">
+    tools:context=".rxjava.rxJava.Main6Activity">
+
 
 
     <ImageView

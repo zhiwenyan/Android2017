@@ -64,15 +64,16 @@ public class ViewGroupActivity extends AppCompatActivity {
      若onTouchEvent返回true，后续事件将不再经过该ViewGroup的onInterceptTouchEvent方法，直接交由该ViewGroup的onTouchEvent方法处理；
      若onTouchEvent方法返回false，后续事件都将交由父ViewGroup处理，不再经过该ViewGroup的onInterceptTouchEvent方法和onTouchEvent方法
 
-     看来onInterceptTouchEvent的ACTION_MOVE事件不执行的原因就是子view的down事件返回了fasle，然后ViewGroup的onTouchEvent 的down事件返回false，
+     看来onInterceptTouchEvent的ACTION_MOVE事件不执行的原因就是子view的down事件返回了false，然后ViewGroup的onTouchEvent 的down事件返回false，
      后续事件不再传递给该ViewGroup了。。
      */
 //    touch事件在onInterceptTouchEvent方法中的传递由父ViewGroup到子ViewGroup，在onTouchEvent方法中传递则相反。
 //
 //    onInterceptTouchEvent方法和onTouchEvent方法的返回值为true都代表消费了事件，反之则为false
 //
-//    onInterceptTouchEvent消费事件表示将事件直接传递给ViewGroup自身的onTouchEvent事件，后续事件不再经过onInterceptTouchEvent方法；不消费事件则表示将事件传递给子View处理
+//    onInterceptTouchEvent消费事件表示将事件直接传递给ViewGroup自身的onTouchEvent事件，后续事件不再经过onInterceptTouchEvent方法；
+//    不消费事件则表示将事件传递给子View处理
 //
 //    onTouchEvent消费事件表示不再向上传递，后续事件继续传递给该View的onTouchEvent方法；不消费事件则表示将事件传递给父ViewGroup，后续事件不再传递给该View
-// (该View是ViewGroup时onInterceptTouchEvent方法也不再收到后续事件)
+//     (该View是ViewGroup时onInterceptTouchEvent方法也不再收到后续事件)
 }

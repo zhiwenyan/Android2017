@@ -14,13 +14,14 @@ import zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.RequestBody;
 import zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.Response;
 
 /**
+ * 连接服务器拦截器
  * Created by Steven on 2017/11/19.
  */
 
 public class CallServerInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
-        Log.i("TAG","CallServerInterceptor");
+        Log.i("TAG", "CallServerInterceptor");
         Request request = chain.request();
         URL url = new URL(request.url);
 
@@ -38,12 +39,15 @@ public class CallServerInterceptor implements Interceptor {
 
         // 写东西
         //urlConnection.setRequestMethod(request.method.name);
-      //  urlConnection.setDoOutput(request.method.doOutput());
+        //  urlConnection.setDoOutput(request.method.doOutput());
 
         urlConnection.connect();
         // 写内容
         RequestBody requestBody = request.getRequestBody();
         if (requestBody != null) {
+            //头信息
+//            urlConnection.setRequestProperty("Content-Type", requestBody.getContentType());
+//            urlConnection.setRequestProperty("Content-Length",Long.toString(requestBody.getContentLength()));
             requestBody.onWriteBody(urlConnection.getOutputStream());
         }
 

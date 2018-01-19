@@ -12,6 +12,7 @@ import zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.Response;
 
 public interface Interceptor {
     Response intercept(Chain chain) throws IOException;
+
     interface Chain {
         Request request();
 

@@ -33,11 +33,12 @@ public class PostFileActivity extends AppCompatActivity {
         // 构建请求 Body , 这个我们之前自己动手写过
         MultipartBody.Builder builder = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM);
+        //Content-Disposition
         builder.addFormDataPart("platform", "android");
         builder.addFormDataPart("file", file.getName(),
+                //Content-Type
                 RequestBody.create(MediaType.parse(guessMimeType(file.getAbsolutePath())), file));
-
-        ExMultipartBody exMultipartBody=new ExMultipartBody(builder.build());
+        ExMultipartBody exMultipartBody = new ExMultipartBody(builder.build());
         // 构建一个请求
         final Request request = new Request.Builder()
                 .url(url)

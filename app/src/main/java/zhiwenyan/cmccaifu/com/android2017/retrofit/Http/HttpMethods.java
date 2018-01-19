@@ -47,8 +47,8 @@ public class HttpMethods {
 //        retrofit.create(MovieService.class)
 //                .getTopMovie(start, count)
 //                .map(new HttpResultFunc<List<Subject>>())
-//                .subscribeOn(Schedulers.io())
-//                .unsubscribeOn(Schedulers.io())
+//                .subscribeOn(RxJavaSchedulers.io())
+//                .unsubscribeOn(RxJavaSchedulers.io())
 //                .observeOn(AndroidSchedulers.mainThread())
 //                .subscribe(subscriber);
     }

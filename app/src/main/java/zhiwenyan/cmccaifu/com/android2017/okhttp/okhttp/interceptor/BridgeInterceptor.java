@@ -9,22 +9,24 @@ import zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.RequestBody;
 import zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.Response;
 
 /**
+ * 桥接拦截器
  * Created by Steven on 2017/11/19.
  */
 
-public class BridgeInterceptor implements Interceptor{
+public class BridgeInterceptor implements Interceptor {
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-        Log.i("TAG","BridgeInterceptor");
+        Log.i("TAG", "BridgeInterceptor");
         Request request = chain.request();
         // 添加一些请求头
-        request.header("Connection","keep-alive");
+        request.header("Connection", "keep-alive");
         // 做一些其他处理
-        if(request.mRequestBody!=null){
+        if (request.mRequestBody != null) {
             RequestBody requestBody = request.mRequestBody;
-            request.header("Content-Type",requestBody.getContentType());
-            request.header("Content-Length",Long.toString(requestBody.getContentLength()));
+            //请求头
+            request.header("Content-Type", requestBody.getContentType());
+            request.header("Content-Length", Long.toString(requestBody.getContentLength()));
         }
         Response response = chain.proceed(request);
 

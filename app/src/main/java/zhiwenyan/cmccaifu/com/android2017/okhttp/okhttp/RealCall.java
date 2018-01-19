@@ -55,6 +55,7 @@ public class RealCall implements Call {
         public void execute() {
             //访问网络Request->Response
             Log.e("TAG", "execute: ");
+            //基于HttpURLConnection okHttp基于socket和okio
             try {
                 List<Interceptor> interceptors = new ArrayList<>();
                 interceptors.add(new BridgeInterceptor());
@@ -66,7 +67,6 @@ public class RealCall implements Call {
                 e.printStackTrace();
                 mCallBack.onFailure(RealCall.this, e);
             }
-
         }
     }
 }

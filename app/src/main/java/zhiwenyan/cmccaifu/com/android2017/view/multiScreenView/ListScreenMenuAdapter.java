@@ -30,7 +30,7 @@ public class ListScreenMenuAdapter extends BaseMenuAdapter {
 
     @Override
     public View getView(int position, ViewGroup parent) {
-        TextView tabView = (android.widget.TextView) LayoutInflater.from(mContext)
+        TextView tabView = (TextView) LayoutInflater.from(mContext)
                 .inflate(R.layout.list_menu_item, parent, false);
         tabView.setText(mItems[position]);
         tabView.setTextColor(Color.BLACK);
@@ -40,7 +40,7 @@ public class ListScreenMenuAdapter extends BaseMenuAdapter {
     @Override
     public View getMenuView(int position, ViewGroup parent) {
         //菜单的内容
-        TextView menuView = (android.widget.TextView) LayoutInflater.from(mContext)
+        TextView menuView = (TextView) LayoutInflater.from(mContext)
                 .inflate(R.layout.list_menu_content_item, parent, false);
         menuView.setText(mItems[position]);
         menuView.setOnClickListener(new View.OnClickListener() {

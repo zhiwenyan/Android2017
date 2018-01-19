@@ -29,6 +29,6 @@ public class StevenListViewActivity extends AppCompatActivity {
 //
 //        }
         //adapter
-        mListView.setAdapter(new ListAdapter(mDatas,this));
+        mListView.setAdapter(new ListAdapter(mDatas, this));
     }
 }

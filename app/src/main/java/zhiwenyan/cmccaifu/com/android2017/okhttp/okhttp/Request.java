@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Description:
+ * Description:构建Request请求参数 建造者模式
  * Data：11/20/2017-2:25 PM
  * Author: yanzhiwen
  */
@@ -67,7 +67,6 @@ public class Request {
             headers.put(value, key);
             return this;
         }
-
 
         public Request builder() {
             return new Request(this);
