@@ -21,7 +21,7 @@ public interface ParameterHandler<T> {
 
         @Override
         public void apply(RequestBuilder requestBuilder,T value) {
-            //添加到Request中
+            //添加到Request中   value变成String需要一个工厂设计模式
             requestBuilder.addQueryName(key,value.toString());
 
         }

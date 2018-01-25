@@ -2,6 +2,7 @@ package zhiwenyan.cmccaifu.com.android2017.DesignPattern.aop;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Button;
 
 import butterknife.BindView;
@@ -25,5 +26,6 @@ public class AopActivity extends AppCompatActivity {
     @OnClick(R.id.checkNet)
     @CheckNet
     public void onViewClicked() {
+        Log.i("TAG", "onViewClicked: ");
     }
 }

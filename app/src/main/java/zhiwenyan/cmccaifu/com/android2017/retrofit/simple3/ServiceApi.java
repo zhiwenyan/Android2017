@@ -1,8 +1,10 @@
-package zhiwenyan.cmccaifu.com.android2017.retrofit.Retrofit.simple;
+package zhiwenyan.cmccaifu.com.android2017.retrofit.simple3;
 
 
-import zhiwenyan.cmccaifu.com.android2017.retrofit.Retrofit.Http.GET;
-import zhiwenyan.cmccaifu.com.android2017.retrofit.Retrofit.Http.Query;
+import io.reactivex.Observable;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
+import zhiwenyan.cmccaifu.com.android2017.retrofit.simple1.UserInfo;
 
 /**
  * Created by hcDarren on 2017/12/16.
@@ -15,7 +17,7 @@ public interface ServiceApi {
     @GET("LoginServlet")
         // 登录接口 GET(相对路径)
         //Call<T>这里使用了适配器模式
-    Call<UserLoginResult> userLogin(
+    Observable<UserInfo> userLogin(
             // @Query(后台需要解析的字段)
             @Query("userName") String userName,
             @Query("password") String userPwd);

@@ -43,7 +43,7 @@ public class Retrofit {
                 ServiceMethod serviceMethod = loadServiceMethod(method);
                 //2 封装okHttpCall
                 OkHttpCall okHttpCall = new OkHttpCall(serviceMethod, args);
-                return null;
+                return okHttpCall;
             }
         });
     }

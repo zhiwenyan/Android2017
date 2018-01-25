@@ -1,5 +1,6 @@
 package zhiwenyan.cmccaifu.com.android2017.retrofit.Retrofit.simple;
 
+import okhttp3.HttpUrl;
 import okhttp3.Request;
 import zhiwenyan.cmccaifu.com.android2017.retrofit.Retrofit.ParameterHandler;
 
@@ -10,26 +11,34 @@ import zhiwenyan.cmccaifu.com.android2017.retrofit.Retrofit.ParameterHandler;
  * @author: yanzhiwen
  */
 public class RequestBuilder {
-    ParameterHandler<?>[] parameterHandlers;
-    Object[] args;
+    private final ParameterHandler<Object>[] parameterHandlers;
+    private final Object[] args;
+    private HttpUrl.Builder httpUrl;
 
-    public RequestBuilder(String baseUrl, String relativeUrl, String httpMethod, ParameterHandler<?>[] parameterHandlers, Object[] args) {
-        this.parameterHandlers = parameterHandlers;
+    public RequestBuilder(String baseUrl, String relativeUrl, String httpMethod,
+                          ParameterHandler<?>[] parameterHandlers, Object[] args) {
+        this.parameterHandlers = (ParameterHandler<Object>[]) parameterHandlers;
         this.args = args;
+        this.httpUrl = HttpUrl.parse(baseUrl + relativeUrl).newBuilder();
     }
 
     public Request build() {
         int count = parameterHandlers.length;
         for (int i = 0; i < count; i++) {
             ParameterHandler parameterHandler = parameterHandlers[i];
-            //username ==steven
+            //需要把值传过去  username ==steven
             parameterHandler.apply(this, args[i]);
         }
-        return null;
+        //构建一个请求
+        Request request = new Request.Builder().url(httpUrl.build()).build();
+        return request;
     }
 
 
     public void addQueryName(String key, String value) {
-        //username=steven password=123456
+        //username=steven&password=123456 拼接参数
+        httpUrl.addQueryParameter(key, value);
+
     }
+
 }

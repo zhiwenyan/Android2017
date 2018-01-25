@@ -27,8 +27,8 @@ public class RetrofitClient {
         // 1. 没打印？
         // 2. 数据格式不一致？成功 data 是个对象，不成功 data 是个 String
         // 3. 还有就是 baseUrl 问题？ (Retrofit 找不到任何入口可以修改)
-        //        3.1 不同的 baseUrl 构建不同的 Retrofit 对象 （直不应该首选）
-        //        3.2 自己想办法，取巧也行走漏洞
+        // 3.1 不同的 baseUrl 构建不同的 Retrofit 对象 （直不应该首选）
+        // 3.2 自己想办法，取巧也行走漏洞
         Retrofit retrofit = new Retrofit.Builder()
                 // 访问后台接口的主路径
                 .baseUrl("http://192.168.10.92:8080/OkHttpServer/")
