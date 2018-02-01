@@ -1,5 +1,6 @@
 package zhiwenyan.cmccaifu.com.android2017.Thread;
 
+import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
@@ -38,6 +39,7 @@ public class ThreadActivity extends BaseActivity implements View.OnClickListener
     private final int TYPE_MSG_RUN = 1001;
     private final int TYPE_MSG_DONE = 1002;
 
+    @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {

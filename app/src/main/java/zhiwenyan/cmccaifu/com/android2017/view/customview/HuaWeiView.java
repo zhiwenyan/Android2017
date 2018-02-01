@@ -27,10 +27,10 @@ public class HuaWeiView extends View {
     private boolean isRunning;
     //判断是回退的状态还是前进状态
     private int state = 1;
-    int red;
-    int green;
-    int blue;
-    int score;
+    private int red;
+    private int green;
+    private int blue;
+    private int score;
 
 
     public HuaWeiView(Context context) {

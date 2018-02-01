@@ -11,9 +11,24 @@ package zhiwenyan.cmccaifu.com.android2017.utils;
  */
 
 public class Application {
+    public static int index;
+
+    public Application(int index) {
+        this.index = index;
+        System.out.println(index);
+    }
+
+    void test() {
+        Application application = new Application(index + 1);
+        System.out.println(this.index + "---000");
+    }
+
     public static void main(String[] args) {
+        Application application = new Application(0);
+        application.test();
         int[] a = new int[]{1, 2, 3};
         Array array = new Array(a);
         System.out.println("sum=" + array.sum());
     }
+
 }

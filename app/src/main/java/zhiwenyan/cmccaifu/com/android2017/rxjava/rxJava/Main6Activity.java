@@ -24,57 +24,38 @@ public class Main6Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main6);
         mImageView = (ImageView) findViewById(R.id.img);
-
+        new Thread(() -> System.out.println("--")).start();
         Observable.just("http://img.taopic.com/uploads/allimg/130331/240460-13033106243430.jpg").subscribe(new Consumer<String>() {
             @Override
             public void onNext(String item) {
                 System.out.println("------" + item);
             }
         });
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Observable.just("http://img.taopic.com/uploads/allimg/130331/240460-13033106243430.jpg")
-                        .map(new Function<String, Bitmap>() {
-
-                            @Override
-                            public Bitmap apply(String s) {
-                                //第五步
-                                System.out.println("s==" + s);
-                                InputStream inputStream = null;
-                                try {
-                                    URL url = new URL(s);
-                                    HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-                                    inputStream = urlConnection.getInputStream();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                                return bitmap;
-                            }
-
-                        })
-                        .map(new Function<Bitmap, Bitmap>() {
-                            @Override
-                            public Bitmap apply(Bitmap bitmap) {
-                                System.out.println("bitmap==" + bitmap);
-                                bitmap = createWaterMark(bitmap, "RxJava2.0");
-                                return bitmap;
-                            }
-                        })
-                        .subscribe(new Consumer<Bitmap>() {
-                            @Override
-                            public void onNext(final Bitmap bmp) {
-                                //第七步 显示图片
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        mImageView.setImageBitmap(bmp);
-                                    }
-                                });
-                            }
-                        });
-            }
+        new Thread(() -> {
+            Observable.just("http://img.taopic.com/uploads/allimg/130331/240460-13033106243430.jpg")
+                    .map(s -> {
+                        //第五步
+                        System.out.println("s==" + s);
+                        InputStream inputStream = null;
+                        try {
+                            URL url = new URL(s);
+                            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                            inputStream = urlConnection.getInputStream();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                        return bitmap;
+                    })
+                    .map(bitmap -> {
+                        System.out.println("bitmap==" + bitmap);
+                        bitmap = createWaterMark(bitmap, "RxJava2.0");
+                        return bitmap;
+                    })
+                    .subscribe(bmp -> {
+                        //第七步 显示图片
+                        runOnUiThread(() -> mImageView.setImageBitmap(bmp));
+                    });
         }).start();
 
     }

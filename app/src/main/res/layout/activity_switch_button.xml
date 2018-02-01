@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.switchButton.SwitchButtonActivity">
+
+    <zhiwenyan.cmccaifu.com.android2017.view.switchButton.SwitchButtonGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <zhiwenyan.cmccaifu.com.android2017.view.switchButton.SwitchButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:text="确定"
+            app:selected="true"/>
+
+        <zhiwenyan.cmccaifu.com.android2017.view.switchButton.SwitchButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:text="确定"
+            app:selected="false"/>
+
+    </zhiwenyan.cmccaifu.com.android2017.view.switchButton.SwitchButtonGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <zhiwenyan.cmccaifu.com.android2017.view.switchButton.StepCircleView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <zhiwenyan.cmccaifu.com.android2017.view.switchButton.StepView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </zhiwenyan.cmccaifu.com.android2017.view.switchButton.StepView>
+
+        <zhiwenyan.cmccaifu.com.android2017.view.switchButton.StepView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </zhiwenyan.cmccaifu.com.android2017.view.switchButton.StepView>
+
+        <zhiwenyan.cmccaifu.com.android2017.view.switchButton.StepView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </zhiwenyan.cmccaifu.com.android2017.view.switchButton.StepView>
+    </LinearLayout>
+
+
+</LinearLayout>

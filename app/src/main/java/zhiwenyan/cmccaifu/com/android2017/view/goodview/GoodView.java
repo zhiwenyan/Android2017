@@ -143,7 +143,7 @@ public class GoodView extends PopupWindow implements IGoodView {
      * @param resId
      */
     public void setImage(int resId) {
-        setImage(mContext.getResources().getDrawable(resId,null));
+        setImage(mContext.getResources().getDrawable(resId, null));
     }
 
     /**

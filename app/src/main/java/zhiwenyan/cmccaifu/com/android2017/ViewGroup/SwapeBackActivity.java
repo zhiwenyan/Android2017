@@ -35,6 +35,6 @@ public class SwapeBackActivity extends BaseActivity {
 
     @OnClick(R.id.text)
     public void onClick() {
-        Toast.makeText(this,mText.getText().toString(),Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, mText.getText().toString(), Toast.LENGTH_SHORT).show();
     }
 }

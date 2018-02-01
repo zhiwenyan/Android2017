@@ -2,6 +2,7 @@ package zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.downLoad;
 
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -39,7 +40,7 @@ public class DownLoadActivity extends AppCompatActivity {
                 Call call = okHttpManager.asyncCall(url);
                 call.enqueue(new Callback() {
                     @Override
-                    public void onFailure(Call call, IOException e) {
+                    public void onFailure(@NonNull Call call, @NonNull IOException e) {
                         Log.i("DownLoadActivity", "onFailure: 单线程下载失败");
 
                     }

@@ -21,7 +21,6 @@ public class CustomDialog extends AlertDialog {
         super.setContentView(R.layout.oppo_dialog);
     }
 
-
     @Override
     public void onAttachedToWindow() {
         super.onAttachedToWindow();

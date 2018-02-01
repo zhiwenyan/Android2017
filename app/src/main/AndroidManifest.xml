@@ -245,20 +245,21 @@
         <activity android:name=".okhttp.okhttp.OKHttpSourceActivity">
         </activity>
         <activity android:name=".DesignPattern.aop.AopActivity">
+
+        </activity>
+        <activity android:name=".okhttp.okhttp.postFile.PostFileActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".okhttp.okhttp.postFile.PostFileActivity">
-        </activity>
         <activity android:name=".okhttp.okhttp.cache.CacheActivity">
         </activity>
         <activity android:name=".okhttp.okhttp.downLoad.DownLoadActivity">
         </activity>
-        <!--<activity android:name=".ViewGroup.TagLayout1.TagLayoutActivity">-->
-        <!--</activity>-->
+        <!-- <activity android:name=".ViewGroup.TagLayout1.TagLayoutActivity"> -->
+        <!-- </activity> -->
         <activity android:name=".view.gesture.LockViewActivity">
         </activity>
         <activity android:name=".view.live.LiveActivity">
@@ -272,9 +273,10 @@
         <activity android:name=".rxjava.rxJava.Main6Activity">
         </activity>
         <activity android:name=".retrofit.Retrofit.simple.Retrofit2Activity">
-
         </activity>
         <activity android:name=".retrofit.simple3.RxJavaRetrofitActivity">
+        </activity>
+        <activity android:name=".view.switchButton.SwitchButtonActivity">
 
         </activity>
     </application>

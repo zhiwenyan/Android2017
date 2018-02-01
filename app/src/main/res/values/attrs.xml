@@ -91,4 +91,11 @@
     <declare-styleable name="KugouMenu">
         <attr name="menuMarginRight" format="dimension"/>
     </declare-styleable>
+
+    <declare-styleable name="SwitchButton">
+        <attr name="selected" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="StepViewGroup">
+        <attr name="count" format="dimension"/>
+    </declare-styleable>
 </resources>

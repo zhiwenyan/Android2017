@@ -1,14 +1,11 @@
 package zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.downLoad;
 
-import android.support.annotation.NonNull;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -32,14 +29,11 @@ public class DownLoadTask {
     public synchronized ExecutorService executorService() {
         if (executorService == null) {
             executorService = new ThreadPoolExecutor(0, THREAD_SIZE, 30, TimeUnit.SECONDS,
-                    new SynchronousQueue<Runnable>(), new ThreadFactory() {
-                @Override
-                public Thread newThread(@NonNull Runnable r) {
-                    Thread thread = new Thread(r, "DownLoadTask");
-                    thread.setDaemon(false);
-                    return thread;
-                }
-            });
+                    new SynchronousQueue<>(), r -> {
+                        Thread thread = new Thread(r, "DownLoadTask");
+                        thread.setDaemon(false);
+                        return thread;
+                    });
         }
         return executorService;
     }

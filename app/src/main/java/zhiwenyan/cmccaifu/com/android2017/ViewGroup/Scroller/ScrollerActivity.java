@@ -2,7 +2,6 @@ package zhiwenyan.cmccaifu.com.android2017.ViewGroup.Scroller;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -21,18 +20,12 @@ public class ScrollerActivity extends AppCompatActivity {
         mScrollToBtn = (Button) findViewById(R.id.btn1);
         mScrollByBtn = (Button) findViewById(R.id.btn2);
 
-        mScrollToBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mLayout.scrollTo(-60, -100);  //初始位置移动
-            }
+        mScrollToBtn.setOnClickListener(v -> {
+            mLayout.scrollTo(-60, -100);  //初始位置移动
         });
-        mScrollByBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mLayout.scrollBy(-60, -100);  //相对于当前位置移动
+        mScrollByBtn.setOnClickListener(v -> {
+            mLayout.scrollBy(-60, -100);  //相对于当前位置移动
 
-            }
         });
     }
 }
