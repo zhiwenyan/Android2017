@@ -27,15 +27,13 @@ public class DownLoadActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_down_load);
-        btn1 = (Button) findViewById(R.id.btn1);
-        btn2 = (Button) findViewById(R.id.btn2);
+        btn1 = findViewById(R.id.btn1);
+        btn2 = findViewById(R.id.btn2);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //多线程的逻辑是什么？ 每个线程只负责读取单独的内容
-
                 //多线程+断点
-
                 final OkHttpManager okHttpManager = OkHttpManager.getInstance();
                 Call call = okHttpManager.asyncCall(url);
                 call.enqueue(new Callback() {

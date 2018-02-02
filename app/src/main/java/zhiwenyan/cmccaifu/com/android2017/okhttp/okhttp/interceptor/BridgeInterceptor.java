@@ -29,7 +29,6 @@ public class BridgeInterceptor implements Interceptor {
             request.header("Content-Length", Long.toString(requestBody.getContentLength()));
         }
         Response response = chain.proceed(request);
-
         return response;
     }
 }

@@ -1,10 +1,13 @@
 package zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.postFile;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,8 +30,20 @@ public class PostFileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_file);
+        RxPermissions rxPermissions = new RxPermissions(this); // where this is an Activity instance
+
+        // Must be done during an initialization phase like onCreate
+        rxPermissions.request(Manifest.permission.CAMERA)
+                .subscribe(granted -> {
+                    if (granted) { // Always true pre-M
+                        // I can control the camera now
+                    } else {
+                        // Oups permission denied
+                    }
+                });
         String url = "https://api.saiwuquan.com/api/upload";
-        File file = new File(Environment.getExternalStorageDirectory(), "test.png");
+        File file = new File(Environment.getExternalStorageDirectory(), "MagazineUnlock/test.jpg");
+        System.out.println("file==" + file.getAbsolutePath());
         OkHttpClient httpClient = new OkHttpClient();
         // 构建请求 Body , 这个我们之前自己动手写过
         MultipartBody.Builder builder = new MultipartBody.Builder()
@@ -38,7 +53,8 @@ public class PostFileActivity extends AppCompatActivity {
         builder.addFormDataPart("file", file.getName(),
                 //Content-Type
                 RequestBody.create(MediaType.parse(guessMimeType(file.getAbsolutePath())), file));
-        ExMultipartBody exMultipartBody = new ExMultipartBody(builder.build());
+        ExMultipartBody exMultipartBody = new ExMultipartBody(builder.build(), ((total, current) ->
+                showToast(total, current)));
         // 构建一个请求
         final Request request = new Request.Builder()
                 .url(url)
@@ -57,6 +73,10 @@ public class PostFileActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void showToast(long total, float current) {
+        runOnUiThread(() -> System.out.println("total=" + total + "--" + "current==" + current));
     }
 
     private String guessMimeType(String absolutePath) {

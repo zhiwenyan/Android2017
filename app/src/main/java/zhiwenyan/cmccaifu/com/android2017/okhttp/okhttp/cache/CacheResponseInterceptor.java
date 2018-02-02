@@ -6,13 +6,13 @@ import okhttp3.Interceptor;
 import okhttp3.Response;
 
 /**
- * Description:
+ * Description:自定义缓存拦截器
  * Data：11/29/2017-1:50 PM
  *
  * @author: yanzhiwen
  */
-public class CacheResponseIntercptor implements Interceptor {
-    public CacheResponseIntercptor() {
+public class CacheResponseInterceptor implements Interceptor {
+    public CacheResponseInterceptor() {
     }
 
     @Override

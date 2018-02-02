@@ -248,13 +248,14 @@
 
         </activity>
         <activity android:name=".okhttp.okhttp.postFile.PostFileActivity">
+
+        </activity>
+        <activity android:name=".okhttp.okhttp.cache.CacheActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-        <activity android:name=".okhttp.okhttp.cache.CacheActivity">
         </activity>
         <activity android:name=".okhttp.okhttp.downLoad.DownLoadActivity">
         </activity>

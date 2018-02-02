@@ -28,12 +28,13 @@ public class DownLoadTask {
 
     public synchronized ExecutorService executorService() {
         if (executorService == null) {
-            executorService = new ThreadPoolExecutor(0, THREAD_SIZE, 30, TimeUnit.SECONDS,
+            executorService = new ThreadPoolExecutor(
+                    0, THREAD_SIZE, 30, TimeUnit.SECONDS,
                     new SynchronousQueue<>(), r -> {
-                        Thread thread = new Thread(r, "DownLoadTask");
-                        thread.setDaemon(false);
-                        return thread;
-                    });
+                Thread thread = new Thread(r, "DownLoadTask");
+                thread.setDaemon(false);
+                return thread;
+            });
         }
         return executorService;
     }

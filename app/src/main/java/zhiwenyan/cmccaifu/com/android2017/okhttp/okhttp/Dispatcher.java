@@ -1,7 +1,6 @@
 package zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.SynchronousQueue;
@@ -16,8 +15,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class Dispatcher {
 
-    private @Nullable
-    ExecutorService executorService;
+    private ExecutorService executorService;
 
     public synchronized ExecutorService executorService() {
         if (executorService == null) {

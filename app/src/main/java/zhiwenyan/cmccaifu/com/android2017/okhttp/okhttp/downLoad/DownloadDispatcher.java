@@ -1,5 +1,7 @@
 package zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.downLoad;
 
+import android.support.annotation.NonNull;
+
 import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -40,12 +42,12 @@ public class DownloadDispatcher {
         Call call = OkHttpManager.getInstance().asyncCall(url);
         call.enqueue(new Callback() {
             @Override
-            public void onFailure(Call call, IOException e) {
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
                 callBack.onFailure(e);
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                 long contentLength = response.body().contentLength();
                 if (contentLength <= -1) {
                     return;

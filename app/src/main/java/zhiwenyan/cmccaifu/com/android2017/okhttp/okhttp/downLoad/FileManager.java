@@ -17,7 +17,6 @@ public class FileManager {
     private Context mContext;
 
     private FileManager() {
-
     }
 
     public static FileManager getFileManager() {
@@ -51,6 +50,4 @@ public class FileManager {
         File file = new File(mRootDir, fileName);
         return file;
     }
-
-
 }

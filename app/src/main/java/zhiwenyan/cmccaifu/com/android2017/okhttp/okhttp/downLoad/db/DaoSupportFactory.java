@@ -33,7 +33,7 @@ public class DaoSupportFactory {
             dbRoot.mkdirs();
         }
         File dbFile = new File(dbRoot, "nhdz.db");
-        
+
         mSQLiteDatabase = SQLiteDatabase.openOrCreateDatabase(dbFile, null);
 
     }
