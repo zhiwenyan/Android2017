@@ -78,8 +78,8 @@ public class RxJavaActivity extends AppCompatActivity {
                         return bitmap;
                     }
                 })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())  //子线程
+                .observeOn(AndroidSchedulers.mainThread()) //主线程
                 .subscribe(new Consumer<Bitmap>() {
                     @Override
                     public void accept(Bitmap bitmap) throws Exception {

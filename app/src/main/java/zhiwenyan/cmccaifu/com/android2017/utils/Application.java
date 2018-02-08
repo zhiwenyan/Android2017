@@ -9,6 +9,9 @@ package zhiwenyan.cmccaifu.com.android2017.utils;
  * （2）为 Array 类添加数组的求和方法，添加返回求和值的方法；
  * （3）编写 Application 程序，利用 Array 计算数组的求和值并输出。
  */
+class A {
+
+}
 
 public class Application {
     public static int index;
@@ -29,6 +32,11 @@ public class Application {
         int[] a = new int[]{1, 2, 3};
         Array array = new Array(a);
         System.out.println("sum=" + array.sum());
+        A[] aa;
+        for (int i = 0; i < 10; i++) {
+            aa = new A[i];
+            System.out.println(aa);
+        }
     }
 
 }

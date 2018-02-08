@@ -4,7 +4,10 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -63,6 +66,18 @@ public class MainActivity extends BaseActivity {
     TextView mTweenAnimTv;
     @BindView(R.id.frameAnimTv)
     TextView mrameAnimTv;
+    private Handler mHandler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+        }
+    };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mHandler.sendMessage(null);
+    }
 
     @Override
     protected void onResume() {
@@ -291,4 +306,6 @@ public class MainActivity extends BaseActivity {
         }
         return null;
     }
+
+    
 }

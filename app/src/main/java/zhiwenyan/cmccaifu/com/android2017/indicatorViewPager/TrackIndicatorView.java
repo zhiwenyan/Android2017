@@ -163,6 +163,9 @@ public class TrackIndicatorView extends HorizontalScrollView implements ViewPage
                 smoothIndicator(position);
                 //移动下标
                 mIndicatorGroup.scrollToBottomView(position);
+                mAdapter.restoreIndicator(mIndicatorGroup.getItemView(position));
+                mCurrentPosition = position;
+                mAdapter.highIndicator(mIndicatorGroup.getItemView(mCurrentPosition));
             }
 
         });

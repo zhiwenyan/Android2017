@@ -36,4 +36,12 @@ public abstract class Observable<T> implements ObservableSource<T> {
     }
 
     abstract void subscribeActual(Observer<T> observer);
+
+    public Observable subscribeOn(Schedulers schedulers) {
+        return onAssembly(new ObservableSchedulers<>(this,schedulers));
+    }
+
+    public Observable<T> observeOn(Schedulers schedulers) {
+        return onAssembly(new ObserveOn<>(this,schedulers));
+    }
 }

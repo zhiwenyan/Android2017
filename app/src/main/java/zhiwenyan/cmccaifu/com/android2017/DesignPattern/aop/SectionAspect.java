@@ -50,7 +50,7 @@ public class SectionAspect {
             Object obj = joinPoint.getThis();  //View Activity Fragment getThis()当前切点所在类
             Context context = getContext(obj);
             if (context != null) {
-                if (isNetworkAvailable(context)) {
+                if (!isNetworkAvailable(context)) {
                     //3 没有网络往下执行
                     Toast.makeText(context, "请检查你的网路", Toast.LENGTH_SHORT).show();
                     return null;

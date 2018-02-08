@@ -20,7 +20,7 @@ import zhiwenyan.cmccaifu.com.android2017.retrofit.Retrofit.ServiceMethod;
 public class Retrofit {
     public String baseUrl;
     public okhttp3.Call.Factory callFactory;
-    public  Map<Method, ServiceMethod> mMethodServiceMethodMap = new ConcurrentHashMap<>();
+    public Map<Method, ServiceMethod> mMethodServiceMethodMap = new ConcurrentHashMap<>();
 
     public Retrofit(Builder builder) {
         this.baseUrl = builder.baseUrl;

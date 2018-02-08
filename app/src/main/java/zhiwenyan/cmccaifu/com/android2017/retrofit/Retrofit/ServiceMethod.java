@@ -89,6 +89,7 @@ public class ServiceMethod {
             for (Annotation methodAnimation : mAnnotations) {
                 //解析GET POST
                 parseAnnotation(methodAnimation);
+                Log.i("TAG", "parseAnnotation: " + ((GET) (methodAnimation)).value());
             }
             int count = mParameterHandlers.length;
             for (int i = 0; i < count; i++) {
