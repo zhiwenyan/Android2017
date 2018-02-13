@@ -93,7 +93,6 @@ public class Main6Activity extends AppCompatActivity {
                         }
                     }
                 });
-
     }
 
     private Bitmap createWaterMark(Bitmap bitmap, String mark) {

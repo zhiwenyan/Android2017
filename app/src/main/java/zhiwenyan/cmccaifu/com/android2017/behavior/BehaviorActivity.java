@@ -1,7 +1,6 @@
 package zhiwenyan.cmccaifu.com.android2017.behavior;
 
 import android.view.MotionEvent;
-import android.view.View;
 import android.widget.Button;
 
 import butterknife.BindView;
@@ -13,8 +12,6 @@ public class BehaviorActivity extends BaseActivity {
     Button mBtn;
 
 
-
-
     @Override
     protected int getLayoutId() {
         return R.layout.activity_behavior;
@@ -22,17 +19,14 @@ public class BehaviorActivity extends BaseActivity {
 
     @Override
     protected void init() {
-        mBtn.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_MOVE:
-                        v.setX(event.getRawX() - v.getWidth() / 2);
-                        v.setY(event.getRawY() - v.getHeight() / 2);
-                        break;
-                }
-                return false;
+        mBtn.setOnTouchListener((v, event) -> {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_MOVE:
+                    v.setX(event.getRawX() - v.getWidth() / 2);
+                    v.setY(event.getRawY() - v.getHeight() / 2);
+                    break;
             }
+            return false;
         });
 
     }

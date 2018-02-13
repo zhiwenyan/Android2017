@@ -1,5 +1,8 @@
 package zhiwenyan.cmccaifu.com.android2017.utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by yanzhiwen on 2017/11/3.
  * <p>
@@ -10,7 +13,15 @@ package zhiwenyan.cmccaifu.com.android2017.utils;
  * （3）编写 Application 程序，利用 Array 计算数组的求和值并输出。
  */
 class A {
+    public void a() {
+        System.out.println("A");
+    }
+}
 
+class B extends A {
+    public void b() {
+        System.out.println("B");
+    }
 }
 
 public class Application {
@@ -27,6 +38,8 @@ public class Application {
     }
 
     public static void main(String[] args) {
+        B b = new B();
+        b.b();
         Application application = new Application(0);
         application.test();
         int[] a = new int[]{1, 2, 3};
@@ -37,6 +50,13 @@ public class Application {
             aa = new A[i];
             System.out.println(aa);
         }
+        List<Integer> mItems = new ArrayList<>();
+        mItems.add(1);
+        mItems.add(2);
+//        Iterable<Integer> integers = (Iterable<Integer>) mItems.iterator();
+//        integers.forEach(System.out::print);
+        String str = "abc";
+        System.out.println(str.charAt(str.indexOf("c")) == 'c');
     }
 
 }

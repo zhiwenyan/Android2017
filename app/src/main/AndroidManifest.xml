@@ -65,7 +65,6 @@
         <activity android:name=".animation.AnimationActivity"/>
         <activity android:name=".mvp.MVPActivity"/>
         <activity android:name=".banner.ViewPagerActivity">
-
         </activity>
         <activity
             android:name=".banner.TabedActivity"
@@ -88,7 +87,6 @@
         <activity android:name=".view.matrix.MatrixActivity"/>
         <activity android:name=".view.CustomProgressBar.CustomProgressBarActivity"/>
         <activity android:name=".rxjava.RxJavaActivity">
-
         </activity>
         <activity android:name=".cache.lru.PhotoWallActivity"/>
         <activity
@@ -209,8 +207,6 @@
         <activity android:name=".classLoader.ClassLoaderActivity">
         </activity>
         <activity android:name=".indicatorViewPager.CommonViewPagerActivity">
-
-
         </activity>
         <activity android:name=".sqlite.SqliteActivity">
         </activity>
@@ -251,7 +247,6 @@
         <activity android:name=".okhttp.okhttp.OKHttpSourceActivity">
         </activity>
         <activity android:name=".DesignPattern.aop.AopActivity">
-
         </activity>
         <activity android:name=".okhttp.okhttp.postFile.PostFileActivity">
         </activity>
@@ -272,12 +267,6 @@
         <activity android:name=".rxjava.simple1.Main5Activity">
         </activity>
         <activity android:name=".rxjava.rxJava.Main6Activity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".retrofit.Retrofit.simple.Retrofit2Activity">
         </activity>
@@ -286,6 +275,13 @@
         <activity android:name=".view.switchButton.SwitchButtonActivity">
         </activity>
         <activity android:name=".activity.BitmapActivity">
+        </activity>
+        <activity android:name=".view.ball.BallActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
     </application>
 

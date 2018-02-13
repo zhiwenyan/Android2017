@@ -8,6 +8,11 @@
     android:orientation="vertical"
     tools:context="zhiwenyan.cmccaifu.com.android2017.activity.RadioActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/common_fm_color"/>
+
     <RadioGroup
 
         android:id="@+id/rg"

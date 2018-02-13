@@ -57,7 +57,6 @@ android {
         implementation 'org.greenrobot:eventbus:3.0.0'
         implementation 'org.aspectj:aspectjrt:1.8.13'
         implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
-
+        implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     }
 }
-

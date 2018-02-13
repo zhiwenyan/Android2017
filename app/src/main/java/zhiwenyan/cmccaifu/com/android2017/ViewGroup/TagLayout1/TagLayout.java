@@ -3,6 +3,7 @@ package zhiwenyan.cmccaifu.com.android2017.ViewGroup.TagLayout1;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -39,6 +40,7 @@ public class TagLayout extends ViewGroup {
         mChildViews.clear();
         //获取宽度
         int width = MeasureSpec.getSize(widthMeasureSpec);
+        Log.i("TAG", "onMeasure: " + width);
         //高度需要计算
         int height = getPaddingTop() + getPaddingBottom();
         int lineWidth = getPaddingLeft();

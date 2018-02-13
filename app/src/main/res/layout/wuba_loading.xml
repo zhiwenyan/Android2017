@@ -14,12 +14,12 @@
         android:layout_centerInParent="true"
         android:orientation="vertical">
 
-        <zhiwenyan.cmccaifu.com.android2017.animator.ShapeView
+        <zhiwenyan.cmccaifu.com.android2017.view.ball.CircleView
             android:id="@+id/shapeView"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="80dp"/>
+            android:layout_marginBottom="100dp"/>
 
         <View
             android:id="@+id/shadowView"

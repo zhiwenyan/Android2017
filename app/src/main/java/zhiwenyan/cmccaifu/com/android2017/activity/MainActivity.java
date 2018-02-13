@@ -11,8 +11,11 @@ import android.os.Message;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
 import java.net.Inet4Address;
@@ -24,6 +27,7 @@ import java.util.Enumeration;
 import butterknife.BindView;
 import butterknife.OnClick;
 import timber.log.Timber;
+import zhiwenyan.cmccaifu.com.android2017.DesignPattern.builder.navigation.NavigationBar;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple1.IOHandler;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple1.IOHandlerFactory;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple2.IOFactory;
@@ -66,7 +70,7 @@ public class MainActivity extends BaseActivity {
     TextView mTweenAnimTv;
     @BindView(R.id.frameAnimTv)
     TextView mrameAnimTv;
-    private Handler mHandler=new Handler(){
+    private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -76,7 +80,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mHandler.sendMessage(null);
+        EventBus.getDefault().post(new String("EventBus"));
     }
 
     @Override
@@ -104,18 +108,18 @@ public class MainActivity extends BaseActivity {
 
         zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.IOHandlerFactory.getmInstance().getDefaultIOHandler();
 //
-//        ViewGroup parent = (ViewGroup) findViewById(R.id.view_root);
-//        NavigationBar navigationBar = new NavigationBar.Builder(this, R.layout.ui_navigation_bar, parent)
-//                .setText(R.id.text, "text")
-//                .setOnClickListener(R.id.text, new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//
-//                    }
-//                })
-//                .create();
-//        //如果想设置字体的大小、颜色，图片、等等
-//        TextView textView = navigationBar.findById(R.id.text);
+        ViewGroup parent = (ViewGroup) findViewById(R.id.view_root);
+        NavigationBar navigationBar = new NavigationBar.Builder(this, R.layout.ui_navigation_bar, parent)
+                .setText(R.id.text, "text")
+                .setOnClickListener(R.id.text, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                })
+                .create();
+        //如果想设置字体的大小、颜色，图片、等等
+        TextView textView = navigationBar.findById(R.id.text);
         //在写代码时 高扩展 并不是要把所有的的内容和出现的问题都想到，而在新增的功能时候可以保证原来的代码不变
         //对于开发者来说，需要用好最少知识原则，使用者并不需要关注太多
 
@@ -128,7 +132,12 @@ public class MainActivity extends BaseActivity {
     protected void onRestart() {
         super.onRestart();
         ListView listView = new ListView(this);
-        //listView.setAdapter();
+//        listView.setAdapter();
+//      View.inflate(this, R.layout.item_recycler, null);
+//        LayoutInflater.from(context).inflate(R.layout.item_recycler, parent);
+//        LayoutInflater.from(context).inflate(R.layout.item_recycler, parent, false);
+        //上面三种方式都是走 LayoutInflater.from(context).inflate(R.layout.item_recycler, parent, false);
+
 
     }
 
@@ -307,5 +316,5 @@ public class MainActivity extends BaseActivity {
         return null;
     }
 
-    
+
 }

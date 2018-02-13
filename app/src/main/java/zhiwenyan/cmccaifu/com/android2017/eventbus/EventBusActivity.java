@@ -1,14 +1,17 @@
 package zhiwenyan.cmccaifu.com.android2017.eventbus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import zhiwenyan.cmccaifu.com.android2017.R;
+import zhiwenyan.cmccaifu.com.android2017.activity.MainActivity;
 
 public class EventBusActivity extends AppCompatActivity {
 
@@ -17,6 +20,12 @@ public class EventBusActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_bus);
         EventBus.getDefault().register(this);
+        findViewById(R.id.eventBus).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(EventBusActivity.this, MainActivity.class));
+            }
+        });
     }
 
     /**
