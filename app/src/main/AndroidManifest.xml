@@ -24,7 +24,8 @@
             android:name=".activity.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
-            android:theme="@style/FullscreenTheme"/>
+            android:theme="@style/FullscreenTheme">
+        </activity>
         <activity
             android:name=".materialdesign.ScrollingActivity"
             android:label="@string/title_activity_scrolling"
@@ -54,10 +55,12 @@
             android:name=".activity.MainActivity"
             android:launchMode="singleTask">
 
+
         </activity>
         <activity android:name=".animator.AnimatorActivity"/>
         <activity android:name=".okhttp.OkhttpActivity"/>
-        <activity android:name=".retrofit.RetrofitActivity"/>
+        <activity android:name=".retrofit.RetrofitActivity">
+        </activity>
         <activity android:name=".Thread.ThreadActivity"/>
         <activity android:name=".Thread.ThreadPoolActivity"/>
         <activity android:name=".cache.ThreeCacheActivity"/>
@@ -247,6 +250,12 @@
         <activity android:name=".okhttp.okhttp.OKHttpSourceActivity">
         </activity>
         <activity android:name=".DesignPattern.aop.AopActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity android:name=".okhttp.okhttp.postFile.PostFileActivity">
         </activity>
@@ -277,11 +286,13 @@
         <activity android:name=".activity.BitmapActivity">
         </activity>
         <activity android:name=".view.ball.BallActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+        </activity>
+        <activity android:name=".view.gesture.LockView1Activity">
+        </activity>
+        <activity android:name=".view.ball.WaveBallActivity">
+        </activity>
+        <activity android:name=".view.password.SuccessPayViewActivity">
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
     </application>
 

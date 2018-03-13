@@ -23,7 +23,8 @@ public class KugouMenu extends HorizontalScrollView {
     private View mContentView;
     private int mMenuMarginRight;
     private int mMenuWidth;
-    private GestureDetector mGestureDetector;   //手势处理类
+    //手势处理类
+    private GestureDetector mGestureDetector;
     private boolean mIsMenuOpen;
     private boolean mIntercept = false;
 
@@ -103,9 +104,11 @@ public class KugouMenu extends HorizontalScrollView {
     @Override
     protected void onScrollChanged(int l, int t, int oldl, int oldt) {
         super.onScrollChanged(l, t, oldl, oldt);
+        Log.i("TAG", "onScrollChanged: " + "l=" + l + ",t=" + t + ",oldl=" + oldl + ",oldt=" + oldt);
         //算一个梯度值
         float scale = 1f * l / mMenuWidth;
-        float rightScale = 0.7f + 0.3f * scale;   //1->0
+        Log.i("TAG", "onScrollChanged: scale==" + scale);
+        float rightScale = 0.7f + 0.3f * scale;   //(scale)1->0
         //默认是以中心缩放
         //设置缩放点
         ViewCompat.setPivotX(mContentView, 0);

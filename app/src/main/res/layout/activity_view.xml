@@ -211,6 +211,13 @@
             android:text="酷狗Menu"
             android:textAllCaps="true"/>
 
+        <Button
+            android:id="@+id/btn30"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WaveView"
+            android:textAllCaps="true"/>
+
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

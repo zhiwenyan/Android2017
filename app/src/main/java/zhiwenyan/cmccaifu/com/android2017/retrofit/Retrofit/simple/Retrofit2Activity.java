@@ -14,16 +14,16 @@ public class Retrofit2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrofit2);
         RetrofitClient.getServiceApi().userLogin("Steven", "123456").enqueue(new Callback<UserLoginResult>() {
-            @Override
-            public void onResponse(Call<UserLoginResult> call, Response<UserLoginResult> response) {
-                Log.i("TAG", "onResponse: "+response.body.toString());
-            }
+                    @Override
+                    public void onResponse(Call<UserLoginResult> call, Response<UserLoginResult> response) {
+                        Log.i("TAG", "onResponse: " + response.body.toString());
+                    }
 
-            @Override
-            public void onFailure(Call<UserLoginResult> call, Throwable t) {
+                    @Override
+                    public void onFailure(Call<UserLoginResult> call, Throwable t) {
 
-            }
-        });
+                    }
+                });
 
     }
 }

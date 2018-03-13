@@ -17,6 +17,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(getLayoutId());
         mUnbinder = ButterKnife.bind(this);
         initToolBar();
+
+
         init();
 
 

@@ -1,5 +1,7 @@
 package zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.downLoad;
 
+import android.util.Log;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -54,10 +56,11 @@ public class DownLoadTask {
         for (int i = 0; i < THREAD_SIZE; i++) {
             //计算每个线程的下载内容
             long threadSize = contentLength / THREAD_SIZE;
+            Log.i("TAG", "init: " + "threadSize=" + threadSize);
             //初始化的时候，要读取数据库
             long start = i * threadSize;
-            long end = (i + threadSize) - 1;
-
+            long end = start + threadSize - 1;
+            Log.i("TAG", "init: " + "start=" + start + "end=" + end);
             if (i == THREAD_SIZE - 1) {
                 end = contentLength - 1;
             }

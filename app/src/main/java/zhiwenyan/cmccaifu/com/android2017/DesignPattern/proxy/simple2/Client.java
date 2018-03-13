@@ -30,7 +30,6 @@ public class Client {
         public BankInvocationHandler(Object object) {
             mObject = object;
         }
-
         /**
          * @param proxy
          * @param method

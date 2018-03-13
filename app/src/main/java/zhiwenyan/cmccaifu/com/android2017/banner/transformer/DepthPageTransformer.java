@@ -37,7 +37,6 @@ public class DepthPageTransformer extends ABaseTransformer {
 			view.setScaleY(scaleFactor);
 		}
 	}
-
 	@Override
 	protected boolean isPagingEnabled() {
 		return true;

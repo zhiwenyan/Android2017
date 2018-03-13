@@ -18,6 +18,7 @@ public class LoveTypeEvaluator implements TypeEvaluator<PointF> {
     }
 
     /**
+     * https://baike.baidu.com/item/%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF/1091769?fr=aladdin
      * @param t      [0-1]的范围
      * @param point0 startValue
      * @param point3 endValue

@@ -213,13 +213,11 @@ public final class OkHttpManger {
                         }
                     }
                 });
-
             }
 
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
                 final String responseStr = response.body().string();
-
                 okHttpHandler.post(new Runnable() {
                     @Override
                     public void run() {
@@ -228,7 +226,6 @@ public final class OkHttpManger {
                         }
                     }
                 });
-
             }
         });
     }

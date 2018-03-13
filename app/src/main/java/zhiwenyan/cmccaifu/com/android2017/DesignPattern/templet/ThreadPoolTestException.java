@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -30,11 +30,11 @@ public class ThreadPoolTestException {
         }
     };
     private static final BlockingQueue<Runnable> sPoolWorkQueue =
-            new LinkedBlockingQueue<>(6);
+            new PriorityBlockingQueue<>(4);
 
     //BlockingQueue 先进先出的队列
     //SynchronousQueue 线程安全的队列，它里面没有固定的缓存（OkHttp）
-    //PriorityBlockingQueue 无序的可以根据优先级排序
+    //PriorityBlockingQueue 无序的可以根据优先级排序，指定对象是实现Comparable
 
     /**
      * An {@link Executor} that can be used to execute tasks in parallel.
@@ -43,9 +43,9 @@ public class ThreadPoolTestException {
     //RejectedExecutionException 报错的原因，其实是AsyncTask一些隐患，比如去执行200个Runnable 肯定会报错
 
 
-    //线程队列4 最大核心线程数是10 缓存队列是6 20个Runnable
-    //20个任务需要执行，但是核心线程数只有4个，还有14个任务对列 非核心线程数还有6个，这时候会开6个线程去执行，
-    //目前达到10个最大线程数，还有8个Runnable没有办法执行，则会抛出异常
+    //线程队列4 ,核心线程数也是4，最大核心线程数是10，目前加入的runnable20个，
+    //20个任务需要执行，但是核心线程数只有4个，还有16个任务对列，这个时候最大线程是10， 非核心线程数还有6个，这时候会开6个线程去执行，
+    //目前达到10个最大线程数，还有10个Runnable没有办法执行，则会抛出异常
     static {
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
                 4,  //核心线程数
@@ -66,19 +66,21 @@ public class ThreadPoolTestException {
 
 
         for (int i = 0; i < 20; i++) {
-            Runnable runnable = new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    System.out.println("下载图片显示完毕" + Thread.currentThread().getName());
-                }
-            };
+//            Runnable runnable = new Runnable() {
+//                @Override
+//                public void run() {
+//                    try {
+//                        Thread.sleep(1000);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                    System.out.println("下载图片显示完毕" + Thread.currentThread().getName());
+//                }
+//
+//            };
+            Request request=new Request();
             //加入线程队列
-            threadPoolExecutor.execute(runnable);
+            threadPoolExecutor.execute(request);
         }
     }
 

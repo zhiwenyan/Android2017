@@ -98,4 +98,13 @@
     <declare-styleable name="StepViewGroup">
         <attr name="count" format="dimension"/>
     </declare-styleable>
+
+    <declare-styleable name="WaveBall">
+        <attr name="centerText" format="string"/>
+        <attr name="centerTextSize" format="dimension"/>
+        <attr name="centerTextColor" format="color"/>
+        <attr name="ballColor" format="color"/>
+        <attr name="ballRadius" format="dimension"/>
+        <attr name="waveColor" format="color"/>
+    </declare-styleable>
 </resources>

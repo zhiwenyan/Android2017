@@ -16,6 +16,7 @@ import zhiwenyan.cmccaifu.com.android2017.view.activity.LineActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.activity.PasswordActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.activity.PieActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.activity.SimileViewActivity;
+import zhiwenyan.cmccaifu.com.android2017.view.ball.WaveBallActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.canvas.CanvasActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.chart.ChartActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.coupon.CouponActivity;
@@ -51,7 +52,7 @@ public class ViewActivity extends BaseActivity {
     @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5,
             R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9, R.id.btn10, R.id.btn11,
             R.id.btn12, R.id.btn13, R.id.btn15, R.id.btn16, R.id.btn18, R.id.btn20, R.id.btn21, R.id.btn22,
-            R.id.kugou, R.id.yahoo, R.id.chart, R.id.btn26, R.id.btn27, R.id.btn28, R.id.btn29, R.id.btn33, R.id.btn32, R.id.btn36})
+            R.id.kugou, R.id.yahoo, R.id.chart, R.id.btn26, R.id.btn27, R.id.btn28, R.id.btn29, R.id.btn30, R.id.btn33, R.id.btn32, R.id.btn36})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn1:
@@ -140,7 +141,9 @@ public class ViewActivity extends BaseActivity {
                 break;
             case R.id.btn36:
                 startActivity(new Intent(this, RadarActivity.class));
-
+                break;
+            case R.id.btn30:
+                startActivity(new Intent(this, WaveBallActivity.class));
                 break;
 
         }

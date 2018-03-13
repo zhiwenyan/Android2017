@@ -26,12 +26,12 @@ public class ViewGroupActivity extends AppCompatActivity {
             }
         });
 
-//        findViewById(tv).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Log.i("TAG", "tv-->onClick: ");
-//            }
-//        });
+        findViewById(tv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("TAG", "tv-->onClick: ");
+            }
+        });
     }
     /**
      * View的

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:visibility="gone"/>
+
+    <zhiwenyan.cmccaifu.com.android2017.view.ball.WaveBall
+        android:id="@+id/waveBall"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_margin="10dp"
+        android:background="@color/colorPrimary"
+        app:ballColor="@color/colorAccent"
+        app:ballRadius="130dp"
+        app:centerText="30%"
+        app:centerTextColor="#000000"
+        app:centerTextSize="28dp"
+        app:waveColor="@color/blue"/>
+</LinearLayout>

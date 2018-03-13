@@ -12,7 +12,7 @@
 
     <zhiwenyan.cmccaifu.com.android2017.view.coupon.CouponView
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="120dp"
         android:layout_margin="16dp"
         android:background="#ec26b1">
 
