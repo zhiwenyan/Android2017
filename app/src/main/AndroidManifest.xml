@@ -54,11 +54,19 @@
         <activity
             android:name=".activity.MainActivity"
             android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
 
-
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity android:name=".animator.AnimatorActivity"/>
         <activity android:name=".okhttp.OkhttpActivity"/>
+
+        <activity android:name=".okhttp.okhttp.OKHttpSourceActivity">
+
+        </activity>
+
         <activity android:name=".retrofit.RetrofitActivity">
         </activity>
         <activity android:name=".Thread.ThreadActivity"/>
@@ -157,7 +165,9 @@
         <activity android:name=".view.textView.ColorTrackTextViewActivity"/>
         <activity android:name=".view.textView.ViewPagerActivity"/>
         <activity android:name=".view.touchView.ViewTouchActivity"/>
-        <activity android:name=".ViewGroup.tagLayout.TagLayoutActivity"/>
+        <activity android:name=".ViewGroup.tagLayout.TagLayoutActivity">
+
+        </activity>
         <activity android:name=".ViewGroup.Drag.VerticalDragActivity"/>
 
         <provider
@@ -247,23 +257,17 @@
         </activity>
         <activity android:name=".eventbus.EventBusActivity">
         </activity>
-        <activity android:name=".okhttp.okhttp.OKHttpSourceActivity">
-        </activity>
         <activity android:name=".DesignPattern.aop.AopActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".okhttp.okhttp.postFile.PostFileActivity">
+
         </activity>
         <activity android:name=".okhttp.okhttp.cache.CacheActivity">
         </activity>
         <activity android:name=".okhttp.okhttp.downLoad.DownLoadActivity">
         </activity>
         <!-- <activity android:name=".ViewGroup.TagLayout1.TagLayoutActivity"> -->
+        <!--  -->
         <!-- </activity> -->
         <activity android:name=".view.gesture.LockViewActivity">
         </activity>
@@ -292,6 +296,8 @@
         <activity android:name=".view.ball.WaveBallActivity">
         </activity>
         <activity android:name=".view.password.SuccessPayViewActivity">
+        </activity>
+        <activity android:name=".view.jianshu.Main7Activity">
 
         </activity>
     </application>

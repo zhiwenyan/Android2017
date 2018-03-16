@@ -47,6 +47,6 @@ public class BannerActivity extends BaseActivity {
             }
         });
         mBannerView.startLoop();
-        mBannerView.setScrollerDuration(850);
+        mBannerView.setScrollerDuration(1000);
     }
 }

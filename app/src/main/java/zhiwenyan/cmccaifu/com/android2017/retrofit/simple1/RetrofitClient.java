@@ -8,10 +8,11 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by hcDarren on 2017/12/16.
+ * Created by zhiwenyan on 2017/12/16.
  */
 
 public class RetrofitClient {
+    private static final String TAG = RetrofitClient.class.getSimpleName();
     private final static ServiceApi mServiceApi;
 
     static {
@@ -20,7 +21,7 @@ public class RetrofitClient {
                 .addInterceptor(new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
                     @Override
                     public void log(String message) {
-                        Log.e("TAG",message);
+                        Log.e(TAG, message);
                     }
                 }).setLevel(HttpLoggingInterceptor.Level.BODY))
                 .build();
@@ -29,7 +30,7 @@ public class RetrofitClient {
         // 2. 数据格式不一致？成功 data 是个对象，不成功 data 是个 String
         // 3. 还有就是 baseUrl 问题？ (Retrofit 找不到任何入口可以修改)
         //        3.1 不同的 baseUrl 构建不同的 Retrofit 对象 （直不应该首选）
-        //        3.2 自己想办法，取巧也行走漏洞
+        //        3.2 不同的baseUrl 怎么弄？？？自己想办法，取巧也行走漏洞
         Retrofit retrofit = new Retrofit.Builder()
                 // 访问后台接口的主路径
                 .baseUrl("http://192.168.10.92:8080/OkHttpServer/")

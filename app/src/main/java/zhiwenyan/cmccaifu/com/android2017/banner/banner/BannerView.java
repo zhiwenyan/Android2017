@@ -4,8 +4,10 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -49,6 +51,18 @@ public class BannerView extends RelativeLayout {
         mDotContainerView = (LinearLayout) findViewById(R.id.dot_container);
         mIndicatorFocusDrawable = new ColorDrawable(Color.RED);
         mIndicatorNormalDrawable = new ColorDrawable(Color.WHITE);
+        mBannerViewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
+            @Override
+            public void transformPage(@NonNull View page, float position) {
+                if (position > 0 && position <= 1) {
+                    page.setPivotX(0);
+                    page.setScaleX(1 - position);
+                } else if (position >= -1 && position < 0) {
+                    page.setPivotX(page.getWidth());
+                    page.setScaleX(1 + position);
+                }
+            }
+        });
     }
 
     public void setAdapter(BannerAdapter adapter) {
@@ -103,4 +117,5 @@ public class BannerView extends RelativeLayout {
             mDotContainerView.addView(dot);
         }
     }
+
 }

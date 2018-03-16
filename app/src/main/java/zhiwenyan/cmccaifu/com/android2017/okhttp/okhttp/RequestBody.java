@@ -157,6 +157,7 @@ public class RequestBody {
                 String mimType = fileNameMap.getContentTypeFor(file.getAbsolutePath());
 
                 if (TextUtils.isEmpty(mimType)) {
+                    //二进制文件流
                     return "application/octet-stream";
                 }
 

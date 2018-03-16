@@ -1,5 +1,6 @@
 package zhiwenyan.cmccaifu.com.android2017.rxjava;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,6 +12,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -41,6 +44,18 @@ public class RxJavaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rx_java);
+        RxPermissions rxPermissions = new RxPermissions(this);
+        rxPermissions.request(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .subscribe(new Consumer<Boolean>() {
+                    @Override
+                    public void accept(Boolean aBoolean) throws Exception {
+                        if (aBoolean) {
+
+                        } else {
+
+                        }
+                    }
+                });
         mImageView = (ImageView) findViewById(R.id.img);
         //给图片加一张水印 一般的写法
 //        new Thread(new Runnable() {

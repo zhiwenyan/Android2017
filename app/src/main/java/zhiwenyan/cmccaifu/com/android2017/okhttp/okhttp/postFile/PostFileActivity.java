@@ -35,10 +35,10 @@ public class PostFileActivity extends AppCompatActivity {
         // Must be done during an initialization phase like onCreate
         rxPermissions.request(Manifest.permission.CAMERA)
                 .subscribe(granted -> {
-                    if (granted) { // Always true pre-M
-                        // I can control the camera now
+                    if (granted) {
+
                     } else {
-                        // Oups permission denied
+
                     }
                 });
         String url = "https://api.saiwuquan.com/api/upload";
@@ -58,7 +58,8 @@ public class PostFileActivity extends AppCompatActivity {
         // 构建一个请求
         final Request request = new Request.Builder()
                 .url(url)
-                .post(exMultipartBody).build();
+                .post(exMultipartBody)
+                .build();
         // new RealCall 发起请求
         Call call = httpClient.newCall(request);
         call.enqueue(new Callback() {

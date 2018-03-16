@@ -128,8 +128,6 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
         //注册观察者 具体的观察者对象 订阅
         mMenuObserver = new AdapterMenuObserver();
         mBaseMenuAdapter.registerDataSetObserver(mMenuObserver);
-        //mBaseMenuAdapter.closeMenu();
-
 
         //获取有多少条
         int count = mBaseMenuAdapter.getCount();

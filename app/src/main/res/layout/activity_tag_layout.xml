@@ -10,8 +10,22 @@
 
     <zhiwenyan.cmccaifu.com.android2017.ViewGroup.TagLayout1.TagLayout
         android:id="@+id/tag"
+        android:padding="6dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     </zhiwenyan.cmccaifu.com.android2017.ViewGroup.TagLayout1.TagLayout>
+
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="添加Tag"/>
+
+    <Button
+        android:id="@+id/remove"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="移除Tag"/>
 </LinearLayout>

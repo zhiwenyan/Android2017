@@ -7,11 +7,12 @@
     tools:context="zhiwenyan.cmccaifu.com.android2017.view.yahoo.YahooActivity">
 
 
-    <include
-        layout="@layout/fragment_page_first"/>
-
     <zhiwenyan.cmccaifu.com.android2017.view.yahoo.LoadingView
         android:id="@+id/loadView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <include
+        layout="@layout/fragment_page_first"/>
+
 </RelativeLayout>

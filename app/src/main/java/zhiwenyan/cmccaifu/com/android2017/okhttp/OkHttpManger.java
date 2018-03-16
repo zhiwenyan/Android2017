@@ -43,7 +43,6 @@ public final class OkHttpManger {
     private static final String TAG = "OkHttpManger";
 
     private static final MediaType JSON_TYPE = MediaType.parse("application/json; charset=utf-8");
-
     private Handler okHttpHandler;
     private OkHttpClient mOkHttpClient;
 

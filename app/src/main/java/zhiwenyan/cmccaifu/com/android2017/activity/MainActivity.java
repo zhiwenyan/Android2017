@@ -81,6 +81,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EventBus.getDefault().post(new String("EventBus"));
+        Message.obtain();
     }
 
     @Override

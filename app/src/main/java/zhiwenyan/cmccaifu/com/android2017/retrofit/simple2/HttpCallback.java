@@ -1,5 +1,7 @@
 package zhiwenyan.cmccaifu.com.android2017.retrofit.simple2;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 
 import java.lang.reflect.ParameterizedType;
@@ -9,7 +11,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by hcDarren on 2017/12/16.
+ * Created by zhiwenyan on 2017/12/16.
  */
 
 public abstract class HttpCallback<T> implements Callback<Result<T>> {
@@ -30,6 +32,7 @@ public abstract class HttpCallback<T> implements Callback<Result<T>> {
     @Override
     public void onFailure(Call<Result<T>> call, Throwable t) {
         // 处理失败，联网，解析出错，自己弄一弄
+        Log.i("HttpCallback", "onFailure: " + t.getMessage());
     }
 
     public abstract void onSucceed(T result);

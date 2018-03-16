@@ -28,7 +28,6 @@ public class LambdaObserver<T> implements Observer<T>{
 
     }
 
-    @Override
     public void onComplete() {
 
     }

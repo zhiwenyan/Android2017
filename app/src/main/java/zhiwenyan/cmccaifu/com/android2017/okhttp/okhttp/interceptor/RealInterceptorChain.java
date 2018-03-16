@@ -28,7 +28,7 @@ public class RealInterceptorChain implements Interceptor.Chain {
 
     @Override
     public Response proceed(Request request) throws IOException {
-        RealInterceptorChain next = new RealInterceptorChain(interceptors, index + 1, request);
+        RealInterceptorChain next = new RealInterceptorChain(interceptors, +1, request);
         Interceptor interceptor = interceptors.get(index);
         Response response = interceptor.intercept(next);
         return response;

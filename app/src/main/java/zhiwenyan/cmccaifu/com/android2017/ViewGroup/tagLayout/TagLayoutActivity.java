@@ -28,8 +28,16 @@ public class TagLayoutActivity extends AppCompatActivity {
         mItems.add("66666");
         mItems.add("99999");
         mItems.add("888888888");
-        mTagLayout = (zhiwenyan.cmccaifu.com.android2017.ViewGroup.TagLayout1.TagLayout) findViewById(R.id.tag);
-        mTagLayout.setAdapter(new BaseAdapter() {
+        mItems.add("11");
+        mItems.add("22222");
+        mItems.add("333333");
+        mItems.add("88");
+        mItems.add("66666");
+        mItems.add("99999");
+        mItems.add("888888888");
+        mTagLayout = findViewById(R.id.tag);
+        //设置TAG用Adapter设计模式
+        BaseAdapter adapter = new BaseAdapter() {
             @Override
             protected int getCount() {
                 return mItems.size();
@@ -42,6 +50,25 @@ public class TagLayoutActivity extends AppCompatActivity {
                 tv.setText(mItems.get(position));
                 return tv;
             }
+        };
+        mTagLayout.setAdapter(adapter);
+        findViewById(R.id.add).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView tv = (TextView) LayoutInflater.from(TagLayoutActivity.this)
+                        .inflate(R.layout.item_tag, mTagLayout, false);
+                mItems.add("123456");
+                tv.setText("123456");
+                adapter.addView(tv);
+            }
         });
+        findViewById(R.id.remove).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mItems.remove(mItems.size() - 1);
+                adapter.removeView(mItems.size() - 1);
+            }
+        });
+
     }
 }

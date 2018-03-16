@@ -1,4 +1,4 @@
-package zhiwenyan.cmccaifu.com.android2017.view.shapeview;
+package zhiwenyan.cmccaifu.com.android2017.view.jianshu;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -208,12 +208,7 @@ public class MultiShapeView extends View {
         preDraw();
     }
 
-    /**
-     * drawable 转 Bitmap
-     *
-     * @param drawable
-     * @return
-     */
+
     private Bitmap getBitmapFromDrawable(Drawable drawable) {
         if (drawable == null) {
             return null;

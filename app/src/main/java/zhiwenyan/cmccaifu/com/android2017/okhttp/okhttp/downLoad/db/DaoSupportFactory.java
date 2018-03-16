@@ -38,9 +38,8 @@ public class DaoSupportFactory {
 
     }
 
-    public static DaoSupportFactory getInstance() {
-        return SingleTon.INSTANCE;
-    }
+
+
 
     private static class SingleTon {
         private final static DaoSupportFactory INSTANCE = new DaoSupportFactory();
