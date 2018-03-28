@@ -34,6 +34,7 @@ public class GlideActivity extends BaseActivity {
                         .into(mLoadImg);
                 break;
             case R.id.loadNetImgBtn:
+                //
                 Glide.with(this)
                         .load(URL)  //加载图片的地址
                         .crossFade() //默认加载的动画

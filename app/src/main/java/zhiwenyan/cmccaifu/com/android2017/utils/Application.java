@@ -57,6 +57,7 @@ public class Application {
 //        integers.forEach(System.out::print);
         String str = "abc";
         System.out.println(str.charAt(str.indexOf("c")) == 'c');
+        System.out.println(str.getBytes());
     }
 
 }

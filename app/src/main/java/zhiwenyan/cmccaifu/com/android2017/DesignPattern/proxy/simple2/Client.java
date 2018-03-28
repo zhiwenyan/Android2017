@@ -30,6 +30,7 @@ public class Client {
         public BankInvocationHandler(Object object) {
             mObject = object;
         }
+
         /**
          * @param proxy
          * @param method
@@ -43,6 +44,7 @@ public class Client {
             System.out.println(method.getName());
             //调用被代理的对象
             Object object = method.invoke(mObject, args);
+            System.out.println("object==" + object);
             return object;
         }
     }

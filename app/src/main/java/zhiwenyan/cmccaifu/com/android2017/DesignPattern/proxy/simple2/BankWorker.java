@@ -10,7 +10,8 @@ public class BankWorker implements IBank {
     private Man mMan;
 
     /**
-     *持有代理的对象
+     * 持有代理的对象
+     *
      * @param man
      */
 
@@ -19,10 +20,11 @@ public class BankWorker implements IBank {
     }
 
     @Override
-    public void applyBank() {
+    public Object applyBank() {
         System.out.println("受理");
         mMan.applyBank();
         System.out.println("完毕");
+        return mMan;
     }
 
     @Override

@@ -37,7 +37,7 @@ public class OkHttpCall<T> implements Call<T> {
             @Override
             public void onResponse(okhttp3.Call call, okhttp3.Response response) throws IOException {
                 //解析 Response ->Response<T>
-                Log.i("TAG", "onResponse: " + response.body().string());
+//               Log.i("TAG", "onResponse: " + response.body().string());
                 //涉及到解析，不能在这里写死 Retrofit源码有个CovertFactory
                 Response resp = new Response();
                 resp.body = mServiceMethod.parseBody(response.body());

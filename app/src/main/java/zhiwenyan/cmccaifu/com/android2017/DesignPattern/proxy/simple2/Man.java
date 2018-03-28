@@ -14,8 +14,9 @@ public class Man implements IBank {
     }
 
     @Override
-    public void applyBank() {
+    public Object applyBank() {
         System.out.println(name + "申请绑卡");
+        return name;
     }
 
     @Override

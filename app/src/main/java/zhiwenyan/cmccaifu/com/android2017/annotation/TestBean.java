@@ -6,17 +6,20 @@ package zhiwenyan.cmccaifu.com.android2017.annotation;
 
 public class TestBean {
     private String name;
-    public TestBean(){
+
+    public TestBean() {
 
     }
+
     public TestBean(String name) {
         this.name = name;
     }
 
     private void getName() {
-
+        System.out.println("getName");
     }
-    private void setName(){
+
+    private void setName() {
 
     }
 }

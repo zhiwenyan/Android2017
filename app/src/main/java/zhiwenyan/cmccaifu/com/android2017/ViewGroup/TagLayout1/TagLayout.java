@@ -59,7 +59,7 @@ public class TagLayout extends ViewGroup {
             //一行不够的情况需要换行  需要考虑margin 子View高度不一致的情况
             if ((lineWidth + childView.getMeasuredWidth() + childView.getPaddingLeft() + childView.getPaddingRight() +
                     params.leftMargin + params.rightMargin) > width) {
-                //换行，累加高度height=自身的高度+自身的内边距+自身的外边距
+                //换行，累加高度height=自身的高度+自身的外边距+自身的内边距
                 height += childView.getMeasuredHeight() + params.topMargin + params.bottomMargin +
                         childView.getPaddingTop() + childView.getPaddingBottom();
                 childViews = new ArrayList<>();
@@ -67,9 +67,9 @@ public class TagLayout extends ViewGroup {
                 //换行之后每行的宽度从getPaddingLeft开始
                 lineWidth = getPaddingLeft();
             } else {
-                //累加每个Tag的宽度，lineWidth=自身的宽度+自身的内边距+自身的外边距
-                lineWidth += childView.getMeasuredWidth() + childView.getPaddingLeft() + childView.getPaddingRight() +
-                        params.leftMargin + params.rightMargin;
+                //累加每个Tag的宽度，lineWidth=自身的宽度+自身的外边距+自身的内边距
+                lineWidth += childView.getMeasuredWidth() + params.leftMargin + params.rightMargin
+                        + childView.getPaddingLeft() + childView.getPaddingRight();
                 //处理下View高度不一致的情况
                 maxHeight = Math.max(childView.getMeasuredHeight() + params.topMargin + params.bottomMargin +
                         childView.getPaddingTop() + childView.getPaddingBottom(), maxHeight);
@@ -101,9 +101,9 @@ public class TagLayout extends ViewGroup {
                 bottom = childTop + getMeasuredHeight() + childView.getPaddingBottom();
                 childView.layout(left, childTop, right, bottom);
                 //叠加left
-                left += childView.getMeasuredWidth() + params.rightMargin + childView.getPaddingRight();
+                left += childView.getMeasuredWidth() + params.rightMargin;
                 int childHeight = childView.getMeasuredHeight() + params.topMargin + params.bottomMargin +
-                        childView.getPaddingLeft() + childView.getPaddingRight();
+                        childView.getPaddingTop() + childView.getPaddingBottom();
                 maxHeight = Math.max(maxHeight, childHeight);
             }
             //不断的叠加top

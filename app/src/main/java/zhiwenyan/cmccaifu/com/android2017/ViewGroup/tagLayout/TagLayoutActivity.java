@@ -21,21 +21,21 @@ public class TagLayoutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tag_layout);
-        mItems.add("11");
-        mItems.add("22222");
-        mItems.add("333333");
-        mItems.add("88");
-        mItems.add("66666");
-        mItems.add("99999");
-        mItems.add("888888888");
-        mItems.add("11");
-        mItems.add("22222");
-        mItems.add("333333");
-        mItems.add("88");
-        mItems.add("66666");
-        mItems.add("99999");
-        mItems.add("888888888");
         mTagLayout = findViewById(R.id.tag);
+        mItems.add("11");
+        mItems.add("22222");
+        mItems.add("333333");
+        mItems.add("8998");
+        mItems.add("66666");
+        mItems.add("99999");
+        mItems.add("888888888");
+        mItems.add("11");
+        mItems.add("22222");
+        mItems.add("333333");
+        mItems.add("88999");
+        mItems.add("66666");
+        mItems.add("99999");
+        mItems.add("888888");
         //设置TAG用Adapter设计模式
         BaseAdapter adapter = new BaseAdapter() {
             @Override
@@ -65,8 +65,10 @@ public class TagLayoutActivity extends AppCompatActivity {
         findViewById(R.id.remove).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mItems.remove(mItems.size() - 1);
-                adapter.removeView(mItems.size() - 1);
+                if (mItems.size() >= 0) {
+                    mItems.remove(mItems.size() - 1);
+                    adapter.removeView(mItems.size() - 1);
+                }
             }
         });
 

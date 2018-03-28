@@ -13,15 +13,17 @@ import okhttp3.Response;
  * Created by hcDarren on 2017/11/25.
  */
 
-public class CacheRequestInterceptor implements Interceptor{
+public class CacheRequestInterceptor implements Interceptor {
     private Context mContext;
-    public CacheRequestInterceptor(Context context){
+
+    public CacheRequestInterceptor(Context context) {
         this.mContext = context;
     }
+
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
-        if(isNetWork(mContext)){
+        if (isNetWork(mContext)) {
             // 只读缓存
             request = request.newBuilder()
                     .cacheControl(CacheControl.FORCE_CACHE).build();

@@ -15,8 +15,8 @@ public class UserLoginResult {
      */
 
     private String code;
-    private String data;
     private String msg;
+    private String data;
 
     public String getCode() {
         return code;

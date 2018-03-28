@@ -82,7 +82,7 @@ public class DownLoadTask {
                             //下载完毕需要清除数据库文件存储
                         }
                     }
-                }
+            }
             });
             //通过线程池去执行
             executorService().execute(downLoadRunnable);

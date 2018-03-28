@@ -2,12 +2,16 @@ package zhiwenyan.cmccaifu.com.android2017.activity;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
+import android.os.RemoteException;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -61,6 +65,7 @@ import zhiwenyan.cmccaifu.com.android2017.okhttp.OkhttpActivity;
 import zhiwenyan.cmccaifu.com.android2017.retrofit.RetrofitActivity;
 import zhiwenyan.cmccaifu.com.android2017.sqlite.SqliteActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.ViewActivity;
+import zhiwenyan.cmccaifu.com.androidadvanced.UserAidl;
 
 public class MainActivity extends BaseActivity {
 
@@ -81,7 +86,6 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EventBus.getDefault().post(new String("EventBus"));
-        Message.obtain();
     }
 
     @Override
@@ -91,6 +95,8 @@ public class MainActivity extends BaseActivity {
         Log.i("TAG", "onResume: " + this.getCacheDir().getAbsolutePath());
         Log.i("TAG", "onResume: " + this.getExternalCacheDir().getAbsolutePath());
         Log.i("TAG", "onResume: " + Environment.getExternalStorageDirectory());
+        Log.i("TAG", "onResume: " + Environment.getDownloadCacheDirectory().getPath());
+        Log.i("TAG", "onResume: " + Environment.getDataDirectory().getPath());
         File file = new File(Environment.getExternalStorageDirectory() + "/" + this.getPackageName() + "/test.apk");
         Log.i("TAG", "onResume: " + file.getPath());
         //简单工厂方法模式
@@ -127,7 +133,9 @@ public class MainActivity extends BaseActivity {
 
         //日志输出
         Timber.d("TAG", "log");
+        startMessageService();
     }
+
 
     @Override
     protected void onRestart() {
@@ -317,5 +325,34 @@ public class MainActivity extends BaseActivity {
         return null;
     }
 
+    private void startMessageService() {
+        //客户端代码
+        //跨进程之间通信 Aidl
+        //隐式启动
+        Intent intent = new Intent();
+        intent.setAction("com.fumi.ipc");
+        intent.setPackage("zhiwenyan.cmccaifu.com.androidadvanced");
+        bindService(intent, mServiceConnection, BIND_AUTO_CREATE);
+    }
 
+
+    private UserAidl mUserAidl;
+    private ServiceConnection mServiceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            //service 是服务端返回给我的
+            mUserAidl = UserAidl.Stub.asInterface(service);
+            try {
+                String userName = mUserAidl.getUserName();
+                Log.i("TAG", "onServiceConnected: " + userName);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+        }
+    };
 }

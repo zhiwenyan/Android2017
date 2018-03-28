@@ -111,7 +111,7 @@ public class ColorTrackTextView extends android.support.v7.widget.AppCompatTextV
         Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
         int dy = (fontMetricsInt.bottom - fontMetricsInt.top) / 2 - fontMetricsInt.bottom;
         int baseLine = getHeight() / 2 + dy;
-        //绘制
+        //绘制/
         canvas.drawText(text, x, baseLine, paint);
         canvas.restore();
     }

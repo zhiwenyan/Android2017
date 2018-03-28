@@ -10,7 +10,7 @@ public interface IBank {
     /**
      * 申请办卡
      */
-    void applyBank();
+    Object applyBank();
 
     /**
      * 申请挂失

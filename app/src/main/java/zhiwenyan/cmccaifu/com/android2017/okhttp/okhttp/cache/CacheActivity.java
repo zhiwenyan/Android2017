@@ -1,7 +1,6 @@
 package zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.cache;
 
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -18,6 +17,7 @@ import okhttp3.Response;
 import zhiwenyan.cmccaifu.com.android2017.R;
 
 //自定义缓存拦截器
+//自定义缓存（要求30s之内请求同一个接口读缓存，，无网直接读缓存）
 public class CacheActivity extends AppCompatActivity {
     private OkHttpClient mOkHttpClient;
     String url = "https://api.saiwuquan.com/api/appv2/sceneModel";
@@ -28,7 +28,14 @@ public class CacheActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cache);
         mTv = (android.widget.TextView) findViewById(R.id.tv);
-        File file = new File(Environment.getExternalStorageDirectory(), "cache");
+        File file = new File("cache.txt");
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         Cache cache = new Cache(file, 100 * 1024 * 1024);
         //够着一个请求
         mOkHttpClient = new OkHttpClient.Builder()

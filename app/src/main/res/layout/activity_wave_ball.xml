@@ -5,12 +5,12 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:visibility="gone"/>
+
+    <zhiwenyan.cmccaifu.com.android2017.view.ball.DoubleWaveView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/aqua"/>
+
 
     <zhiwenyan.cmccaifu.com.android2017.view.ball.WaveBall
         android:id="@+id/waveBall"

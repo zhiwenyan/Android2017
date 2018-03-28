@@ -3,6 +3,7 @@
           package="zhiwenyan.cmccaifu.com.android2017">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <uses-permission android:name="android.permission.READ_PROFILE"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
@@ -54,24 +55,18 @@
         <activity
             android:name=".activity.MainActivity"
             android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".animator.AnimatorActivity"/>
         <activity android:name=".okhttp.OkhttpActivity"/>
-
         <activity android:name=".okhttp.okhttp.OKHttpSourceActivity">
-
         </activity>
-
         <activity android:name=".retrofit.RetrofitActivity">
         </activity>
         <activity android:name=".Thread.ThreadActivity"/>
         <activity android:name=".Thread.ThreadPoolActivity"/>
-        <activity android:name=".cache.ThreeCacheActivity"/>
+        <activity android:name=".cache.ThreeCacheActivity">
+        </activity>
         <activity android:name=".glide.GlideActivity"/>
         <activity android:name=".animation.AnimationActivity"/>
         <activity android:name=".mvp.MVPActivity"/>
@@ -166,7 +161,6 @@
         <activity android:name=".view.textView.ViewPagerActivity"/>
         <activity android:name=".view.touchView.ViewTouchActivity"/>
         <activity android:name=".ViewGroup.tagLayout.TagLayoutActivity">
-
         </activity>
         <activity android:name=".ViewGroup.Drag.VerticalDragActivity"/>
 
@@ -260,7 +254,6 @@
         <activity android:name=".DesignPattern.aop.AopActivity">
         </activity>
         <activity android:name=".okhttp.okhttp.postFile.PostFileActivity">
-
         </activity>
         <activity android:name=".okhttp.okhttp.cache.CacheActivity">
         </activity>
@@ -298,7 +291,20 @@
         <activity android:name=".view.password.SuccessPayViewActivity">
         </activity>
         <activity android:name=".view.jianshu.Main7Activity">
+        </activity>
+        <activity android:name=".okhttp.download.DownLoadActivity">
+        </activity>
+        <activity
+            android:name=".activity.Main8Activity"
+            android:label="@string/title_activity_main8"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".permission.PermissionActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
 
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
     </application>
 

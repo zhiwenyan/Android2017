@@ -22,7 +22,7 @@ public class GesturePasswordView extends View {
     //3x3的解锁View
     private static final int mRow = 3;
     private static final int mColumn = 3;
-    // 颜色
+    //颜色
     private int mNormalColor = Color.GRAY;
     private int mPressedColor = Color.BLUE;
     private int mErrorColor = Color.RED;
@@ -56,18 +56,20 @@ public class GesturePasswordView extends View {
     private void initPaint() {
         mNormalPaint = getPaint();
         mNormalPaint.setColor(mNormalColor);
-
         mPressPaint = getPaint();
         mPressPaint.setColor(mPressedColor);
-
         mErrorPaint = getPaint();
         mErrorPaint.setColor(mErrorColor);
-
         mLinePaint = getPaint();
         mLinePaint.setColor(mPressedColor);
 
     }
 
+    /**
+     * 画笔
+     *
+     * @return
+     */
     private Paint getPaint() {
         Paint paint = new Paint();
         paint.setAntiAlias(true);

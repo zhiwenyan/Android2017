@@ -10,7 +10,7 @@ import java.io.RandomAccessFile;
 import okhttp3.Response;
 
 /**
- * Description:负责app的 部分线程
+ * Description:
  * Data：11/29/2017-4:57 PM
  *
  * @author: yanzhiwen
@@ -32,7 +32,6 @@ public class DownLoadRunnable implements Runnable {
         this.threadId = threadId;
         this.url = url;
         this.mDownLoadCallBack = downLoadCallBack;
-        Log.i("TAG", "DownLoadRunnable: " + this.toString());
     }
 
 

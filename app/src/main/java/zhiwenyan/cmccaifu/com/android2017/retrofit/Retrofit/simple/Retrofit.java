@@ -37,10 +37,13 @@ public class Retrofit {
                 Log.i("TAG", "invoke: " + method.getName());
                 //判断是Object的方法 ？
                 if (method.getDeclaringClass() == Object.class) {
+                    Log.i("TAG", "invoke==: " + this);
                     return method.invoke(this, args);
                 }
                 //解析参数注解
                 ServiceMethod serviceMethod = loadServiceMethod(method);
+                Log.i("TAG", "serviceMethod: " + serviceMethod);
+
                 //2 封装okHttpCall
                 OkHttpCall okHttpCall = new OkHttpCall(serviceMethod, args);
                 return okHttpCall;
