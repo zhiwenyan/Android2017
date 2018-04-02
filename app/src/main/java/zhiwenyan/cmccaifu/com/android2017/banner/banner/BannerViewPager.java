@@ -1,17 +1,22 @@
 package zhiwenyan.cmccaifu.com.android2017.banner.banner;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by zhiwenyan on 6/1/17.
@@ -22,7 +27,8 @@ public class BannerViewPager extends ViewPager {
     private static final int SCROLL_MSG = 0x011;
     private int mCutDownTime = 3000;
     private BannerScroller mBannerScroller;
-
+    //内存优化界面复用
+    private List<View> mConvertView;
     @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
         @Override
@@ -54,6 +60,7 @@ public class BannerViewPager extends ViewPager {
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
+        mConvertView = new ArrayList<>();
     }
 
     /**
@@ -68,11 +75,12 @@ public class BannerViewPager extends ViewPager {
     public void setAdapter(BannerAdapter adapter) {
         this.mBannerAdapter = adapter;
         setAdapter(new BannerPagerAdapter());
+        //管理Activity的生命周期
+        ((Activity) (getContext())).getApplication().registerActivityLifecycleCallbacks(mDefaultActivityLifecycleCallbacks);
     }
 
     /**
-     *
-     *开启轮播
+     * 开启轮播
      */
     public void startLoop() {
         mHandler.removeMessages(SCROLL_MSG);
@@ -99,22 +107,23 @@ public class BannerViewPager extends ViewPager {
         }
 
         @Override
-        public Object instantiateItem(ViewGroup container, int position) {
+        public Object instantiateItem(@NonNull ViewGroup container, int position) {
             //Adapter设计模式为了完全让用户自定义
             //position 0-2的31次方
-            View bannerItemView = mBannerAdapter.getView(position % mBannerAdapter.getCount());
+            View bannerItemView = mBannerAdapter.getView(position % mBannerAdapter.getCount(), getConvertView());
             container.addView(bannerItemView);
             return bannerItemView;
         }
 
         @Override
-        public boolean isViewFromObject(View view, Object object) {
+        public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
             return view == object;
         }
 
         @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
+        public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
             container.removeView((View) object);
+            mConvertView.add((View) object);
         }
     }
 
@@ -130,4 +139,37 @@ public class BannerViewPager extends ViewPager {
         }
         return super.onTouchEvent(ev);
     }
+
+    public View getConvertView() {
+        for (int i = 0; i < mConvertView.size(); i++) {
+            if (mConvertView.get(i).getParent() == null) {
+                return mConvertView.get(i);
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 管理Activity的生命周期
+     */
+    DefaultActivityLifecycleCallbacks mDefaultActivityLifecycleCallbacks = new DefaultActivityLifecycleCallbacks() {
+        @Override
+        public void onActivityResumed(Activity activity) {
+            super.onActivityResumed(activity);
+            if (activity == getContext()) {
+                Log.i("TAG", "onActivityResumed:Activity---> " + activity + "getContext-->" + getContext());
+                //开启轮播
+                mHandler.sendEmptyMessageDelayed(SCROLL_MSG, mCutDownTime);
+            }
+        }
+
+        @Override
+        public void onActivityPaused(Activity activity) {
+            super.onActivityPaused(activity);
+            if (activity == getContext()) {
+                //停止轮播
+                mHandler.removeMessages(SCROLL_MSG);
+            }
+        }
+    };
 }

@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="zhiwenyan.cmccaifu.com.android2017.banner.banner.BannerActivity">
+
     <zhiwenyan.cmccaifu.com.android2017.banner.banner.BannerView
         android:id="@+id/bannerView"
         android:layout_width="match_parent"
-        android:layout_height="160dp"/>
+        android:layout_height="0dp"
+        app:bottomColor="@color/common_gray"
+        app:dotDistance="2dp"
+        app:dotGravity="right"
+        app:dotIndicatorFocus="@color/common_red"
+        app:dotIndicatorNormal="@color/white"
+        app:dotSize="8dp"
+        app:heightProportion="3"
+        app:widthProportion="8"/>
 
 </RelativeLayout>

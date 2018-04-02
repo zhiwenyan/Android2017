@@ -16,7 +16,7 @@ public class PermissionHelper {
 
     // 1、Object Fragment Activity 2、int 请求码  3、请求的权限 String[]
     private Object mObject;
-    private int mRequstCode;
+    private int mRequestCode;
     private String[] mPermissions;
 
     public PermissionHelper(Object object) {
@@ -60,7 +60,7 @@ public class PermissionHelper {
      * @return
      */
     public PermissionHelper requestCode(int requestCode) {
-        this.mRequstCode = requestCode;
+        this.mRequestCode = requestCode;
         return this;
     }
 
@@ -83,7 +83,7 @@ public class PermissionHelper {
         if (!PermissionUtils.isOverMarshmallow()) {
             //2、如果不是6.0以上，那么直接执行方法，反射执行
             //执行什么方法不确定，只能用注解，反射的方式去执行
-            PermissionUtils.executeSuccessMethod(mObject, mRequstCode);
+            PermissionUtils.executeSuccessMethod(mObject, mRequestCode);
             return;
         }
         //3、如果是6.0以上，那么首先判断权限是否授予
@@ -91,12 +91,12 @@ public class PermissionHelper {
         List<String> deniedPermission = PermissionUtils.getDeniedPermission(mObject, mPermissions);
         if (deniedPermission.size() == 0) {
             //全部都是授权过的，3.1、如果授予了，反射执行方法
-            PermissionUtils.executeSuccessMethod(mObject, mRequstCode);
+            PermissionUtils.executeSuccessMethod(mObject, mRequestCode);
         } else {
             //3.2、如果没授予，那么我们就申请权限
             ActivityCompat.requestPermissions(PermissionUtils.getActivity(mObject),
                     deniedPermission.toArray(new String[deniedPermission.size()]),
-                    mRequstCode);
+                    mRequestCode);
         }
     }
 

@@ -1,11 +1,11 @@
 package zhiwenyan.cmccaifu.com.android2017.banner.banner;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
-import zhiwenyan.cmccaifu.com.android2017.Http.HttpUtils;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
@@ -25,14 +25,19 @@ public class BannerActivity extends BaseActivity {
     @Override
     protected void init() {
         doSetToolBarTitle("自定义Banner实现无限轮播");
-        String info = HttpUtils.getInstance(url).execute();
-        // Toast.makeText(this, info, Toast.LENGTH_SHORT).show();
-        mBannerView = (BannerView) findViewById(R.id.bannerView);
+//        String info = HttpUtils.getInstance(url).execute();
+        mBannerView =  findViewById(R.id.bannerView);
         mBannerView.setAdapter(new BannerAdapter() {
             @Override
-            public View getView(int position) {
-                ImageView bannerIv = new ImageView(BannerActivity.this);
-                bannerIv.setScaleType(ImageView.ScaleType.FIT_XY);
+            public View getView(int position, View convertView) {
+                ImageView bannerIv = null;
+                if (convertView == null) {
+                    bannerIv = new ImageView(BannerActivity.this);
+                    bannerIv.setScaleType(ImageView.ScaleType.FIT_XY);
+                } else {
+                    bannerIv = (ImageView) convertView;
+                    Log.i("TAG", "getView: 界面复用" + bannerIv);
+                }
                 if (position == 0) {
                     Glide.with(BannerActivity.this).load(URL1).into(bannerIv);
                 } else {
@@ -48,5 +53,10 @@ public class BannerActivity extends BaseActivity {
         });
         mBannerView.startLoop();
         mBannerView.setScrollerDuration(1000);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 }

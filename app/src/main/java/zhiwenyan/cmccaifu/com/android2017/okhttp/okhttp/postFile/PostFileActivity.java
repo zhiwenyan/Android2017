@@ -53,6 +53,7 @@ public class PostFileActivity extends AppCompatActivity {
         builder.addFormDataPart("file", file.getName(),
                 //Content-Type
                 RequestBody.create(MediaType.parse(guessMimeType(file.getAbsolutePath())), file));
+        //静态代理
         ExMultipartBody exMultipartBody = new ExMultipartBody(builder.build(), ((total, current) ->
                 showToast(total, current)));
         // 构建一个请求

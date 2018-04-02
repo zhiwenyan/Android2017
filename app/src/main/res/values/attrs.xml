@@ -8,7 +8,22 @@
         <attr name="metaButtonBarStyle" format="reference"/>
         <attr name="metaButtonBarButtonStyle" format="reference"/>
     </declare-styleable>
+    <declare-styleable name="BannerView">
+        <attr name="dotIndicatorFocus" format="color|reference"/>
+        <attr name="dotIndicatorNormal" format="color|reference"/>
+        <attr name="dotSize" format="dimension"/>
+        <attr name="dotDistance" format="dimension"/>
+        <attr name="dotGravity" format="enum">
 
+            <enum name="center" value="0"/>
+            <enum name="right" value="1"/>
+            <enum name="left" value="-1"/>
+        </attr>
+        <attr name="bottomColor" format="color|reference"/>
+        <!--定义宽高比-->
+        <attr name="widthProportion" format="float"/>
+        <attr name="heightProportion" format="float"/>
+    </declare-styleable>
 
     <declare-styleable name="MultiShapeView">
         <attr name="shape" format="enum">
