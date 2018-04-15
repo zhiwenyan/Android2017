@@ -19,6 +19,9 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
@@ -30,6 +33,7 @@ import java.util.Enumeration;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import retrofit2.converter.gson.GsonConverterFactory;
 import timber.log.Timber;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.builder.navigation.NavigationBar;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple1.IOHandler;
