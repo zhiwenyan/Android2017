@@ -5,10 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
+;
 
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.activity.MainActivity;
@@ -35,6 +32,16 @@ public class EventBusActivity extends AppCompatActivity {
      */
     @Subscribe(threadMode = ThreadMode.MAIN, priority = 50, sticky = true)
     public void test(String msg) {
+        Log.i("EventBusActivity", "test: " + msg);
+    }
+
+    /**
+     * threadMode
+     * priority
+     * sticky
+     */
+    @Subscribe(threadMode = ThreadMode.MAIN, priority = 50, sticky = true)
+    public void test1(String msg) {
         Log.i("EventBusActivity", "test: " + msg);
     }
 

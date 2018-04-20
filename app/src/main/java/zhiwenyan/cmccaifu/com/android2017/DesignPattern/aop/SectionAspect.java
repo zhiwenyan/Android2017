@@ -1,5 +1,6 @@
 package zhiwenyan.cmccaifu.com.android2017.DesignPattern.aop;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -14,7 +15,6 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 
-import zhiwenyan.cmccaifu.com.android2017.Handler.Activity;
 
 /**
  * Created by Steven on 2017/8/27.
@@ -25,7 +25,7 @@ public class SectionAspect {
     /**
      * 找到处理的切点
      */
-    @Pointcut("execution(@zhiwenyan.cmccaifu.com.android2017.DesignPattern.aop.CheckNet * *(..))")
+    @Pointcut("execution(* zhiwenyan.cmccaifu.com.android2017.DesignPattern.aop.CheckNet * *(..))")
     public void checkNetBehavior() {
 
     }

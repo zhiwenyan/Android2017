@@ -44,7 +44,7 @@ public class DownLoadActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onResponse(Call call, Response response) throws IOException {
+                    public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                         InputStream inputStream = response.body().byteStream();
                         Log.i("TAG", "onResponse: contLength=" + response.body().contentLength());
                         File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "shoujibaidu.apk");

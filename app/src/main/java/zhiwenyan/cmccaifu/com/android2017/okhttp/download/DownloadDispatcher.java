@@ -18,6 +18,7 @@ import okhttp3.Response;
  * @author: yanzhiwen
  */
 public class DownloadDispatcher {
+    private static final String TAG = "DownloadDispatcher";
     private static final DownloadDispatcher INSTANCE = new DownloadDispatcher();
     private final Deque<DownloadTask> readyTasks = new ArrayDeque<>();
 
@@ -48,7 +49,7 @@ public class DownloadDispatcher {
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                 //获取文件的大小
                 long contentLength = response.body().contentLength();
-                Log.i("TAG", "onResponse:contentLength= " + contentLength);
+                Log.i(TAG, "onResponse:contentLength= " + contentLength);
                 if (contentLength <= -1) {
                     return;
                 }

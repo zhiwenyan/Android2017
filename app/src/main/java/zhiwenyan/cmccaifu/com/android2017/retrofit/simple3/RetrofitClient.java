@@ -8,16 +8,11 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.ObservableSource;
-import io.reactivex.ObservableTransformer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Function;
-import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import zhiwenyan.cmccaifu.com.android2017.retrofit.simple2.Result;
 
 
 /**
@@ -63,28 +58,28 @@ public class RetrofitClient {
      * @param <T>
      * @return
      */
-    public static <T> ObservableTransformer<Result<T>, T> transformer() {
-        return new ObservableTransformer<Result<T>, T>() {
-            @Override
-            public ObservableSource<T> apply(Observable<Result<T>> resultObservable) {
-                return resultObservable.flatMap(new Function<Result<T>, ObservableSource<T>>() {
-                    @Override
-                    public ObservableSource<T> apply(Result<T> tResult) throws Exception {
-                        if (tResult.isOk()) {
-                            //返回成功
-                            return createObservable(tResult.data);
-                        } else {
-                            //返回失败
-                            return Observable.error(new ErrorHandler.ServiceError(tResult.getMsg(),
-                                    tResult.getCode()));
-                        }
-                    }
-                }).subscribeOn(Schedulers.io())
-                        .unsubscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread());
-            }
-        };
-    }
+//    public static <T> ObservableTransformer<Result<T>, T> transformer() {
+//        return new ObservableTransformer<Result<T>, T>() {
+//            @Override
+//            public ObservableSource<T> apply(Observable<Result<T>> resultObservable) {
+//                return resultObservable.flatMap(new Function<Result<T>, ObservableSource<T>>() {
+//                    @Override
+//                    public ObservableSource<T> apply(Result<T> tResult) throws Exception {
+//                        if (tResult.isOk()) {
+//                            //返回成功
+//                            return createObservable(tResult.data);
+//                        } else {
+//                            //返回失败
+//                            return Observable.error(new ErrorHandler.ServiceError(tResult.getMsg(),
+//                                    tResult.getCode()));
+//                        }
+//                    }
+//                }).subscribeOn(Schedulers.io())
+//                        .unsubscribeOn(Schedulers.io())
+//                        .observeOn(AndroidSchedulers.mainThread());
+//            }
+//        };
+//    }
 
     private static <T> ObservableSource<T> createObservable(final T data) {
         return Observable.create(new ObservableOnSubscribe<T>() {

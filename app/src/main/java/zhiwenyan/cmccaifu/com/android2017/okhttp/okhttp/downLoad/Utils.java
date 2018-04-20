@@ -2,6 +2,8 @@ package zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.downLoad;
 
 import android.text.TextUtils;
 
+import java.io.Closeable;
+import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -44,5 +46,15 @@ public class Utils {
             sb.append(HEX_DIGITS[b[i] & 0x0f]);
         }
         return sb.toString();
+    }
+
+    public static void close(Closeable closeable) {
+        try {
+            if (closeable != null) {
+                closeable.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

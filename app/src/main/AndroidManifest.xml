@@ -55,7 +55,6 @@
         <activity
             android:name=".activity.MainActivity"
             android:launchMode="singleTask">
-
         </activity>
         <activity android:name=".animator.AnimatorActivity"/>
         <activity android:name=".okhttp.OkhttpActivity"/>
@@ -219,8 +218,6 @@
         </activity>
         <activity android:name=".view.chart.ChartActivity">
         </activity>
-        <activity android:name=".Handler.HandlerActivity">
-        </activity>
         <activity android:name=".ViewGroup.Scroller.ScrollerActivity">
         </activity>
         <activity android:name=".view.scanloading.ScanLoadingActivity">
@@ -258,6 +255,11 @@
         <activity android:name=".okhttp.okhttp.cache.CacheActivity">
         </activity>
         <activity android:name=".okhttp.okhttp.downLoad.DownLoadActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <!-- <activity android:name=".ViewGroup.TagLayout1.TagLayoutActivity"> -->
         <!--  -->
@@ -293,6 +295,7 @@
         <activity android:name=".view.jianshu.Main7Activity">
         </activity>
         <activity android:name=".okhttp.download.DownLoadActivity">
+
         </activity>
         <activity
             android:name=".activity.Main8Activity"
@@ -302,12 +305,20 @@
         <activity android:name=".permission.PermissionActivity">
         </activity>
         <activity android:name=".view.redPacket.RedPacketViewActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
+        <activity android:name=".FileProvider.FileProviderActivity">
+
+        </activity>
+        <!--声明provider-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="zhiwenyan.cmccaifu.com.android2017.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
     </application>
 
 </manifest>

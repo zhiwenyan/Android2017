@@ -19,6 +19,9 @@ public class BannerActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
+        new Thread(() -> {
+
+        }).start();
         return R.layout.activity_banner;
     }
 
@@ -26,7 +29,7 @@ public class BannerActivity extends BaseActivity {
     protected void init() {
         doSetToolBarTitle("自定义Banner实现无限轮播");
 //        String info = HttpUtils.getInstance(url).execute();
-        mBannerView =  findViewById(R.id.bannerView);
+        mBannerView = findViewById(R.id.bannerView);
         mBannerView.setAdapter(new BannerAdapter() {
             @Override
             public View getView(int position, View convertView) {

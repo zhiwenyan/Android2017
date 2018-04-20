@@ -75,6 +75,7 @@ public class PostFileActivity extends AppCompatActivity {
             }
         });
 
+
     }
 
     private void showToast(long total, float current) {

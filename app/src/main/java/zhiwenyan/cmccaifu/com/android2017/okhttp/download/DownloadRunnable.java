@@ -1,5 +1,6 @@
 package zhiwenyan.cmccaifu.com.android2017.okhttp.download;
 
+import android.os.Environment;
 import android.util.Log;
 
 import java.io.File;
@@ -16,6 +17,7 @@ import okhttp3.Response;
  * @author: yanzhiwen
  */
 public class DownloadRunnable implements Runnable {
+    private static final String TAG = "DownloadRunnable";
     private static final int STATUS_DOWNLOADING = 1;
     private static final int STATUS_STOP = 2;
     private String url;
@@ -40,10 +42,12 @@ public class DownloadRunnable implements Runnable {
         RandomAccessFile randomAccessFile = null;
         try {
             Response response = OkHttpManager.getInstance().syncResponse(url, start, end);
-            Log.i("TAG", "DownloadRunnable: " + "contentLength=" + response.body().contentLength()
+            Log.i(TAG, "DownloadRunnable: " + "contentLength=" + response.body().contentLength()
                     + "start=" + start + "end=" + end + "threadId=" + threadId);
             inputStream = response.body().byteStream();
-            File file = FileManager.getInstance().getFile(url);
+            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "shoujibaidu.apk");
+
+//            File file = FileManager.getInstance().getFile(url);
             randomAccessFile = new RandomAccessFile(file, "rwd");
             //seek从哪里开始
             randomAccessFile.seek(start);
@@ -54,6 +58,7 @@ public class DownloadRunnable implements Runnable {
                     break;
                 //保存下进度，做断点
                 mProgress += len;
+                Log.i(TAG, "run: mProgress=" + mProgress);
                 randomAccessFile.write(bytes, 0, len);
             }
             downloadCallback.onSuccess(file);

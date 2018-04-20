@@ -31,6 +31,8 @@ public class ServiceMethod {
     String httpMethod;
     String relativeUrl;
     ParameterHandler<?>[] mParameterHandlers;
+    final Type[] parameterTypes;
+
 
     public ServiceMethod(Builder builder) {
         this.mRetrofit = builder.mRetrofit;
@@ -40,6 +42,7 @@ public class ServiceMethod {
         this.httpMethod = builder.httpMethod;
         this.relativeUrl = builder.relativeUrl;
         this.mParameterHandlers = builder.mParameterHandlers;
+        this.parameterTypes = builder.parameterTypes;
 
     }
 
@@ -70,15 +73,18 @@ public class ServiceMethod {
         final Retrofit mRetrofit;
         final Method mMethod;
         final Annotation[] mAnnotations;
+        final Type[] parameterTypes;
         final Annotation[][] parameterAnnotations;
         String httpMethod;
         String relativeUrl;
         ParameterHandler<?>[] mParameterHandlers;
 
+
         public Builder(Retrofit retrofit, Method method) {
             this.mRetrofit = retrofit;
             this.mMethod = method;
             mAnnotations = method.getAnnotations();
+            parameterTypes = method.getGenericParameterTypes();
             //参数注解 二位数组
             parameterAnnotations = method.getParameterAnnotations();
             mParameterHandlers = new ParameterHandler[parameterAnnotations.length];

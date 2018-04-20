@@ -15,21 +15,22 @@ import android.view.View;
 
 public class TouchView extends View {
     public TouchView(Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public TouchView(Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
     }
 
     public TouchView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
-//    @Override
-//    public boolean dispatchTouchEvent(MotionEvent event) {
-//        Log.i("TAG", "View--->dispatchTouchEvent: " + event.getAction());
-//        return super.dispatchTouchEvent(event);
-//    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        Log.i("TAG", "View--->dispatchTouchEvent: " + event.getAction());
+        return super.dispatchTouchEvent(event);
+    }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {

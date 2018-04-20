@@ -33,6 +33,18 @@ public class ViewGroupActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        Log.i("TAG", "Activity---dispatchTouchEvent: " + ev.getAction());
+        return super.dispatchTouchEvent(ev);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        Log.i("TAG", "Activity---onTouchEvent: " + event.getAction());
+        return super.onTouchEvent(event);
+    }
     /**
      * View的
      *

@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 public class DownloadTask {
     private String url;
     private long mContentLength;
-    private List<DownloadRunnable> mRunnables;
+    private List<DownloadRunnable> mDownloadRunnables;
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     private static final int THREAD_SIZE = Math.max(2, Math.min(CPU_COUNT - 1, 3));
     private DownloadCallback mDownloadCallback;
@@ -49,7 +49,7 @@ public class DownloadTask {
     public DownloadTask(String url, long contentLength, DownloadCallback callBack) {
         this.url = url;
         this.mContentLength = contentLength;
-        this.mRunnables = new ArrayList<>();
+        this.mDownloadRunnables = new ArrayList<>();
         this.mDownloadCallback = callBack;
     }
 
@@ -86,7 +86,7 @@ public class DownloadTask {
             });
             //通过线程池去执行
             executorService().execute(downloadRunnable);
-            mRunnables.add(downloadRunnable);
+            mDownloadRunnables.add(downloadRunnable);
 
 
         }
@@ -96,7 +96,7 @@ public class DownloadTask {
      * 停止下载
      */
     public void stopDownload() {
-        for (DownloadRunnable runnable : mRunnables) {
+        for (DownloadRunnable runnable : mDownloadRunnables) {
             runnable.stop();
         }
     }
