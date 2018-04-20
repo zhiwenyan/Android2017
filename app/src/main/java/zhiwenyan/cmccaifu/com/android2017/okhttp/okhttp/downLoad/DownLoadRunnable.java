@@ -42,6 +42,7 @@ public class DownLoadRunnable implements Runnable {
     public void run() {
         RandomAccessFile randomAccessFile = null;
         InputStream inputStream = null;
+
         //只读写自己的内容
         try {
             Response response = OkHttpManager.getInstance().syncResponse(url, start, end);
