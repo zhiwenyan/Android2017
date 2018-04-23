@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executor;
-import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -30,7 +30,7 @@ public class ThreadPoolTestException {
         }
     };
     private static final BlockingQueue<Runnable> sPoolWorkQueue =
-            new PriorityBlockingQueue<>(4);
+            new SynchronousQueue<>();
 
     //BlockingQueue 先进先出的队列
     //SynchronousQueue 线程安全的队列，它里面没有固定的缓存（OkHttp）
@@ -65,40 +65,40 @@ public class ThreadPoolTestException {
         THREAD_POOL_EXECUTOR = threadPoolExecutor;
 
 
-        for (int i = 0; i < 20; i++) {
-//            Runnable runnable = new Runnable() {
-//                @Override
-//                public void run() {
-//                    try {
-//                        Thread.sleep(1000);
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                    System.out.println("下载图片显示完毕" + Thread.currentThread().getName());
-//                }
-//
-//            };
-            Request request=new Request();
-            //加入线程队列
-            threadPoolExecutor.execute(request);
-        }
+//        for (int i = 0; i < 20; i++) {
+////            Runnable runnable = new Runnable() {
+////                @Override
+////                public void run() {
+////                    try {
+////                        Thread.sleep(1000);
+////                    } catch (InterruptedException e) {
+////                        e.printStackTrace();
+////                    }
+////                    System.out.println("下载图片显示完毕" + Thread.currentThread().getName());
+////                }
+////
+////            };
+//            Request request = new Request();
+//            //加入线程队列
+//            threadPoolExecutor.execute(request);
+//        }
     }
 
     public static void main(String[] args) {
-//        for (int i = 0; i < 100; i++) {
-//            new Thread(new Runnable() {
-//                @Override
-//                public void run() {
-//                    try {
-//                        Thread.sleep(1000);
-//                        System.out.println("下载图片显示完毕");
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            }).start();
-//        }
+        for (int i = 0; i < 20; i++) {
+            Runnable runnable = new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("下载图片显示完毕" + Thread.currentThread().getName());
+                }
 
-
+            };
+            THREAD_POOL_EXECUTOR.execute(runnable);
+        }
     }
 }

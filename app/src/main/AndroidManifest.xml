@@ -295,7 +295,6 @@
         <activity android:name=".view.jianshu.Main7Activity">
         </activity>
         <activity android:name=".okhttp.download.DownLoadActivity">
-
         </activity>
         <activity
             android:name=".activity.Main8Activity"
@@ -307,9 +306,8 @@
         <activity android:name=".view.redPacket.RedPacketViewActivity">
         </activity>
         <activity android:name=".FileProvider.FileProviderActivity">
-
         </activity>
-        <!--声明provider-->
+        <!-- 声明provider -->
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="zhiwenyan.cmccaifu.com.android2017.fileprovider"
@@ -319,6 +317,9 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths"/>
         </provider>
+
+        <activity android:name=".XmlResourceParser.XmlResourceParserActivity">
+        </activity>
     </application>
 
 </manifest>

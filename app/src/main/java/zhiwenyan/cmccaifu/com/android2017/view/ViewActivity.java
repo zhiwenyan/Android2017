@@ -1,7 +1,9 @@
 package zhiwenyan.cmccaifu.com.android2017.view;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import butterknife.OnClick;
 import zhiwenyan.cmccaifu.com.android2017.R;
@@ -37,11 +39,30 @@ import zhiwenyan.cmccaifu.com.android2017.view.wave.WaveViewActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.yahoo.YahooActivity;
 
 public class ViewActivity extends BaseActivity {
-
+    private TextView mTv;
 
     @Override
     protected void doSetToolBarTitle(String title) {
         super.doSetToolBarTitle("自定义View");
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mTv = findViewById(R.id.tv);
+        mTv.getMeasuredHeight();
+        mTv.post(new Runnable() {  //保存到对列中 会在dispatchAttachedToWindow会在测量完毕之后调用，中执行
+            @Override
+            public void run() {
+                mTv.getMeasuredHeight();
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mTv.getMeasuredHeight();
     }
 
     @Override
