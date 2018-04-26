@@ -188,25 +188,23 @@ public final class OkHttpManger {
     }
 
     /**
-     *
      * @param url
      * @param key
      * @param value
      */
-    public void postform(String url,String key,String value){
-        RequestBody requestBody=new FormBody.Builder()
-                .add(key,value)
+    public void postform(String url, String key, String value) {
+        RequestBody requestBody = new FormBody.Builder()
+                .add(key, value)
                 .build();
 
     }
 
     /**
-     *
      * @throws IOException
      */
     public void postMultipart() throws IOException {
-          final String IMGUR_CLIENT_ID = "9199fdef135c122";
-          final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/png");
+        final String IMGUR_CLIENT_ID = "9199fdef135c122";
+        final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/png");
         // Use the imgur image upload API as documented at https://api.imgur.com/endpoints/image
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)

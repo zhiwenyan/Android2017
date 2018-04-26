@@ -18,6 +18,9 @@ import android.widget.FrameLayout;
  * Created by zhiwenyan on 08/07/2017.
  * <p>
  * 折叠式菜单
+ *
+ *
+ * ViewDragHelper  实现卡片拖动效果
  */
 
 public class VerticalDragListView extends FrameLayout {

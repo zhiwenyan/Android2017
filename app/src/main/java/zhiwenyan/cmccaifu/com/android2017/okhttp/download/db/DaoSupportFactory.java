@@ -27,6 +27,11 @@ public class DaoSupportFactory {
         mSQLiteDatabase = SQLiteDatabase.openOrCreateDatabase(dbFile, null);
     }
 
+    public static DaoSupportFactory getInstance() {
+        return SingleTon.INSTANCE;
+    }
+
+
     public void init(Context context) {
         File dbRoot = new File(context.getCacheDir() + File.separator + "database");
         if (!dbRoot.exists()) {
@@ -37,9 +42,6 @@ public class DaoSupportFactory {
         mSQLiteDatabase = SQLiteDatabase.openOrCreateDatabase(dbFile, null);
 
     }
-
-
-
 
     private static class SingleTon {
         private final static DaoSupportFactory INSTANCE = new DaoSupportFactory();

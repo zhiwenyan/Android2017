@@ -26,13 +26,39 @@ public class BasicUseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_basic_use);
         initData();
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        mRecyclerView.setLayoutManager(manager);
         mRecyclerView.addItemDecoration(new LinearLayoutItemDecoration(this, R.drawable.default_item));
         RecyclerAdapter adapter = new RecyclerAdapter(mList);
         mRecyclerView.setAdapter(adapter);
+//        int firstVisibleItemPosition = manager.findFirstVisibleItemPosition();
+//        int lastVisibleItemPosition = manager.findLastVisibleItemPosition();
+//        int totalCount = adapter.getItemCount();
+//        System.out.println("firstVisibleItemPosition=" + firstVisibleItemPosition);  //-1
+//        System.out.println("lastVisibleItemPosition=" + lastVisibleItemPosition); //-1
+//        System.out.println("totalCount=" + totalCount); //26
+//        int firstCompletelyVisibleItemPosition = manager.findFirstCompletelyVisibleItemPosition(); //-1
+//        int lastCompletelyVisibleItemPosition = manager.findLastCompletelyVisibleItemPosition(); //-1
+//        System.out.println("firstCompletelyVisibleItemPosition=" + firstCompletelyVisibleItemPosition);
+//        System.out.println("lastCompletelyVisibleItemPosition=" + lastCompletelyVisibleItemPosition);
+//        System.out.println("--------------------------------------------");
 
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                int firstVisibleItemPosition = manager.findFirstVisibleItemPosition();
+                int lastVisibleItemPosition = manager.findLastVisibleItemPosition();
+                int firstCompletelyVisibleItemPosition = manager.findFirstCompletelyVisibleItemPosition();
+                int lastCompletelyVisibleItemPosition = manager.findLastCompletelyVisibleItemPosition();
+                System.out.println("firstVisibleItemPosition=" + firstVisibleItemPosition+"---"+mList.get(manager.findFirstVisibleItemPosition()));
+                System.out.println("lastVisibleItemPosition=" + lastVisibleItemPosition);
+                System.out.println("--------------------------------------------");
+                System.out.println("firstCompletelyVisibleItemPosition=" + firstCompletelyVisibleItemPosition);
+                System.out.println("lastCompletelyVisibleItemPosition=" + lastCompletelyVisibleItemPosition);
+            }
+        });
     }
-
 
     private void initData() {
         for (char ch = 'A'; ch <= 'Z'; ch++) {

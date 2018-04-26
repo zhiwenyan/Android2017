@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:background="#fff"
     android:orientation="vertical"
-    tools:context="zhiwenyan.cmccaifu.com.android2017.view.activity.PasswordActivity">
+    tools:context="zhiwenyan.cmccaifu.com.android2017.view.password.PasswordActivity">
 
 
     <TextView

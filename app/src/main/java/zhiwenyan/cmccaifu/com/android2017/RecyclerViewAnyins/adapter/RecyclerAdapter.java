@@ -37,6 +37,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         return mList.size();
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
+    }
+
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView mTextView;
 

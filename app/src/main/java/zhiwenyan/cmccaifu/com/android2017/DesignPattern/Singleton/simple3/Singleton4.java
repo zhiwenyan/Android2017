@@ -24,4 +24,9 @@ public class Singleton4 {
     public static Object getInstance(String serviceName) {
         return sSingleMap.get(serviceName);
     }
+
+    public static void main(String[] args) {
+        System.out.println(Singleton4.getInstance("activity manager"));
+        System.out.println(Singleton4.getInstance("activity manager"));
+    }
 }

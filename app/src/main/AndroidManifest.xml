@@ -55,6 +55,11 @@
         <activity
             android:name=".activity.MainActivity"
             android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity android:name=".animator.AnimatorActivity"/>
         <activity android:name=".okhttp.OkhttpActivity"/>
@@ -149,7 +154,7 @@
         <activity android:name=".RecyclerViewAnyins.HeadAndFooterActivity"/>
         <activity android:name=".RecyclerViewAnyins.ItemDragActivity"/>
         <activity android:name=".banner.banner.BannerActivity"/>
-        <activity android:name=".view.activity.PasswordActivity"/>
+        <activity android:name=".view.password.PasswordActivity"/>
         <activity android:name=".view.activity.IndexActivity"/>
         <activity android:name=".view.activity.MarqueeView"/>
         <activity
@@ -255,11 +260,6 @@
         <activity android:name=".okhttp.okhttp.cache.CacheActivity">
         </activity>
         <activity android:name=".okhttp.okhttp.downLoad.DownLoadActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <!-- <activity android:name=".ViewGroup.TagLayout1.TagLayoutActivity"> -->
         <!--  -->
@@ -319,6 +319,8 @@
         </provider>
 
         <activity android:name=".XmlResourceParser.XmlResourceParserActivity">
+        </activity>
+        <activity android:name=".webview.WebViewActivity">
         </activity>
     </application>
 

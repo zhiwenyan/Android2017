@@ -1,4 +1,4 @@
-package zhiwenyan.cmccaifu.com.android2017.view.activity;
+package zhiwenyan.cmccaifu.com.android2017.view.password;
 
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -12,8 +12,6 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import zhiwenyan.cmccaifu.com.android2017.R;
-import zhiwenyan.cmccaifu.com.android2017.view.password.CustomerKeyboard;
-import zhiwenyan.cmccaifu.com.android2017.view.password.PasswordEditText;
 
 public class PasswordActivity extends AppCompatActivity implements CustomerKeyboard.CustomerKeyboardClickListener, PasswordEditText.PasswordFullListener, View.OnClickListener {
     private CustomerKeyboard mCustomerKeyboard;
@@ -42,6 +40,7 @@ public class PasswordActivity extends AppCompatActivity implements CustomerKeybo
 
     @Override
     public void passwordFull(String password) {
+        //去后台填充密码
         Toast.makeText(this, "你输入的密码是：" + password, Toast.LENGTH_SHORT).show();
     }
 

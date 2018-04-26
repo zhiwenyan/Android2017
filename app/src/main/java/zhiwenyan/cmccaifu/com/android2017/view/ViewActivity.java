@@ -15,7 +15,7 @@ import zhiwenyan.cmccaifu.com.android2017.view.Loading.LoadingViewActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.RatingBar.RatingBarActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.activity.IndexActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.activity.LineActivity;
-import zhiwenyan.cmccaifu.com.android2017.view.activity.PasswordActivity;
+import zhiwenyan.cmccaifu.com.android2017.view.password.PasswordActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.activity.PieActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.activity.SimileViewActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.ball.WaveBallActivity;
