@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/ranking_img_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/one"/>
+
+    <TextView
+        android:id="@+id/ranking_search"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginLeft="45dp"
+        android:text="真搜索"
+        android:textColor="@color/common_black"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/ranking_water"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_alignLeft="@+id/txt1"
+        android:layout_marginLeft="122dp"
+        android:text="aaaa"
+        android:textColor="@color/common_black"/>
+
+    <TextView
+        android:id="@+id/ranking_vitality"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_alignLeft="@+id/txt2"
+        android:layout_marginLeft="74dp"
+        android:text="aaaa"
+        android:textColor="@color/common_black"/>
+
+
+</LinearLayout>

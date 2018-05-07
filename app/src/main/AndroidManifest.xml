@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
           package="zhiwenyan.cmccaifu.com.android2017">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
@@ -20,7 +21,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".activity.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -55,15 +57,12 @@
         <activity
             android:name=".activity.MainActivity"
             android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".animator.AnimatorActivity"/>
         <activity android:name=".okhttp.OkhttpActivity"/>
         <activity android:name=".okhttp.okhttp.OKHttpSourceActivity">
+
         </activity>
         <activity android:name=".retrofit.RetrofitActivity">
         </activity>
@@ -254,6 +253,11 @@
         <activity android:name=".eventbus.EventBusActivity">
         </activity>
         <activity android:name=".DesignPattern.aop.AopActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity android:name=".okhttp.okhttp.postFile.PostFileActivity">
         </activity>
@@ -322,6 +326,16 @@
         </activity>
         <activity android:name=".webview.WebViewActivity">
         </activity>
+        <activity android:name=".recyclerview.PlanetActivity">
+
+        </activity>
+        <activity android:name=".materialdesign.MainActivity">
+
+        </activity>
+        <activity android:name=".materialdesign.BehaviorActivity">
+
+        </activity>
+
     </application>
 
 </manifest>

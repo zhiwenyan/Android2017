@@ -54,12 +54,8 @@ android {
         implementation 'com.jakewharton:butterknife:8.8.1'
         annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
         implementation 'org.greenrobot:eventbus:3.0.0'
-        implementation 'org.aspectj:aspectjrt:1.8.13'
+        implementation 'org.aspectj:aspectjrt:1.9.0'
         implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
         implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     }
-}
-
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
 }
