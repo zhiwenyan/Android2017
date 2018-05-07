@@ -110,7 +110,6 @@ public class MainActivity extends BaseActivity {
         //类
         zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple5.IOHandler ioHandler3 =
                 zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple5.IOHandlerFactory.getDefaultIOHandler();
-
         zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.IOHandlerFactory.getmInstance().getDefaultIOHandler();
 //
         ViewGroup parent = (ViewGroup) findViewById(R.id.view_root);
