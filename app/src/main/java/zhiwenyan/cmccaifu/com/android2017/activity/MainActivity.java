@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
@@ -27,6 +28,8 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -54,6 +57,7 @@ import zhiwenyan.cmccaifu.com.android2017.behavior.NewMessageNotification;
 import zhiwenyan.cmccaifu.com.android2017.cache.ThreeCacheActivity;
 import zhiwenyan.cmccaifu.com.android2017.cache.lru.PhotoWallActivity;
 import zhiwenyan.cmccaifu.com.android2017.dialog.DialogActivity;
+import zhiwenyan.cmccaifu.com.android2017.eventbus.eventbus.MessageEvent;
 import zhiwenyan.cmccaifu.com.android2017.glide.GlideActivity;
 import zhiwenyan.cmccaifu.com.android2017.indicatorViewPager.CommonViewPagerActivity;
 import zhiwenyan.cmccaifu.com.android2017.materialdesign.DrawActivity;
@@ -73,17 +77,19 @@ public class MainActivity extends BaseActivity {
     TextView mTweenAnimTv;
     @BindView(R.id.frameAnimTv)
     TextView mrameAnimTv;
+    private Map<Integer, String> mMap = new HashMap<>();
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
         }
     };
+    private String mEnter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EventBus.getDefault().post(new String("EventBus"));
+        EventBus.getDefault().post(new MessageEvent("Hello everyone!"));
     }
 
     @Override
@@ -112,7 +118,7 @@ public class MainActivity extends BaseActivity {
                 zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple5.IOHandlerFactory.getDefaultIOHandler();
         zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.IOHandlerFactory.getmInstance().getDefaultIOHandler();
 //
-        ViewGroup parent = (ViewGroup) findViewById(R.id.view_root);
+        ViewGroup parent = ( ViewGroup ) findViewById(R.id.view_root);
         NavigationBar navigationBar = new NavigationBar.Builder(this, R.layout.ui_navigation_bar, parent)
                 .setText(R.id.text, "text")
                 .setOnClickListener(R.id.text, new View.OnClickListener() {
@@ -127,9 +133,8 @@ public class MainActivity extends BaseActivity {
         //在写代码时 高扩展 并不是要把所有的的内容和出现的问题都想到，而在新增的功能时候可以保证原来的代码不变
         //对于开发者来说，需要用好最少知识原则，使用者并不需要关注太多
 
-
         //日志输出
-//        Timber.d("TAG", "log");
+//      Timber.d("TAG", "log");
         startMessageService();
     }
 
@@ -352,4 +357,19 @@ public class MainActivity extends BaseActivity {
         public void onServiceDisconnected(ComponentName name) {
         }
     };
+
+    public void updateApp() {
+        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this)
+                .setCancelable(false)
+                .setTitle(getString(R.string.app_name))
+                .setMessage("update")
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.dismiss();
+                    }
+                });
+        builder.create().show();
+    }
 }

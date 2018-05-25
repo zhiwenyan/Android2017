@@ -19,7 +19,6 @@ public class MemoryCacheUtils {
                 return value.getByteCount();
             }
         };
-
     }
 
     /**

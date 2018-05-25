@@ -9,9 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
-/**
- * Created by hcDarren on 2017/7/9.
- */
+
 
 public class StatusBarUtil {
     /**

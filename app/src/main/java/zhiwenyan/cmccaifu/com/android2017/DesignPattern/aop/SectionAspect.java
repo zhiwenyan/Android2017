@@ -25,7 +25,7 @@ public class SectionAspect {
     /**
      * 找到处理的切点
      */
-    @Pointcut("execution(* zhiwenyan.cmccaifu.com.android2017.DesignPattern.aop.CheckNet * *(..))")
+    @Pointcut("execution(@zhiwenyan.cmccaifu.com.android2017.DesignPattern.aop.CheckNet * *(..))")
     public void checkNetBehavior() {
 
     }

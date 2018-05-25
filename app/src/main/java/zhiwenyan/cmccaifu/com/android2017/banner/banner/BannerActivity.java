@@ -19,9 +19,6 @@ public class BannerActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
-        new Thread(() -> {
-
-        }).start();
         return R.layout.activity_banner;
     }
 

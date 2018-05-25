@@ -9,6 +9,8 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
 //        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.0'
+        classpath 'org.aspectj:aspectjtools:1.8.13'
+        classpath 'org.aspectj:aspectjweaver:1.8.13'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }

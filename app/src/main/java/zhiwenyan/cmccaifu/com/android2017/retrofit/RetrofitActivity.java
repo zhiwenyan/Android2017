@@ -1,6 +1,7 @@
 package zhiwenyan.cmccaifu.com.android2017.retrofit;
 
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -114,7 +115,7 @@ public class RetrofitActivity extends BaseActivity {
         Call<BookSearchResponse> call = mBookService.getSearchMapBooks(map);
         call.enqueue(new Callback<BookSearchResponse>() {
             @Override
-            public void onResponse(Call<BookSearchResponse> call, Response<BookSearchResponse> response) {
+            public void onResponse(@NonNull Call<BookSearchResponse> call, @NonNull Response<BookSearchResponse> response) {
                 mResultTv.setText(response.body().getBooks().get(0).getAuthor_intro());
             }
 

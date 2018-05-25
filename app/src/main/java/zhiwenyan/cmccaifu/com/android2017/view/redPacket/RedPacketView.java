@@ -8,8 +8,10 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.Shader;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -38,6 +40,8 @@ public class RedPacketView extends View {
     private int mBombNumber = 8;
     //爆炸的icon
     private Bitmap[] mBombIcons = new Bitmap[8];
+    private int mProgressStatColor = 0x0000ff;
+    private int mProgressEndColor = 0x0099ff;
 
     public RedPacketView(Context context) {
         this(context, null);
@@ -68,7 +72,7 @@ public class RedPacketView extends View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         //指定宽高
-        int size = (int) Math.max(mRedPacketBitmap.getWidth(), mRedPacketBitmap.getHeight() * 1.1f);
+        int size = ( int ) Math.max(mRedPacketBitmap.getWidth(), mRedPacketBitmap.getHeight() * 1.1f);
         setMeasuredDimension(size, size);
 
 
@@ -82,27 +86,39 @@ public class RedPacketView extends View {
         //画红包
         canvas.drawBitmap(mRedPacketBitmap, 0, 0, null);
         //画进度条
-        int top = (int) (mRedPacketBitmap.getHeight() - mProgressBitmap.getHeight() * 0.8f);
-        int left = (int) ((width - mProgressBitmap.getWidth()) / 2 - mProgressBitmap.getHeight() * 0.02f);
+        int top = ( int ) (mRedPacketBitmap.getHeight() - mProgressBitmap.getHeight() * 0.8f);
+        int left = ( int ) ((width - mProgressBitmap.getWidth()) / 2 - mProgressBitmap.getHeight() * 0.02f);
         canvas.drawBitmap(mProgressBitmap, left, top, null);
 
         //画进度
-        int progressWidth = (int) (mProgressBitmap.getWidth() * 0.75f);
-        int currentProgressWidth = (int) (progressWidth * (mCurrentProgress / mTotalProgress));
-        int progressHeight = (int) (mProgressBitmap.getHeight() * 0.3f);
-        left = (int) (mProgressBitmap.getWidth() * 0.2f);
-        top = (int) (height * 0.75f);
-        RectF rectF = new RectF(left, top,
-                left + currentProgressWidth, top + progressHeight);
-        int round = mProgressBitmap.getHeight() / 2;
-        mProgressPaint.setColor(Color.BLUE);
-        canvas.drawRoundRect(rectF, round, round, mProgressPaint);
-
-        for (int i = 0; i < mBombNumber; i++) {
-
+        if (mTotalProgress == 0 || mCurrentProgress == 0) {
+            return;
         }
-
-
+        if (mCurrentProgress != 0) {
+            int progressWidth = ( int ) (mProgressBitmap.getWidth() * 0.75f);
+            int currentProgressWidth = ( int ) (progressWidth * (mCurrentProgress / mTotalProgress));
+            int progressHeight = ( int ) (mProgressBitmap.getHeight() * 0.3f);
+            left = ( int ) (mProgressBitmap.getWidth() * 0.2f);
+            top = ( int ) (height * 0.75f);
+            RectF rectF = new RectF(left, top, left + currentProgressWidth, top + progressHeight);
+            int round = mProgressBitmap.getHeight() / 2;
+            //色会在进度条的渐变颜色
+            Shader shader = new LinearGradient(0, 0, currentProgressWidth, 0,
+                    new int[]{mProgressStatColor, mProgressEndColor}, new float[]{}, Shader.TileMode.CLAMP);
+            mProgressPaint.setColor(Color.BLUE);
+            mProgressPaint.setShader(shader);
+            canvas.drawRoundRect(rectF, round, round, mProgressPaint);
+            float bombCenterX = left + currentProgressWidth;
+            float bombCenterY = top;
+        }
+        float preAngle = ( float ) (2 * Math.PI / mBombNumber);
+//        for (int i = 0; i < mBombNumber; i++) {
+//            float angle = preAngle * i;
+//           float mCurrentBombRadius = mTotalProgress
+//            int cx = ( int ) (bombCenterX + mRotationRadius * Math.cos(currentAngle));
+//            int cy = ( int ) (bombCenterY + mRotationRadius * Math.sin(currentAngle));
+//            canvas.drawBitmap(mBombIcons[i % 2], cx, cy, mPaint, null);
+//        }
     }
 
     public synchronized void setCurrentProgress(float currentProgress) {
@@ -120,7 +136,7 @@ public class RedPacketView extends View {
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                float value = (float) animation.getAnimatedValue();
+                float value = ( float ) animation.getAnimatedValue();
                 setCurrentProgress(value);
             }
         });
@@ -141,7 +157,7 @@ public class RedPacketView extends View {
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                mCurrentBobmProgress = (float) animation.getAnimatedValue();
+                mCurrentBobmProgress = ( float ) animation.getAnimatedValue();
                 invalidate();
 
             }

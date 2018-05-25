@@ -77,8 +77,9 @@ public class LoadingView extends View {
         mCircleRadius = mRotationRadius / 8;
         mCenterX = getMeasuredWidth() / 2;
         mCenterY = getMeasuredHeight() / 2;
-        mDiagonalDist = (float) Math.sqrt(mCenterX * mCenterX + mCenterY * mCenterY);
+        mDiagonalDist = ( float ) Math.sqrt(mCenterX * mCenterX + mCenterY * mCenterY);
         mInitParam = true;
+
 
     }
 
@@ -103,12 +104,12 @@ public class LoadingView extends View {
 
         public RotationState() {
             if (mAnimator == null) {
-                mAnimator = ObjectAnimator.ofFloat(0, 2 * (float) Math.PI);
+                mAnimator = ObjectAnimator.ofFloat(0, 2 * ( float ) Math.PI);
                 mAnimator.setDuration(2888);
                 mAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                     @Override
                     public void onAnimationUpdate(ValueAnimator animation) {
-                        mCurrentRotationAngle = (float) animation.getAnimatedValue();
+                        mCurrentRotationAngle = ( float ) animation.getAnimatedValue();
                         invalidate();
 
                     }
@@ -129,8 +130,8 @@ public class LoadingView extends View {
             double percentAngle = Math.PI * 2 / mCircleColors.length;
             for (int i = 0; i < mCircleColors.length; i++) {
                 double currentAngle = percentAngle * i + mCurrentRotationAngle;
-                int cx = (int) (mCenterX + mRotationRadius * Math.cos(currentAngle));
-                int cy = (int) (mCenterY + mRotationRadius * Math.sin(currentAngle));
+                int cx = ( int ) (mCenterX + mRotationRadius * Math.cos(currentAngle));
+                int cy = ( int ) (mCenterY + mRotationRadius * Math.sin(currentAngle));
                 mPaint.setColor(mCircleColors[i]);
                 canvas.drawCircle(cx, cy, mCircleRadius, mPaint);
             }
@@ -156,7 +157,7 @@ public class LoadingView extends View {
                 mAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                     @Override
                     public void onAnimationUpdate(ValueAnimator animation) {
-                        mRotationRadius = (float) animation.getAnimatedValue();// 最大半径到 0
+                        mRotationRadius = ( float ) animation.getAnimatedValue();// 最大半径到 0
                         // 重新绘制
                         invalidate();
                     }
@@ -180,8 +181,8 @@ public class LoadingView extends View {
             double percentAngle = Math.PI * 2 / mCircleColors.length;
             for (int i = 0; i < mCircleColors.length; i++) {
                 double currentAngle = percentAngle * i + mCurrentRotationAngle;
-                int cx = (int) (mCenterX + mRotationRadius * Math.cos(currentAngle));
-                int cy = (int) (mCenterY + mRotationRadius * Math.sin(currentAngle));
+                int cx = ( int ) (mCenterX + mRotationRadius * Math.cos(currentAngle));
+                int cy = ( int ) (mCenterY + mRotationRadius * Math.sin(currentAngle));
                 mPaint.setColor(mCircleColors[i]);
                 canvas.drawCircle(cx, cy, mCircleRadius, mPaint);
             }
@@ -198,7 +199,7 @@ public class LoadingView extends View {
                 mAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                     @Override
                     public void onAnimationUpdate(ValueAnimator animation) {
-                        mHoleRadius = (float) animation.getAnimatedValue();
+                        mHoleRadius = ( float ) animation.getAnimatedValue();
                         // 重新绘制
                         invalidate();
                     }

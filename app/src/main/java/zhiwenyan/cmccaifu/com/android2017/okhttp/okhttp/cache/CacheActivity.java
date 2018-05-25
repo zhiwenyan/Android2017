@@ -27,7 +27,7 @@ public class CacheActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cache);
-        mTv = (android.widget.TextView) findViewById(R.id.tv);
+        mTv = ( android.widget.TextView ) findViewById(R.id.tv);
         File file = new File("cache.txt");
         if (!file.exists()) {
             try {
@@ -67,7 +67,7 @@ public class CacheActivity extends AppCompatActivity {
                 // 都是有 第一把，第二把没有网络的了只有缓存的 (30s 以内)，过了 30s 之后又会有网络的了（会再请求更新）
                 Log.i("TAG", "cacheResponse: " + response.cacheResponse() + "：" + response.networkResponse());
                 Response cacheResponse = response.cacheResponse();
-//                Log.i("TAG", "cacheResponse: " + cacheResponse.body().string());
+                Log.i("TAG", "cacheResponse: " + cacheResponse.body().string());
             }
         });
     }

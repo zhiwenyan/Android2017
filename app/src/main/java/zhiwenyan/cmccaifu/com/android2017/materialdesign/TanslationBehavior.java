@@ -25,6 +25,11 @@ public class TanslationBehavior extends FloatingActionButton.Behavior {
         return nestedScrollAxes == ViewCompat.SCROLL_AXIS_VERTICAL;
     }
 
+    @Override
+    public boolean layoutDependsOn(CoordinatorLayout parent, FloatingActionButton child, View dependency) {
+        return super.layoutDependsOn(parent, child, dependency);
+    }
+
     private boolean isOut = false;
 
     @Override

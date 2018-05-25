@@ -53,7 +53,7 @@ public class ExMultipartBody extends RequestBody {
         Log.i("TAG", "writeTo: 监听上传进度");
         //BufferedSink okio 相对服务器是一个输出流
         long contentLength = mRequestBody.contentLength();
-        //获取当前写了多少数据？BufferedSink Sink(okio 就是io)就是一个服务器的输出流，写了多少数据还是不知道
+        //获取当前写了多少数据？BufferedSink Sink(okio 就是io)就是一个服务器的输入流，写了多少数据还是不知道
         //又来一个代理ForwardingSink
         ForwardingSink forwardingSink = new ForwardingSink(sink) {
             @Override

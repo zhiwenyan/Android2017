@@ -67,6 +67,7 @@ public final class OkHttpManger {
      */
     public Response getSync(final String url) throws IOException {
         Request request = new Request.Builder().url(url).build();
+
         Call call = mOkHttpClient.newCall(request);
         return call.execute();
     }

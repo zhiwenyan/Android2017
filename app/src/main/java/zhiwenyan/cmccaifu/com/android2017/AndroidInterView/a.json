@@ -1,11 +1,12 @@
 {
-  "message": "\u5df2\u662f\u6700\u65b0\u7248\u672c",
-  "code": 200,
-  "mustUpdate": {
+  "message": "\u60a8\u7684APP\u7248\u672c\u592a\u4f4e,\u8bf7\u66f4\u65b0\uff01",
+  "code": "402",
+  "result": {
     "id": "1",
-    "versionCode": "102",
-    "versionName": "1.0.2",
+    "versionCode": "220",
+    "versionName": "2.2.0",
     "mustUpdate": "0",
-    "url": "http:\/\/gdown.baidu.com\/data\/wisegame\/779fa8b0cdd5b412\/xiandaimao_101.apk"
+    "url": "http:\/\/imtt.dd.qq.com\/16891\/01F9B9F64780AD79CCDAD0D24FC2067C.apk?fsname=com.fumi.cashmall_2.1.1_211.apk&csr=1bbd\r\nhttp:\/\/imtt.dd.qq.com\/16891\/DB76EB8D34C47E66F1AFC12C51DEB186.apk?http:\/\/imtt.dd.qq.com\/16891\/DB76EB8D34C47E66F1AFC12C51DEB186.apk?fsname=com.fumi.cashmall_2.2.0_220.apk&csr=1bbd",
+    "item_url": "http:\/\/sj.qq.com\/myapp\/detail.htm?apkName=com.fumi.cashmall\r\n"
   }
 }

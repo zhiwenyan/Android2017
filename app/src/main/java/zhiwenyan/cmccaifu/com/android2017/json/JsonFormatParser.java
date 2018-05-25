@@ -77,8 +77,7 @@ public class JsonFormatParser implements JsonDeserializer<ResultData> {
      * 用来解析集合
      */
     private <T> ArrayList<T> fromJsonArray(String json, Class<T> clazz) {
-        Type type = new TypeToken<ArrayList<JsonObject>>() {
-        }.getType();
+        Type type = new TypeToken<ArrayList<JsonObject>>() {}.getType();
         ArrayList<JsonObject> jsonObjects = new Gson().fromJson(json, type);
         ArrayList<T> arrayList = new ArrayList<>();
         for (JsonObject jsonObject : jsonObjects) {

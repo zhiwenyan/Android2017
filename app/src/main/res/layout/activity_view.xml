@@ -224,6 +224,13 @@
             android:text="WaveView"
             android:textAllCaps="true"/>
 
+        <Button
+            android:id="@+id/btn39"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="redPacket"
+            android:textAllCaps="true"/>
+
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

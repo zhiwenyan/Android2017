@@ -19,6 +19,10 @@ import java.util.Locale;
 
 import zhiwenyan.cmccaifu.com.android2017.R;
 
+/**
+ * 对于面向 Android 7.0 的应用，Android 框架执行的 StrictMode API 政策禁止在您的应用外部公开
+ * file:// URI。如果一项包含文件 URI 的 intent 离开您的应用，则应用出现故障，并出现 FileUriExposedException 异常。
+ */
 public class FileProviderActivity extends AppCompatActivity {
     private String mCurrentPhotoPath;
     private static final int REQUEST_CODE_TAKE_PHOTO = 0x110;

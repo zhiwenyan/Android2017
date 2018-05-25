@@ -1,7 +1,4 @@
 {
-  "message": "\u8bf7\u4e0a\u4f20\u56fe\u7247",
-  "code": 401,
-  "result": {
-    "image_satus": true
-  }
+  ip: '180.173.150.58',
+  address: '上海市 电信'
 }

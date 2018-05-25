@@ -122,7 +122,7 @@ class LockView : View {
                 // 贝塞尔曲线 - 讲一次数学课
                 drawLine(lastPoint, mSelectPoints[index], canvas, mLinePaint)
                 // 两个点之间绘制一个箭头
-                drawArrow(canvas, mArrowPaint!!, lastPoint, mSelectPoints[index], (mDotRadius / 5).toFloat(), 38)
+//                drawArrow(canvas, mArrowPaint!!, lastPoint, mSelectPoints[index], (mDotRadius / 5).toFloat(), 38)
                 lastPoint = mSelectPoints[index]
             }
             //}

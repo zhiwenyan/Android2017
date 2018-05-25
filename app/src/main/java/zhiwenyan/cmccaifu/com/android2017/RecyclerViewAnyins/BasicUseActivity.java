@@ -25,7 +25,7 @@ public class BasicUseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basic_use);
         initData();
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        mRecyclerView = ( RecyclerView ) findViewById(R.id.recyclerView);
         LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.addItemDecoration(new LinearLayoutItemDecoration(this, R.drawable.default_item));
@@ -51,7 +51,7 @@ public class BasicUseActivity extends AppCompatActivity {
                 int lastVisibleItemPosition = manager.findLastVisibleItemPosition();
                 int firstCompletelyVisibleItemPosition = manager.findFirstCompletelyVisibleItemPosition();
                 int lastCompletelyVisibleItemPosition = manager.findLastCompletelyVisibleItemPosition();
-                System.out.println("firstVisibleItemPosition=" + firstVisibleItemPosition+"---"+mList.get(manager.findFirstVisibleItemPosition()));
+                System.out.println("firstVisibleItemPosition=" + firstVisibleItemPosition + "---" + mList.get(manager.findFirstVisibleItemPosition()));
                 System.out.println("lastVisibleItemPosition=" + lastVisibleItemPosition);
                 System.out.println("--------------------------------------------");
                 System.out.println("firstCompletelyVisibleItemPosition=" + firstCompletelyVisibleItemPosition);

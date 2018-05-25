@@ -15,6 +15,18 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <ImageView
+            android:scaleType="fitXY"
+            android:src="@mipmap/banner1"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"/>
+
+        <ImageView
+            android:layout_marginTop="8dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/banner2"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"/>
 
         <LinearLayout
 

@@ -13,7 +13,7 @@ public class RedPacketViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_red_packet_view);
         mRedPacketView = findViewById(R.id.redPacketView);
-        mRedPacketView.startAnimation(1, 2);
+        mRedPacketView.startAnimation(0, 2);
     }
 
 }
