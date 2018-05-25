@@ -185,6 +185,7 @@ public class LoadingView extends View {
                 int cy = ( int ) (mCenterY + mRotationRadius * Math.sin(currentAngle));
                 mPaint.setColor(mCircleColors[i]);
                 canvas.drawCircle(cx, cy, mCircleRadius, mPaint);
+                requestLayout();
             }
         }
     }
@@ -221,7 +222,7 @@ public class LoadingView extends View {
             float strokeWidth = mDiagonalDist - mHoleRadius;
             mPaint.setStrokeWidth(strokeWidth);
             mPaint.setColor(mSplashColor);
-            mPaint.setStyle(Paint.Style.STROKE);
+            mPaint.setStyle(Paint.Style.STROKE);//空心圆
             Log.e("TAG", "mHoleRadius -> " + mHoleRadius);
             float radius = strokeWidth / 2 + mHoleRadius;
             // 绘制一个圆
