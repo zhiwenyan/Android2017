@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -71,8 +70,8 @@ public class BannerView extends RelativeLayout {
         if (mIndicatorNormalDrawable == null) {
             mIndicatorNormalDrawable = new ColorDrawable(Color.WHITE);
         }
-        mDotSize = (int) typedArray.getDimension(R.styleable.BannerView_dotSize, DensityUtil.dip2px(mContext, 8));
-        mDotDistance = (int) typedArray.getDimension(R.styleable.BannerView_dotDistance, DensityUtil.dip2px(mContext, 2));
+        mDotSize = ( int ) typedArray.getDimension(R.styleable.BannerView_dotSize, DensityUtil.dip2px(mContext, 8));
+        mDotDistance = ( int ) typedArray.getDimension(R.styleable.BannerView_dotDistance, DensityUtil.dip2px(mContext, 2));
         mBottomColor = typedArray.getColor(R.styleable.BannerView_bottomColor, mBottomColor);
 
         mWidthProportion = typedArray.getFloat(R.styleable.BannerView_widthProportion, mWidthProportion);
@@ -88,17 +87,27 @@ public class BannerView extends RelativeLayout {
         mDotContainerView = findViewById(R.id.dot_container);
         mBannerBottomView = findViewById(R.id.bannerBottomView);
         mBannerBottomView.setBackgroundColor(mBottomColor);
-        mBannerViewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
-                if (position > 0 && position <= 1) {
-                    page.setPivotX(0);
-                    page.setScaleX(1 - position);
-                } else if (position >= -1 && position < 0) {
-                    page.setPivotX(page.getWidth());
-                    page.setScaleX(1 + position);
-                }
-            }
+
+
+        //https://blog.csdn.net/aislli/article/details/51321066
+//        mBannerViewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
+//            @Override
+//            public void transformPage(@NonNull View page, float position) {
+//                if (position > 0 && position <= 1) {
+//                    page.setPivotX(0);
+//                    page.setScaleX(1 - position);
+//                } else if (position >= -1 && position < 0) {
+//                    page.setPivotX(page.getWidth());
+//                    page.setScaleX(1 + position);
+//                }
+//            }
+//        });
+        mBannerViewPager.setOffscreenPageLimit(3);
+        mBannerViewPager.setPageMargin(50);
+        mBannerViewPager.setPageTransformer(true, (page, position) -> {
+            float v = Math.abs(position);
+            float v1 = ( float ) (0.2 * (v * v));
+            page.setScaleY(1 - v1);
         });
     }
 
@@ -133,7 +142,7 @@ public class BannerView extends RelativeLayout {
                 }
                 int width = getMeasuredWidth();
                 //计算高度
-                int height = (int) (width * mHeightProportion / mWidthProportion);
+                int height = ( int ) (width * mHeightProportion / mWidthProportion);
                 //指定宽高
                 getLayoutParams().height = height;
                 mBannerViewPager.getLayoutParams().height = height;
@@ -144,11 +153,11 @@ public class BannerView extends RelativeLayout {
 
 
     private void pageSelect(int position) {
-        DotIndicatorView dotIndicatorView = (DotIndicatorView) mDotContainerView.
+        DotIndicatorView dotIndicatorView = ( DotIndicatorView ) mDotContainerView.
                 getChildAt(mCurrentPosition);
         dotIndicatorView.setDrawable(mIndicatorNormalDrawable);
         mCurrentPosition = position % mAdapter.getCount();
-        DotIndicatorView mCurrentIndicatorView = (DotIndicatorView) mDotContainerView.
+        DotIndicatorView mCurrentIndicatorView = ( DotIndicatorView ) mDotContainerView.
                 getChildAt(mCurrentPosition);
         mCurrentIndicatorView.setDrawable(mIndicatorFocusDrawable);
     }

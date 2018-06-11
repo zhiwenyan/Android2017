@@ -155,31 +155,28 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
     }
 
     private void setTabClick(final View tabView, final int position) {
-        tabView.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mCurrentPosition == -1) {
-                    //打开
-                    openMenu(position, tabView);
+        tabView.setOnClickListener(v -> {
+            if (mCurrentPosition == -1) {
+                //打开
+                openMenu(position, tabView);
+            } else {
+                if (mCurrentPosition == position) {
+                    closeMenu();
                 } else {
-                    if (mCurrentPosition == position) {
-                        closeMenu();
-                    } else {
-                        View tabView = mMenuTabView.getChildAt(mCurrentPosition);
-                        ((TextView) tabView).setTextColor(Color.BLACK);
+                    View tabView1 = mMenuTabView.getChildAt(mCurrentPosition);
+                    ((TextView) tabView1).setTextColor(Color.BLACK);
 
-                        //切换下显示
-                        View currentView = mMenuContentView.getChildAt(mCurrentPosition);
-                        //会调用重新onMeasure方法
-                        currentView.setVisibility(GONE);
-                        mCurrentPosition = position;
-                        currentView = mMenuContentView.getChildAt(mCurrentPosition);
-                        currentView.setVisibility(VISIBLE);
+                    //切换下显示
+                    View currentView = mMenuContentView.getChildAt(mCurrentPosition);
+                    //会调用重新onMeasure方法
+                    currentView.setVisibility(GONE);
+                    mCurrentPosition = position;
+                    currentView = mMenuContentView.getChildAt(mCurrentPosition);
+                    currentView.setVisibility(VISIBLE);
 
-                        tabView = mMenuTabView.getChildAt(mCurrentPosition);
-                        ((TextView) tabView).setTextColor(Color.RED);
+                    tabView1 = mMenuTabView.getChildAt(mCurrentPosition);
+                    ((TextView) tabView1).setTextColor(Color.RED);
 
-                    }
                 }
             }
         });

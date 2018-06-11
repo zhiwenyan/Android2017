@@ -9,24 +9,28 @@
     tools:context="zhiwenyan.cmccaifu.com.android2017.activity.MainActivity">
 
 
+
+
     <LinearLayout
         android:id="@+id/view_root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <ImageView
-            android:scaleType="fitXY"
-            android:src="@mipmap/banner1"
+        <CalendarView
             android:layout_width="match_parent"
-            android:layout_height="120dp"/>
+            android:layout_height="wrap_content"/>
+        <!--<ImageView-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:src="@mipmap/banner1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="120dp"/>-->
 
-        <ImageView
-            android:layout_marginTop="8dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/banner2"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"/>
+        <!--<ImageView-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--android:src="@mipmap/banner2"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="120dp"/>-->
 
         <LinearLayout
 

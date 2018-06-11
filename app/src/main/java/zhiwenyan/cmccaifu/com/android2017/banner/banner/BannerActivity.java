@@ -33,9 +33,9 @@ public class BannerActivity extends BaseActivity {
                 ImageView bannerIv = null;
                 if (convertView == null) {
                     bannerIv = new ImageView(BannerActivity.this);
-                    bannerIv.setScaleType(ImageView.ScaleType.FIT_XY);
+                    bannerIv.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 } else {
-                    bannerIv = (ImageView) convertView;
+                    bannerIv = ( ImageView ) convertView;
                     Log.i("TAG", "getView: 界面复用" + bannerIv);
                 }
                 if (position == 0) {

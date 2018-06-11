@@ -18,7 +18,7 @@ public class Singleton3 {
     }
 
     public static class SingletonHolder {
-        private static volatile Singleton3 mInstance = new Singleton3();
+        private static final Singleton3 mInstance = new Singleton3();
 
     }
 

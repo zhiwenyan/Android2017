@@ -1,7 +1,5 @@
 package zhiwenyan.cmccaifu.com.android2017.annotation;
 
-import android.content.res.AssetManager;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -26,7 +24,7 @@ public class Test {
         try {
             Constructor constructor = TestBean.class.getDeclaredConstructor(String.class);
             constructor.setAccessible(true);//设置权限
-            TestBean testBean1 = (TestBean) constructor.newInstance("hhhh");
+            TestBean testBean1 = ( TestBean ) constructor.newInstance("hhhh");
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
             e.printStackTrace();
         }
@@ -39,32 +37,33 @@ public class Test {
             e.printStackTrace();
         }
         //方法
-        try {
-            AssetManager assetManager = AssetManager.class.newInstance();
-            Method method = AssetManager.class.getDeclaredMethod("addAssetPath", String.class);
-            method.setAccessible(true);
-            method.invoke(assetManager, "");
-        } catch (InstantiationException | InvocationTargetException | NoSuchMethodException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            AssetManager assetManager = AssetManager.class.newInstance();
+//            Method method = AssetManager.class.getDeclaredMethod("addAssetPath", String.class);
+//            method.setAccessible(true);
+//            method.invoke(assetManager, "");
+//        } catch (InstantiationException | InvocationTargetException | NoSuchMethodException | IllegalAccessException e) {
+//            e.printStackTrace();
+//        }
         //获取属性
         try {
             TestBean testBean = new TestBean();
             Field field = TestBean.class.getDeclaredField("name");
             field.setAccessible(true);
-            field.set(testBean,"1212");
-            String name = (String) field.get(testBean);
-            Class clz = Class.forName("android.app.ActivityThread");
-
-            clz.newInstance();
-            Field sCurrentActivityThreadField = clz.getDeclaredField("sCurrentActivityThread");
-            sCurrentActivityThreadField.setAccessible(true);
-            sCurrentActivityThreadField.get(null);
-        } catch (NoSuchFieldException | IllegalAccessException | ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
+            field.set(testBean, "1212");
+            String key = field.getName();
+            Object value = field.get(testBean);
+            String name = ( String ) field.get(testBean);
+            System.out.println("key=" + key + "," + "name" + name + ",value=" + value);
+            String fileTypeName = field.getType().getName();
+            System.out.println("fileTypeName="+fileTypeName);
+//            Class clz = Class.forName("android.app.ActivityThread");
+//            clz.newInstance();
+//            Field sCurrentActivityThreadField = clz.getDeclaredField("sCurrentActivityThread");
+//            sCurrentActivityThreadField.setAccessible(true);
+//            sCurrentActivityThreadField.get(null);
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }

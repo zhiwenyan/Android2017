@@ -148,7 +148,6 @@ public class BannerViewPager extends ViewPager {
         }
         return null;
     }
-
     /**
      * 管理Activity的生命周期
      */

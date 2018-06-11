@@ -37,7 +37,7 @@ public class PlaceholderFragment extends Fragment {
     }
 
     //fragment懒加载实现的关键在于其的setUserVisibleHint(isVisibleToUser: Boolean)方法，
-    // 该方法在fragment对用户由可见变为不可见以及由不可见变为可见时都会回调a
+    //该方法在fragment对用户由可见变为不可见以及由不可见变为可见时都会回调a
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
@@ -65,7 +65,7 @@ public class PlaceholderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main8, container, false);
-        TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+        TextView textView = ( TextView ) rootView.findViewById(R.id.section_label);
         textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
         Log.i(TAG, "onCreateView: " + getArguments().getInt(ARG_SECTION_NUMBER));
         return rootView;

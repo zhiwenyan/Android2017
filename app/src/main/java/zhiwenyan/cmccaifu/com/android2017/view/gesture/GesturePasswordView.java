@@ -140,8 +140,8 @@ public class GesturePasswordView extends View {
         double pointDistance = MathUtil.distance(end.centerX, end.centerY, start.centerX, start.centerY);
         float dx = end.centerX - start.centerX;
         float dy = end.centerY - start.centerY;
-        float rx = (float) ((dx / pointDistance) * (mDotRadius / 6));
-        float ry = (float) ((dy / pointDistance) * (mDotRadius / 6));
+        float rx = ( float ) ((dx / pointDistance) * (mDotRadius / 6));
+        float ry = ( float ) ((dy / pointDistance) * (mDotRadius / 6));
         canvas.drawLine(start.centerX + rx, start.centerY + ry,
                 end.centerX - rx, end.centerY - ry, mLinePaint);
     }

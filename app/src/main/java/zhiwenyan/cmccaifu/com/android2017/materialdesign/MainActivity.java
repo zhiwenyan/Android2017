@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         mTitleBar = findViewById(R.id.title_bar);
         mTitleBar.getBackground().setAlpha(0);
         mImageView = (ImageView) findViewById(R.id.image_view);
-
         // 这里是拿不到高度，布局绘制流程源码分析
         mImageView.post(new Runnable() {
             @Override

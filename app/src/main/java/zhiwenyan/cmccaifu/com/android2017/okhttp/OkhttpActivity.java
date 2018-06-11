@@ -1,5 +1,6 @@
 package zhiwenyan.cmccaifu.com.android2017.okhttp;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
@@ -18,6 +19,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
+import zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.cache.CacheActivity;
 
 public class OkhttpActivity extends BaseActivity {
     @BindView(R.id.resultTv)
@@ -33,7 +35,7 @@ public class OkhttpActivity extends BaseActivity {
         return R.layout.activity_okhttp;
     }
 
-    @OnClick({R.id.getBtn, R.id.postBtn, R.id.accessHeadersBtn, R.id.cacheBtn})
+    @OnClick({R.id.getBtn, R.id.postBtn, R.id.accessHeadersBtn, R.id.cacheBtn, R.id.networkCacheBtn})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.getBtn:
@@ -47,6 +49,9 @@ public class OkhttpActivity extends BaseActivity {
                 break;
             case R.id.cacheBtn:
                 cache();
+                break;
+            case R.id.networkCacheBtn:
+                startActivity(new Intent(this, CacheActivity.class));
                 break;
 
         }

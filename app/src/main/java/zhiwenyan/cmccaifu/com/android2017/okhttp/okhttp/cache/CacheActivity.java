@@ -20,7 +20,7 @@ import zhiwenyan.cmccaifu.com.android2017.R;
 //自定义缓存（要求30s之内请求同一个接口读缓存，，无网直接读缓存）
 public class CacheActivity extends AppCompatActivity {
     private OkHttpClient mOkHttpClient;
-    String url = "https://api.saiwuquan.com/api/appv2/sceneModel";
+    String url = "https://api.github.com/repos/square/okhttp/issues";
     private android.widget.TextView mTv;
 
     @Override
@@ -37,8 +37,8 @@ public class CacheActivity extends AppCompatActivity {
             }
         }
         Cache cache = new Cache(file, 100 * 1024 * 1024);
-        //够着一个请求
-        mOkHttpClient = new OkHttpClient.Builder()
+                //够着一个请求
+                mOkHttpClient = new OkHttpClient.Builder()
                 //加载最前 过期时间是多少秒
                 .cache(cache)
                 .addInterceptor(new CacheRequestInterceptor(this))

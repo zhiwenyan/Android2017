@@ -45,7 +45,7 @@ public class PostFileActivity extends AppCompatActivity {
         File file = new File(Environment.getExternalStorageDirectory(), "MagazineUnlock/test.jpg");
         System.out.println("file==" + file.getAbsolutePath());
         OkHttpClient httpClient = new OkHttpClient();
-        // 构建请求 Body , 这个我们之前自己动手写过
+        // 构建请求 Body , 这个我们之前自己动手写过a
         MultipartBody.Builder builder = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM);
         //Content-Disposition

@@ -3,6 +3,8 @@ package zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins;
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +14,7 @@ import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.Model.ChatData;
 import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.commonAdapter.CommonRecycleAdapter;
 import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.commonAdapter.CommonViewHolder;
+import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.commonAdapter.ItemClickListener;
 import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.commonAdapter.MulitiTypeSupport;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 
@@ -20,6 +23,8 @@ public class CommonAdapterActivity extends BaseActivity {
     @BindView(R.id.commonRecycler)
     RecyclerView mCommonRecycler;
     private List<ChatData> mDatas = new ArrayList<>();
+    @BindView(R.id.container)
+    LinearLayout mContainer;
 
     @Override
     protected int getLayoutId() {
@@ -41,6 +46,14 @@ public class CommonAdapterActivity extends BaseActivity {
         mCommonRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         RecyclerChatAdapter adapter = new RecyclerChatAdapter(this, mDatas);
         mCommonRecycler.setAdapter(adapter);
+        adapter.setItemClickListener(new ItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                TextView tv = new TextView(CommonAdapterActivity.this);
+                tv.setText(position + "");
+                mContainer.addView(tv);
+            }
+        });
     }
 
     private class RecyclerChatAdapter extends CommonRecycleAdapter<ChatData> {

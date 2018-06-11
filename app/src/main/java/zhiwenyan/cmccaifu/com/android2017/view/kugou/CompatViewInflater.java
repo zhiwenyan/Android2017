@@ -6,6 +6,7 @@ package zhiwenyan.cmccaifu.com.android2017.view.kugou;
  * Version 1.0
  * Description:
  */
+
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.TypedArray;
@@ -226,7 +227,7 @@ public class CompatViewInflater {
         a.recycle();
 
         if (themeId != 0 && (!(context instanceof ContextThemeWrapper)
-                || ((ContextThemeWrapper) context).getThemeResId() != themeId)) {
+                || (( ContextThemeWrapper ) context).getThemeResId() != themeId)) {
             // If the context isn't a ContextThemeWrapper, or it is but does not have
             // the same theme as we need, wrap it in a new wrapper
             context = new ContextThemeWrapper(context, themeId);
@@ -284,7 +285,7 @@ public class CompatViewInflater {
                 }
 
                 if (context instanceof ContextWrapper) {
-                    context = ((ContextWrapper) context).getBaseContext();
+                    context = (( ContextWrapper ) context).getBaseContext();
                 } else {
                     // Can't search up the hierarchy, null out and fail.
                     context = null;
