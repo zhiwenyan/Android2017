@@ -21,11 +21,10 @@
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <ImageView
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/photo_two"
+                android:background="@mipmap/photo_two"
                 app:layout_collapseMode="pin"/>
 
             <android.support.v7.widget.Toolbar

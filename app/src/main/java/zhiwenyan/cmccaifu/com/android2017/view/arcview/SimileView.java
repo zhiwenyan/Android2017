@@ -51,7 +51,6 @@ public class SimileView extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         int w = MeasureSpec.getSize(widthMeasureSpec);//提供的measureSpecs来决定你的View的高和宽
         int h = MeasureSpec.getSize(heightMeasureSpec);
-
         int size = Math.min(w, h);
         setMeasuredDimension(size, size);
 

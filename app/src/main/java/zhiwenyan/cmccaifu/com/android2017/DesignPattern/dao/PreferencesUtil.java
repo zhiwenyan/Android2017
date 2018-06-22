@@ -32,7 +32,7 @@ public class PreferencesUtil {
         return preferencesUtil;
     }
 
-    public void init(Context context){
+    public void init(Context context) {
         preferences = PreferenceManager.getDefaultSharedPreferences(context
                 .getApplicationContext());
     }
@@ -60,19 +60,19 @@ public class PreferencesUtil {
         String type = object.getClass().getSimpleName();
         if ("String".equals(type)) {
             // 保存String 类型
-            editor.putString(key, (String ) object);
+            editor.putString(key, ( String ) object);
         } else if ("Integer".equals(type)) {
             // 保存integer 类型
-            editor.putInt(key, (Integer ) object);
+            editor.putInt(key, ( Integer ) object);
         } else if ("Boolean".equals(type)) {
             // 保存 boolean 类型
-            editor.putBoolean(key, (Boolean ) object);
+            editor.putBoolean(key, ( Boolean ) object);
         } else if ("Float".equals(type)) {
             // 保存float类型
-            editor.putFloat(key, (Float ) object);
+            editor.putFloat(key, ( Float ) object);
         } else if ("Long".equals(type)) {
             // 保存long类型
-            editor.putLong(key, (Long ) object);
+            editor.putLong(key, ( Long ) object);
         } else {
             if (!(object instanceof Serializable)) {
                 throw new IllegalArgumentException(object.getClass().getName() + " 必须实现Serializable接口!");
@@ -121,15 +121,15 @@ public class PreferencesUtil {
         String type = defaultObject.getClass().getSimpleName();
 
         if ("String".equals(type)) {
-            return preferences.getString(key, (String ) defaultObject);
+            return preferences.getString(key, ( String ) defaultObject);
         } else if ("Integer".equals(type)) {
-            return preferences.getInt(key, (Integer ) defaultObject);
+            return preferences.getInt(key, ( Integer ) defaultObject);
         } else if ("Boolean".equals(type)) {
-            return preferences.getBoolean(key, (Boolean ) defaultObject);
+            return preferences.getBoolean(key, ( Boolean ) defaultObject);
         } else if ("Float".equals(type)) {
-            return preferences.getFloat(key, (Float ) defaultObject);
+            return preferences.getFloat(key, ( Float ) defaultObject);
         } else if ("Long".equals(type)) {
-            return preferences.getLong(key, (Long ) defaultObject);
+            return preferences.getLong(key, ( Long ) defaultObject);
         }
         return getObject(key);
     }
@@ -140,7 +140,7 @@ public class PreferencesUtil {
         ByteArrayInputStream bais = new ByteArrayInputStream(base64);
         try {
             ObjectInputStream bis = new ObjectInputStream(bais);
-            object =  bis.readObject();
+            object = bis.readObject();
             Log.d(this.getClass().getSimpleName(), "Get object success");
             return object;
         } catch (Exception e) {

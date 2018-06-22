@@ -10,5 +10,18 @@
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="common_button_font">18sp</dimen>
-
+    <dimen name="x_half">4dp</dimen>
+    <dimen name="x">8dp</dimen>
+    <dimen name="xx">16dp</dimen>
+    <dimen name="xxx">24dp</dimen>
+    <dimen name="xxxx">32dp</dimen>
+    <dimen name="xxxxx">40dp</dimen>
+    <dimen name="y_half">4dp</dimen>
+    <dimen name="y">8dp</dimen>
+    <dimen name="yy">16dp</dimen>
+    <dimen name="yyy">24dp</dimen>
+    <dimen name="yyyy">32dp</dimen>
+    <dimen name="yyyyy">40dp</dimen>
+    <dimen name="sectioned_top">16</dimen>
+    <dimen name="sectioned_alignBottom">16</dimen>
 </resources>

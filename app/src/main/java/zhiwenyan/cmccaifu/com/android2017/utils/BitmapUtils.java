@@ -22,10 +22,13 @@ public class BitmapUtils {
     public static Bitmap decodeSampledBitmapFromResource(Resources resources, int resId, int reqWidth, int reqHeight) {
         //Options 只保存图片尺寸大小，不保存图片到内存
         BitmapFactory.Options options = new BitmapFactory.Options();
+        // 设置该属性为true，不加载图片到内存，只返回图片的宽高到options中。
         // 第一次解析将inJustDecodeBounds设置为true，来获取图片大小
         options.inJustDecodeBounds = true;
+        //先加载图片
         BitmapFactory.decodeResource(resources, resId, options);
         options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
+        // 重新设置该属性为false，加载图片返回
         // 使用获取到的inSampleSize值再次解析图片
         options.inJustDecodeBounds = false;
         return BitmapFactory.decodeResource(resources, resId, options);
@@ -35,8 +38,8 @@ public class BitmapUtils {
         int width = options.outWidth;
         int height = options.outHeight;
         int inSampleSize = 1;
-        int widthRatio = Math.round((float) width / (float) reqWidth);
-        int heightRatio = Math.round((float) height / (float) reqHeight);
+        int widthRatio = Math.round(( float ) width / ( float ) reqWidth);
+        int heightRatio = Math.round(( float ) height / ( float ) reqHeight);
         inSampleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
         return inSampleSize;
     }
@@ -46,7 +49,7 @@ public class BitmapUtils {
     private static void memoryCache() {
         // 获取到可用内存的最大值，使用内存超出这个值会引起OutOfMemory异常。
         // LruCache通过构造函数传入缓存值，以KB为单位。
-        int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
+        int maxMemory = ( int ) (Runtime.getRuntime().maxMemory() / 1024);
         // 使用最大可用内存值的1/8作为缓存的大小。
         int cacheSize = maxMemory / 8;
         mMemoryCache = new LruCache<String, Bitmap>(cacheSize) {

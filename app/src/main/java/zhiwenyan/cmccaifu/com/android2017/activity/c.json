@@ -1,0 +1,24 @@
+{
+  "code": 200,
+  "data": {
+    "userInfoList": [
+      {
+        "drip": 0.0,
+        "dripStr": "0.000000",
+        "id": 35,
+        "nickname": "小心情",
+        "username": "啦啦啦",
+        "vitality": 607
+      },
+      {
+        "drip": 1119.77289,
+        "dripStr": "1119.772890",
+        "id": 46,
+        "nickname": "abc",
+        "username": "Chans",
+        "vitality": 506
+      }
+    ]
+  },
+  "msg": "success"
+}

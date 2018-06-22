@@ -78,8 +78,7 @@ public class DotIndicatorView extends View {
      */
     private Bitmap getCircleBitmap(Bitmap bitmap) {
         //创建一个Bitmap
-        Bitmap circleBitmap = Bitmap.createBitmap(getMeasuredWidth(),
-                getMeasuredHeight(), Bitmap.Config.ARGB_8888);
+        Bitmap circleBitmap = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(circleBitmap);
         Paint paint = new Paint();
         paint.setAntiAlias(true);

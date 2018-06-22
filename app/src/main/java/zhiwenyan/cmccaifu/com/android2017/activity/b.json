@@ -1,0 +1,50 @@
+{
+  "message": "\u83b7\u53d6\u6210\u529f",
+  "code": 200,
+  "result": {
+    "binfo": {
+      "coupon_id": "0",
+      "status": "3",
+      "id": "3097",
+      "is_random": "0",
+      "audit_status": "4"
+    },
+    "info": {
+      "id": "1816",
+      "uid": "840",
+      "borrow_id": "3097",
+      "first_trial": "1",
+      "bank_bing": "1",
+      "id_verify": "0",
+      "verify_phone": "1",
+      "pending": "0",
+      "tree": "1",
+      "signed": "1",
+      "zhima_auth": "1",
+      "zhima_time": "1529466979",
+      "first_trial_uid": null,
+      "first_trial_time": "1529466973",
+      "bank_bing_time": "1529466980",
+      "id_verify_time": "0",
+      "pending_uid": null,
+      "pending_time": null,
+      "tree_time": "1529466999",
+      "signed_uid": null,
+      "signed_time": "1529466999",
+      "alipay_biz_no": null,
+      "reason": "test",
+      "calm_time": "1529467072",
+      "calm": "1",
+      "recheck_uid": "admin",
+      "recheck_time": "1529467072",
+      "is_recheck": "1",
+      "mid_tree": "1",
+      "mid_tree_time": "1529466980",
+      "is_random": "0",
+      "countDownTime": 1529467179,
+      "time": 1529467084,
+      "is_status": 1,
+      "isIdVerify": 0
+    }
+  }
+}

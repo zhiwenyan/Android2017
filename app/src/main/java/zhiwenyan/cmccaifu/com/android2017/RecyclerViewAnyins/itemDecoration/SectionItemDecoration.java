@@ -21,22 +21,28 @@ import zhiwenyan.cmccaifu.com.android2017.utils.DensityUtil;
  */
 
 public class SectionItemDecoration extends RecyclerView.ItemDecoration {
-    private Drawable mDrawable; //悬浮View的Drawable
-    private Drawable mDivierDrawable;
+    //悬浮View的Drawable
+    private Drawable mDrawable;
+    private Drawable mDiverDrawable;
     private Context mContext;
     private List<Movies.DataBean.ComingBean> mLists;
     private Paint mTextPaint;
     private GroupListener mGroupListener;
+    private boolean mFirstDraw = false;
+
 
     public SectionItemDecoration(Context context, int drawableId, int divierDrawableId,
                                  List<Movies.DataBean.ComingBean> lists, GroupListener groupListener) {
         mDrawable = ContextCompat.getDrawable(context, drawableId);
-        mDivierDrawable = ContextCompat.getDrawable(context, divierDrawableId);
+        mDiverDrawable = ContextCompat.getDrawable(context, divierDrawableId);
         mContext = context;
         mLists = lists;
         this.mGroupListener = groupListener;
+
         initTextPaint();
+
     }
+
 
     private void initTextPaint() {
         mTextPaint = new Paint();
@@ -44,21 +50,25 @@ public class SectionItemDecoration extends RecyclerView.ItemDecoration {
         mTextPaint.setAntiAlias(true);
         mTextPaint.setDither(true);
         mTextPaint.setColor(Color.WHITE);
+
+
     }
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
         int groupHeight = mDrawable.getIntrinsicHeight();
-        int divideHeight = mDivierDrawable.getIntrinsicHeight();
+        int divideHeight = mDiverDrawable.getIntrinsicHeight();
         int position = parent.getChildAdapterPosition(view);
         String groupId = mGroupListener.getGroupName(position);
         if (groupId == null) return;
         //只有是同一组的第一个才显示悬浮栏
         if (position == 0 || isFirstInGroup(position)) {
-            outRect.top = groupHeight; //为悬浮view预留空间
+            //为悬浮view预留空间
+            outRect.top = groupHeight;
         } else {
-            outRect.top = divideHeight; //为分割线预留空间
+            //为分割线预留空间
+            outRect.top = divideHeight;
         }
     }
 
@@ -76,95 +86,64 @@ public class SectionItemDecoration extends RecyclerView.ItemDecoration {
         Rect rect = new Rect();
         rect.left = parent.getPaddingLeft();
         rect.right = parent.getWidth() - parent.getPaddingRight();
-        String preGroupName;      //标记上一个item对应的Group
-        String currentGroupName = null;       //当前item对应的Group
         for (int i = 0; i < parent.getChildCount(); i++) {
             View view = parent.getChildAt(i);
             int position = parent.getChildAdapterPosition(view);
-            preGroupName = currentGroupName;
-            currentGroupName = mGroupListener.getGroupName(position);
-            if (currentGroupName != null && !TextUtils.equals(preGroupName, currentGroupName)) {
-                //画悬浮View
-                rect.top = parent.getChildAt(i).getTop() - mDrawable.getIntrinsicHeight();
-                rect.bottom = rect.top + mDrawable.getIntrinsicHeight();
-                mDrawable.setBounds(rect);
-                mDrawable.draw(c);
-                //画文字
-                String text = mLists.get(i).getComingTitle();
-                Rect textBounds = new Rect();
-                mTextPaint.getTextBounds(text, 0, text.length(), textBounds);
-                Paint.FontMetricsInt fontMetrics = mTextPaint.getFontMetricsInt();
-                int dx = parent.getPaddingLeft() + DensityUtil.dp2px(8);
-                int dy = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom;
-                int baseLine = parent.getChildAt(i).getTop() + dy - mDrawable.getIntrinsicHeight() / 2;
-                c.drawText(text, dx, baseLine, mTextPaint);
+            String text = mLists.get(position).getComingTitle();
+            if (isFirstInGroup(position)) {
+                drawView(rect, c, parent, i);
+                drawTitle(rect, c, parent, i, text);
             } else {
-                //画分割线
-                rect.top = parent.getChildAt(i).getTop() - mDivierDrawable.getIntrinsicHeight();
-                rect.bottom = rect.top + mDivierDrawable.getIntrinsicHeight();
-                mDivierDrawable.setBounds(rect);
-                mDivierDrawable.draw(c);
+                drawItemDecoration(rect, c, parent, i);
             }
-
         }
     }
 
+
+    private void drawView(Rect rect, Canvas c, RecyclerView parent, int i) {
+        //画悬浮View
+        rect.top = parent.getChildAt(i).getTop() - mDrawable.getIntrinsicHeight();
+        rect.bottom = rect.top + mDrawable.getIntrinsicHeight();
+        mDrawable.setBounds(rect);
+        mDrawable.draw(c);
+    }
+
+
+    private void drawTitle(Rect rect, Canvas c, RecyclerView parent, int i, String text) {
+        //画文字
+        Rect textBounds = new Rect();
+        mTextPaint.getTextBounds(text, 0, text.length(), textBounds);
+        Paint.FontMetricsInt fontMetrics = mTextPaint.getFontMetricsInt();
+        int dx = parent.getPaddingLeft() + DensityUtil.dp2px(8);
+        int dy = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom;
+        int baseLine = parent.getChildAt(i).getTop() + dy - mDrawable.getIntrinsicHeight() / 2;
+        c.drawText(text, dx, baseLine, mTextPaint);
+    }
+
     /**
-     * onDrawOver：通过该方法，在Canvas上绘制内容,在Item之后调用。(画的内容会覆盖在item的上层)
-     *
-     * @param c
-     * @param parent
-     * @param state
+     * 绘制分割线
      */
+    private void drawItemDecoration(Rect rect, Canvas c, RecyclerView parent, int i) {
+        rect.top = parent.getChildAt(i).getTop() - mDiverDrawable.getIntrinsicHeight();
+        rect.bottom = rect.top + mDiverDrawable.getIntrinsicHeight();
+        mDiverDrawable.setBounds(rect);
+        mDiverDrawable.draw(c);
+
+    }
+
     @Override
     public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
         super.onDrawOver(c, parent, state);
-//        final int itemCount = state.getItemCount();
-//        final int childCount = parent.getChildCount();
-//        Rect rect = new Rect();
-//        rect.left = parent.getLeft() + parent.getPaddingLeft();
-//        rect.right = parent.getWidth() - parent.getPaddingRight();
-//
-//        String preGroupName;      //标记上一个item对应的Group
-//        String currentGroupName = null;       //当前item对应的Group
-//        for (int i = 0; i < childCount; i++) {
-//            View view = parent.getChildAt(i);
-//            int position = parent.getChildAdapterPosition(view);
-//            preGroupName = currentGroupName;
-//            currentGroupName = mGroupListener.getGroupName(position);
-//            if (currentGroupName == null || TextUtils.equals(currentGroupName, preGroupName))
-//                continue;
-//            int viewBottom = view.getBottom();
-//            float top = Math.max(mDrawable.getIntrinsicHeight(), view.getTop());//top 决定当前顶部第一个悬浮Group的位置
-//            if (position + 1 < itemCount) {
-//                //获取下个GroupName
-//                String nextGroupName = mGroupListener.getGroupName(position + 1);
-//                //下一组的第一个View接近头部
-//                if (!currentGroupName.equals(nextGroupName) && viewBottom < top) {
-//                    top = viewBottom;
-//                }
-//            }
-//            //根据top绘制group
-//            mDrawable.setBounds(rect);
-//            mDrawable.draw(c);
-//            Paint.FontMetrics fm = mTextPaint.getFontMetrics();
-//            //文字竖直居中显示
-//            float baseLine = top - (mDivierDrawable.getIntrinsicHeight() - (fm.bottom - fm.top)) / 2 - fm.bottom;
-//            c.drawText(currentGroupName, rect.left, baseLine, mTextPaint);
-
-
-
-//            //画文字
-//            String text = mLists.get(i).getComingTitle();
-//            Rect textBounds = new Rect();
-//            mTextPaint.getTextBounds(text, 0, text.length(), textBounds);
-//            Paint.FontMetricsInt fontMetrics = mTextPaint.getFontMetricsInt();
-//            int dx = parent.getPaddingLeft() + DensityUtil.dp2px(8);
-//            int dy = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom;
-//            int baseLine = parent.getChildAt(i).getTop() + dy - mDrawable.getIntrinsicHeight() / 2;
-//            c.drawText(text, dx, baseLine, mTextPaint);
-    //    }
-
+        Rect rect = new Rect();
+        rect.left = parent.getPaddingLeft();
+        rect.right = parent.getWidth() - parent.getPaddingRight();
+        View view = parent.getChildAt(0);
+        int position = parent.getChildAdapterPosition(view);
+        String text = mLists.get(position).getComingTitle();
+        if (isFirstInGroup(position)) {
+            drawView(rect, c, parent, 0);
+            drawTitle(rect, c, parent, 0, text);
+        }
     }
 
     //判断是不是组中的第一个位置

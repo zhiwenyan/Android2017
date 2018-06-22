@@ -68,6 +68,11 @@ public abstract class CommonRecycleAdapter<T> extends RecyclerView.Adapter<Commo
         return super.getItemViewType(position);
     }
 
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
     //点击事件
     public void setItemClickListener(ItemClickListener itemClickListener) {
         this.mItemClickListener = itemClickListener;

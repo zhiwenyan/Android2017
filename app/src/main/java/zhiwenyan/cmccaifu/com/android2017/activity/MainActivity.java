@@ -39,6 +39,7 @@ import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple1.IOHandle
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple1.IOHandlerFactory;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple2.IOFactory;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple2.MemoryIOFactory;
+import zhiwenyan.cmccaifu.com.android2017.DialogFragment.DialogFragmentActivity;
 import zhiwenyan.cmccaifu.com.android2017.IPC.AidlActivity;
 import zhiwenyan.cmccaifu.com.android2017.IPC.MessengerActivity;
 import zhiwenyan.cmccaifu.com.android2017.IPC.ServiceActivity;
@@ -104,7 +105,6 @@ public class MainActivity extends BaseActivity {
                 }).create();
         //如果想设置字体的大小、颜色，图片、等等
         TextView textView = navigationBar.findById(R.id.text);
-
     }
 
     @Override
@@ -169,7 +169,7 @@ public class MainActivity extends BaseActivity {
             R.id.okHttpTv, R.id.retrofit, R.id.bannerTv, R.id.viewTv, R.id.viewgroupTv, R.id.commonViewPager,
             R.id.threedTv, R.id.lruTv, R.id.drawTv, R.id.coorTv, R.id.messenger, R.id.startService,
             R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager, R.id.bntv, R.id.device, R.id.sensor
-            , R.id.rg, R.id.sqliteTv, R.id.dialogTv, R.id.noticeTv})
+            , R.id.dialog, R.id.sqliteTv, R.id.dialogTv, R.id.noticeTv})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -281,8 +281,8 @@ public class MainActivity extends BaseActivity {
                 intent = new Intent(this, SensorActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.rg:
-                intent = new Intent(this, RadioActivity.class);
+            case R.id.dialog:
+                intent = new Intent(this, DialogFragmentActivity.class);
                 startActivity(intent);
                 break;
             case R.id.sqliteTv:

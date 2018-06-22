@@ -8,6 +8,14 @@
     android:orientation="vertical"
     tools:context=".DialogFragment.DialogFragmentActivity">
 
+
+    <Button
+        android:id="@+id/progressDialogBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="progressDialogBtn"
+        android:textAllCaps="false"/>
+
     <Button
         android:id="@+id/confirmDialogBtn"
         android:layout_width="match_parent"

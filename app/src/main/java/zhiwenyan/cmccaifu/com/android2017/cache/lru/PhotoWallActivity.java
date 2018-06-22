@@ -17,7 +17,7 @@ public class PhotoWallActivity extends BaseActivity {
     @Override
     protected void init() {
         doSetToolBarTitle("Lru缓存图片");
-        mPhotoWall = (GridView) findViewById(R.id.photo_wall);
+        mPhotoWall = ( GridView ) findViewById(R.id.photo_wall);
         adapter = new PhotoWallAdapter(this, 0, Images.imageThumbUrls, mPhotoWall);
         mPhotoWall.setAdapter(adapter);
     }

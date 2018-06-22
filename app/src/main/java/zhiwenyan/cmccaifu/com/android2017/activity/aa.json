@@ -1,0 +1,13 @@
+{
+  "time_used": 467,
+  "error_message": "ID_NUMBER_NAME_NOT_MATCH",
+  "face_genuineness": {
+    "mask_confidence": 0.0,
+    "screen_replay_confidence": 0.0,
+    "mask_threshold": 0.5,
+    "synthetic_face_confidence": 0.0,
+    "synthetic_face_threshold": 0.5,
+    "screen_replay_threshold": 0.5
+  },
+  "request_id": "1528787803,a606099e-bd8d-4547-a5aa-d88aea484598"
+}

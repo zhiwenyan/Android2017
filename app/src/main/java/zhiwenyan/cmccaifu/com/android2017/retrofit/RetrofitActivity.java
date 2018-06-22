@@ -171,6 +171,7 @@ public class RetrofitActivity extends BaseActivity {
         // 为file建立RequestBody实例
         RequestBody requestFile = RequestBody.create(MediaType.parse(MULTIPART_FORM_DATA), file);
         // MultipartBody.Part借助文件名完成最终的上传
+        MultipartBody.Part.createFormData("", "");
         return MultipartBody.Part.createFormData(partName, file.getName(), requestFile);
     }
 

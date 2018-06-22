@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -43,7 +42,7 @@ public class SectionItemDecorationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_item_decoration);
-        mRecyclerView = (RecyclerView) findViewById(R.id.rv);
+        mRecyclerView = ( RecyclerView ) findViewById(R.id.rv);
         getMovies();
 
 
@@ -84,11 +83,13 @@ public class SectionItemDecorationActivity extends AppCompatActivity {
             public String getGroupName(int position) {
                 return lists.get(position).getComingTitle();
             }
-
+            //获取同组中的第一个内容
             @Override
-            public View getGroupView(int position) {
-                View view = getLayoutInflater().inflate(R.layout.section_layout, null, false);
-                return view;
+            public String getGroupFirstLine(int position) {
+                if(lists.get(position).getComingTitle()!=null) {
+                    return lists.get(position).getComingTitle();
+                }
+                return "";
             }
         }));
         MovieAdapter movieAdapter = new MovieAdapter(this, lists, R.layout.section_layout);
@@ -104,7 +105,7 @@ public class SectionItemDecorationActivity extends AppCompatActivity {
         @Override
         protected void convert(CommonViewHolder holder, Movies.DataBean.ComingBean movie, int position) {
             ImageView imageView = holder.getView(R.id.movieImg);
-            Glide.with(SectionItemDecorationActivity.this.getApplicationContext()).load(movie.getImg()).into(imageView);
+            Glide.with(SectionItemDecorationActivity.this).load(movie.getImg()).into(imageView);
             holder.setText(R.id.nameTv, movie.getNm()).setText(R.id.catTv, movie.getCat())
                     .setText(R.id.actorTv, movie.getDesc());
 

@@ -14,6 +14,7 @@ import java.util.List;
 
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.adapter.RecyclerAdapter;
+import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.itemDecoration.GridLayoutItemDecoration;
 import zhiwenyan.cmccaifu.com.android2017.RecyclerViewAnyins.itemDecoration.LinearLayoutItemDecoration;
 
 public class BasicUseActivity extends AppCompatActivity {
@@ -51,7 +52,7 @@ public class BasicUseActivity extends AppCompatActivity {
                 int lastVisibleItemPosition = manager.findLastVisibleItemPosition();
                 int firstCompletelyVisibleItemPosition = manager.findFirstCompletelyVisibleItemPosition();
                 int lastCompletelyVisibleItemPosition = manager.findLastCompletelyVisibleItemPosition();
-                System.out.println("firstVisibleItemPosition=" + firstVisibleItemPosition + "---" + mList.get(manager.findFirstVisibleItemPosition()));
+//                System.out.println("firstVisibleItemPosition=" + firstVisibleItemPosition + "---" + mList.get(manager.findFirstVisibleItemPosition()));
                 System.out.println("lastVisibleItemPosition=" + lastVisibleItemPosition);
                 System.out.println("--------------------------------------------");
                 System.out.println("firstCompletelyVisibleItemPosition=" + firstCompletelyVisibleItemPosition);
@@ -77,11 +78,11 @@ public class BasicUseActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.list:
                 mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-                //  mRecyclerView.addItemDecoration(new LinearLayoutItemDecoration(this, R.drawable.item_decration));
+                mRecyclerView.addItemDecoration(new LinearLayoutItemDecoration(this, R.drawable.item_decration));
                 break;
             case R.id.grid:
                 mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));
-                //    mRecyclerView.addItemDecoration(new GridLayoutItemDecoration(this, R.drawable.item_decration));
+                mRecyclerView.addItemDecoration(new GridLayoutItemDecoration(this, R.drawable.item_decration));
                 break;
             case R.id.StaggeredGrid:
                 mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));

@@ -29,15 +29,18 @@ public class DialogFragmentActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.confirmDialogBtn, R.id.listDialogBtn, R.id.calendarDialogBtn})
+    @OnClick({R.id.confirmDialogBtn, R.id.listDialogBtn, R.id.calendarDialogBtn, R.id.progressDialogBtn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.progressDialogBtn:
+                DialogFragmentHelper.showProgress(getSupportFragmentManager(), "加载中");
+                break;
             case R.id.confirmDialogBtn:
                 DialogFragmentHelper.showConfirmDialog(getSupportFragmentManager(), "确定退出吗？", (dialog, which) -> {
 
                 }, (dialog, which) -> {
 
-                }, false, null);
+                }, true, null);
                 break;
             case R.id.listDialogBtn:
                 DialogFragmentHelper.showListDialog(getSupportFragmentManager(), "课程", new String[]{"Java", "Oracle", "Android"}, new IDialogResultListener<Integer>() {
@@ -45,7 +48,7 @@ public class DialogFragmentActivity extends AppCompatActivity {
                     public void onDataResult(Integer result) {
 
                     }
-                }, false);
+                }, true);
                 break;
             case R.id.calendarDialogBtn:
                 DialogFragmentHelper.showDateDialog(getSupportFragmentManager(), "时间", new GregorianCalendar(), new IDialogResultListener<Calendar>() {
@@ -53,7 +56,7 @@ public class DialogFragmentActivity extends AppCompatActivity {
                     public void onDataResult(Calendar result) {
 
                     }
-                }, false);
+                }, true);
                 break;
         }
     }

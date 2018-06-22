@@ -56,7 +56,7 @@ public class PhotoWallAdapter extends ArrayAdapter<String> implements AbsListVie
         mPhotoWall = photoWall;
         taskCollection = new HashSet<>();
         // 获取应用程序最大可用内存
-        int maxMemory = (int) Runtime.getRuntime().maxMemory();
+        int maxMemory = ( int ) Runtime.getRuntime().maxMemory();
         int cacheSize = maxMemory / 8;
         // 设置图片缓存大小为程序最大可用内存的1/8
         mMemoryCache = new LruCache<String, Bitmap>(cacheSize) {
@@ -79,7 +79,7 @@ public class PhotoWallAdapter extends ArrayAdapter<String> implements AbsListVie
         } else {
             view = convertView;
         }
-        final ImageView photo = (ImageView) view.findViewById(R.id.photo);
+        final ImageView photo = ( ImageView ) view.findViewById(R.id.photo);
         // 给ImageView设置一个Tag，保证异步加载图片时不会乱序
         photo.setTag(url);
         setImageView(url, photo);
@@ -158,7 +158,7 @@ public class PhotoWallAdapter extends ArrayAdapter<String> implements AbsListVie
                     taskCollection.add(task);
                     task.execute(imageUrl);
                 } else {
-                    ImageView imageView = (ImageView) mPhotoWall.findViewWithTag(imageUrl);
+                    ImageView imageView = ( ImageView ) mPhotoWall.findViewWithTag(imageUrl);
                     if (imageView != null && bitmap != null) {
                         imageView.setImageBitmap(bitmap);
                     }
@@ -208,7 +208,7 @@ public class PhotoWallAdapter extends ArrayAdapter<String> implements AbsListVie
         protected void onPostExecute(Bitmap bitmap) {
             super.onPostExecute(bitmap);
             // 根据Tag找到相应的ImageView控件，将下载好的图片显示出来。
-            ImageView imageView = (ImageView) mPhotoWall.findViewWithTag(imageUrl);
+            ImageView imageView = ( ImageView ) mPhotoWall.findViewWithTag(imageUrl);
             if (imageView != null && bitmap != null) {
                 imageView.setImageBitmap(bitmap);
             }
@@ -226,7 +226,7 @@ public class PhotoWallAdapter extends ArrayAdapter<String> implements AbsListVie
             HttpURLConnection con = null;
             try {
                 URL url = new URL(imageUrl);
-                con = (HttpURLConnection) url.openConnection();
+                con = ( HttpURLConnection ) url.openConnection();
                 con.setConnectTimeout(5 * 1000);
                 con.setReadTimeout(10 * 1000);
                 bitmap = BitmapFactory.decodeStream(con.getInputStream());

@@ -85,7 +85,7 @@ public class LinkList {
         linkList.insertFirst(23);
         linkList.insertFirst(88);
         linkList.display();
-        Node node = linkList.find(66);
-        node.display();
+//        Node node = linkList.find(66);
+//        node.display();
     }
 }
