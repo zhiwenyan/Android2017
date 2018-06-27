@@ -57,6 +57,7 @@ public class EventBus {
         for (Method method : methods) {
             Subscribe subscribe = method.getAnnotation(Subscribe.class);
             if (subscribe != null) {
+                //method.getParameterTypes() 获取参数的类型
                 Class<?>[] parameterTypes = method.getParameterTypes();
                 SubscriberMethod subscriberMethod = new SubscriberMethod(method, parameterTypes[0],
                         subscribe.threadMode(), subscribe.priority(), subscribe.sticky());

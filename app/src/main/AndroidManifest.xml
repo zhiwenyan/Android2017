@@ -348,6 +348,8 @@
         </activity>
         <activity android:name=".RecyclerViewAnyins.StaggeredGridActivity">
         </activity>
+        <activity android:name=".DesignPattern.DesignPatternActivity">
+        </activity>
     </application>
 
 </manifest>

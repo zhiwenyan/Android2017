@@ -9,8 +9,6 @@
     tools:context="zhiwenyan.cmccaifu.com.android2017.activity.MainActivity">
 
 
-
-
     <LinearLayout
         android:id="@+id/view_root"
         android:layout_width="match_parent"
@@ -634,6 +632,17 @@
 
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/designTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/yy"
+                android:background="@color/colorAccent"
+                android:padding="@dimen/y"
+                android:text="设计模式"
+                android:textColor="@color/white"/>
+
         </LinearLayout>
     </LinearLayout>
 

@@ -28,12 +28,15 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import zhiwenyan.cmccaifu.com.android2017.DesignPattern.DesignPatternActivity;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.builder.navigation.NavigationBar;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple1.IOHandler;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.factory.simple1.IOHandlerFactory;
@@ -93,7 +96,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewGroup parent = ( ViewGroup ) findViewById(R.id.view_root);
+        ViewGroup parent = (ViewGroup) findViewById(R.id.view_root);
         EventBus.getDefault().post(new MessageEvent("Hello everyone!"));
         NavigationBar navigationBar = new NavigationBar.Builder(this, R.layout.ui_navigation_bar, parent)
                 .setText(R.id.text, "返回")
@@ -155,8 +158,8 @@ public class MainActivity extends BaseActivity {
 //        LayoutInflater.from(context).inflate(R.layout.item_recycler, parent);
 //        LayoutInflater.from(context).inflate(R.layout.item_recycler, parent, false);
         //上面三种方式都是走 LayoutInflater.from(context).inflate(R.layout.item_recycler, parent, false);
-
-
+        List<String> data = new ArrayList<>();
+        data.listIterator();
     }
 
     @Override
@@ -169,7 +172,7 @@ public class MainActivity extends BaseActivity {
             R.id.okHttpTv, R.id.retrofit, R.id.bannerTv, R.id.viewTv, R.id.viewgroupTv, R.id.commonViewPager,
             R.id.threedTv, R.id.lruTv, R.id.drawTv, R.id.coorTv, R.id.messenger, R.id.startService,
             R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager, R.id.bntv, R.id.device, R.id.sensor
-            , R.id.dialog, R.id.sqliteTv, R.id.dialogTv, R.id.noticeTv})
+            , R.id.dialog, R.id.sqliteTv, R.id.dialogTv, R.id.noticeTv, R.id.designTv})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -295,6 +298,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.noticeTv:
                 NewMessageNotification.notify(this, "Hello Notice", 0);
+                break;
+            case R.id.designTv:
+                intent = new Intent(this, DesignPatternActivity.class);
+                startActivity(intent);
                 break;
         }
     }

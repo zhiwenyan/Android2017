@@ -30,5 +30,6 @@ public class BottomTabItemActivity extends AppCompatActivity {
         // 第一个刚刚看到我报错了
         // 有可能我们不传 List Array[]怎么办法呢？
         mTabBottomNavigation.addTabItem(items);
+
     }
 }

@@ -45,7 +45,7 @@ public class TabBottomNavigation extends LinearLayout {
             addView(tabView);
             LinearLayout.LayoutParams params = (LayoutParams) tabView.getLayoutParams();
             params.weight = 1;
-            params.gravity = Gravity.CENTER;
+            params.gravity = Gravity.BOTTOM;
             setLayoutParams(params);
             //给条目点击事件
             setItemClickListener(tabView, index++);
@@ -57,16 +57,13 @@ public class TabBottomNavigation extends LinearLayout {
     }
 
     private void setItemClickListener(View tabView, final int position) {
-        tabView.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mCurrentIndex != position) {
-                    //原来标为没有选中
-                    mBottomTabItems.get(mCurrentIndex).setSelected(false);
-                    mCurrentIndex = position;
-                    mBottomTabItems.get(mCurrentIndex).setSelected(true);
-                    //把点击的位置利用接口传出去
-                }
+        tabView.setOnClickListener(v -> {
+            if (mCurrentIndex != position) {
+                //原来标为没有选中
+                mBottomTabItems.get(mCurrentIndex).setSelected(false);
+                mCurrentIndex = position;
+                mBottomTabItems.get(mCurrentIndex).setSelected(true);
+                //把点击的位置利用接口传出去
             }
         });
     }
