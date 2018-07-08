@@ -84,9 +84,7 @@ public class PasswordEditText extends android.support.v7.widget.AppCompatEditTex
 
     }
 
-    /**
-     * dip 转 px
-     */
+
     private int dip2px(int dip) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 dip, getResources().getDisplayMetrics());

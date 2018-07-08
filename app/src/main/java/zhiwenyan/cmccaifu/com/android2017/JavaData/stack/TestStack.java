@@ -1,5 +1,7 @@
 package zhiwenyan.cmccaifu.com.android2017.JavaData.stack;
 
+import java.util.Stack;
+
 /**
  * Description:栈 先进后出  后进先出
  * Data：6/11/2018-9:48 AM
@@ -79,5 +81,7 @@ public class TestStack {
         while (!testStack.isEmpty()) {
             System.out.println(testStack.pop() + "");
         }
+        Stack<Integer> stack=new Stack<>();
+        stack.add(1);
     }
 }

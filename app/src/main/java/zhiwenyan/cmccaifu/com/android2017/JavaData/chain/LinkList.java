@@ -56,12 +56,12 @@ public class LinkList {
      */
     public Node find(int value) {
         Node current = first;
-        while (current.data != value) {
-            if (current.next == null) {
-                return null;
+        while (current.next!= null) {
+            if (current.data == value) {
+                return current;
             }
         }
-        return current;
+        return null;
     }
 
     /**
@@ -85,7 +85,9 @@ public class LinkList {
         linkList.insertFirst(23);
         linkList.insertFirst(88);
         linkList.display();
-//        Node node = linkList.find(66);
-//        node.display();
+        Node node = linkList.find(23);
+        node.display();
+
+
     }
 }
