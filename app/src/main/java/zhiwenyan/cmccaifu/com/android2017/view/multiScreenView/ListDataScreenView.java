@@ -21,7 +21,9 @@ import android.widget.TextView;
  * @author: yanzhiwen
  */
 public class ListDataScreenView extends LinearLayout implements View.OnClickListener {
+    //头部的Tab
     private LinearLayout mMenuTabView;
+    //
     private FrameLayout mMenuMiddleView;
     private View mShadowView;
     private Context mContext;
