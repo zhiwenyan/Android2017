@@ -43,9 +43,7 @@ public class LinkList {
         while (current != null) {
             current.display();
             current = current.next;
-
         }
-        System.out.println();
     }
 
     /**

@@ -133,12 +133,15 @@ public class OkhttpActivity extends BaseActivity {
 
     private void enqueuegGet() {
         //异步
+        String url = "https://www.oschina.net/action/apiv2/tweet_list?&order=1&type=1";
         final Request request = new Request.Builder()
-                .url("https://raw.github.com/square/okhttp/master/README.md")
+                .url(url)
                 .build();
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
+                updateUI(e.getMessage());
+
             }
 
             @Override

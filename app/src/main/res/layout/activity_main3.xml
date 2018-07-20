@@ -5,11 +5,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="zhiwenyan.cmccaifu.com.android2017.DesignPattern.observeable.simple5.Main3Activity">
 
 
+    <FrameLayout
+        android:id="@+id/content"
+        android:background="@color/common_fm_color_dark"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </FrameLayout>
+
     <zhiwenyan.cmccaifu.com.android2017.DesignPattern.iterator.simple3.bottomTab.TabBottomNavigation
         android:id="@+id/tab_bottom"
+        android:layout_gravity="bottom"
+        android:background="#fff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

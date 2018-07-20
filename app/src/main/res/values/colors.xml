@@ -37,8 +37,8 @@
     <color name="common_fm_color_gray">#8d2e9bf1</color>
 
 
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#60b174</color>
+    <color name="colorPrimaryDark">#60b174</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="orange">#FF9600</color>
@@ -58,6 +58,7 @@
         <item>@color/yellow</item>
     </array>
 
+    <color name="green1">#60b174</color>
     <color name="app_main_color">#3F51B5</color>
     <color name="app_main_color_deep">#303F9F</color>
 </resources>

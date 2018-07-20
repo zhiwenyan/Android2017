@@ -1,50 +1,118 @@
 {
-  "message": "\u83b7\u53d6\u6210\u529f",
-  "code": 200,
   "result": {
-    "binfo": {
-      "coupon_id": "0",
-      "status": "2",
-      "id": "3115",
-      "is_random": "0",
-      "audit_status": "1"
-    },
-    "info": {
-      "id": "1828",
-      "uid": "840",
-      "borrow_id": "3115",
-      "first_trial": "1",
-      "bank_bing": "0",
-      "id_verify": "0",
-      "verify_phone": "1",
-      "pending": "0",
-      "tree": "0",
-      "signed": "0",
-      "zhima_auth": "0",
-      "zhima_time": null,
-      "first_trial_uid": null,
-      "first_trial_time": "1529490348",
-      "bank_bing_time": "0",
-      "id_verify_time": "0",
-      "pending_uid": null,
-      "pending_time": null,
-      "tree_time": null,
-      "signed_uid": null,
-      "signed_time": null,
-      "alipay_biz_no": null,
-      "reason": null,
-      "calm_time": null,
-      "calm": "0",
-      "recheck_uid": null,
-      "recheck_time": "0",
-      "is_recheck": "0",
-      "mid_tree": "0",
-      "mid_tree_time": "0",
-      "is_random": "0",
-      "countDownTime": 72,
-      "time": 1529490435,
-      "is_status": 0,
-      "isIdVerify": 1
-    }
-  }
+    "default": [
+      "500",
+      "4"
+    ],
+    "money_list": [
+      "100",
+      "500",
+      "1000"
+    ],
+    "item_list": [
+      {
+        "id": "1",
+        "itemName": "\u5373\u65f6\u5145\u503c",
+        "salesprice": "100.00",
+        "is_on": "1",
+        "type": "1",
+        "duration": "0",
+        "num": "0",
+        "discount": "9.90",
+        "add_time": "1459440000",
+        "on_time": "1459440000",
+        "is_hot": "0",
+        "is_default": "0"
+      },
+      {
+        "id": "24",
+        "itemName": "4\u4e2a\u6708",
+        "salesprice": "100.00",
+        "is_on": "1",
+        "type": "2",
+        "duration": "4",
+        "num": "468",
+        "discount": "9.70",
+        "add_time": "1525495375",
+        "on_time": "1525495347",
+        "is_hot": "0",
+        "is_default": "0"
+      },
+      {
+        "id": "25",
+        "itemName": "7\u4e2a\u6708",
+        "salesprice": "100.00",
+        "is_on": "1",
+        "type": "3",
+        "duration": "7",
+        "num": "825",
+        "discount": "9.60",
+        "add_time": "1525495442",
+        "on_time": "1525495422",
+        "is_hot": "0",
+        "is_default": "0"
+      },
+      {
+        "id": "14",
+        "itemName": "12\u4e2a\u6708",
+        "salesprice": "100.00",
+        "is_on": "1",
+        "type": "4",
+        "duration": "12",
+        "num": "2228",
+        "discount": "9.38",
+        "add_time": "1487126523",
+        "on_time": "1487126486",
+        "is_hot": "1",
+        "is_default": "1"
+      },
+      {
+        "id": "5",
+        "itemName": "18\u4e2a\u6708",
+        "salesprice": "100.00",
+        "is_on": "1",
+        "type": "5",
+        "duration": "18",
+        "num": "542",
+        "discount": "9.20",
+        "add_time": "1459440000",
+        "on_time": "1459440000",
+        "is_hot": "0",
+        "is_default": "0"
+      },
+      {
+        "id": "19",
+        "itemName": "36\u4e2a\u6708",
+        "salesprice": "100.00",
+        "is_on": "1",
+        "type": "6",
+        "duration": "36",
+        "num": "3812",
+        "discount": "8.68",
+        "add_time": "1494079331",
+        "on_time": "1494079297",
+        "is_hot": "0",
+        "is_default": "0"
+      }
+    ],
+    "ad_list": [
+      {
+        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180615135635253.jpg",
+        "info": "",
+        "url": "http:\/\/www.fumi88.cn\/oil\/activity\/activityapp?app"
+      },
+      {
+        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180615135638399.png",
+        "info": "",
+        "url": "http:\/\/www.fumi88.cn\/oil\/activity\/new?app"
+      },
+      {
+        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/201806151356422.png",
+        "info": "",
+        "url": ""
+      }
+    ]
+  },
+  "message": "success",
+  "status": 200
 }

@@ -20,4 +20,13 @@
         app:heightProportion="3"
         app:widthProportion="8"/>
 
+
+    <TextView
+        android:text="111111111111111111111111111111111111111111111"
+        android:id="@+id/edt"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
 </RelativeLayout>

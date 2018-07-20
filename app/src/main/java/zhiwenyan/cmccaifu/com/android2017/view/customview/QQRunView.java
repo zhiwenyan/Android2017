@@ -45,8 +45,8 @@ public class QQRunView extends View {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.QQStepView);
         mOuterColor = ta.getColor(R.styleable.QQStepView_outerColor, mOuterColor);
         mInnerColor = ta.getColor(R.styleable.QQStepView_innerColor, mInnerColor);
-        mBorderWidth = (int) ta.getDimension(R.styleable.QQStepView_borderWidth, mBorderWidth);
-        mTextSize = (int) ta.getDimension(R.styleable.QQStepView_stepTextSize, mTextSize);
+        mBorderWidth = ( int ) ta.getDimension(R.styleable.QQStepView_borderWidth, mBorderWidth);
+        mTextSize = ( int ) ta.getDimension(R.styleable.QQStepView_stepTextSize, mTextSize);
         mTextColor = ta.getColor(R.styleable.QQStepView_stepTextColor, mTextColor);
         ta.recycle();
         init();
@@ -76,9 +76,13 @@ public class QQRunView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+     //   super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        System.out.println("widthMeasureSpec="+widthMeasureSpec);
+        System.out.println("widthMeasureSpec="+heightMeasureSpec);
         int width = MeasureSpec.getSize(widthMeasureSpec);
         int height = MeasureSpec.getSize(heightMeasureSpec);
+        System.out.println("width="+width);
+        System.out.println("height="+height);
         setMeasuredDimension(width > height ? height : width, width > height ? height : width);
 
     }
@@ -98,7 +102,7 @@ public class QQRunView extends View {
         if (mStepMax == 0) return;
         RectF rectF1 = new RectF(mBorderWidth / 2, mBorderWidth / 2, getWidth() - mBorderWidth / 2,
                 getHeight() - mBorderWidth / 2);
-        float sweepAngle = (float) mCurrentStep / mStepMax;
+        float sweepAngle = ( float ) mCurrentStep / mStepMax;
         canvas.drawArc(rectF1, 135, sweepAngle * 270, false, mInnerPaint);
 
         //画文字

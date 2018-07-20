@@ -71,33 +71,33 @@ public class SectionItemDecoration extends RecyclerView.ItemDecoration {
             outRect.top = divideHeight;
         }
     }
-
-    /**
-     * onDraw：通过该方法，在Canvas上绘制内容，在绘制Item之前调用。
-     * （如果没有通过getItemOffsets设置偏移的话，Item的内容会将其覆盖）
-     *
-     * @param c
-     * @param parent
-     * @param state
-     */
-    @Override
-    public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
-        super.onDraw(c, parent, state);
-        Rect rect = new Rect();
-        rect.left = parent.getPaddingLeft();
-        rect.right = parent.getWidth() - parent.getPaddingRight();
-        for (int i = 0; i < parent.getChildCount(); i++) {
-            View view = parent.getChildAt(i);
-            int position = parent.getChildAdapterPosition(view);
-            String text = mLists.get(position).getComingTitle();
-            if (isFirstInGroup(position)) {
-                drawView(rect, c, parent, i);
-                drawTitle(rect, c, parent, i, text);
-            } else {
-                drawItemDecoration(rect, c, parent, i);
-            }
-        }
-    }
+//
+//    /**
+//     * onDraw：通过该方法，在Canvas上绘制内容，在绘制Item之前调用。
+//     * （如果没有通过getItemOffsets设置偏移的话，Item的内容会将其覆盖）
+//     *
+//     * @param c
+//     * @param parent
+//     * @param state
+//     */
+//    @Override
+//    public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+//        super.onDraw(c, parent, state);
+//        Rect rect = new Rect();
+//        rect.left = parent.getPaddingLeft();
+//        rect.right = parent.getWidth() - parent.getPaddingRight();
+//        for (int i = 0; i < parent.getChildCount(); i++) {
+//            View view = parent.getChildAt(i);
+//            int position = parent.getChildAdapterPosition(view);
+//            String text = mLists.get(position).getComingTitle();
+//            if (isFirstInGroup(position)) {
+//                drawView(rect, c, parent, i);
+//                drawTitle(rect, c, parent, i, text);
+//            } else {
+//                drawItemDecoration(rect, c, parent, i);
+//            }
+//        }
+//    }
 
 
     private void drawView(Rect rect, Canvas c, RecyclerView parent, int i) {
@@ -137,14 +137,18 @@ public class SectionItemDecoration extends RecyclerView.ItemDecoration {
         Rect rect = new Rect();
         rect.left = parent.getPaddingLeft();
         rect.right = parent.getWidth() - parent.getPaddingRight();
-        View view = parent.getChildAt(0);
-        int position = parent.getChildAdapterPosition(view);
-        String text = mLists.get(position).getComingTitle();
-        if (isFirstInGroup(position)) {
-            drawView(rect, c, parent, 0);
-            drawTitle(rect, c, parent, 0, text);
+        for (int i = 0; i < parent.getChildCount(); i++) {
+            View view = parent.getChildAt(i);
+            int position = parent.getChildAdapterPosition(view);
+            String text = mLists.get(position).getComingTitle();
+            if (isFirstInGroup(position)) {
+                drawView(rect, c, parent, i);
+                drawTitle(rect, c, parent, i, text);
+            } else {
+                drawItemDecoration(rect, c, parent, i);
+            }
         }
-    }
+}
 
     //判断是不是组中的第一个位置
     //根据前一个组名，判断当前是否为新的组

@@ -18,7 +18,7 @@ public class MainBottomTabItem extends BottomTabItem {
     }
 
     public MainBottomTabItem(Builder builder) {
-        super(R.layout.tab_item, builder.mContext);
+        this(builder.mContext);
         mBuilder = builder;
     }
 

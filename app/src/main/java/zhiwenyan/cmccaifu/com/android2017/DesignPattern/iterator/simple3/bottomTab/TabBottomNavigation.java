@@ -13,11 +13,11 @@ import java.util.List;
 import zhiwenyan.cmccaifu.com.android2017.DesignPattern.iterator.simple3.iterator.TabIterator;
 
 /**
- * Created by yanzhiwen on 11/10/2017.
+ * Created by yanzhiwen on 2017/10/22.
+ * 底部的导航栏
  */
-
 public class TabBottomNavigation extends LinearLayout {
-    private List<BottomTabItem> mBottomTabItems = new ArrayList<>();
+    private List<BottomTabItem> mTabItems;
     private int mCurrentIndex = -1;
 
     public TabBottomNavigation(Context context) {
@@ -31,40 +31,60 @@ public class TabBottomNavigation extends LinearLayout {
     public TabBottomNavigation(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         setOrientation(HORIZONTAL);
+        mTabItems = new ArrayList<>();
 
     }
 
-    public void addTabItem(TabIterator tabItems) {
-        mBottomTabItems.clear();
-        //当前位置
+    public void setTabIterator(TabIterator tabIterator) {
+        mTabItems.clear();
+        // 当前的位置
         int index = 0;
-        while (tabItems.hashNext()) {
-            BottomTabItem tabItem = tabItems.next();
-            mBottomTabItems.add(tabItem);
+        while (tabIterator.hashNext()) {
+            BottomTabItem tabItem = tabIterator.next();
             View tabView = tabItem.getTabView();
             addView(tabView);
-            LinearLayout.LayoutParams params = (LayoutParams) tabView.getLayoutParams();
+
+            LayoutParams params = ( LayoutParams ) tabView.getLayoutParams();
             params.weight = 1;
-            params.gravity = Gravity.BOTTOM;
-            setLayoutParams(params);
-            //给条目点击事件
+            params.gravity = Gravity.CENTER;
+            tabView.setLayoutParams(params);
+
+            // 给条目设置点击事件，等等
             setItemClickListener(tabView, index++);
+            mTabItems.add(tabItem);
         }
 
-
-        mBottomTabItems.get(0).setSelected(true);
+        // 第一个位置要设置为选中
+        mTabItems.get(0).setSelected(true);
         mCurrentIndex = 0;
     }
 
     private void setItemClickListener(View tabView, final int position) {
-        tabView.setOnClickListener(v -> {
-            if (mCurrentIndex != position) {
-                //原来标为没有选中
-                mBottomTabItems.get(mCurrentIndex).setSelected(false);
-                mCurrentIndex = position;
-                mBottomTabItems.get(mCurrentIndex).setSelected(true);
-                //把点击的位置利用接口传出去
+        tabView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mCurrentIndex != position) {
+                    // 原来的标为非选中
+                    mTabItems.get(mCurrentIndex).setSelected(false);
+                    // 把当前设置为选中
+                    mCurrentIndex = position;
+                    mTabItems.get(mCurrentIndex).setSelected(true);
+                    // 把点击的为用接口回调出去供外部使用，调整显示
+                    if (mBottomClickListener != null) {
+                        mBottomClickListener.click(mCurrentIndex);
+                    }
+                }
             }
         });
+    }
+
+    private TabBottomClickListener mBottomClickListener;
+
+    public void setOnTabBottomClickListener(TabBottomClickListener bottomClickListener) {
+        this.mBottomClickListener = bottomClickListener;
+    }
+
+    public interface TabBottomClickListener {
+        void click(int position);
     }
 }

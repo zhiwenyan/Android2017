@@ -157,7 +157,9 @@
         <activity android:name=".RecyclerViewAnyins.JokeListActivity"/>
         <activity android:name=".RecyclerViewAnyins.HeadAndFooterActivity"/>
         <activity android:name=".RecyclerViewAnyins.ItemDragActivity"/>
-        <activity android:name=".banner.banner.BannerActivity">
+        <activity
+            android:name=".banner.banner.BannerActivity"
+            android:windowSoftInputMode="adjustResize">
         </activity>
         <activity android:name=".view.password.PasswordActivity"/>
         <activity android:name=".view.activity.IndexActivity"/>
@@ -349,6 +351,8 @@
         <activity android:name=".RecyclerViewAnyins.StaggeredGridActivity">
         </activity>
         <activity android:name=".DesignPattern.DesignPatternActivity">
+        </activity>
+        <activity android:name=".ViewGroup.refresh.SwipeRefreshActivity">
         </activity>
     </application>
 
