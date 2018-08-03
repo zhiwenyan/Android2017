@@ -24,6 +24,9 @@ import android.widget.TextView;
 import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -62,6 +65,7 @@ import zhiwenyan.cmccaifu.com.android2017.behavior.NewMessageNotification;
 import zhiwenyan.cmccaifu.com.android2017.cache.ThreeCacheActivity;
 import zhiwenyan.cmccaifu.com.android2017.cache.lru.PhotoWallActivity;
 import zhiwenyan.cmccaifu.com.android2017.dialog.DialogActivity;
+import zhiwenyan.cmccaifu.com.android2017.emoji.EmojiActivity;
 import zhiwenyan.cmccaifu.com.android2017.eventbus.eventbus.MessageEvent;
 import zhiwenyan.cmccaifu.com.android2017.glide.GlideActivity;
 import zhiwenyan.cmccaifu.com.android2017.indicatorViewPager.CommonViewPagerActivity;
@@ -92,11 +96,12 @@ public class MainActivity extends BaseActivity {
         }
     };
     private String mEnter;
+    private int cache;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewGroup parent = (ViewGroup) findViewById(R.id.view_root);
+        ViewGroup parent = ( ViewGroup ) findViewById(R.id.view_root);
         EventBus.getDefault().post(new MessageEvent("Hello everyone!"));
         NavigationBar navigationBar = new NavigationBar.Builder(this, R.layout.ui_navigation_bar, parent)
                 .setText(R.id.text, "返回")
@@ -108,6 +113,13 @@ public class MainActivity extends BaseActivity {
                 }).create();
         //如果想设置字体的大小、颜色，图片、等等
         TextView textView = navigationBar.findById(R.id.text);
+        File file = new File("");
+        try {
+            FileWriter fileWriter = new FileWriter(file); //字符
+            FileOutputStream fileOutputStream = new FileOutputStream(file); //字节
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -172,7 +184,7 @@ public class MainActivity extends BaseActivity {
             R.id.okHttpTv, R.id.retrofit, R.id.bannerTv, R.id.viewTv, R.id.viewgroupTv, R.id.commonViewPager,
             R.id.threedTv, R.id.lruTv, R.id.drawTv, R.id.coorTv, R.id.messenger, R.id.startService,
             R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager, R.id.bntv, R.id.device, R.id.sensor
-            , R.id.dialog, R.id.sqliteTv, R.id.dialogTv, R.id.noticeTv, R.id.designTv})
+            , R.id.dialog, R.id.sqliteTv, R.id.dialogTv, R.id.noticeTv, R.id.designTv, R.id.emojiTv})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -301,6 +313,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.designTv:
                 intent = new Intent(this, DesignPatternActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.emojiTv:
+                intent = new Intent(this, EmojiActivity.class);
                 startActivity(intent);
                 break;
         }

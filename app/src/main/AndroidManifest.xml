@@ -354,6 +354,8 @@
         </activity>
         <activity android:name=".ViewGroup.refresh.SwipeRefreshActivity">
         </activity>
+        <activity android:name=".emoji.EmojiActivity">
+        </activity>
     </application>
 
 </manifest>

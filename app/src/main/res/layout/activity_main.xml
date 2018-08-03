@@ -16,7 +16,6 @@
         android:orientation="vertical">
 
 
-
         <LinearLayout
 
             android:layout_width="match_parent"
@@ -634,15 +633,35 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/designTv"
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/yy"
-                android:background="@color/colorAccent"
-                android:padding="@dimen/y"
-                android:text="设计模式"
-                android:textColor="@color/white"/>
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/designTv"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/yy"
+                    android:background="@color/colorAccent"
+                    android:padding="@dimen/y"
+                    android:text="设计模式"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    android:id="@+id/emojiTv"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/yy"
+                    android:background="@color/colorAccent"
+                    android:padding="@dimen/y"
+                    android:text="Emoji表情"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+
 
         </LinearLayout>
     </LinearLayout>

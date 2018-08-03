@@ -8,7 +8,6 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by yanzhiwen on 2017/11/1.
@@ -16,21 +15,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ThreadPoolTest {
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
-    // We want at least 2 threads and at most 4 threads in the core pool,
-    // preferring to have 1 less than the CPU count to avoid saturating
-    // the CPU with background work
     private static final int CORE_POOL_SIZE = Math.max(3, Math.min(CPU_COUNT - 1, 5));
     private static final int MAXIMUM_POOL_SIZE = CPU_COUNT * 2 + 1;
-    private static final int KEEP_ALIVE_SECONDS = 30;
-    private static final ThreadFactory sThreadFactory = new ThreadFactory() {
-        private final AtomicInteger mCount = new AtomicInteger(1);
-
-        public Thread newThread(Runnable r) {
-            return new Thread(r, "AsyncTask #" + mCount.getAndIncrement());
-        }
-    };
-    private static final BlockingQueue<Runnable> sPoolWorkQueue =
-            new SynchronousQueue<>();
+    private static final BlockingQueue<Runnable> sPoolWorkQueue = new SynchronousQueue<>();
 
     //BlockingQueue 先进先出的队列
     //SynchronousQueue 线程安全的队列，它里面没有固定的缓存（OkHttp）
@@ -47,7 +34,6 @@ public class ThreadPoolTest {
     //20个任务需要执行，但是核心线程数只有4个，还有16个任务对列，这个时候最大线程是10， 非核心线程数还有6个，这时候会开6个线程去执行，
     //目前达到10个最大线程数，还有10个Runnable没有办法执行，则会抛出异常
     static {
-        System.out.println("CPU_COUNT==" + CPU_COUNT);
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
                 CORE_POOL_SIZE,  //核心线程数
                 MAXIMUM_POOL_SIZE, //线程池中最大的线程数
@@ -58,32 +44,13 @@ public class ThreadPoolTest {
                     @Override
                     public Thread newThread(@NonNull Runnable r) {
                         Thread thread = new Thread(r);
-                        thread.setDaemon(false);  //不是守护线程
-                        thread.setName("ThreadPoolTest");
+                        thread.setDaemon(false);
                         return thread;
                     }
                 });
         threadPoolExecutor.allowCoreThreadTimeOut(true);
         THREAD_POOL_EXECUTOR = threadPoolExecutor;
 
-
-//        for (int i = 0; i < 20; i++) {
-////            Runnable runnable = new Runnable() {
-////                @Override
-////                public void run() {
-////                    try {
-////                        Thread.sleep(1000);
-////                    } catch (InterruptedException e) {
-////                        e.printStackTrace();
-////                    }
-////                    System.out.println("下载图片显示完毕" + Thread.currentThread().getName());
-////                }
-////
-////            };
-//            Request request = new Request();
-//            //加入线程队列
-//            threadPoolExecutor.execute(request);
-//        }
     }
 
     public static void main(String[] args) {
