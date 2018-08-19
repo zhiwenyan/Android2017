@@ -40,6 +40,7 @@ public class Client {
          */
         @Override
         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+           // System.out.println("proxy=" + proxy);
             //执行方法  目标接口调用的方法都会到这里
             System.out.println(method.getName());
             //调用被代理的对象

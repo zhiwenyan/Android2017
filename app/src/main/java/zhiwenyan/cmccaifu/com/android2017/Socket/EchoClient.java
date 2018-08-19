@@ -15,7 +15,7 @@ public class EchoClient {
 
     public EchoClient(String host, int port) throws IOException {
         // 创建 socket 并连接服务器
-        mSocket = new Socket(host, port);
+        mSocket = new Socket();
     }
     public void run() throws IOException {
         // 和服务端进行通信

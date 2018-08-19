@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.RemoteException;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -108,6 +109,8 @@ public class MainActivity extends BaseActivity {
                 }).create();
         //如果想设置字体的大小、颜色，图片、等等
         TextView textView = navigationBar.findById(R.id.text);
+        DisplayMetrics displayMetrics=new DisplayMetrics();
+
     }
 
     @Override
