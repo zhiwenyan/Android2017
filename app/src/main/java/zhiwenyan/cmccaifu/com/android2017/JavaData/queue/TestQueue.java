@@ -1,7 +1,5 @@
 package zhiwenyan.cmccaifu.com.android2017.JavaData.queue;
 
-import java.util.ArrayDeque;
-
 /**
  * Description: 先进先出 后进后出
  * Data：6/11/2018-9:59 AM
@@ -13,7 +11,7 @@ public class TestQueue {
     private int[] arr;
     private int elements;
     private int front;
-    private int end;
+    private int end = -1;
 
     public TestQueue() {
         this.arr = new int[10];
@@ -78,18 +76,11 @@ public class TestQueue {
         System.out.println(queue.isEmpty());
         System.out.println(queue.isFull());
 
-        System.out.println(queue.peek());
         while (!queue.isEmpty()) {
             System.out.println(queue.remove());
         }
         System.out.println(queue.isEmpty());
         System.out.println(queue.isFull());
         queue.insert(23);
-
-        ArrayDeque<Integer> queue1=new ArrayDeque<>();
-        queue1.add(1);
-        queue1.addFirst(1);
-        queue1.addLast(10);
-
     }
 }

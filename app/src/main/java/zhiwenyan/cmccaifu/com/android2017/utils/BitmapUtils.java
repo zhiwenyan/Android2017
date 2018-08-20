@@ -38,8 +38,8 @@ public class BitmapUtils {
         int width = options.outWidth;
         int height = options.outHeight;
         int inSampleSize = 1;
-        int widthRatio = Math.round(( float ) width / ( float ) reqWidth);
-        int heightRatio = Math.round(( float ) height / ( float ) reqHeight);
+        int widthRatio = Math.round((float) width / (float) reqWidth);
+        int heightRatio = Math.round((float) height / (float) reqHeight);
         inSampleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
         return inSampleSize;
     }
@@ -49,7 +49,7 @@ public class BitmapUtils {
     private static void memoryCache() {
         // 获取到可用内存的最大值，使用内存超出这个值会引起OutOfMemory异常。
         // LruCache通过构造函数传入缓存值，以KB为单位。
-        int maxMemory = ( int ) (Runtime.getRuntime().maxMemory() / 1024);
+        int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
         // 使用最大可用内存值的1/8作为缓存的大小。
         int cacheSize = maxMemory / 8;
         mMemoryCache = new LruCache<String, Bitmap>(cacheSize) {

@@ -21,7 +21,7 @@ import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 import zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.cache.CacheActivity;
 
-public class OkhttpActivity extends BaseActivity {
+public class   OkhttpActivity extends BaseActivity {
     @BindView(R.id.resultTv)
     TextView mResultTv;
     private OkHttpClient mOkHttpClient = new OkHttpClient();

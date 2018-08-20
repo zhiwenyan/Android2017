@@ -81,7 +81,7 @@ public class TestStack {
         while (!testStack.isEmpty()) {
             System.out.println(testStack.pop() + "");
         }
-        Stack<Integer> stack=new Stack<>();
+        Stack<Integer> stack = new Stack<>();
         stack.add(1);
     }
 }

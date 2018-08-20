@@ -1,7 +1,9 @@
 package zhiwenyan.cmccaifu.com.android2017.JavaData.queue;
 
+import java.util.ArrayDeque;
+
 /**
- * Description:双向链表
+ * Description:循环队列
  * Data：6/11/2018-10:30 AM
  *
  * @author yanzhiwen
@@ -83,7 +85,7 @@ public class LoopQueue {
         System.out.println(queue.isEmpty());
         System.out.println(queue.isFull());
 
-        System.out.println(queue.peek());
+        System.out.println(queue.peek() + "---");
         while (!queue.isEmpty()) {
             System.out.println(queue.remove());
         }
@@ -104,5 +106,9 @@ public class LoopQueue {
         }
         System.out.println(queue.isEmpty());
         System.out.println(queue.isFull());
+
+        ArrayDeque<Integer> arrayDeque=new ArrayDeque<>();
+        arrayDeque.add(1);
+        arrayDeque.size();
     }
 }
