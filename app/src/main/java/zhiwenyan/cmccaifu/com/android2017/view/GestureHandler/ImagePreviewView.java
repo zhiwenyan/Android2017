@@ -1,4 +1,4 @@
-package com.steven.oschina.widget;
+package zhiwenyan.cmccaifu.com.android2017.view.GestureHandler;
 
 import android.animation.FloatEvaluator;
 import android.animation.ValueAnimator;
@@ -370,6 +370,7 @@ public class ImagePreviewView extends android.support.v7.widget.AppCompatImageVi
                     (mOldScaledHeight > getHeight() && getDiffY() != 0)) return false;
 
             float factor = detector.getScaleFactor();
+            System.out.println("factor=="+factor);
             float value = scale;
             value += (factor - 1) * 2;
             if (value == scale) return true;

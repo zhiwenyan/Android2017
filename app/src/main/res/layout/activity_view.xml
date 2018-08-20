@@ -231,6 +231,20 @@
             android:text="redPacket"
             android:textAllCaps="true"/>
 
+        <Button
+            android:id="@+id/btn40"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="手势"
+            android:textAllCaps="true"/>
+
+        <Button
+            android:id="@+id/btn41"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="侧滑删除ItemView"
+            android:textAllCaps="true"/>
+
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

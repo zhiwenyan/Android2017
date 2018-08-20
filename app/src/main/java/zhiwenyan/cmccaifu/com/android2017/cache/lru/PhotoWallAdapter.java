@@ -64,6 +64,7 @@ public class PhotoWallAdapter extends ArrayAdapter<String> implements AbsListVie
             protected int sizeOf(String key, Bitmap bitmap) {
                 return bitmap.getByteCount();
             }
+
         };
         mPhotoWall.setOnScrollListener(this);
     }

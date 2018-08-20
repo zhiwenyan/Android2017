@@ -354,6 +354,10 @@
         </activity>
         <activity android:name=".ViewGroup.refresh.SwipeRefreshActivity">
         </activity>
+        <activity android:name=".view.GestureHandler.GestureActivity">
+        </activity>
+        <activity android:name=".view.slideView.SideDeleteActivity">
+        </activity>
     </application>
 
 </manifest>

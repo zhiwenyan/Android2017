@@ -1,7 +1,9 @@
 package zhiwenyan.cmccaifu.com.android2017.view.GestureHandler;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import zhiwenyan.cmccaifu.com.android2017.R;
 
 public class GestureActivity extends AppCompatActivity {
 

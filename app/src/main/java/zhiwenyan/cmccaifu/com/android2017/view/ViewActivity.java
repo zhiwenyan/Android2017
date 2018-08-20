@@ -10,6 +10,7 @@ import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.BezierCurve.BezierCurveActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.CustomProgressBar.CustomProgressBarActivity;
+import zhiwenyan.cmccaifu.com.android2017.view.GestureHandler.GestureActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.KuoguMenu.KugouMenuActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.Loading.LoadingViewActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.RatingBar.RatingBarActivity;
@@ -34,6 +35,7 @@ import zhiwenyan.cmccaifu.com.android2017.view.radar.RadarActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.redPacket.RedPacketViewActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.scanloading.ScanLoadingActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.shapeview.ShapeViewActivity;
+import zhiwenyan.cmccaifu.com.android2017.view.slideView.SideDeleteActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.textView.ColorTrackTextViewActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.touchView.ViewTouchActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.wave.WaveViewActivity;
@@ -75,7 +77,7 @@ public class ViewActivity extends BaseActivity {
             R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9, R.id.btn10, R.id.btn11,
             R.id.btn12, R.id.btn13, R.id.btn15, R.id.btn16, R.id.btn18, R.id.btn20, R.id.btn21, R.id.btn22,
             R.id.kugou, R.id.yahoo, R.id.chart, R.id.btn26, R.id.btn27, R.id.btn28, R.id.btn29, R.id.btn30, R.id.btn33,
-            R.id.btn32, R.id.btn36, R.id.btn39})
+            R.id.btn32, R.id.btn36, R.id.btn39, R.id.btn40, R.id.btn41})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn1:
@@ -170,6 +172,13 @@ public class ViewActivity extends BaseActivity {
                 break;
             case R.id.btn39:
                 startActivity(new Intent(this, RedPacketViewActivity.class));
+                break;
+            case R.id.btn40:
+                startActivity(new Intent(this, GestureActivity.class));
+                break;
+            case R.id.btn41:
+                startActivity(new Intent(this, SideDeleteActivity.class));
+
                 break;
 
         }

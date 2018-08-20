@@ -1,4 +1,4 @@
-package zhiwenyan.cmccaifu.com.android2017.view;
+package zhiwenyan.cmccaifu.com.android2017.view.slideView;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

@@ -13,7 +13,7 @@ public class Client {
         Man man = new Man("Steven");
 
         //返回的是IBank的实例
-        IBank iBank = (IBank) Proxy.newProxyInstance(IBank.class.getClassLoader()  //ClassLoader
+        IBank iBank = ( IBank ) Proxy.newProxyInstance(IBank.class.getClassLoader()  //ClassLoader
                 , new Class<?>[]{IBank.class}    //目标接口
                 , new BankInvocationHandler(man)
         );
@@ -46,6 +46,7 @@ public class Client {
             //调用被代理的对象
             Object object = method.invoke(mObject, args);
             System.out.println("object==" + object);
+            System.out.println("args=" + args);
             return object;
         }
     }

@@ -1,5 +1,7 @@
 package zhiwenyan.cmccaifu.com.android2017.JavaData.chain;
 
+import java.util.LinkedList;
+
 /**
  * Description:
  * Data：2018/7/22
@@ -28,6 +30,7 @@ public class SingleLinkedList {
     //在链表头添加元素
     public Object addHead(Object obj) {
         Node newHead = new Node(obj);
+        System.out.println(newHead + "---");
         if (size == 0) {
             head = newHead;
         } else {
@@ -134,5 +137,11 @@ public class SingleLinkedList {
         // singleList.display();
         //查找B
         //  System.out.println(singleList.find("B"));
+
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        linkedList.add(1);
+        linkedList.add(2);
+        linkedList.add(3);
+
     }
 }

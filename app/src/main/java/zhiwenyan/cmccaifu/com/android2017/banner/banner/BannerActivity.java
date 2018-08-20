@@ -19,8 +19,8 @@ public class BannerActivity extends BaseActivity {
     private BannerView mBannerView;
     private String url = "http://is.snssdk.com/2/essay/discovery/v3/?&device_platform=android&device_type=Redmi+Note+3&iid=6152551759&" +
             "manifest_version_code=570&longitude=113.000366&latitude=28.171377&update_version_code=5701&aid=7&channel=360";
-    View RootView;
-    BottomSheetDialog bottomSheetDialog;
+    private View RootView;
+    private BottomSheetDialog bottomSheetDialog;
 
     @Override
     protected int getLayoutId() {

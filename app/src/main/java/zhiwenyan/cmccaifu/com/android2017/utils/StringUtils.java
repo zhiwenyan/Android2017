@@ -10,5 +10,7 @@ public class StringUtils {
     public static void main(String[] args) {
         String str="steven";
         int index=str.indexOf('t');
+        String str1="steve"+"n";
+        System.out.println(str==str1);
     }
 }

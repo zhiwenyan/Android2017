@@ -1,8 +1,10 @@
 package zhiwenyan.cmccaifu.com.android2017;
 
-import org.junit.After;
-import org.junit.Before;
+
 import org.junit.Test;
+
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 /**
  * Description:
@@ -15,13 +17,5 @@ public class EmailValidatorTest {
     @Test
     public void isValidEmail() {
         assertThat(EmailValidator.isValidEmail("name@email.com"), is(true));
-    }
-
-    @Before
-    public void setUp() throws Exception {
-    }
-
-    @After
-    public void tearDown() throws Exception {
     }
 }

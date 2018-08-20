@@ -20,26 +20,13 @@ public class BubbleSort {
                 }
             }
         }
-
-
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + ",");
         }
     }
 
-
-    private void BubbleSort1() {
-        int arr[] = {12, 1, 12, 34, 56, 12, 9, 23};
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr.length - 1 - i; i++) {
-                int temp = arr[j + 1];
-                arr[j + 1] = arr[j];
-                arr[j] = temp;
-            }
-        }
-    }
-
     public static void main(String[] args) {
-
+        BubbleSort sort=new BubbleSort();
+        sort.BubbleSort();
     }
 }

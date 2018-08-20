@@ -90,12 +90,12 @@ public class VerticalDragListView extends FrameLayout {
 
     private ViewDragHelper.Callback mCallback = new ViewDragHelper.Callback() {
         @Override
-        public boolean tryCaptureView(View child, int pointerId) {
+        public boolean tryCaptureView(@NonNull View child, int pointerId) {
             return child == mDragListView;
         }
 
         @Override
-        public int clampViewPositionVertical(View child, int top, int dy) {
+        public int clampViewPositionVertical(@NonNull View child, int top, int dy) {
             if (top <= 0) {
                 top = 0;
             }
@@ -106,7 +106,7 @@ public class VerticalDragListView extends FrameLayout {
         }
 
         @Override
-        public void onViewReleased(View releasedChild, float xvel, float yvel) {
+        public void onViewReleased(@NonNull View releasedChild, float xvel, float yvel) {
             super.onViewReleased(releasedChild, xvel, yvel);
             if (releasedChild == mDragListView) {
                 if (mDragListView.getTop() > mMenuHeight / 2) {

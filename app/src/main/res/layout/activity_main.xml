@@ -8,7 +8,6 @@
     android:background="@color/colorWhite"
     tools:context="zhiwenyan.cmccaifu.com.android2017.activity.MainActivity">
 
-
     <LinearLayout
         android:id="@+id/view_root"
         android:layout_width="match_parent"

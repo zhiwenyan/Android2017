@@ -128,8 +128,11 @@ public class LoadingView extends View {
             //画六个圆
             //每一份的角度
             double percentAngle = Math.PI * 2 / mCircleColors.length;
+            System.out.println("percentAngle--"+percentAngle);
             for (int i = 0; i < mCircleColors.length; i++) {
                 double currentAngle = percentAngle * i + mCurrentRotationAngle;
+                System.out.println("currentAngle"+currentAngle);
+                System.out.println("cos=="+Math.cos(currentAngle));
                 int cx = ( int ) (mCenterX + mRotationRadius * Math.cos(currentAngle));
                 int cy = ( int ) (mCenterY + mRotationRadius * Math.sin(currentAngle));
                 mPaint.setColor(mCircleColors[i]);
