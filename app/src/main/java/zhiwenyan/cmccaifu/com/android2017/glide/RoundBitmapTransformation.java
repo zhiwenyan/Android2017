@@ -21,8 +21,12 @@ public class RoundBitmapTransformation extends BitmapTransformation {
 
     @Override
     protected Bitmap transform(BitmapPool pool, Bitmap toTransform, int outWidth, int outHeight) {
+        System.out.println("outWidth=" + outWidth);
+        System.out.println("outHeight=" + outHeight);
         int width = toTransform.getWidth();
         int height = toTransform.getHeight();
+        System.out.println("width=" + width);
+        System.out.println("height=" + height);
         Bitmap result = pool.get(width, height, Bitmap.Config.ARGB_8888);
         if (result == null) {
             result = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);

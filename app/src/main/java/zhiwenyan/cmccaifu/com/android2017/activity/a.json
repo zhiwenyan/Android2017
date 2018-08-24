@@ -1,118 +1,35 @@
 {
+  "message": "success",
   "result": {
-    "default": [
-      "500",
-      "4"
-    ],
-    "money_list": [
-      "100",
-      "500",
-      "1000"
-    ],
-    "item_list": [
+    "discoverBanner": [
       {
-        "id": "1",
-        "itemName": "\u5373\u65f6\u5145\u503c",
-        "salesprice": "100.00",
-        "is_on": "1",
-        "type": "1",
-        "duration": "0",
-        "num": "0",
-        "discount": "9.90",
-        "add_time": "1459440000",
-        "on_time": "1459440000",
-        "is_hot": "0",
-        "is_default": "0"
-      },
-      {
-        "id": "24",
-        "itemName": "4\u4e2a\u6708",
-        "salesprice": "100.00",
-        "is_on": "1",
-        "type": "2",
-        "duration": "4",
-        "num": "468",
-        "discount": "9.70",
-        "add_time": "1525495375",
-        "on_time": "1525495347",
-        "is_hot": "0",
-        "is_default": "0"
-      },
-      {
-        "id": "25",
-        "itemName": "7\u4e2a\u6708",
-        "salesprice": "100.00",
-        "is_on": "1",
-        "type": "3",
-        "duration": "7",
-        "num": "825",
-        "discount": "9.60",
-        "add_time": "1525495442",
-        "on_time": "1525495422",
-        "is_hot": "0",
-        "is_default": "0"
-      },
-      {
-        "id": "14",
-        "itemName": "12\u4e2a\u6708",
-        "salesprice": "100.00",
-        "is_on": "1",
-        "type": "4",
-        "duration": "12",
-        "num": "2228",
-        "discount": "9.38",
-        "add_time": "1487126523",
-        "on_time": "1487126486",
-        "is_hot": "1",
-        "is_default": "1"
-      },
-      {
-        "id": "5",
-        "itemName": "18\u4e2a\u6708",
-        "salesprice": "100.00",
-        "is_on": "1",
-        "type": "5",
-        "duration": "18",
-        "num": "542",
-        "discount": "9.20",
-        "add_time": "1459440000",
-        "on_time": "1459440000",
-        "is_hot": "0",
-        "is_default": "0"
-      },
-      {
-        "id": "19",
-        "itemName": "36\u4e2a\u6708",
-        "salesprice": "100.00",
-        "is_on": "1",
-        "type": "6",
-        "duration": "36",
-        "num": "3812",
-        "discount": "8.68",
-        "add_time": "1494079331",
-        "on_time": "1494079297",
-        "is_hot": "0",
-        "is_default": "0"
+        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180822103449724.png",
+        "info": "",
+        "url": "http:\/\/www.fumi88.cn\/oil\/index\/activity360?app"
       }
     ],
-    "ad_list": [
+    "discoverPic": [
       {
-        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180615135635253.jpg",
-        "info": "",
-        "url": "http:\/\/www.fumi88.cn\/oil\/activity\/activityapp?app"
+        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180801102132753.png",
+        "info": "\u6211\u8981\u62bd\u5956",
+        "url": "http:\/\/www.fumi88.cn\/oil\/index\/signin?app"
       },
       {
-        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180615135638399.png",
-        "info": "",
+        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180801102234807.png",
+        "info": "\u9650\u65f6\u4f18\u60e0",
+        "url": "http:\/\/www.fumi88.cn\/oil\/index\/xianshiyouhui?app"
+      },
+      {
+        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180801102249392.png",
+        "info": "\u6ce8\u518c\u5373\u9001",
         "url": "http:\/\/www.fumi88.cn\/oil\/activity\/new?app"
       },
       {
-        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/201806151356422.png",
-        "info": "",
-        "url": ""
+        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180801102307640.png",
+        "info": "\u65b0\u624b\u6307\u5f15",
+        "url": "http:\/\/www.fumi88.cn\/oil\/activity\/activityapp?app"
       }
     ]
   },
-  "message": "success",
   "status": 200
 }

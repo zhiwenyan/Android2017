@@ -8,7 +8,7 @@ import com.bumptech.glide.request.target.ViewTarget;
 /**
  * 全局的Application
  */
-public class CashMall extends Application {
+public class App extends Application {
 
     private static Context context;
 

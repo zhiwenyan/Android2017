@@ -27,7 +27,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import zhiwenyan.cmccaifu.com.android2017.CashMall;
+import zhiwenyan.cmccaifu.com.android2017.App;
 import zhiwenyan.cmccaifu.com.android2017.utils.LogUtil;
 import zhiwenyan.cmccaifu.com.android2017.utils.NetworkUtils;
 
@@ -82,11 +82,11 @@ public class OkHttpManager {
      * @param callBack 回调接口
      */
     public void get(String tag, final String url, final HttpCallBack<? extends Object> callBack) {
-        if (!NetworkUtils.isConnectedByState(CashMall.getContext())) {
+        if (!NetworkUtils.isConnectedByState(App.getContext())) {
             callBack.onFailure(5, "主人，请检查您的网络！");
             return;
         }
-        if (!NetworkUtils.isNetAvailable(CashMall.getContext())) {
+        if (!NetworkUtils.isNetAvailable(App.getContext())) {
             callBack.onFailure(5, "主人，当前网络不可用！");
             return;
         }
@@ -170,11 +170,11 @@ public class OkHttpManager {
      */
     public void getList(String tag, final String url, final Type type, final HttpListener listener) {
 
-        if (!NetworkUtils.isConnectedByState(CashMall.getContext())) {
+        if (!NetworkUtils.isConnectedByState(App.getContext())) {
             listener.onFailure(5, "主人，请检查您的网络！！");
             return;
         }
-        if (!NetworkUtils.isNetAvailable(CashMall.getContext())) {
+        if (!NetworkUtils.isNetAvailable(App.getContext())) {
             listener.onFailure(5, "主人，当前网络不可用！");
             return;
         }
@@ -449,11 +449,11 @@ public class OkHttpManager {
     }
 
     private boolean netWorkError(HttpCallBack<String> callback) {
-        if (!NetworkUtils.isConnectedByState(CashMall.getContext())) {
+        if (!NetworkUtils.isConnectedByState(App.getContext())) {
             callback.onFailure(-1, "主人，请检查您的网络！！");
             return true;
         }
-        if (!NetworkUtils.isNetAvailable(CashMall.getContext())) {
+        if (!NetworkUtils.isNetAvailable(App.getContext())) {
             callback.onFailure(-1, "主人，当前网络不可用！");
             return true;
         }

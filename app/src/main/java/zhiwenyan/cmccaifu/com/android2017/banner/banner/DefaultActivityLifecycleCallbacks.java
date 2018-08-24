@@ -13,7 +13,6 @@ import android.os.Bundle;
 public class DefaultActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbacks {
     @Override
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-
     }
 
     @Override

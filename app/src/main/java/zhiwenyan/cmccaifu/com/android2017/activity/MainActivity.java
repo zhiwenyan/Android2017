@@ -21,6 +21,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.steven.ndk2018.utils.SignatureUtils;
+
 import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
@@ -101,6 +103,8 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String signParam = SignatureUtils.signatureParams("userName=steven&password=123456");
+        Log.i("TAG", signParam);
         ViewGroup parent = ( ViewGroup ) findViewById(R.id.view_root);
         EventBus.getDefault().post(new MessageEvent("Hello everyone!"));
         NavigationBar navigationBar = new NavigationBar.Builder(this, R.layout.ui_navigation_bar, parent)
@@ -117,6 +121,7 @@ public class MainActivity extends BaseActivity {
         try {
             FileWriter fileWriter = new FileWriter(file); //字符
             FileOutputStream fileOutputStream = new FileOutputStream(file); //字节
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -129,6 +134,7 @@ public class MainActivity extends BaseActivity {
 //        lv.setImageResource(R.mipmap.banner1);
 //        mViewRoot.addView(lv,0);
         Log.i("TAG", "onResume: " + this.getSharedPreferences("code", Context.MODE_PRIVATE));
+        Log.i("TAG", "onResume: " + this.getFilesDir().getAbsolutePath());
         Log.i("TAG", "onResume: " + this.getCacheDir().getAbsolutePath());
         Log.i("TAG", "onResume: " + this.getExternalCacheDir().getAbsolutePath());
         Log.i("TAG", "onResume: " + Environment.getExternalStorageDirectory());

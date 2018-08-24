@@ -1,13 +1,35 @@
 {
-  "time_used": 467,
-  "error_message": "ID_NUMBER_NAME_NOT_MATCH",
-  "face_genuineness": {
-    "mask_confidence": 0.0,
-    "screen_replay_confidence": 0.0,
-    "mask_threshold": 0.5,
-    "synthetic_face_confidence": 0.0,
-    "synthetic_face_threshold": 0.5,
-    "screen_replay_threshold": 0.5
+  "message": "success",
+  "result": {
+    "discoverBanner": [
+      {
+        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180822103449724.png",
+        "info": "",
+        "url": "http:\/\/www.fumi88.cn\/oil\/index\/activity360?app"
+      }
+    ],
+    "discoverPic": [
+      {
+        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180801102132753.png",
+        "info": "\u6211\u8981\u62bd\u5956",
+        "url": "http:\/\/www.fumi88.cn\/oil\/index\/signin?app"
+      },
+      {
+        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180801102234807.png",
+        "info": "\u9650\u65f6\u4f18\u60e0",
+        "url": "http:\/\/www.fumi88.cn\/oil\/index\/xianshiyouhui?app"
+      },
+      {
+        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180801102249392.png",
+        "info": "\u6ce8\u518c\u5373\u9001",
+        "url": "http:\/\/www.fumi88.cn\/oil\/activity\/new?app"
+      },
+      {
+        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180801102307640.png",
+        "info": "\u65b0\u624b\u6307\u5f15",
+        "url": "http:\/\/www.fumi88.cn\/oil\/activity\/activityapp?app"
+      }
+    ]
   },
-  "request_id": "1528787803,a606099e-bd8d-4547-a5aa-d88aea484598"
+  "status": 200
 }
