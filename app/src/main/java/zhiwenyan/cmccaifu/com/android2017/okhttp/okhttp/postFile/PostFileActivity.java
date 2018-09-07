@@ -3,6 +3,7 @@ package zhiwenyan.cmccaifu.com.android2017.okhttp.okhttp.postFile;
 import android.Manifest;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -23,6 +24,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import zhiwenyan.cmccaifu.com.android2017.R;
+import zhiwenyan.cmccaifu.com.android2017.utils.LogUtil;
 
 public class PostFileActivity extends AppCompatActivity {
 
@@ -91,5 +93,33 @@ public class PostFileActivity extends AppCompatActivity {
         }
         Log.i("TAG", "guessMimeType: " + mimType);
         return mimType;
+    }
+
+    private static final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/png");
+
+
+    public void uploadIdCardFile(OkHttpClient okHttpClient) {
+        File file = new File("");
+        MultipartBody.Builder builder = new MultipartBody.Builder()
+                .setType(MultipartBody.FORM)
+                .addFormDataPart("uid", "");
+        builder.addFormDataPart("idcard", file.getName(), RequestBody.create(MEDIA_TYPE_PNG, file));
+
+        Request request = new Request.Builder()
+                .url("")
+                .post(builder.build())
+                .build();
+
+        okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                LogUtil.i("upload idCard image fail" + e.getMessage());
+            }
+
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) {
+                LogUtil.i("upload idCard image success");
+            }
+        });
     }
 }

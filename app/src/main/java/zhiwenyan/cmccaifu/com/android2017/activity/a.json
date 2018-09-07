@@ -1,35 +1,52 @@
 {
-  "message": "success",
+  "message": "\u83b7\u53d6\u6210\u529f",
+  "code": 200,
   "result": {
-    "discoverBanner": [
-      {
-        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180822103449724.png",
-        "info": "",
-        "url": "http:\/\/www.fumi88.cn\/oil\/index\/activity360?app"
-      }
-    ],
-    "discoverPic": [
-      {
-        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180801102132753.png",
-        "info": "\u6211\u8981\u62bd\u5956",
-        "url": "http:\/\/www.fumi88.cn\/oil\/index\/signin?app"
-      },
-      {
-        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180801102234807.png",
-        "info": "\u9650\u65f6\u4f18\u60e0",
-        "url": "http:\/\/www.fumi88.cn\/oil\/index\/xianshiyouhui?app"
-      },
-      {
-        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180801102249392.png",
-        "info": "\u6ce8\u518c\u5373\u9001",
-        "url": "http:\/\/www.fumi88.cn\/oil\/activity\/new?app"
-      },
-      {
-        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180801102307640.png",
-        "info": "\u65b0\u624b\u6307\u5f15",
-        "url": "http:\/\/www.fumi88.cn\/oil\/activity\/activityapp?app"
-      }
-    ]
-  },
-  "status": 200
+    "binfo": {
+      "coupon_id": "0",
+      "status": "2",
+      "id": "295050",
+      "is_random": "0",
+      "audit_status": "2"
+    },
+    "info": {
+      "id": "266059",
+      "uid": "840",
+      "borrow_id": "295050",
+      "first_trial": "1",
+      "bank_bing": "1",
+      "id_verify": "0",
+      "verify_phone": "1",
+      "pending": "0",
+      "tree": "0",
+      "signed": "0",
+      "zhima_auth": "1",
+      "zhima_time": "1536218350",
+      "first_trial_uid": null,
+      "first_trial_time": "1536218230",
+      "bank_bing_time": "1536218351",
+      "id_verify_time": "0",
+      "pending_uid": null,
+      "pending_time": "0",
+      "tree_time": "0",
+      "signed_uid": null,
+      "signed_time": "0",
+      "alipay_biz_no": null,
+      "reason": null,
+      "calm": "0",
+      "calm_time": "0",
+      "recheck_uid": null,
+      "recheck_time": "0",
+      "is_recheck": "0",
+      "mid_tree": "1",
+      "mid_tree_time": "1536218351",
+      "is_ppc": "0",
+      "ppc_time": "0",
+      "is_random": "0",
+      "countDownTime": 36,
+      "time": 1536218459,
+      "is_status": 0,
+      "isIdVerify": 1
+    }
+  }
 }

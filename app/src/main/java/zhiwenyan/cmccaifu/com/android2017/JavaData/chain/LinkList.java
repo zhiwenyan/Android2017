@@ -7,7 +7,7 @@ package zhiwenyan.cmccaifu.com.android2017.JavaData.chain;
  * @author yanzhiwen
  */
 public class LinkList {
-    private Node first;
+    private Node1 first;
 
     public LinkList() {
     }
@@ -18,7 +18,7 @@ public class LinkList {
      * @param value
      */
     public void insertFirst(int value) {
-        Node node = new Node(value);
+        Node1 node = new Node1(value);
         node.next = first;
         first = node;
 
@@ -29,8 +29,8 @@ public class LinkList {
      *
      * @return
      */
-    public Node deleteFirst() {
-        Node tmp = first.next;
+    public Node1 deleteFirst() {
+        Node1 tmp = first.next;
         first = tmp.next;
         return tmp;
     }
@@ -39,7 +39,7 @@ public class LinkList {
      * 显示方法
      */
     public void display() {
-        Node current = first;
+        Node1 current = first;
         while (current != null) {
             current.display();
             current = current.next;
@@ -52,8 +52,8 @@ public class LinkList {
      * @param value
      * @return
      */
-    public Node find(int value) {
-        Node current = first;
+    public Node1 find(int value) {
+        Node1 current = first;
         while (current != null) {
             if (current.data == value) {
                 return current;
@@ -68,8 +68,8 @@ public class LinkList {
      *
      * @return
      */
-    public Node delete(int value) {
-        Node current = first;
+    public Node1 delete(int value) {
+        Node1 current = first;
         while (current.data != value) {
             if (current.next == null) {
                 return null;
@@ -86,7 +86,7 @@ public class LinkList {
         linkList.display();
 
 //        linkList.display();
-        Node node = linkList.find(66);
+        Node1 node = linkList.find(66);
         node.display();
 
 

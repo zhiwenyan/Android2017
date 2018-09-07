@@ -28,7 +28,7 @@ public class RetrofitClient {
         //        3.2 不同的baseUrl 怎么弄？？？自己想办法，取巧也行走漏洞
         Retrofit retrofit = new Retrofit.Builder()
                 // 访问后台接口的主路径
-                .baseUrl("http://192.168.10.92:8080/OkHttpServer/")
+                .baseUrl("http://192.168.10.92:8080/SpringMVC2018/")
                 // 添加解析转换工厂,Gson 解析，Xml解析，等等
                 .addConverterFactory(GsonConverterFactory.create())
                 // 添加 OkHttpClient,不添加默认就是 光杆 OkHttpClient

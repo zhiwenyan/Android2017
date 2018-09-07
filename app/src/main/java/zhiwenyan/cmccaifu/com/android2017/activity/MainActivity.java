@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -91,6 +92,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.frameAnimTv)
     TextView mrameAnimTv;
     private Map<Integer, String> mMap = new HashMap<>();
+    private CalendarView mCalendarView;
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -103,6 +105,8 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mCalendarView = findViewById(R.id.cv);
+
         String signParam = SignatureUtils.signatureParams("userName=steven&password=123456");
         Log.i("TAG", signParam);
         ViewGroup parent = ( ViewGroup ) findViewById(R.id.view_root);
@@ -125,6 +129,13 @@ public class MainActivity extends BaseActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        mCalendarView = findViewById(R.id.cv);
+        initCalendarView();
+
+    }
+
+    private void initCalendarView() {
+        mCalendarView.setDate(System.currentTimeMillis());
     }
 
     @Override
@@ -164,8 +175,12 @@ public class MainActivity extends BaseActivity {
         //日志输出
 //      Timber.d("TAG", "log");
         startMessageService();
+        uiautomator();
     }
 
+    private void uiautomator() {
+
+    }
 
     @Override
     protected void onRestart() {

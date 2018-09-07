@@ -30,7 +30,7 @@ public class SingleLinkedList {
     //在链表头添加元素
     public Object addHead(Object obj) {
         Node newHead = new Node(obj);
-        System.out.println(newHead + "---");
+        System.out.println(newHead + "---" + obj);
         if (size == 0) {
             head = newHead;
         } else {

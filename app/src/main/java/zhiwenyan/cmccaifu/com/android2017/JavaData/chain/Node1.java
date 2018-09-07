@@ -6,13 +6,13 @@ package zhiwenyan.cmccaifu.com.android2017.JavaData.chain;
  *
  * @author yanzhiwen
  */
-public class Node {
+public class Node1 {
     //数据域
     public int data;
     //节点域(指针域)
-    public Node next;
+    public Node1 next;
 
-    public Node(int data) {
+    public Node1(int data) {
         this.data = data;
     }
 

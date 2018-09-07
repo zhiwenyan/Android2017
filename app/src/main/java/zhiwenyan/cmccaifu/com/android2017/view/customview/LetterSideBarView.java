@@ -1,5 +1,6 @@
 package zhiwenyan.cmccaifu.com.android2017.view.customview;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -42,19 +43,23 @@ public class LetterSideBarView extends View {
     }
 
     protected int px2sp(int spVal) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, spVal,
+        return ( int ) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, spVal,
                 getResources().getDisplayMetrics());
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int height = MeasureSpec.getSize(heightMeasureSpec);
+        int width = MeasureSpec.getSize(widthMeasureSpec);
+        System.out.println("height=" + height);
+        System.out.println("width=" + width);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        float singleHeight = (float) getHeight() / mLetters.length;
+        float singleHeight = ( float ) getHeight() / mLetters.length;
         for (int i = 0; i < mLetters.length; i++) {
 //
 //            int x = (int) (getWidth() - paint.measureText(strs[i])) / 2;
@@ -89,15 +94,20 @@ public class LetterSideBarView extends View {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                System.out.println("ACTION_DOWN----");
+                break;
             case MotionEvent.ACTION_MOVE:
+                System.out.println("ACTION_MOVE----");
                 //计算出当前触摸的字母，获取当前的位置
-                float currentMoveY = (int) event.getY();
+                float currentMoveY = ( int ) event.getY();
                 //位置=currentMoveY/字母的高度
                 int itemHeight = (getHeight() - getPaddingTop() - getPaddingBottom()) / mLetters.length;
-                int currentPosition = (int) currentMoveY / itemHeight;
+                int currentPosition = ( int ) currentMoveY / itemHeight;
                 if (currentPosition < 0) {
                     currentPosition = 0;
                 }
@@ -119,7 +129,7 @@ public class LetterSideBarView extends View {
         }
         invalidate();
 
-        return true;
+        return super.onTouchEvent(event);
     }
 
     // 设置触摸监听

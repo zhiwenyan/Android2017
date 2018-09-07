@@ -245,9 +245,20 @@
             android:text="侧滑删除ItemView"
             android:textAllCaps="true"/>
 
+        <zhiwenyan.cmccaifu.com.android2017.view.button.MyButton
+            android:id="@+id/btn42"
+            android:textAllCaps="true"
+            android:text="自定义的Button"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"/>
+
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+
+        <zhiwenyan.cmccaifu.com.android2017.view.CircleImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"/>
 
     </LinearLayout>
 

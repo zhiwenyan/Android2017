@@ -40,7 +40,7 @@ public class AnimatorActivity extends BaseActivity {
 
     @Override
     protected void init() {
-
+        mTarget.setTranslationY(1000);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class AnimatorActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.transTv:
-                ObjectAnimator translation = ObjectAnimator.ofFloat(mTarget, "translationY", 0f, 1000f);
+                ObjectAnimator translation = ObjectAnimator.ofFloat(mTarget, "translationY", 1000f, 0f);
                 translation.setInterpolator(new LinearInterpolator());
                 translation.setDuration(1500);
                 translation.start();

@@ -89,6 +89,7 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         int height = MeasureSpec.getSize(heightMeasureSpec);
+        System.out.println("height="+height);
         if (menuContentHeight == 0 && height > 0) {
             //菜单的高度75%
             menuContentHeight = (int) (height * 0.75f);
