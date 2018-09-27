@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:orientation="vertical"
+              android:layout_height="match_parent">
+
+
+    <zhiwenyan.cmccaifu.com.android2017.view.GestureHandler.ImagePreviewView
+        android:src="@mipmap/banner1"
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"
+        android:layout_height="120dp"/>
+
+    <zhiwenyan.cmccaifu.com.android2017.view.GestureHandler.MyImageView
+        android:src="@mipmap/banner2"
+        android:layout_width="match_parent"
+        android:layout_marginTop="8dp"
+        android:scaleType="fitXY"
+        android:layout_height="120dp"/>
+
+
 
 
     <zhiwenyan.cmccaifu.com.android2017.view.GestureHandler.ImagePreviewView
         android:src="@mipmap/photo_two"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:scaleType="fitXY"
+        android:layout_height="match_parent"/>
 
-</RelativeLayout>
+</LinearLayout>

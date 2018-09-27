@@ -15,7 +15,7 @@
     <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
-        android:name=".App"
+        android:name=".BasicApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher1"
         android:label="@string/app_name"
@@ -58,7 +58,6 @@
         <activity
             android:name=".activity.MainActivity"
             android:launchMode="singleTask">
-
         </activity>
         <activity android:name=".DialogFragment.DialogFragmentActivity"/>
         <activity android:name=".animator.AnimatorActivity"/>
@@ -355,6 +354,15 @@
         <activity android:name=".view.slideView.SideDeleteActivity">
         </activity>
         <activity android:name=".retrofit.simple6.Retrofit2Activity">
+        </activity>
+
+        <service
+            android:name=".service.MyService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+
+        <activity android:name=".room.UserInfoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

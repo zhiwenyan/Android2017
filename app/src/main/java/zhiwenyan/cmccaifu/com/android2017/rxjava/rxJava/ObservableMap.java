@@ -23,7 +23,7 @@ public class ObservableMap<T, R> extends Observable<R> {
     void subscribeActual(Observer<R> observer) {
         //第一步
         //对Observer 包裹了一层 静态代理包裹source永远是上游的Observable的对象
-        //Observer代表的是下游给我们的封装好的observer对象
+        //Observer代表的是下游给我们的封装好的observer对象（观察者）
         source.subscribe(new MapObserver(observer, mapper));
     }
 

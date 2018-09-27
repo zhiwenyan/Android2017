@@ -1,0 +1,428 @@
+package com.fumi.cashmall.ui.message;
+
+import android.content.Context;
+import android.os.Build;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.SparseArray;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.fumi.cashmall.R;
+import com.fumi.cashmall.base.BaseActivity;
+import com.fumi.cashmall.base.ViewHolder;
+import com.fumi.cashmall.base.adapter.CommonRecycleAdapter;
+import com.fumi.cashmall.base.adapter.CommonViewHolder;
+import com.fumi.cashmall.base.adapter.MessageItemDecoration;
+import com.fumi.cashmall.http.Api;
+import com.fumi.cashmall.http.HttpCallBack;
+import com.fumi.cashmall.model.Message;
+import com.fumi.cashmall.ui.loan.LoanDetailActivity;
+import com.fumi.cashmall.ui.webview.CommonWebActivity;
+import com.fumi.cashmall.util.DensityUtil;
+import com.fumi.cashmall.util.LogUtil;
+import com.fumi.cashmall.util.TimeFormatterUtil;
+import com.fumi.cashmall.widget.SwipeItemLayout;
+import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Description:
+ * Data：8/30/2018-7:54 PM
+ *
+ * @author yanzhiwen
+ */
+public abstract class BaseMessageActivity extends BaseActivity implements View.OnClickListener {
+    protected String mMessageUrl;
+    private TextView mTvEdit;
+    private RecyclerView mRecyclerView;
+    private RelativeLayout mNoMessage;
+    private MessageAdapter messageAdapter;
+    private List<Message.ResultBean.ListBean> mMessages = new ArrayList<>();
+    private View mAllView;
+    private TextView mTvAllDelete;
+
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_message;
+    }
+
+    @Override
+    protected void initDatas() {
+        super.initDatas();
+        mCanRefresh = true;
+        doSetTitle("系统消息");
+    }
+
+    @Override
+    protected void initViews(ViewHolder holder, View root) {
+        mRecyclerView = holder.get(R.id.recycler_view);
+        mAllView = holder.get(R.id.all_view);
+        mTvEdit = holder.get(R.id.tv_edit);
+        mTvAllDelete = holder.get(R.id.tv_all_delete);
+        holder.setOnClickListener(this, R.id.tv_edit, R.id.tv_all, R.id.tv_all_delete);
+        mNoMessage = holder.get(R.id.noMessage);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        mRecyclerView.addItemDecoration(new MessageItemDecoration(DensityUtil.px2dip(this, 8)));
+        //系统消息通知可以侧滑删除
+        if (mMessageUrl.equals(Api.getMsgSys())) {
+            mRecyclerView.addOnItemTouchListener(new SwipeItemLayout.OnSwipeItemTouchListener(this));
+            mTvEdit.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        onRequestData();
+    }
+
+    @Override
+    public void onRequestData() {
+        super.onRequestData();
+        mSwipeRefreshLayout.setRefreshing(true);
+        doPost(mMessageUrl, new HttpCallBack<String>() {
+            @Override
+            public void onSuccess(String result) {
+                mSwipeRefreshLayout.setRefreshing(false);
+                mRecyclerView.setVisibility(View.VISIBLE);
+                Message message = new Gson().fromJson(result, Message.class);
+                showMessageList(message.getResult().getList());
+                mNoMessage.setVisibility(View.GONE);
+                mRecyclerView.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onFailure(int errorType, String message) {
+                super.onFailure(errorType, message);
+                mSwipeRefreshLayout.setRefreshing(false);
+                mNoMessage.setVisibility(View.VISIBLE);
+                mRecyclerView.setVisibility(View.GONE);
+            }
+        }, getPostBasicJson().toString());
+        //下拉刷新时重置下，全部不选择
+        DeSelectAll();
+    }
+
+
+    /**
+     * 消息通知退出该页面标记为全部已读
+     */
+    @Override
+    protected void onPause() {
+        super.onPause();
+        doPost(Api.setReadMsg(), new HttpCallBack<String>() {
+            @Override
+            public void onSuccess(String result) {
+                LogUtil.i("消息通知退出该页面标记为全部已读");
+            }
+        }, getPostBasicJson().toString());
+    }
+
+    private void showMessageList(List<Message.ResultBean.ListBean> messages) {
+        this.mMessages.clear();
+        this.mMessages.addAll(messages);
+        if (messageAdapter == null) {
+            messageAdapter = new MessageAdapter(this, R.layout.message_item, mMessages);
+            mRecyclerView.setAdapter(messageAdapter);
+        } else {
+            messageAdapter.notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv_edit:
+                updateEditMode();
+                break;
+            case R.id.tv_all:
+                selectAll();
+                break;
+            case R.id.tv_all_delete:
+                deleteMessages();
+                break;
+        }
+    }
+
+    /**
+     * 更新编辑的模式
+     */
+    private void updateEditMode() {
+        if (messageAdapter == null) return;
+        if (messageAdapter.getMode() == 0) {
+            mTvEdit.setText("取消");
+            messageAdapter.setMode(MessageAdapter.MULTI_MODE);
+            mAllView.setVisibility(View.VISIBLE);
+        } else {
+            mTvEdit.setText("编辑");
+            messageAdapter.setMode(MessageAdapter.NORMAL_MODE);
+            mAllView.setVisibility(View.GONE);
+            DeSelectAll();
+        }
+        messageAdapter.notifyDataSetChanged();
+    }
+
+    /**
+     * 全部选择
+     */
+    private void selectAll() {
+        if (messageAdapter == null) return;
+        for (Message.ResultBean.ListBean message : mMessages) {
+            message.isSelect = true;
+        }
+        updateDeleteTextViewColor();
+        messageAdapter.notifyDataSetChanged();
+    }
+
+    /**
+     * 全不选择
+     */
+    private void DeSelectAll() {
+        if (messageAdapter == null) return;
+        for (Message.ResultBean.ListBean message : mMessages) {
+            message.isSelect = false;
+        }
+        updateDeleteTextViewColor();
+        messageAdapter.notifyDataSetChanged();
+    }
+
+    /**
+     * 更新删除文本的颜色与点击状态
+     */
+    private void updateDeleteTextViewColor() {
+        boolean select = false;
+        for (Message.ResultBean.ListBean message : mMessages) {
+            if (message.isSelect) {
+                //如果存在选中的消息，设置为false
+                select = true;
+                break;
+            }
+        }
+        if (select) {
+            mTvAllDelete.setTextColor(ContextCompat.getColor(this, R.color.common_fm_color));
+            mTvAllDelete.setEnabled(true);
+        } else {
+            mTvAllDelete.setTextColor(ContextCompat.getColor(this, R.color.common_fm_color_gray));
+            mTvAllDelete.setEnabled(false);
+        }
+    }
+
+    private class MessageAdapter extends CommonRecycleAdapter<Message.ResultBean.ListBean> {
+        public static final int NORMAL_MODE = 0;
+        public static final int MULTI_MODE = 1;
+        private int mode = NORMAL_MODE;
+        private Context mContext;
+
+        public MessageAdapter(Context context, int layoutId, List<Message.ResultBean.ListBean> mDatas) {
+            super(context, layoutId, mDatas);
+            this.mContext = context;
+        }
+
+        public void setMode(int mode) {
+            this.mode = mode;
+        }
+
+        public int getMode() {
+            return mode;
+        }
+
+        @Override
+        protected void convert(CommonViewHolder holder, final Message.ResultBean.ListBean item, final int position) {
+            final LinearLayout detail = holder.getView(R.id.detail);
+            TextView tv_detail = holder.getView(R.id.tv_detail);
+            ImageView iv_right = holder.getView(R.id.iv_right);
+            TextView tv_delete = holder.getView(R.id.tv_delete);
+            View main = holder.getView(R.id.main);
+            final ImageView iv_select = holder.getView(R.id.iv_message_select);
+            switch (mode) {
+                case 0:
+                    iv_select.setVisibility(View.GONE);
+                    break;
+                case 1:
+                    iv_select.setVisibility(View.VISIBLE);
+                    iv_select.setSelected(item.isSelect);
+                    break;
+            }
+            //消息未读已读的状态
+            switch (item.getStatus()) {
+                //未读
+                case "0":
+                    tv_detail.setTextColor(ContextCompat.getColor(mContext, R.color.common_fm_color));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        iv_right.setImageTintList(ContextCompat.getColorStateList(mContext, R.color.common_fm_color));
+                    }
+                    break;
+                //已读
+                case "1":
+                    tv_detail.setTextColor(ContextCompat.getColor(mContext, R.color.common_gray));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        iv_right.setImageTintList(ContextCompat.getColorStateList(mContext, R.color.common_gray));
+                    }
+                    break;
+            }
+            holder.setText(R.id.tv_title, item.getTitle())
+                    .setText(R.id.tv_message_content, item.getTicker())
+                    .setText(R.id.tv_time, TimeFormatterUtil.format(doParseLong(item.getAdd_time()) * 1000,
+                            "yyyy-MM-dd HH:mm:ss"));
+            final long bid = doParseLong(item.getBid());
+            // //bid等于0的话 是活动页面，没有给链接，不跳h5页面，直接标记为已读
+            if (bid == 0 && item.getChaining().equals("")) {
+                updateMessageStatus(item.getId());
+                detail.setVisibility(View.GONE);
+
+            }
+            //查看详情
+            detail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    updateMessageStatus(item.getId());
+                    //bid等于0的话 是活动页面 跳h5页面
+                    if (bid == 0) {
+                        doOpenActivity(CommonWebActivity.class, new String[]{"url", "title"},
+                                new String[]{item.getChaining(), "活动"});
+                    } else {
+                        doOpenActivity(LoanDetailActivity.class, "id", bid);
+                    }
+                }
+            });
+            main.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (iv_select.getVisibility() == View.GONE) return;
+                    boolean is_select = item.isSelect;
+                    if (!is_select) {
+                        item.isSelect = true;
+                    } else {
+                        item.isSelect = false;
+                    }
+                    updateDeleteTextViewColor();
+                    messageAdapter.notifyDataSetChanged();
+                }
+            });
+            //删除消息
+            tv_delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    deleteMessage(item.getId());
+                }
+            });
+        }
+    }
+
+    /**
+     * 点击查看详请 ---更新下消息状态
+     */
+    public void updateMessageStatus(String messageId) {
+        JSONObject json = getPostBasicJson();
+        try {
+            json.put("msgid", messageId);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        doPost(Api.readMsg(), new HttpCallBack<String>() {
+            @Override
+            public void onSuccess(String result) {
+                LogUtil.i("更新通知消息状态成功");
+            }
+        }, json.toString());
+    }
+
+    /**
+     * 侧滑删除 删除一条
+     *
+     * @param messageId 消息id
+     */
+    private void deleteMessage(final String messageId) {
+        JSONObject json = getPostBasicJson();
+        try {
+            json.put("msgid", messageId);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        doShowProgress("删除中....");
+        doPost(Api.delMsg(), new HttpCallBack<String>() {
+            @Override
+            public void onSuccess(String result) {
+                //删除选中的时候，需要在列表中移除，直接刷新下数据
+                onRequestData();
+                doHideProgress();
+                LogUtil.i("侧滑删除消息成功");
+            }
+
+            @Override
+            public void onFailure(int errorType, String message) {
+                super.onFailure(errorType, message);
+                doHideProgress();
+                doToast("删除消息失败！");
+            }
+        }, json.toString());
+    }
+
+
+    //保存多条删除的信息的id
+    private SparseArray<String> mMessageIds = new SparseArray<>();
+
+    /**
+     * 删除多条消息
+     */
+    private void deleteMessages() {
+        mMessageIds.clear();
+        int index = 0;
+        for (Message.ResultBean.ListBean message : mMessages) {
+            if (message.isSelect) {
+                mMessageIds.put(index, message.getId());
+                index++;
+            }
+        }
+        StringBuilder messageIds = new StringBuilder();
+        if (mMessageIds.size() == 1) {
+            messageIds = new StringBuilder(mMessageIds.valueAt(0));
+        } else {
+            for (int i = 0; i < mMessageIds.size(); i++) {
+                //如果删除多条消息的话，id用逗号分隔下
+                if (i == 0) {
+                    messageIds.append(mMessageIds.valueAt(0));
+                } else {
+                    messageIds.append(",").append(mMessageIds.valueAt(i));
+                }
+            }
+        }
+        doShowProgress("删除中....");
+        JSONObject json = getPostBasicJson();
+        try {
+            json.put("msgid", messageIds.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        doPost(Api.delMsg(), new HttpCallBack<String>() {
+            @Override
+            public void onSuccess(String result) {
+                doHideProgress();
+                //删除选中的时候，需要在列表中移除，直接刷新下数据
+                onRequestData();
+                //如果全部选择删除的话，updateEditMode()更新下
+                if (mMessageIds.size() == mMessages.size()) {
+                    updateEditMode();
+                }
+            }
+
+            @Override
+            public void onFailure(int errorType, String message) {
+                super.onFailure(errorType, message);
+                doHideProgress();
+                doToast("删除消息失败！");
+            }
+        }, json.toString());
+    }
+}

@@ -1,5 +1,6 @@
 package zhiwenyan.cmccaifu.com.android2017.view.progressbar;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -84,6 +85,7 @@ public class ProgressBar extends View {
         //画内圆
         canvas.drawCircle(center, center, center - mRoundWidth / 2, mInnerPaint);
         //画外圆 画圆弧
+        @SuppressLint("DrawAllocation")
         RectF rectF = new RectF(mRoundWidth / 2, mRoundWidth / 2,
                 getWidth() - mRoundWidth / 2, getHeight() - mRoundWidth / 2);
         if (mProgeress == 0) return;

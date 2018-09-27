@@ -338,7 +338,7 @@ public class ImagePreviewView extends android.support.v7.widget.AppCompatImageVi
 
         final int mDrawableWidth = mDrawable.getIntrinsicWidth();
         final int mDrawableHeight = mDrawable.getIntrinsicHeight();
-
+        System.out.println("mDrawableWidth==="+mDrawableWidth);
         if (mDrawableWidth == 0 || mDrawableHeight == 0) {
             return;     // nothing to draw (empty bounds)
         }
@@ -350,7 +350,7 @@ public class ImagePreviewView extends android.support.v7.widget.AppCompatImageVi
         canvas.scale(scale, scale);
 
         // 如果先scale,再translate,那么,真实translate的值是要与scale值相乘的
-        mDrawable.draw(canvas);
+       mDrawable.draw(canvas);
         canvas.restoreToCount(saveCount);
     }
 

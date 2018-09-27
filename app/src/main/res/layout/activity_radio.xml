@@ -38,20 +38,24 @@
 
     <TextView
         android:id="@+id/tv_name"
+        android:layout_marginLeft="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="姓名："
         app:layout_constraintBottom_toBottomOf="@+id/et_name"
-        app:layout_constraintTop_toTopOf="@+id/et_name"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/a"/>
 
     <TextView
         android:id="@+id/tv_contract"
+        android:layout_marginLeft="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="联系方式："
         app:layout_constraintBottom_toBottomOf="@+id/et_contract"
-        app:layout_constraintTop_toTopOf="@+id/et_contract"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name"/>
 
     <EditText
         android:id="@+id/et_name"
@@ -60,7 +64,7 @@
         android:hint="请输入姓名"
         app:layout_constraintLeft_toLeftOf="@+id/barrier"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/a"/>
 
     <EditText
         android:id="@+id/et_contract"

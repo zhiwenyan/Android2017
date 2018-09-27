@@ -20,6 +20,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
@@ -93,7 +94,7 @@ public class RxJavaActivity extends AppCompatActivity {
                     }
                 })
                 .subscribeOn(Schedulers.io())  //子线程
-              //  .observeOn(AndroidSchedulers.mainThread()) //主线程
+                .observeOn(AndroidSchedulers.mainThread()) //主线程
                 .subscribe(new Consumer<Bitmap>() {
                     @Override
                     public void accept(Bitmap bitmap) throws Exception {
