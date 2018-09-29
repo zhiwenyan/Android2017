@@ -2,7 +2,9 @@ package zhiwenyan.cmccaifu.com.android2017.JavaData.array;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Queue;
 import java.util.Vector;
+import java.util.concurrent.ArrayBlockingQueue;
 
 /**
  * Description:
@@ -91,5 +93,9 @@ public class TestArrayList<T> {
 
         Vector<Integer> vector = new Vector<>();
         vector.add(1);
+
+        Queue<Integer> queue=new ArrayBlockingQueue<Integer>(128);
+        queue.add(1);
+
     }
 }

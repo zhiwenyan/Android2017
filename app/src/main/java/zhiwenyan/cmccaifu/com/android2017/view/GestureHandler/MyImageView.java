@@ -45,12 +45,49 @@ public class MyImageView extends AppCompatImageView {
     }
 
     private class GestureListener extends GestureDetector.SimpleOnGestureListener {
+
+        //手指滑动调用
         @Override
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
             Log.i(TAG, "onScroll: ");
-            return super.onScroll(e1, e2, distanceX, distanceY);
+            final float mScaledWidth = mBoundWidth * scale;
+            final float mScaledHeight = mBoundHeight * scale;
+            Log.i(TAG, "onScroll:distanceX "+distanceX);
+            Log.i(TAG, "onScroll:distanceY "+distanceY);
+            if (mScaledHeight > getHeight()) {
+                translateTop -= distanceY * 1.5;
+                Log.i(TAG, "onScroll:translateTop "+translateTop);
+                translateTop = getExplicitTranslateTop(translateTop);
+                /*if (getDiffY() != 0) {
+                    final float disY = (float) (Math.acos(Math.abs(getDiffY()) / getPanelHeight() * 6) * distanceY);
+                    if (disY == disY) translateTop -= disY; // float 低值溢出变Nan数值
+                } else {
+                    translateTop -= distanceY * 1.5;
+                }*/
+            }
+
+            boolean isReachBorder = false;
+            if (mScaledWidth > getWidth()) {
+                translateLeft -= distanceX * 1.5;
+                Log.i(TAG, "onScroll:translateLeft "+translateLeft);
+
+                final float t = getExplicitTranslateLeft(translateLeft);
+                if (t != translateLeft) isReachBorder = true;
+                translateLeft = t;
+                /*if (getDiffX() != 0) {
+                    final float disX = (float) (Math.acos(Math.abs(getDiffX()) / getWidth() * 4) * distanceX);
+                    if (disX == disX) translateLeft -= disX;
+                } else {
+                    translateLeft -= distanceX * 1.5;
+                }*/
+            } else {
+                isReachBorder = true;
+            }
+            invalidate();
+            return true;
         }
 
+        //手指双击调用
         @Override
         public boolean onDoubleTap(MotionEvent e) {
             Log.i(TAG, "onDoubleTap: ");
@@ -60,14 +97,20 @@ public class MyImageView extends AppCompatImageView {
                 scaleAnimator.setFloatValues(1.0f, 2.0f);
                 ValueAnimator resetXAnimator = getResetXAnimator();
                 ValueAnimator resetYAnimator = getResetYAnimator();
+
                 resetXAnimator.setFloatValues(translateLeft, (getWidth() - mBoundWidth * 2.f) / 2.f);
+                Log.i(TAG, "onDoubleTap: translateLeft " + (getWidth() - mBoundWidth * 2.f) / 2.f);
                 resetYAnimator.setFloatValues(translateTop, getDefaultTranslateTop(getHeight(), mBoundHeight * 2));
+                Log.i(TAG, "onDoubleTap: translateTop" + getDefaultTranslateTop(getHeight(), mBoundHeight * 2));
+
                 resetXAnimator.addUpdateListener(getOnTranslateXAnimationUpdate());
                 resetYAnimator.addUpdateListener(getOnTranslateYAnimationUpdate());
                 resetXAnimator.start();
                 resetYAnimator.start();
             } else {
                 scaleAnimator.setFloatValues(scale, 1.0f);
+                resetDefaultState();
+
             }
             scaleAnimator.addUpdateListener(getOnScaleAnimationUpdate());
             scaleAnimator.start();
@@ -87,18 +130,16 @@ public class MyImageView extends AppCompatImageView {
         public boolean onScale(ScaleGestureDetector detector) {
             float scaleFactor = detector.getScaleFactor();
             Log.i(TAG, "onScale: ");
-            return super.onScale(detector);
+            return true;
         }
     }
 
     @Override
     protected boolean setFrame(int l, int t, int r, int b) {
         super.setFrame(l, t, r, b);
-
         Drawable drawable = getDrawable();
         if (drawable == null) return false;
         if (mBoundWidth != 0 && mBoundHeight != 0 && scale != 1) return false;
-
         adjustBounds(getWidth(), getHeight());
 
         return true;
@@ -110,15 +151,10 @@ public class MyImageView extends AppCompatImageView {
         if (drawable == null) return;
         mBoundWidth = drawable.getBounds().width();
         mBoundHeight = drawable.getBounds().height();
-        Log.i(TAG, "adjustBounds:mBoundWidth" + mBoundWidth + ",mBoundHeight" + mBoundHeight);
-
         float scale = ( float ) mBoundWidth / width;
-
         mBoundHeight /= scale;
         mBoundWidth = width;
-
         drawable.setBounds(0, 0, mBoundWidth, mBoundHeight);
-
         translateLeft = 0;
         translateTop = getDefaultTranslateTop(height, mBoundHeight);
     }
@@ -126,7 +162,6 @@ public class MyImageView extends AppCompatImageView {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        Log.i(TAG, "onSizeChanged: ");
         adjustBounds(w, h);
     }
 
@@ -142,23 +177,19 @@ public class MyImageView extends AppCompatImageView {
         super.onDraw(canvas);
         Drawable drawable = getDrawable();
         if (drawable == null) return;
+        //图片的宽和高
         int drawableWidth = drawable.getIntrinsicWidth();
         int drawableHeight = drawable.getIntrinsicHeight();
         if (drawableWidth == 0 || drawableHeight == 0) {
             return;
         }
-        Log.i(TAG, "onDraw: drawableWidth" + drawableWidth + ",drawableHeight" + drawableHeight);
-        Log.i(TAG, "onDraw: getWidth" + this.getWidth());
         int saveCount = canvas.getSaveCount();
         canvas.save();
-        Log.i(TAG, "onDraw: translateLeft" + translateLeft + ",translateTop" + translateTop);
-        Log.i(TAG, "onDraw: scale" + scale);
-
         canvas.translate(translateLeft, translateTop);
-
         canvas.scale(scale, scale);
-
-
+        Log.i(TAG, "onDraw: translateLeft"+translateLeft);
+        Log.i(TAG, "onDraw: translateTop"+translateTop);
+        Log.i(TAG, "onDraw: scale"+scale);
         // 如果先scale,再translate,那么,真实translate的值是要与scale值相乘的
         drawable.draw(canvas);
         canvas.restoreToCount(saveCount);
@@ -167,14 +198,21 @@ public class MyImageView extends AppCompatImageView {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            cancelAnimator();
+        }
         mGestureDetector.onTouchEvent(event);
         mScaleGestureDetector.onTouchEvent(event);
         return true;
     }
 
+
+
+
     private ValueAnimator resetScaleAnimator;
     private AccelerateInterpolator mAccelerateInterpolator = new AccelerateInterpolator();
     private FloatEvaluator mFloatEvaluator = new FloatEvaluator();
+
 
     /**
      * 重置伸缩
@@ -228,6 +266,24 @@ public class MyImageView extends AppCompatImageView {
         resetYAnimator.setInterpolator(mAccelerateInterpolator);
         resetYAnimator.setEvaluator(mFloatEvaluator);
         return resetYAnimator;
+    }
+
+    /**
+     * 重置到初始的状态
+     */
+    private void resetDefaultState() {
+        if (translateLeft != 0) {
+            ValueAnimator mTranslateXAnimator = getResetXAnimator();
+            mTranslateXAnimator.setFloatValues(translateLeft, 0);
+            mTranslateXAnimator.addUpdateListener(getOnTranslateXAnimationUpdate());
+            mTranslateXAnimator.start();
+        }
+
+        ValueAnimator mTranslateYAnimator = getResetYAnimator();
+        mTranslateYAnimator.setFloatValues(translateTop, getDefaultTranslateTop(getHeight(), mBoundHeight));
+        mTranslateYAnimator.addUpdateListener(getOnTranslateYAnimationUpdate());
+        mTranslateYAnimator.start();
+
     }
 
     private ValueAnimator.AnimatorUpdateListener onScaleAnimationUpdate;
@@ -286,4 +342,40 @@ public class MyImageView extends AppCompatImageView {
         };
         return onTranslateYAnimationUpdate;
     }
+    private float getExplicitTranslateLeft(float l) {
+        final float mScaledWidth = mBoundWidth * scale;
+        if (l > 0) {
+            l = 0;
+        }
+        if (-l + getWidth() > mScaledWidth) {
+            l = getWidth() - mScaledWidth;
+        }
+        return l;
+    }
+
+    private float getExplicitTranslateTop(float t) {
+        final float mScaledHeight = mBoundHeight * scale;
+        if (t > 0) {
+            t = 0;
+        }
+        if (-t + getHeight() > mScaledHeight) {
+            t = getHeight() - mScaledHeight;
+        }
+        return t;
+    }
+    /**
+     * 取消动画
+     */
+    private void cancelAnimator() {
+        if (resetXAnimator != null && resetXAnimator.isRunning()) {
+            resetXAnimator.cancel();
+        }
+        if (resetYAnimator != null && resetYAnimator.isRunning()) {
+            resetYAnimator.cancel();
+        }
+        if (resetScaleAnimator != null && resetScaleAnimator.isRunning()) {
+            resetScaleAnimator.cancel();
+        }
+    }
+
 }

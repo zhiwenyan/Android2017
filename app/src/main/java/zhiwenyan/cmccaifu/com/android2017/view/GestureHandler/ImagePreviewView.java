@@ -77,7 +77,7 @@ public class ImagePreviewView extends android.support.v7.widget.AppCompatImageVi
         onScaleAnimationUpdate = new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                scale = (float) animation.getAnimatedValue();
+                scale = ( float ) animation.getAnimatedValue();
                 invalidate();
             }
         };
@@ -94,7 +94,7 @@ public class ImagePreviewView extends android.support.v7.widget.AppCompatImageVi
         onTranslateXAnimationUpdate = new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                translateLeft = (float) animation.getAnimatedValue();
+                translateLeft = ( float ) animation.getAnimatedValue();
                 invalidate();
             }
         };
@@ -111,7 +111,7 @@ public class ImagePreviewView extends android.support.v7.widget.AppCompatImageVi
         onTranslateYAnimationUpdate = new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                translateTop = (float) animation.getAnimatedValue();
+                translateTop = ( float ) animation.getAnimatedValue();
                 invalidate();
             }
         };
@@ -315,7 +315,7 @@ public class ImagePreviewView extends android.support.v7.widget.AppCompatImageVi
         mBoundWidth = drawable.getBounds().width();
         mBoundHeight = drawable.getBounds().height();
 
-        float scale = (float) mBoundWidth / width;
+        float scale = ( float ) mBoundWidth / width;
 
         mBoundHeight /= scale;
         mBoundWidth = width;
@@ -338,7 +338,7 @@ public class ImagePreviewView extends android.support.v7.widget.AppCompatImageVi
 
         final int mDrawableWidth = mDrawable.getIntrinsicWidth();
         final int mDrawableHeight = mDrawable.getIntrinsicHeight();
-        System.out.println("mDrawableWidth==="+mDrawableWidth);
+        System.out.println("mDrawableWidth===" + mDrawableWidth);
         if (mDrawableWidth == 0 || mDrawableHeight == 0) {
             return;     // nothing to draw (empty bounds)
         }
@@ -350,7 +350,7 @@ public class ImagePreviewView extends android.support.v7.widget.AppCompatImageVi
         canvas.scale(scale, scale);
 
         // 如果先scale,再translate,那么,真实translate的值是要与scale值相乘的
-       mDrawable.draw(canvas);
+        mDrawable.draw(canvas);
         canvas.restoreToCount(saveCount);
     }
 
@@ -370,7 +370,7 @@ public class ImagePreviewView extends android.support.v7.widget.AppCompatImageVi
                     (mOldScaledHeight > getHeight() && getDiffY() != 0)) return false;
 
             float factor = detector.getScaleFactor();
-            System.out.println("factor=="+factor);
+            System.out.println("factor==" + factor);
             float value = scale;
             value += (factor - 1) * 2;
             if (value == scale) return true;

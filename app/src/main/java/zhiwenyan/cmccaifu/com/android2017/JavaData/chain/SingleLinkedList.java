@@ -1,6 +1,9 @@
 package zhiwenyan.cmccaifu.com.android2017.JavaData.chain;
 
+import java.util.Hashtable;
 import java.util.LinkedList;
+import java.util.Vector;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Description:
@@ -142,6 +145,12 @@ public class SingleLinkedList {
         linkedList.add(1);
         linkedList.add(2);
         linkedList.add(3);
+        linkedList.add(2, 8);
+        CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
+        Vector<Integer> vector=new Vector<>();
+        Hashtable<Integer,String> hashtable=new Hashtable<>();
+
+
 
     }
 }
