@@ -9,6 +9,13 @@ import java.util.HashMap;
  * @author yanzhiwen
  */
 public class Apple {
+//    private void getApples(List<Integer> list){
+//
+//    }
+//    private void getApples(List<Double> list){
+//
+//    }
+
     private String color;
 
     public Apple(String color) {
