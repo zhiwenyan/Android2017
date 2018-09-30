@@ -1,5 +1,8 @@
 package zhiwenyan.cmccaifu.com.android2017.utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Description:
  * Data：8/9/2018-10:17 AM
@@ -44,24 +47,23 @@ public class Person {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", age=" + age +
-                ", name='" + name + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if(obj instanceof Person){
-
-        }
-        return super.equals(obj);
-    }
-
     public static void main(String[] args) {
+        List<Integer> list=new ArrayList<>();
+
+
+
+        Person person = new Person(1, 24, "steven");
+        Person person2 = new Person(1, 24, "steven");
+        Person p2 = person;
+        System.out.println(person.equals(person2));
+        System.out.println(person == person2);
+        System.out.println(p2 == person);
+        System.out.println(p2);
+        System.out.println(p2.getAge());
+        String ss = "ssss";
+        String ss1 = "ssss";
+        System.out.println(ss.equals(ss1));
+        System.out.println(ss == ss1);
 
     }
 }

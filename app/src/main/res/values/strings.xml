@@ -234,4 +234,5 @@
     <string name="action_reply">Reply</string>
     <string name="title_activity_main8">Main8Activity</string>
     <string name="title_activity_main9">Main9Activity</string>
+    <string name="title_activity_main10">Main10Activity</string>
 </resources>

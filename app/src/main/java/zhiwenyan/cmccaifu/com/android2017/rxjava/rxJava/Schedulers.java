@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 
 /**
- * Description:
+ * Description:线程调度器
  * Data：2/8/2018-1:45 PM
  *
  * @author: yanzhiwen
@@ -35,6 +35,7 @@ public abstract class Schedulers {
             this.service = Executors.newScheduledThreadPool(1, new ThreadFactory() {
                 @Override
                 public Thread newThread(@NonNull Runnable r) {
+
                     return new Thread(r);
                 }
             });

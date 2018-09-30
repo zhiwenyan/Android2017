@@ -27,7 +27,7 @@ public class ObservableSchedulers<T> extends Observable<T> {
         public SubscribeTask(Observer<T> observer) {
             this.observer = observer;
         }
-
+        //这个run()方法执行在子线程中
         @Override
         public void run() {
             source.subscribe(observer);

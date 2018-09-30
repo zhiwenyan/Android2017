@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import zhiwenyan.cmccaifu.com.android2017.App;
+import zhiwenyan.cmccaifu.com.android2017.BasicApp;
 
 /**
  * Description:
@@ -25,7 +25,7 @@ public class SharedPreferenceDaoTest {
 
     @Before
     public void setUp() {
-        spDao = new SharedPreferenceDao(App.getContext());
+        spDao = new SharedPreferenceDao(BasicApp.getContext());
     }
 
     @Test

@@ -22,11 +22,11 @@ import java.util.Map;
 /**
  * Created by yanzhiwen on 2017/10/12.
  */
-public  class GsonBinder {
+public class GsonBinder {
     //定义并配置gson
     private static final Gson gson = new GsonBuilder()//建造者模式设置不同的配置
             .serializeNulls()//序列化为null对象
-           // .setDateFormat("yyyy-MM-dd HH:mm:ss") //设置日期的格式
+            // .setDateFormat("yyyy-MM-dd HH:mm:ss") //设置日期的格式
             //.disableHtmlEscaping()//防止对网址乱码 忽略对特殊字符的转换
             .registerTypeAdapter(String.class, new StringConverter())//对为null的字段进行转换
             .create();

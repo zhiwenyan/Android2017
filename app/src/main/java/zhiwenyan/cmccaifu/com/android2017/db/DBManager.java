@@ -8,7 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import zhiwenyan.cmccaifu.com.android2017.App;
+import zhiwenyan.cmccaifu.com.android2017.BasicApp;
 
 /**
  * 墨记数据库
@@ -42,7 +42,7 @@ public class DBManager extends DBHelper {
 
     public static DBManager getCountryManager() {
         if (mCountryManager == null) {
-            mCountryManager = getAssetSQLite(App.getContext());
+            mCountryManager = getAssetSQLite(BasicApp.getContext());
         }
         return mCountryManager;
     }

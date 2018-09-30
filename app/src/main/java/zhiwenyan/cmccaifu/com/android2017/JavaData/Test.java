@@ -6,10 +6,18 @@ package zhiwenyan.cmccaifu.com.android2017.JavaData;
  * Author:Steven
  */
 public final class Test {
-    public static void main(String[] args) {
-        Test test1=new Test();
-        Test test2=new Test();
 
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        System.out.println("回收");
+    }
+
+    public static void main(String[] args) {
+        Test test1 = new Test();
+        Test test2 = new Test();
+        System.out.println(0/0.0);
+    //    System.out.println(1/0);
 
     }
 }

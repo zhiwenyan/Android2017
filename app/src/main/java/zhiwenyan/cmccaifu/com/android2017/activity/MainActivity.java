@@ -22,10 +22,9 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.steven.ndk2018.utils.SignatureUtils;
-
 import org.greenrobot.eventbus.EventBus;
 
+import java.io.Closeable;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
@@ -106,9 +105,8 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mCalendarView = findViewById(R.id.cv);
-
-        String signParam = SignatureUtils.signatureParams("userName=steven&password=123456");
-        Log.i("TAG", signParam);
+        // String signParam = SignatureUtils.signatureParams("userName=steven&password=123456");
+        // Log.i("TAG", signParam);
         ViewGroup parent = ( ViewGroup ) findViewById(R.id.view_root);
         EventBus.getDefault().post(new MessageEvent("Hello everyone!"));
         NavigationBar navigationBar = new NavigationBar.Builder(this, R.layout.ui_navigation_bar, parent)
@@ -422,5 +420,16 @@ public class MainActivity extends BaseActivity {
                     }
                 });
         builder.create().show();
+    }
+
+
+    private void close(Closeable closeable) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

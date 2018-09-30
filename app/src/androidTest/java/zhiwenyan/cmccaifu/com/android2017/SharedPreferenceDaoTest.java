@@ -24,7 +24,7 @@ public class SharedPreferenceDaoTest {
 
     @Before
     public void setUp() {
-        spDao = new SharedPreferenceDao(App.getContext());
+        spDao = new SharedPreferenceDao(BasicApp.getContext());
     }
 
     @Test
