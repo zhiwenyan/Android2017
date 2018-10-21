@@ -127,6 +127,12 @@ android {
 
     }
 }
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation files('libs/jackson-annotations-2.9.5.jar')
+    implementation files('libs/jackson-core-2.9.5.jar')
+    implementation files('libs/jackson-databind-2.9.5.jar')
+}
 
 
 apply plugin: 'kotlin-android-extensions'

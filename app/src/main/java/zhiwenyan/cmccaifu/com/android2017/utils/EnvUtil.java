@@ -15,7 +15,7 @@ public class EnvUtil {
         if (context.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
             return TypedValue.complexToDimensionPixelSize(tv.data, context.getResources().getDisplayMetrics());
         }
-        return DensityUtil.dp2px(44);
+        return DensityUtil.dp2px(48);
     }
 
     public static int getStatusBarHeight(Context context) {
