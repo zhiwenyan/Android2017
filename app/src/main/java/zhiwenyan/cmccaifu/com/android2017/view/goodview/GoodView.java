@@ -92,7 +92,7 @@ public class GoodView extends PopupWindow implements IGoodView {
         mText = text;
         mGood.setText(text);
         mGood.setBackground(new ColorDrawable(Color.TRANSPARENT));
-        int w = (int) mGood.getPaint().measureText(text);
+        int w = ( int ) mGood.getPaint().measureText(text);
         setWidth(w);
         setHeight(mDistance + getTextViewHeight(mGood, w));
     }

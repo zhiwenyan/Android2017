@@ -195,12 +195,12 @@ public class RetrofitActivity extends BaseActivity {
         Call<ResponseBody> call = service.uploadMultipleFiles(description, body1, body2);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
                 Log.v("Upload", "success");
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(@NonNull Call<ResponseBody> call, @NonNull Throwable t) {
                 Log.e("Upload error:", t.getMessage());
             }
         });

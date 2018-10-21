@@ -83,7 +83,7 @@ public class AnimatorActivity extends BaseActivity {
 //                animatorSet.play(scaleObjectAnimator).after(rotationObjectAnimator);
 //                animatorSet.setDuration(2000);
 //                animatorSet.start();
-                AnimatorSet animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(this, R.animator.set);
+                AnimatorSet animatorSet = ( AnimatorSet ) AnimatorInflater.loadAnimator(this, R.animator.set);
                 animatorSet.setDuration(3000);
                 animatorSet.setTarget(mTarget);
                 animatorSet.start();
@@ -98,7 +98,7 @@ public class AnimatorActivity extends BaseActivity {
                 valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                     @Override
                     public void onAnimationUpdate(ValueAnimator animation) {
-                        int color = (int) animation.getAnimatedValue();
+                        int color = ( int ) animation.getAnimatedValue();
                         mTarget.setBackgroundColor(color);
                     }
                 });
@@ -125,32 +125,33 @@ public class AnimatorActivity extends BaseActivity {
                 ofPropertyValuesHolder.start();
                 break;
             case R.id.simpleAnimator:
-                ValueAnimator va = new ValueAnimator();
-                va.setInterpolator(new LinearInterpolator());
-                va.setDuration(2000);
-                va.setObjectValues(new PointF(0, 0));
-                va.setEvaluator(new TypeEvaluator() {
-                    @Override
-                    public Object evaluate(float fraction, Object startValue, Object endValue) {
-                        // x方向200px/s ，则y方向0.5 * 10 * t
-                        PointF point = new PointF();
-                        point.x = 200 * fraction * 3;
-                        point.y = 0.5f * 200 * (fraction * 3) * (fraction * 3);
-                        return point;
-                    }
-                });
-                va.start();
-                va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                    @Override
-                    public void onAnimationUpdate(ValueAnimator animation) {
-                        PointF point = (PointF) animation.getAnimatedValue();
-                        mCircleView.setX(point.x);
-                        mCircleView.setY(point.y);
-                    }
-                });
+//                ValueAnimator va = new ValueAnimator();
+//                va.setInterpolator(new LinearInterpolator());
+//                va.setDuration(2000);
+//                va.setObjectValues(new PointF(0, 0));
+//                va.setEvaluator(new TypeEvaluator() {
+//                    @Override
+//                    public Object evaluate(float fraction, Object startValue, Object endValue) {
+//                        // x方向200px/s ，则y方向0.5 * 10 * t
+//                        PointF point = new PointF();
+//                        point.x = 200 * fraction * 3;
+//                        point.y = 0.5f * 200 * (fraction * 3) * (fraction * 3);
+//                        return point;
+//                    }
+//                });
+//                va.start();
+//                va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//                    @Override
+//                    public void onAnimationUpdate(ValueAnimator animation) {
+//                        PointF point = ( PointF ) animation.getAnimatedValue();
+//                        mCircleView.setX(point.x);
+//                        mCircleView.setY(point.y);
+//                    }
+//                });
+                mCircleView.startAnimationMotion();
                 break;
             case R.id.wubaCityBtn:
-                startActivity(new Intent(this,WubaCityActivity.class));
+                startActivity(new Intent(this, WubaCityActivity.class));
                 break;
         }
     }

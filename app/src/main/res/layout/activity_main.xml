@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/sv"
     android:layout_width="match_parent"
@@ -17,9 +16,9 @@
 
         <CalendarView
             android:id="@+id/cv"
-            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
         </CalendarView>
 
@@ -648,9 +647,9 @@
                 <TextView
                     android:id="@+id/designTv"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/yy"
+                    android:layout_weight="1"
                     android:background="@color/colorAccent"
                     android:padding="@dimen/y"
                     android:text="设计模式"
@@ -659,9 +658,9 @@
                 <TextView
                     android:id="@+id/emojiTv"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/yy"
+                    android:layout_weight="1"
                     android:background="@color/colorAccent"
                     android:padding="@dimen/y"
                     android:text="Emoji表情"
@@ -671,6 +670,16 @@
 
 
         </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/kotlin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@color/app_main_color_deep"
+            android:text="Kotlin"
+            android:textColor="#ff0000"/>
     </LinearLayout>
 
 </ScrollView>

@@ -1,4 +1,4 @@
-package zhiwenyan.cmccaifu.com.android2017.utils;
+package zhiwenyan.cmccaifu.com.android2017.view;
 
 import static android.view.View.MeasureSpec;
 

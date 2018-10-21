@@ -36,11 +36,11 @@ public class CircleImageView extends ImageView {
     int mShadowRadius;
 
     public CircleImageView(Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public CircleImageView(Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
     }
 
     public CircleImageView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -68,7 +68,6 @@ public class CircleImageView extends ImageView {
         circle.getPaint().setColor(Color.RED);
         ViewCompat.setBackground(this, circle);
     }
-
 
 
     private boolean elevationSupported() {

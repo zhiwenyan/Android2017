@@ -7,6 +7,7 @@ package zhiwenyan.cmccaifu.com.android2017.DesignPattern.Singleton.simple2;
 
 public class Singleton {
 
+    private static Singleton s1, s2;
     //只有使用的时候去new
     //多线程的并发问题
 
@@ -15,7 +16,7 @@ public class Singleton {
     private Singleton() {
     }
 
-    public static Singleton getInstance() {
+    public  static Singleton getInstance() {
         if (mInstance == null) {
             mInstance = new Singleton();
         }
@@ -23,6 +24,17 @@ public class Singleton {
     }
 
     public static void main(String[] args) {
-        System.out.println(Singleton.getInstance());
+         s1 = Singleton.getInstance();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                s2 = Singleton.getInstance();
+                System.out.println(s1);
+                System.out.println(s2);
+                System.out.println(s1==s2);
+
+            }
+        }).start();
+
     }
 }

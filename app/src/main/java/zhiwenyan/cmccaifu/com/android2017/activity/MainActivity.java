@@ -203,7 +203,7 @@ public class MainActivity extends BaseActivity {
             R.id.okHttpTv, R.id.retrofit, R.id.bannerTv, R.id.viewTv, R.id.viewgroupTv, R.id.commonViewPager,
             R.id.threedTv, R.id.lruTv, R.id.drawTv, R.id.coorTv, R.id.messenger, R.id.startService,
             R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager, R.id.bntv, R.id.device, R.id.sensor
-            , R.id.dialog, R.id.sqliteTv, R.id.dialogTv, R.id.noticeTv, R.id.designTv, R.id.emojiTv})
+            , R.id.dialog, R.id.sqliteTv, R.id.dialogTv, R.id.noticeTv, R.id.designTv, R.id.emojiTv, R.id.kotlin})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -336,6 +336,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.emojiTv:
                 intent = new Intent(this, EmojiActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.kotlin:
+                intent = new Intent(this, KotlinActivity.class);
                 startActivity(intent);
                 break;
         }

@@ -13,7 +13,8 @@ import static org.mockito.Mockito.when;
 
 
 /**
- * Description:  5. 通过模拟框架模拟依赖，隔离依赖：
+ * Description:
+ * 5. 通过模拟框架模拟依赖，隔离依赖：
  * 前面验证邮件格式的例子，本地JVM虚拟机就能提供足够的运行环境，但如果要测试的单元依赖了Android框架，
  * 比如用到了Android中的Context类的一些方法，
  * 本地JVM将无法提供这样的环境，这时候模拟框架[Mockito][1]就派上用场了。

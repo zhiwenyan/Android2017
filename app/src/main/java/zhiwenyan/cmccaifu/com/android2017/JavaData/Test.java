@@ -17,6 +17,10 @@ public final class Test {
         Test test1 = new Test();
         Test test2 = new Test();
         System.out.println(0/0.0);
+        System.out.println(test1.hashCode());
+        System.out.println(test1.hashCode()>>>16);
+        System.out.println((test1.hashCode()>>>16)^(test1.hashCode()));
+        System.out.println(((test1.hashCode()>>>16)^(test1.hashCode()))&7);
     //    System.out.println(1/0);
 
     }

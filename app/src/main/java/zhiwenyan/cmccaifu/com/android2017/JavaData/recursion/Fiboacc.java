@@ -16,6 +16,6 @@ public class Fiboacc {
     }
 
     public static void main(String[] args) {
-        System.out.println(getNumber(5));
+        System.out.println(getNumber(6));
     }
 }

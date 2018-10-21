@@ -112,7 +112,7 @@ public class LoveLayout extends RelativeLayout {
         bezierAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                PointF pointF = (PointF) animation.getAnimatedValue();
+                PointF pointF = ( PointF ) animation.getAnimatedValue();
                 iv.setX(pointF.x);
                 iv.setY(pointF.y);
                 float t = animation.getAnimatedFraction();
