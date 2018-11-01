@@ -1,35 +1,74 @@
-{
-  "message": "success",
-  "result": {
-    "discoverBanner": [
+[
+  {
+    "name": "Selina",
+    "phoneNumber": [
       {
-        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180822103449724.png",
-        "info": "",
-        "url": "http:\/\/www.fumi88.cn\/oil\/index\/activity360?app"
-      }
-    ],
-    "discoverPic": [
-      {
-        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180801102132753.png",
-        "info": "\u6211\u8981\u62bd\u5956",
-        "url": "http:\/\/www.fumi88.cn\/oil\/index\/signin?app"
-      },
-      {
-        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180801102234807.png",
-        "info": "\u9650\u65f6\u4f18\u60e0",
-        "url": "http:\/\/www.fumi88.cn\/oil\/index\/xianshiyouhui?app"
-      },
-      {
-        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180801102249392.png",
-        "info": "\u6ce8\u518c\u5373\u9001",
-        "url": "http:\/\/www.fumi88.cn\/oil\/activity\/new?app"
-      },
-      {
-        "img": "http:\/\/www.fumi88.cn\/UF\/Uploads\/Ad\/20180801102307640.png",
-        "info": "\u65b0\u624b\u6307\u5f15",
-        "url": "http:\/\/www.fumi88.cn\/oil\/activity\/activityapp?app"
+        "moblie": "150 7852 3636"
       }
     ]
   },
-  "status": 200
-}
+  {
+    "name": "华为客服",
+    "phoneNumber": [
+      {
+        "moblie": "4008308300"
+      }
+    ]
+  },
+  {
+    "name": "钉钉官方短信",
+    "phoneNumber": [
+      {
+        "moblie": "106904068039604916"
+      }
+    ]
+  },
+  {
+    "name": "钉钉专属顾问",
+    "phoneNumber": [
+      {
+        "moblie": "057156215888"
+      }
+    ]
+  },
+  {
+    "name": "021 5081 8103",
+    "phoneNumber": [
+      {
+        "moblie": "021 5081 8103"
+      }
+    ]
+  },
+  {
+    "name": "郑迎春",
+    "phoneNumber": [
+      {
+        "moblie": "150 2103 1142"
+      }
+    ]
+  },
+  {
+    "name": "测试",
+    "phoneNumber": [
+      {
+        "moblie": "156 1803 9929"
+      }
+    ]
+  },
+  {
+    "name": "测试2",
+    "phoneNumber": [
+      {
+        "moblie": "156 1823 9929"
+      }
+    ]
+  },
+  {
+    "name": "测试3",
+    "phoneNumber": [
+      {
+        "moblie": "156 1852 9929"
+      }
+    ]
+  }
+]

@@ -73,23 +73,22 @@ public class LetterSideBarView extends View {
             mPaint.getTextBounds(letter, 0, letter.length(), rect);
             float measureTextWidth = rect.width();
             // 获取字体的宽度 方式二
-            float measureTextWidth1 = mPaint.measureText(letter);
             // 获取内容的宽度
             int contentWidth = getWidth() - getPaddingLeft() - getPaddingRight();
-            float x = getPaddingLeft() + (contentWidth - measureTextWidth) / 2;
+            float dx = getPaddingLeft() + (contentWidth - measureTextWidth) / 2;
             // 计算基线位置
             Paint.FontMetrics fontMetrics = mPaint.getFontMetrics();
-            float baseLine = singleHeight / 2 + (singleHeight * i) +
-                    (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom;
+            float dy = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom;
+            float baseLine = (singleHeight * i) + dy + singleHeight / 2;
             // 画字母，后面onTouch的时候需要处理高亮
             if (mLetters[i].equals(mTouchLetter)) {
                 mPaint.setTextSize(px2sp(18));
                 mPaint.setColor(Color.RED);
-                canvas.drawText(letter, x, baseLine, mPaint);
+                canvas.drawText(letter, dx, baseLine, mPaint);
             } else {
                 mPaint.setTextSize(px2sp(14));
                 mPaint.setColor(Color.BLACK);
-                canvas.drawText(letter, x, baseLine, mPaint);
+                canvas.drawText(letter, dx, baseLine, mPaint);
             }
         }
     }

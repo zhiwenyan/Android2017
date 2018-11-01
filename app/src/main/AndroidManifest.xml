@@ -58,7 +58,11 @@
         <activity
             android:name=".activity.MainActivity"
             android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
 
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity android:name=".DialogFragment.DialogFragmentActivity"/>
         <activity android:name=".animator.AnimatorActivity"/>
@@ -305,11 +309,6 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".permission.PermissionActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".view.redPacket.RedPacketViewActivity">
         </activity>
@@ -343,7 +342,6 @@
         <activity
             android:name=".activity.SplashActivity"
             android:theme="@style/SplashTheme">
-
         </activity>
         <activity
             android:name=".materialdesign.Main9Activity"
@@ -371,6 +369,9 @@
 
         <activity android:name=".activity.KotlinActivity"/>
         <activity android:name=".view.sin.WaveActivity">
+        </activity>
+        <activity android:name=".view.metro.MetroActivity">
+
         </activity>
     </application>
 

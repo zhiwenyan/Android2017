@@ -6,7 +6,6 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 /**
@@ -21,8 +20,8 @@ public class TanslationBehavior extends FloatingActionButton.Behavior {
     // 关注垂直滚动 ，而且向上的时候是出来，向下是隐藏
     @Override
     public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull FloatingActionButton child,
-                                       @NonNull View directTargetChild, @NonNull View target, int nestedScrollAxes) {
-        return nestedScrollAxes == ViewCompat.SCROLL_AXIS_VERTICAL;
+                                       @NonNull View directTargetChild, @NonNull View target, int axes, int type) {
+        return axes == ViewCompat.SCROLL_AXIS_VERTICAL;
     }
 
     @Override
@@ -33,14 +32,17 @@ public class TanslationBehavior extends FloatingActionButton.Behavior {
     private boolean isOut = false;
 
     @Override
-    public void onNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull FloatingActionButton child, @NonNull View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed) {
-        super.onNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed);
-        Log.e("TAG", "dyConsumed -> " + dyConsumed + " dyUnconsumed -> " + dyUnconsumed);
+    public void onNestedScroll(@NonNull CoordinatorLayout coordinatorLayout,
+                               @NonNull FloatingActionButton child, @NonNull View target,
+                               int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int type) {
+        super.onNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed, type);
+
+
         // 而且向上的时候是出来，向下是隐藏
         if (dyConsumed > 0) {
             if (!isOut) {
                 // 往上滑动，是隐藏 , 加一个标志位 已经往下走了
-                int translationY = ((CoordinatorLayout.LayoutParams) child.getLayoutParams()).bottomMargin + child.getMeasuredHeight();
+                int translationY = (( CoordinatorLayout.LayoutParams ) child.getLayoutParams()).bottomMargin + child.getMeasuredHeight();
                 child.animate().translationY(translationY).setDuration(500).start();
                 isOut = true;
             }

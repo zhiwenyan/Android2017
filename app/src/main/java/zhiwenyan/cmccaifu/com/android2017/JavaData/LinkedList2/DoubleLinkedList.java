@@ -1,12 +1,12 @@
-package zhiwenyan.cmccaifu.com.android2017.JavaData.LinkedList1;
+package zhiwenyan.cmccaifu.com.android2017.JavaData.LinkedList2;
 
 /**
  * Description:
- * Data：10/9/2018-9:46 AM
+ * Data：11/1/2018-5:56 PM
  *
  * @author yanzhiwen
  */
-public class SingleLinkedList<E> {
+public class DoubleLinkedList<E> {
     //头节点
     private Node<E> head;
     //尾节点
@@ -20,16 +20,7 @@ public class SingleLinkedList<E> {
      * @param value
      */
     public void add(E value) {
-        Node<E> new_Node = new Node<>(value, null);
-        Node<E> l = last; //添加一个尾节点,时间复杂度O(1)
-        last = new_Node;
-        if (head == null) {
-            head = new_Node;
-        } else {
-            //找到尾节点 时间复杂度四是O(n)
-            // Node<E> last = node(length - 1);
-            l.next = new_Node;
-        }
+        linkLast(value);
         length++;
 
     }
@@ -60,25 +51,24 @@ public class SingleLinkedList<E> {
         if (index == length) {
             linkLast(value);
         } else {
-            linkBefore(node(index - 1), value);
+            linkBefore(node(index), value);
         }
         length++;
     }
 
-    private void linkBefore(Node<E> prev, E value) {
-        Node<E> new_node = new Node<>(value, null);
+    private void linkBefore(Node<E> cur, E value) {
+        Node<E> prev = cur.prev;
+        Node<E> new_node = new Node<>(value, prev, cur);
         if (prev == null) {
             head = new_node;
         } else {
-            Node<E> cur = prev.next;
             prev.next = new_node;
-            new_node.next = cur;
         }
     }
 
     private void linkLast(E value) {
         Node<E> l = last;
-        Node<E> new_node = new Node<>(value, null);
+        Node<E> new_node = new Node<>(value, l, null);
         last = new_node;
         if (head == null) {
             head = new_node;
@@ -89,12 +79,15 @@ public class SingleLinkedList<E> {
 
 
     private Node<E> node(int index) {
-        if (index <= 0) {
-            return null;
-        }
         Node<E> h = head;
         for (int i = 0; i < index; i++) {
             h = h.next;
+        }
+
+        if (index < length >> 1) {
+
+        } else {
+
         }
         return h;
     }
@@ -105,24 +98,12 @@ public class SingleLinkedList<E> {
 
 
     public static void main(String[] args) {
-        SingleLinkedList<Integer> linkedList = new SingleLinkedList<>();
+        DoubleLinkedList<Integer> linkedList = new DoubleLinkedList<>();
         linkedList.add(3);
         linkedList.add(2);
         linkedList.add(1);
         linkedList.add(0);
         linkedList.add(-1);
-//        for (int i = 0; i < linkedList.size(); i++) {
-//            System.out.println(linkedList.get(i));
-//        }
-//        linkedList.remove(2);
-//        System.out.println("****************************");
-//        for (int i = 0; i < linkedList.size(); i++) {
-//            System.out.println(linkedList.get(i));
-//        }
-//        System.out.println("*****************************");
-        linkedList.insert(0, 10);
-        for (int i = 0; i < linkedList.size(); i++) {
-            System.out.println(linkedList.get(i));
-        }
+
     }
 }

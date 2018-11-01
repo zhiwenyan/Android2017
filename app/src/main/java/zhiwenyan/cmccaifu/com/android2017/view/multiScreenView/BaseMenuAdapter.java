@@ -23,7 +23,7 @@ public abstract class BaseMenuAdapter {
 
     /**
      * notifyDataChanged()
-     **/
+     */
     public void closeMenu() {
         if (mMenuObserver != null) {
             mMenuObserver.closeMenu();

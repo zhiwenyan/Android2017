@@ -680,6 +680,7 @@
             android:background="@color/app_main_color_deep"
             android:text="Kotlin"
             android:textColor="#ff0000"/>
+
     </LinearLayout>
 
 </ScrollView>

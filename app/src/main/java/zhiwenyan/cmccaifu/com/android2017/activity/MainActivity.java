@@ -14,6 +14,7 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.RemoteException;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -129,8 +130,19 @@ public class MainActivity extends BaseActivity {
         }
         mCalendarView = findViewById(R.id.cv);
         initCalendarView();
+        initSparseArray();
 
     }
+
+    private void initSparseArray() {
+        SparseArray<String> array = new SparseArray<>();
+        array.put(1, "s");
+        System.out.println(array.indexOfKey(1));
+        System.out.println(array.indexOfValue("ss"));
+        System.out.println(array.keyAt(0));
+        System.out.println(array.valueAt(0));
+    }
+
 
     private void initCalendarView() {
         mCalendarView.setDate(System.currentTimeMillis());

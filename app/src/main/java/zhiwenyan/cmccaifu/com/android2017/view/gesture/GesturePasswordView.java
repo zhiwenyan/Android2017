@@ -289,6 +289,10 @@ public class GesturePasswordView extends View {
         return null;
     }
 
+
+
+
+
     class Point {
         private float centerX;
         private float centerY;

@@ -129,16 +129,16 @@ public class DoubleLinkedList<E> {
         linkedList.add(1);
         linkedList.add(0);
         linkedList.add(-1);
-        for (int i = 0; i < linkedList.size(); i++) {
-            System.out.println(linkedList.get(i));
-        }
-        linkedList.remove(2);
-        System.out.println("****************************");
-        for (int i = 0; i < linkedList.size(); i++) {
-            System.out.println(linkedList.get(i));
-        }
-        System.out.println("*****************************");
-        linkedList.insert(2, 10);
+//        for (int i = 0; i < linkedList.size(); i++) {
+//            System.out.println(linkedList.get(i));
+//        }
+//        linkedList.remove(2);
+//        System.out.println("****************************");
+//        for (int i = 0; i < linkedList.size(); i++) {
+//            System.out.println(linkedList.get(i));
+//        }
+//        System.out.println("*****************************");
+        linkedList.insert(0, 10);
         for (int i = 0; i < linkedList.size(); i++) {
             System.out.println(linkedList.get(i));
         }

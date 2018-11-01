@@ -73,7 +73,7 @@ public class SectionItemDecoration extends RecyclerView.ItemDecoration {
     }
 //
 //    /**
-//     * onDraw：通过该方法，在Canvas上绘制内容，在绘制Item之前调用。
+//     * onDraw：通过该方法，在Canvas上绘制内容，在绘制Item之调用。
 //     * （如果没有通过getItemOffsets设置偏移的话，Item的内容会将其覆盖）
 //     *
 //     * @param c

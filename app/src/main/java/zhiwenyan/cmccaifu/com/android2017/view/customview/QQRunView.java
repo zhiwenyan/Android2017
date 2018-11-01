@@ -76,13 +76,13 @@ public class QQRunView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-     //   super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        System.out.println("widthMeasureSpec="+widthMeasureSpec);
-        System.out.println("widthMeasureSpec="+heightMeasureSpec);
+        //   super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        System.out.println("widthMeasureSpec=" + widthMeasureSpec);
+        System.out.println("widthMeasureSpec=" + heightMeasureSpec);
         int width = MeasureSpec.getSize(widthMeasureSpec);
         int height = MeasureSpec.getSize(heightMeasureSpec);
-        System.out.println("width="+width);
-        System.out.println("height="+height);
+        System.out.println("width=" + width);
+        System.out.println("height=" + height);
         setMeasuredDimension(width > height ? height : width, width > height ? height : width);
 
     }
@@ -115,7 +115,6 @@ public class QQRunView extends View {
         int baseLine = getHeight() / 2 + dy;
         canvas.drawText(stepText, dx, baseLine, mTextPaint);
     }
-
 
     public synchronized void setStepMax(int stepMax) {
         this.mStepMax = stepMax;
