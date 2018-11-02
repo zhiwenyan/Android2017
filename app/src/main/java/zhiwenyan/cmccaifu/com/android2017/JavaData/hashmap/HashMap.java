@@ -220,5 +220,7 @@ public class HashMap<K, V> {
             System.out.println(map.get(new Student("steven"+i)));
         }
 
+        java.util.HashMap<Student,Integer> map1=new java.util.HashMap<>();
+
     }
 }

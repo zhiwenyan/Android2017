@@ -1,7 +1,7 @@
 package zhiwenyan.cmccaifu.com.android2017.JavaData.LinkedList2;
 
 /**
- * Description:
+ * Description: 双向链表 node(index) 为时间复杂度是o/2级别
  * Data：11/1/2018-5:56 PM
  *
  * @author yanzhiwen
@@ -15,95 +15,156 @@ public class DoubleLinkedList<E> {
     private int length;
 
     /**
-     * 添加数据
+     * 添加元素
      *
-     * @param value
+     * @param value value
      */
     public void add(E value) {
-        linkLast(value);
+        linkedLast(value);
         length++;
+    }
 
+    private void linkedLast(E value) {
+        Node<E> l = last;
+        Node<E> newNode = new Node<>(value, l, null);
+        last = newNode;
+        if (head == null) {
+            head = newNode;
+        } else {
+            l.next = newNode;
+        }
     }
 
 
-    public E get(int index) {
-        if (index >= 0 && index < length) {
+    /**
+     * 获取当前节点的值
+     *
+     * @param index 索引
+     * @return value
+     */
+    private E get(int index) {
+        if (index >= 0 || index <= length) {
             return node(index).value;
         }
         return null;
     }
 
-    public E remove(int index) {
-        if (index == 0) {
-            Node<E> h = head;
-            head = h.next;
+    /**
+     * 获取当前节点
+     *
+     * @param index 索引
+     * @return cur
+     */
+    private Node<E> node(int index) {
+        if (index < length >> 1) {
+            //从前往后遍历
+            Node<E> cur = head;
+            for (int i = 0; i < index; i++) {
+                cur = cur.next;
+            }
+            return cur;
         } else {
-            Node<E> prev = node(index - 1);
-            Node<E> cur = prev.next;
-            //之前的节点指向当前节点的后一个节点
-            prev.next = cur.next;
+            //从后往前遍历
+            Node<E> cur = last;
+            for (int i = length - 1; i > index; i--) {
+                cur = cur.prev;
+            }
+            return cur;
         }
-        length--;
-        return null;
     }
 
+    /**
+     * 插入元素
+     *
+     * @param index 索引
+     * @param value value
+     */
     public void insert(int index, E value) {
         if (index == length) {
-            linkLast(value);
+            linkedLast(value);
         } else {
-            linkBefore(node(index), value);
+            linkedBefore(node(index), value);
         }
+
+//        if (index == 0) {
+//            Node<E> h = head;
+//            head = newNode;
+//            newNode.next = h;
+//        } else {
+//            Node<E> prev = node(index - 1);
+//            Node<E> cur = prev.next;
+//            prev.next = newNode;
+//            newNode.next = cur;
+//        }
         length++;
     }
 
-    private void linkBefore(Node<E> cur, E value) {
+    private void linkedBefore(Node<E> cur, E value) {
         Node<E> prev = cur.prev;
-        Node<E> new_node = new Node<>(value, prev, cur);
+        Node<E> newNode = new Node<>(value, prev, cur);
+        cur.prev = newNode;
         if (prev == null) {
-            head = new_node;
+            head = newNode;
         } else {
-            prev.next = new_node;
-        }
-    }
-
-    private void linkLast(E value) {
-        Node<E> l = last;
-        Node<E> new_node = new Node<>(value, l, null);
-        last = new_node;
-        if (head == null) {
-            head = new_node;
-        } else {
-            l.next = new_node;
+            prev.next = newNode;
         }
     }
 
 
-    private Node<E> node(int index) {
-        Node<E> h = head;
-        for (int i = 0; i < index; i++) {
-            h = h.next;
+    /**
+     * 移除元素
+     *
+     * @param index 索引
+     */
+    public void remove(int index) {
+        if (index >= 0 && index <= length) {
+            unLinked(node(index));
         }
+        length--;
+    }
 
-        if (index < length >> 1) {
-
+    private void unLinked(Node<E> cur) {
+//        if (index == 0) {
+//            Node<E> h = head;
+//            head = h.next;
+//            h = null;
+//        } else {
+//            //前一个节点
+//            Node<E> prev = node(index - 1);
+//            //当前节点
+//            Node<E> cur = prev.next;
+//            //前一个节点的next指向当前节点的next
+//            prev.next = cur.next;
+//            cur = null;
+//        }
+        Node<E> prev = cur.prev;
+        Node<E> next = cur.next;
+        if (prev == null) {
+            head = next;
         } else {
-
+            prev.next = next;
         }
-        return h;
+        if (next == null) {
+            last = prev;
+        } else {
+            next.prev = prev;
+        }
+        cur = null;
     }
 
     public int size() {
         return length;
     }
 
-
     public static void main(String[] args) {
-        DoubleLinkedList<Integer> linkedList = new DoubleLinkedList<>();
-        linkedList.add(3);
-        linkedList.add(2);
-        linkedList.add(1);
-        linkedList.add(0);
-        linkedList.add(-1);
-
+        DoubleLinkedList<Integer> doubleLinkedList = new DoubleLinkedList<>();
+        for (int i = 0; i < 5; i++) {
+            doubleLinkedList.add(i);
+        }
+        doubleLinkedList.remove(0);
+        doubleLinkedList.insert(0, 10);
+        for (int i = 0; i < doubleLinkedList.size(); i++) {
+            System.out.println(doubleLinkedList.get(i));
+        }
     }
 }

@@ -12,11 +12,11 @@ public class LinkedList<E> {
     //尾节点
     private Node<E> last;
 
-    private int size;
+    private int length;
 
     public void add(E value) {
         linkedLast(value);
-        size++;
+        length++;
     }
 
     private void linkedLast(E value) {
@@ -32,16 +32,13 @@ public class LinkedList<E> {
 
 
     private E get(int index) {
-        if (index >= 0 || index <= size) {
+        if (index >= 0 || index <= length) {
             return node(index).value;
         }
         return null;
     }
 
     private Node<E> node(int index) {
-        if (index < 0) {
-            return null;
-        }
         Node<E> h = head;
         for (int i = 0; i < index; i++) {
             h = h.next;
@@ -50,32 +47,26 @@ public class LinkedList<E> {
     }
 
     public void insert(int index, E value) {
-        if (index == size) {
-            linkedLast(value);
-        } else {
-            linkedBefore(node(index - 1), value);
-        }
-        size++;
-    }
-
-    private void linkedBefore(Node<E> prev, E value) {
         Node<E> newNode = new Node<>(value, null);
-        if (prev == null) {
-            prev = newNode;
-            prev.next = head;
-            head = prev;
+        if (index == 0) {
+            Node<E> h = head;
+            head = newNode;
+            newNode.next = h;
         } else {
+            Node<E> prev = node(index - 1);
             Node<E> cur = prev.next;
             prev.next = newNode;
             newNode.next = cur;
         }
+        length++;
     }
 
+
     public void remove(int index) {
-        if (index >= 0 && index <= size) {
+        if (index >= 0 && index <= length) {
             unLinked(index);
         }
-        size--;
+        length--;
     }
 
     private void unLinked(int index) {
@@ -87,7 +78,7 @@ public class LinkedList<E> {
             //前一个节点
             Node<E> prev = node(index - 1);
             //当前节点
-            Node<E> cur = node(index);
+            Node<E> cur = prev.next;
             //前一个节点的next指向当前节点的next
             prev.next = cur.next;
             cur = null;
@@ -95,7 +86,7 @@ public class LinkedList<E> {
     }
 
     public int size() {
-        return size;
+        return length;
     }
 
     public static void main(String[] args) {
@@ -103,7 +94,7 @@ public class LinkedList<E> {
         for (int i = 0; i < 5; i++) {
             linkedList.add(i);
         }
-        //   linkedList.remove(0);
+        linkedList.remove(0);
         linkedList.insert(0, 10);
         for (int i = 0; i < linkedList.size(); i++) {
             System.out.println(linkedList.get(i));
