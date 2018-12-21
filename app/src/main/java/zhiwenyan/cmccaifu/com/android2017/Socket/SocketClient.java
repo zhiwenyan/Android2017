@@ -31,7 +31,6 @@ public class SocketClient {
             // 与服务端建立连接
             socket = new Socket("127.0.0.1", 8001);
   //          socket.setSoTimeout(_sec * 1000);
-
             System.out.println(format.format(new Date()));
             System.out.println("建立了链接\n");
 

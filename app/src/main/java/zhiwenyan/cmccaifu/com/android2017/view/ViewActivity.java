@@ -16,7 +16,6 @@ import zhiwenyan.cmccaifu.com.android2017.view.Loading.LoadingViewActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.RatingBar.RatingBarActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.activity.IndexActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.activity.LineActivity;
-import zhiwenyan.cmccaifu.com.android2017.view.password.PasswordActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.activity.PieActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.activity.SimileViewActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.ball.WaveBallActivity;
@@ -27,7 +26,10 @@ import zhiwenyan.cmccaifu.com.android2017.view.customview.CustomActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.kugou.KugouActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.live.LiveActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.matrix.MatrixActivity;
+import zhiwenyan.cmccaifu.com.android2017.view.metro.MetroActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.multiView.MultiViewActivity;
+import zhiwenyan.cmccaifu.com.android2017.view.mum.MumLoadingViewActivity;
+import zhiwenyan.cmccaifu.com.android2017.view.password.PasswordActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.path.BezierActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.path.PathActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.progressbar.ProgressActivity;
@@ -77,9 +79,12 @@ public class ViewActivity extends BaseActivity {
             R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9, R.id.btn10, R.id.btn11,
             R.id.btn12, R.id.btn13, R.id.btn15, R.id.btn16, R.id.btn18, R.id.btn20, R.id.btn21, R.id.btn22,
             R.id.kugou, R.id.yahoo, R.id.chart, R.id.btn26, R.id.btn27, R.id.btn28, R.id.btn29, R.id.btn30, R.id.btn33,
-            R.id.btn32, R.id.btn36, R.id.btn39, R.id.btn40, R.id.btn41})
+            R.id.btn32, R.id.btn36, R.id.btn39, R.id.btn40, R.id.btn41, R.id.btn48, R.id.btn50, R.id.btn51})
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.btn50:
+                startActivity(new Intent(this, CanvasActivity.class));
+                break;
             case R.id.btn1:
                 startActivity(new Intent(this, SimileViewActivity.class));
                 break;
@@ -178,7 +183,12 @@ public class ViewActivity extends BaseActivity {
                 break;
             case R.id.btn41:
                 startActivity(new Intent(this, SideDeleteActivity.class));
-
+                break;
+            case R.id.btn48:
+                startActivity(new Intent(this, MetroActivity.class));
+                break;
+            case R.id.btn51:
+                startActivity(new Intent(this, MumLoadingViewActivity.class));
                 break;
 
         }

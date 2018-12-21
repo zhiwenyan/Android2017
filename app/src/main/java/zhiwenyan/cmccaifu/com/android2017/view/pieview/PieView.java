@@ -31,6 +31,7 @@ public class PieView extends View {
 
     // 文字色块部分
     private PointF mStartPoint = new PointF(20, 20);
+
     private PointF mCurrentPoint = new PointF(mStartPoint.x, mStartPoint.y);
     private float mColorRectSideLength = 20;
     private float mTextInterval = 10;

@@ -122,4 +122,6 @@
         <attr name="ballRadius" format="dimension"/>
         <attr name="waveColor" format="color"/>
     </declare-styleable>
+
+
 </resources>

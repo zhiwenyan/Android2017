@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.View;
 
 /**
@@ -15,7 +14,6 @@ import android.view.View;
 public class CircleView extends View {
     private Paint mPaint;
     private int mColor;
-    private float mScaleFactor = 1.3f;
 
     public CircleView(Context context) {
         this(context, null);
@@ -49,9 +47,9 @@ public class CircleView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        int cx = getWidth() / 2;
-        int cy = getHeight() / 2;
-        float radius = getWidth() / 2;
+        int cx = getWidth() / 4;
+        int cy = getHeight() / 4;
+        float radius = getWidth() / 4;
         mPaint.setColor(getColor());
         canvas.drawCircle(cx, cy, radius, mPaint);
 
@@ -65,8 +63,5 @@ public class CircleView extends View {
         return mColor;
     }
 
-    private int dip2px(int px) {
-        return ( int ) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, px, getResources().getDisplayMetrics());
-    }
 
 }

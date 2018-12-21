@@ -1,20 +1,24 @@
 package zhiwenyan.cmccaifu.com.android2017.utils;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.v4.app.AppOpsManagerCompat;
-import android.support.v4.content.ContextCompat;
-import android.text.TextUtils;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializer;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.util.List;
+
+import zhiwenyan.cmccaifu.com.android2017.utils.gson.DoubleJsonDeserializer;
+import zhiwenyan.cmccaifu.com.android2017.utils.gson.FloatJsonDeserializer;
+import zhiwenyan.cmccaifu.com.android2017.utils.gson.IntegerJsonDeserializer;
+import zhiwenyan.cmccaifu.com.android2017.utils.gson.StringJsonDeserializer;
 
 /**
  * Description:
@@ -22,6 +26,19 @@ import java.util.List;
  *
  * @author yanzhiwen
  */
+class User  {
+    private int id;
+    private int age;
+    private String name;
+
+    public User(int id, int age, String name) {
+        this.id = id;
+        this.age = age;
+        this.name = name;
+    }
+
+}
+
 public class FileUtil {
     public static void read() {
         try {
@@ -41,25 +58,68 @@ public class FileUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
 
-    public static boolean hasPermission(@NonNull Context context, @NonNull List<String> permissions) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return true;
-        for (String permission : permissions) {
-            String op = AppOpsManagerCompat.permissionToOp(permission);
-            if (TextUtils.isEmpty(op)) continue;
-            int result = AppOpsManagerCompat.noteProxyOp(context, op, context.getPackageName());
-            if (result == AppOpsManagerCompat.MODE_IGNORED) return false;
-            result = ContextCompat.checkSelfPermission(context, permission);
-            if (result != PackageManager.PERMISSION_GRANTED) return false;
+    public static Gson createGson() {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        //gsonBuilder.setExclusionStrategies(new SpecificClassExclusionStrategy(null, Model.class));
+        gsonBuilder.setDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        JsonDeserializer deserializer = new IntegerJsonDeserializer();
+        gsonBuilder.registerTypeAdapter(int.class, deserializer);
+        gsonBuilder.registerTypeAdapter(Integer.class, deserializer);
+
+        deserializer = new FloatJsonDeserializer();
+        gsonBuilder.registerTypeAdapter(float.class, deserializer);
+        gsonBuilder.registerTypeAdapter(Float.class, deserializer);
+
+        deserializer = new DoubleJsonDeserializer();
+        gsonBuilder.registerTypeAdapter(double.class, deserializer);
+        gsonBuilder.registerTypeAdapter(Double.class, deserializer);
+
+        deserializer = new StringJsonDeserializer();
+        gsonBuilder.registerTypeAdapter(String.class, deserializer);
+
+        return gsonBuilder.create();
+    }
+
+    public static void save(User src) {
+        String fileName = "C:\\Users\\fumi_it1\\Desktop\\aaa1.json";
+        File file = new File(fileName);
+        Gson gson =createGson();
+        try {
+            file.createNewFile();
+            FileWriter writer = new FileWriter(file);
+            gson.toJson(src,writer);
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
-        return true;
     }
 
+    public static void readJson() {
+        String fileName = "C:\\Users\\fumi_it1\\Desktop\\aaa1.json";
+        File file = new File(fileName);
+        Gson gson = new Gson();
+        System.out.println(file.getAbsolutePath());
+        try {
+            FileReader fileReader = new FileReader(file);
+            User user = gson.fromJson(fileReader, User.class);
+            System.out.println(user);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 
     public static void main(String[] args) {
-        read();
+        //read();
+        User user = new User(1, 22, "sssss");
+        save(user);
+        readJson();
     }
 }

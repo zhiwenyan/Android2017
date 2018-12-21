@@ -59,7 +59,7 @@ public class DotIndicatorView extends View {
      */
     private Bitmap drawableToBitmap(Drawable drawable) {
         if (drawable instanceof BitmapDrawable) {
-            return ((BitmapDrawable) drawable).getBitmap();
+            return (( BitmapDrawable ) drawable).getBitmap();
         }
         //其他类型 ColorDrawable
         //创建一个什么也没有的Bitmap；
@@ -82,6 +82,7 @@ public class DotIndicatorView extends View {
         Canvas canvas = new Canvas(circleBitmap);
         Paint paint = new Paint();
         paint.setAntiAlias(true);
+        //对位图进行滤波处理
         paint.setFilterBitmap(true);
         //防止抖动
         paint.setDither(true);

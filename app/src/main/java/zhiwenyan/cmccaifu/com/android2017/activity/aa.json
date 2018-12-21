@@ -1,74 +1,18 @@
-[
-  {
-    "name": "Selina",
-    "phoneNumber": [
-      {
-        "moblie": "150 7852 3636"
+{
+  "message": "\u83b7\u53d6\u6210\u529f",
+  "code": 200,
+  "result": {
+    "total": 1600,
+    "count": 1,
+    "due": 0,
+    "repay": {
+      "1": {
+        "id": "351",
+        "money": "1600.00",
+        "detail_id": "48738",
+        "deadline": "2018-11-29",
+        "msg": "\u8ddd\u79bb\u8fd8\u6b3e\u65e5\u8fd8\u52697\u5929"
       }
-    ]
-  },
-  {
-    "name": "华为客服",
-    "phoneNumber": [
-      {
-        "moblie": "4008308300"
-      }
-    ]
-  },
-  {
-    "name": "钉钉官方短信",
-    "phoneNumber": [
-      {
-        "moblie": "106904068039604916"
-      }
-    ]
-  },
-  {
-    "name": "钉钉专属顾问",
-    "phoneNumber": [
-      {
-        "moblie": "057156215888"
-      }
-    ]
-  },
-  {
-    "name": "021 5081 8103",
-    "phoneNumber": [
-      {
-        "moblie": "021 5081 8103"
-      }
-    ]
-  },
-  {
-    "name": "郑迎春",
-    "phoneNumber": [
-      {
-        "moblie": "150 2103 1142"
-      }
-    ]
-  },
-  {
-    "name": "测试",
-    "phoneNumber": [
-      {
-        "moblie": "156 1803 9929"
-      }
-    ]
-  },
-  {
-    "name": "测试2",
-    "phoneNumber": [
-      {
-        "moblie": "156 1823 9929"
-      }
-    ]
-  },
-  {
-    "name": "测试3",
-    "phoneNumber": [
-      {
-        "moblie": "156 1852 9929"
-      }
-    ]
+    }
   }
-]
+}

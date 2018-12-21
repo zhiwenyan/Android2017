@@ -371,7 +371,17 @@
         <activity android:name=".view.sin.WaveActivity">
         </activity>
         <activity android:name=".view.metro.MetroActivity">
+        </activity>
+        <activity android:name=".view.mum.MumLoadingViewActivity">
+        </activity>
+        <activity android:name=".activity.DeviceActivity"/>
 
+        <service
+            android:name=".service.MyIntentService"
+            android:exported="false">
+        </service>
+
+        <activity android:name=".retrofit.uploadImage.UploadImageActivity">
         </activity>
     </application>
 

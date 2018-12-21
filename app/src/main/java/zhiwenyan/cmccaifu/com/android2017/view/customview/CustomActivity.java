@@ -1,6 +1,7 @@
 package zhiwenyan.cmccaifu.com.android2017.view.customview;
 
 import android.animation.ValueAnimator;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -21,16 +22,24 @@ public class CustomActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom);
-        mRotationLineView = (RotationLineView) findViewById(R.id.LineView);
-        mRunView = (RunView) findViewById(R.id.runView);
-        mHuaWeiView = (HuaWeiView) findViewById(R.id.hw);
+        mRotationLineView = ( RotationLineView ) findViewById(R.id.LineView);
+        mRunView = ( RunView ) findViewById(R.id.runView);
+        mHuaWeiView = ( HuaWeiView ) findViewById(R.id.hw);
         mHuaWeiView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mHuaWeiView.changeAngle(300);
+                mHuaWeiView.change(200);
             }
         });
-        mQQRunView = (QQRunView) findViewById(R.id.stepView);
+        HuaWeiView.OnAngleColorListener onAngleColorListener = new HuaWeiView.OnAngleColorListener() {
+            @Override
+            public void onAngleColorListener(int red, int green) {
+                Color color = new Color();
+                int c = color.argb(150, red, green, 0);
+                //ll.setBackgroundColor(c);
+            }
+        };
+        mQQRunView = ( QQRunView ) findViewById(R.id.stepView);
         mQQRunView.setStepMax(3000);
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, 3000);
         valueAnimator.setInterpolator(new DecelerateInterpolator());
@@ -38,8 +47,8 @@ public class CustomActivity extends AppCompatActivity {
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                float value = (float) animation.getAnimatedValue();
-                mQQRunView.setCurrentStep((int) value);
+                float value = ( float ) animation.getAnimatedValue();
+                mQQRunView.setCurrentStep(( int ) value);
             }
         });
         valueAnimator.start();
@@ -51,8 +60,8 @@ public class CustomActivity extends AppCompatActivity {
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                float currentValue = (float) animation.getAnimatedValue();
-                mRunView.setCurrentStep((int) currentValue);
+                float currentValue = ( float ) animation.getAnimatedValue();
+                mRunView.setCurrentStep(( int ) currentValue);
 
             }
         });

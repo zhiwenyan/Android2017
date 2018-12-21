@@ -1,24 +1,18 @@
 {
+  "message": "\u83b7\u53d6\u6210\u529f",
   "code": 200,
-  "data": {
-    "userInfoList": [
+  "result": {
+    "total": 1500,
+    "count": 1,
+    "due": 1,
+    "repay": [
       {
-        "drip": 0.0,
-        "dripStr": "0.000000",
-        "id": 35,
-        "nickname": "小心情",
-        "username": "啦啦啦",
-        "vitality": 607
-      },
-      {
-        "drip": 1119.77289,
-        "dripStr": "1119.772890",
-        "id": 46,
-        "nickname": "abc",
-        "username": "Chans",
-        "vitality": 506
+        "id": "225",
+        "money": "1500.00",
+        "detail_id": "48724",
+        "deadline": "2018-08-30",
+        "msg": "\u5df2\u903e\u671f84\u5929"
       }
     ]
-  },
-  "msg": "success"
+  }
 }

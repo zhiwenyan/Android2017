@@ -34,30 +34,6 @@ public class ViewGroupActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.i("TAG", "Activity---dispatchTouchEvent: " + ev.getAction());
-        return super.dispatchTouchEvent(ev);
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        Log.i("TAG", "Activity---onTouchEvent: " + event.getAction());
-        return super.onTouchEvent(event);
-    }
-    /**
-     * View的
-     *
-     *
-     *
-     *
-     *
-     */
-//    @Override
-//    public boolean onTouchEvent(MotionEvent event) {
-//        Log.i("TAG", "A---onTouchEvent: " + event.getAction());
-//        return super.onTouchEvent(event);
-//    }
     /*
      * 实现onInterceptTouchEvent方法可以用来拦截父ViewGroup传递下来的所有触屏事件，
      * 可以将所有触屏事件交由此ViewGroup自身的onTouchEvent来处理，也可以继续传递给其子View来处理。

@@ -17,12 +17,12 @@ class KotlinActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_koltin)
+
         tv_name.text = "Steven Yan"
 
         btn_ok.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
-
     }
 }

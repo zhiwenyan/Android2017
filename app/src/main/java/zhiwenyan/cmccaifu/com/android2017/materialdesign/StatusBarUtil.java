@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 
 
-
 public class StatusBarUtil {
     /**
      * 为我们的 activity 的状态栏设置颜色
@@ -42,11 +41,11 @@ public class StatusBarUtil {
             // 在系统布局中会有一个 id 为 android.R.id.content 这布局是（RelativeLayout）
 
             //  http://www.jianshu.com/p/531d1168b3ee
-            ViewGroup decorView = (ViewGroup) activity.getWindow().getDecorView();
+            ViewGroup decorView = ( ViewGroup ) activity.getWindow().getDecorView();
             decorView.addView(view);
 
             // 获取activity中setContentView布局的根布局
-            ViewGroup contentView = (ViewGroup) activity.findViewById(android.R.id.content);
+            ViewGroup contentView = ( ViewGroup ) activity.findViewById(android.R.id.content);
             contentView.setPadding(0, getStatusBarHeight(activity), 0, 0);
             // View activityView = contentView.getChildAt(0);
             // activityView.setFitsSystemWindows(true);

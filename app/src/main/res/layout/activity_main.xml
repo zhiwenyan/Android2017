@@ -546,7 +546,7 @@
                     android:background="#5be6ff"
                     android:gravity="center_horizontal"
                     android:padding="8dp"
-                    android:text="获取手机信息"
+                    android:text="约束布局"
                     android:textColor="@color/colorWhite"/>
 
                 <TextView

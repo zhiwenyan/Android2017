@@ -45,16 +45,16 @@ public class MetroView extends RelativeLayout {
         linearLayout.addView(mMiddleView);
         linearLayout.addView(mRightView);
 
-        LayoutParams layoutParams = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
+        LayoutParams layoutParams = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT * 2,
+                LinearLayout.LayoutParams.WRAP_CONTENT * 2);
         //中间的位置
         layoutParams.addRule(CENTER_IN_PARENT);
         linearLayout.setLayoutParams(layoutParams);
         addView(linearLayout);
 
         LinearLayout.LayoutParams params = ( LinearLayout.LayoutParams ) mMiddleView.getLayoutParams();
-        params.leftMargin = dip2px(10);
-        params.rightMargin = dip2px(10);
+        params.leftMargin = dip2px(8);
+        params.rightMargin = dip2px(8);
         mMiddleView.setLayoutParams(params);
 
         post(new Runnable() {
@@ -69,7 +69,7 @@ public class MetroView extends RelativeLayout {
     private CircleView getCircleView(Context context, int color) {
         CircleView circleView = new CircleView(context);
         circleView.setColor(color);
-        LayoutParams layoutParams = new LayoutParams(dip2px(12 ), dip2px(12));
+        LayoutParams layoutParams = new LayoutParams(dip2px(24), dip2px(24));
         circleView.setLayoutParams(layoutParams);
         return circleView;
     }
@@ -149,6 +149,6 @@ public class MetroView extends RelativeLayout {
     }
 
     private int dip2px(int px) {
-        return (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, px, getResources().getDisplayMetrics());
+        return ( int ) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, px, getResources().getDisplayMetrics());
     }
 }

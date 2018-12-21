@@ -106,6 +106,7 @@ public class BannerViewPager extends ViewPager {
             return Integer.MAX_VALUE;
         }
 
+        @NonNull
         @Override
         public Object instantiateItem(@NonNull ViewGroup container, int position) {
             //Adapter设计模式为了完全让用户自定义

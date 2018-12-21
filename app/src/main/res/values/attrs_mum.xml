@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MumLoadingView">
+        <attr name="lineColor" format="color"/>
+        <attr name="lineRotationColor" format="color"/>
+        <attr name="lineRotationAngle" format="integer"/>
+        <attr name="lineWidth" format="dimension"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="textColor" format="color"/>
+    </declare-styleable>
+
+</resources>

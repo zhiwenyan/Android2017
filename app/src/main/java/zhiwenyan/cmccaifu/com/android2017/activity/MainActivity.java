@@ -9,9 +9,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
 import android.os.IBinder;
-import android.os.Message;
 import android.os.RemoteException;
 import android.util.Log;
 import android.util.SparseArray;
@@ -22,13 +20,12 @@ import android.widget.CalendarView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.greenrobot.eventbus.EventBus;
 
 import java.io.Closeable;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.InetAddress;
@@ -36,9 +33,7 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -91,14 +86,7 @@ public class MainActivity extends BaseActivity {
     TextView mTweenAnimTv;
     @BindView(R.id.frameAnimTv)
     TextView mrameAnimTv;
-    private Map<Integer, String> mMap = new HashMap<>();
     private CalendarView mCalendarView;
-    private Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-        }
-    };
     private String mEnter;
     private int cache;
 
@@ -108,6 +96,7 @@ public class MainActivity extends BaseActivity {
         mCalendarView = findViewById(R.id.cv);
         // String signParam = SignatureUtils.signatureParams("userName=steven&password=123456");
         // Log.i("TAG", signParam);
+        Toast.makeText(this,"toast",Toast.LENGTH_SHORT).show();
         ViewGroup parent = ( ViewGroup ) findViewById(R.id.view_root);
         EventBus.getDefault().post(new MessageEvent("Hello everyone!"));
         NavigationBar navigationBar = new NavigationBar.Builder(this, R.layout.ui_navigation_bar, parent)
@@ -120,17 +109,16 @@ public class MainActivity extends BaseActivity {
                 }).create();
         //如果想设置字体的大小、颜色，图片、等等
         TextView textView = navigationBar.findById(R.id.text);
-        File file = new File("");
-        try {
-            FileWriter fileWriter = new FileWriter(file); //字符
-            FileOutputStream fileOutputStream = new FileOutputStream(file); //字节
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         mCalendarView = findViewById(R.id.cv);
         initCalendarView();
         initSparseArray();
+        textView.post(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
 
     }
 
@@ -142,6 +130,7 @@ public class MainActivity extends BaseActivity {
         System.out.println(array.keyAt(0));
         System.out.println(array.valueAt(0));
     }
+
 
 
     private void initCalendarView() {
