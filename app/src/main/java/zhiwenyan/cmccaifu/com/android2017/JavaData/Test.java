@@ -7,11 +7,16 @@ package zhiwenyan.cmccaifu.com.android2017.JavaData;
  */
 public final class Test {
 
+    private <T> T get(T a) {
+        return a;
+    }
+
     @Override
     protected void finalize() throws Throwable {
         super.finalize();
         System.out.println("回收");
     }
+
 
     public static void main(String[] args) {
         Test test1 = new Test();

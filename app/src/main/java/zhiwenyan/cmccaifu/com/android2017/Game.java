@@ -46,4 +46,11 @@ public class Game implements Parcelable {
             return new Game[size];
         }
     };
+
+
+    public static void main(String[] args) {
+        Game game=new Game();
+        System.out.println(game.hashCode());
+        System.out.println(game);
+    }
 }

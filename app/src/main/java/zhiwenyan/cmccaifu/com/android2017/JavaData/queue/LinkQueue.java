@@ -92,6 +92,7 @@ public class LinkQueue<T> implements Serializable {
      * @Description: 出队
      */
     public T poll() {
+        //头结点
         Node oldFront = front;
         front = front.next;
         oldFront.next = null;
