@@ -42,8 +42,8 @@ public class CouponView extends RelativeLayout {
         mPaint.setAntiAlias(true);
         mPaint.setDither(true);
         mPaint.setStyle(Paint.Style.FILL);
-        mRadius = DensityUtil.px2dip(getContext(), 24);
-        mGap = DensityUtil.px2dip(getContext(), 18);
+        mRadius = DensityUtil.dip2px(getContext(), 4);
+        mGap = DensityUtil.dip2px(getContext(), 4);
     }
 
 
@@ -61,9 +61,9 @@ public class CouponView extends RelativeLayout {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         for (int i = 0; i < mCircleNum; i++) {
-            float cy = mGap + mRadius + ((mGap + mRadius * 2) * i)+mRemain;
-            canvas.drawCircle(0, cy, mRadius, mPaint);
-            canvas.drawCircle(getMeasuredWidth(), cy, mRadius, mPaint);
+            float cx = mGap + mRadius + mRemain / 2 + ((mGap + mRadius * 2) * i);
+            canvas.drawCircle(cx, 0, mRadius, mPaint);
+            canvas.drawCircle(cx, getHeight(), mRadius, mPaint);
         }
     }
 }

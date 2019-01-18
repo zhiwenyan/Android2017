@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="transitionTheme" parent="AppTheme">
+        <item name="android:windowExitTransition">@transition/fade</item>
+        <item name="android:windowEnterAnimation">@transition/fade</item>
+        <!--<item name="android:windowReenterTransition">@transition/fade</item>-->
+    </style>
+</resources>

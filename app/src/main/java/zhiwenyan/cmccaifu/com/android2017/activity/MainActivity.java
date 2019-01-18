@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
@@ -74,6 +76,7 @@ import zhiwenyan.cmccaifu.com.android2017.net.HttpURLConnectionActivity;
 import zhiwenyan.cmccaifu.com.android2017.okhttp.OkhttpActivity;
 import zhiwenyan.cmccaifu.com.android2017.retrofit.RetrofitActivity;
 import zhiwenyan.cmccaifu.com.android2017.sqlite.SqliteActivity;
+import zhiwenyan.cmccaifu.com.android2017.transition.FirstActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.ViewActivity;
 import zhiwenyan.cmccaifu.com.androidadvanced.UserAidl;
 
@@ -96,7 +99,7 @@ public class MainActivity extends BaseActivity {
         mCalendarView = findViewById(R.id.cv);
         // String signParam = SignatureUtils.signatureParams("userName=steven&password=123456");
         // Log.i("TAG", signParam);
-        Toast.makeText(this,"toast",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "toast", Toast.LENGTH_SHORT).show();
         ViewGroup parent = ( ViewGroup ) findViewById(R.id.view_root);
         EventBus.getDefault().post(new MessageEvent("Hello everyone!"));
         NavigationBar navigationBar = new NavigationBar.Builder(this, R.layout.ui_navigation_bar, parent)
@@ -119,6 +122,17 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds=true;
+        options.inSampleSize = 2;  //会压缩四倍
+        options.inJustDecodeBounds=false;
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_splash, options);
+        System.out.println("bitmap.getByteCount()=" + bitmap.getByteCount());
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        System.out.println("bitmap width=" + width);
+        System.out.println("bitmap height=" + height);
+
 
     }
 
@@ -130,7 +144,6 @@ public class MainActivity extends BaseActivity {
         System.out.println(array.keyAt(0));
         System.out.println(array.valueAt(0));
     }
-
 
 
     private void initCalendarView() {
@@ -204,7 +217,8 @@ public class MainActivity extends BaseActivity {
             R.id.okHttpTv, R.id.retrofit, R.id.bannerTv, R.id.viewTv, R.id.viewgroupTv, R.id.commonViewPager,
             R.id.threedTv, R.id.lruTv, R.id.drawTv, R.id.coorTv, R.id.messenger, R.id.startService,
             R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager, R.id.bntv, R.id.device, R.id.sensor
-            , R.id.dialog, R.id.sqliteTv, R.id.dialogTv, R.id.noticeTv, R.id.designTv, R.id.emojiTv, R.id.kotlin})
+            , R.id.dialog, R.id.sqliteTv, R.id.dialogTv, R.id.noticeTv, R.id.designTv, R.id.emojiTv, R.id.kotlin,
+            R.id.ui,R.id.tv_transition})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -341,6 +355,12 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.kotlin:
                 intent = new Intent(this, KotlinActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.ui:
+                break;
+            case R.id.tv_transition:
+                intent = new Intent(this, FirstActivity.class);
                 startActivity(intent);
                 break;
         }

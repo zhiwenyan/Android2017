@@ -64,7 +64,7 @@ public class PieView extends View {
             return;
         float currentStartAngle = mStartAngle;                      // 当前起始角度
         canvas.translate(mWidth / 2, mHeight / 2);                  // 将画布坐标原点移动到中心位置
-        float r = (float) (Math.min(mWidth, mHeight) / 2 * 0.8);    // 饼状图半径
+        float r = ( float ) (Math.min(mWidth, mHeight) / 2 * 0.8);    // 饼状图半径
         RectF rect = new RectF(-r, -r, r, r);                       // 饼状图绘制区域
 
         for (int i = 0; i < mData.size(); i++) {
@@ -72,11 +72,11 @@ public class PieView extends View {
             mPaint.setColor(pie.getColor());
             canvas.drawArc(rect, currentStartAngle, pie.getAngle(), true, mPaint);
             currentStartAngle += pie.getAngle();
-//
+
 //            canvas.save();
 //            canvas.translate(-mWidth / 2, -mHeight / 2);
-////            RectF colorRect = new RectF(mCurrentPoint.x, mCurrentPoint.y,
-////                    mCurrentPoint.x + mColorRectSideLength, mCurrentPoint.y + mColorRectSideLength);
+//            RectF colorRect = new RectF(mCurrentPoint.x, mCurrentPoint.y,
+//                    mCurrentPoint.x + mColorRectSideLength, mCurrentPoint.y + mColorRectSideLength);
 //            canvas.restore();
         }
 

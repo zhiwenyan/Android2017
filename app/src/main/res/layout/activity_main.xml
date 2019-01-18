@@ -75,6 +75,18 @@
                     android:padding="8dp"
                     android:text="帧动画"
                     android:textColor="@color/colorWhite"/>
+
+                <TextView
+                    android:id="@+id/tv_transition"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#00b2f9"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Transition"
+                    android:textColor="@color/colorWhite"/>
             </LinearLayout>
 
             <TextView
@@ -680,6 +692,33 @@
             android:background="@color/app_main_color_deep"
             android:text="Kotlin"
             android:textColor="#ff0000"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="性能优化"
+            android:textColor="#8964f9"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/ui"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#8964f9"
+                android:gravity="center_horizontal"
+                android:padding="8dp"
+                android:text="界面优化"
+                android:textColor="@color/colorWhite"/>
+
+
+        </LinearLayout>
 
     </LinearLayout>
 

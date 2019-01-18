@@ -1,18 +1,26 @@
 {
-  "message": "\u83b7\u53d6\u6210\u529f",
-  "code": 200,
-  "result": {
-    "total": 1600,
-    "count": 1,
-    "due": 0,
-    "repay": {
-      "1": {
-        "id": "351",
-        "money": "1600.00",
-        "detail_id": "48738",
-        "deadline": "2018-11-29",
-        "msg": "\u8ddd\u79bb\u8fd8\u6b3e\u65e5\u8fd8\u52697\u5929"
-      }
+  "id_exceptions": {
+    "id_photo_monochrome": 0,
+    "id_attacked": 0
+  },
+  "face_genuineness": {
+    "mask_confidence": 0.0,
+    "screen_replay_confidence": 0.0,
+    "mask_threshold": 0.5,
+    "synthetic_face_confidence": 0.0,
+    "synthetic_face_threshold": 0.5,
+    "screen_replay_threshold": 0.5,
+    "face_replaced": 0
+  },
+  "request_id": "1547445641,77ba652d-1505-46b7-9dd0-caa12ec768be",
+  "time_used": 1101,
+  "result_faceid": {
+    "confidence": 85.745,
+    "thresholds": {
+      "1e-3": 62.169,
+      "1e-5": 74.399,
+      "1e-4": 69.315,
+      "1e-6": 78.038
     }
   }
 }

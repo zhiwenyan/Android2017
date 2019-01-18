@@ -383,6 +383,14 @@
 
         <activity android:name=".retrofit.uploadImage.UploadImageActivity">
         </activity>
+        <activity android:name=".transition.FirstActivity">
+        </activity>
+        <activity
+            android:name=".transition.SecondActivity"
+            android:theme="@style/transitionTheme">
+        </activity>
+        <activity android:name=".transition.ThirdActivity">
+        </activity>
     </application>
 
 </manifest>

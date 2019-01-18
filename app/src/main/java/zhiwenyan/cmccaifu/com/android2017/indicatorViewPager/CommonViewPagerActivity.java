@@ -8,7 +8,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,14 +51,18 @@ public class CommonViewPagerActivity extends AppCompatActivity {
 
             @Override
             public void highIndicator(View view) {
-                TextView tv = (TextView) view;
+                ColorTrackTextView tv = (ColorTrackTextView) view;
                 tv.setTextColor(Color.RED);
+                System.out.println("highIndicator="+tv);
+
             }
 
             @Override
             public void restoreIndicator(View view) {
-                TextView tv = (TextView) view;
+                ColorTrackTextView tv = (ColorTrackTextView) view;
                 tv.setTextColor(Color.BLACK);
+                System.out.println("restoreIndicator="+tv);
+
             }
 
             @Override

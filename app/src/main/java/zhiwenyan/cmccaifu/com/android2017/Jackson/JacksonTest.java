@@ -125,7 +125,5 @@ public class JacksonTest {
 
         System.out.println("car.brand = " + car3.getBrand());
         System.out.println("car.doors = " + car3.getDoors());
-
-
     }
 }

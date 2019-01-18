@@ -10,11 +10,15 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.view.animation.DecelerateInterpolator;
+import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 /**
+ * ViewPager 指示器 Adapter适配
+ * <p>
+ * 如何做到适配所有 Adapter适配器模式
  * Created by yanzhiwen on 2017/8/31
  */
 
@@ -24,6 +28,7 @@ public class IndicatorGroupView extends FrameLayout {
     private View mBottomTrackView;
     private int mItemWidth;
     private FrameLayout.LayoutParams mParams;
+    private int mInitLeftMargin;
 
     public IndicatorGroupView(@NonNull Context context) {
         this(context, null);
@@ -57,47 +62,63 @@ public class IndicatorGroupView extends FrameLayout {
         this.mBottomTrackView = trackView;
         this.mItemWidth = itemWidth;
         addView(trackView);
-        mParams = (LayoutParams) mBottomTrackView.getLayoutParams();
+        mParams = ( LayoutParams ) mBottomTrackView.getLayoutParams();
         mParams.gravity = Gravity.BOTTOM;
-        mParams.width = mItemWidth;
+
+        int trackWidth = mParams.width;
+        if (trackWidth == ViewGroup.LayoutParams.MATCH_PARENT) {
+            trackWidth = mItemWidth;
+        }
+        if (trackWidth > mItemWidth) {
+            trackWidth = mItemWidth;
+        }
+        mParams.width = trackWidth;
+        mInitLeftMargin = (mItemWidth - trackWidth) / 2;
+        mParams.leftMargin = mInitLeftMargin;
         mBottomTrackView.setLayoutParams(mParams);
     }
 
-
+    /***
+     * 移动底部指示器的位置
+     *
+     * @param position
+     * @param positionOffset
+     */
     public void scrollBottomTrackView(int position, float positionOffset) {
-        int currentLeftMargin = mParams.leftMargin;
-        int finalLeftMargin = (int) (position + positionOffset) * mItemWidth;
+        int currentLeftMargin = mParams.leftMargin + mInitLeftMargin;
+        int finalLeftMargin = ( int ) (position + positionOffset) * mItemWidth;
         int distance = finalLeftMargin - currentLeftMargin;
-        ValueAnimator animator = ObjectAnimator.ofFloat(currentLeftMargin,
-                Math.abs(finalLeftMargin)).setDuration((long) (Math.abs(distance) * 0.3f));
+        ValueAnimator animator = ObjectAnimator.ofFloat(currentLeftMargin, Math.abs(finalLeftMargin))
+                .setDuration(( long ) (Math.abs(distance) * 0.3f));
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                float currentLeftMargin = (float) animation.getAnimatedValue();
+                float currentLeftMargin = ( float ) animation.getAnimatedValue();
                 Log.i("TAG", "currentLeftMargin: " + currentLeftMargin);
-                mParams.leftMargin = (int) currentLeftMargin;
+                mParams.leftMargin = ( int ) currentLeftMargin;
                 mBottomTrackView.setLayoutParams(mParams);
             }
         });
+        animator.setInterpolator(new AccelerateInterpolator());
         animator.start();
 
     }
 
     public void scrollToBottomView(int position) {
-        int finalLeftMargin = position * mItemWidth;
+        int finalLeftMargin = position * mItemWidth + mInitLeftMargin;
         int currentLeftMargin = mParams.leftMargin;
         int distance = finalLeftMargin - currentLeftMargin;
         ValueAnimator animator = ObjectAnimator.ofFloat(currentLeftMargin,
-                finalLeftMargin).setDuration((long) (Math.abs(distance) * 0.3f));
+                finalLeftMargin).setDuration(( long ) (Math.abs(distance) * 0.3f));
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                float currentLeftMargin = (float) animation.getAnimatedValue();
-                mParams.leftMargin = (int) currentLeftMargin;
+                float currentLeftMargin = ( float ) animation.getAnimatedValue();
+                mParams.leftMargin = ( int ) currentLeftMargin;
                 mBottomTrackView.setLayoutParams(mParams);
             }
         });
-        animator.setInterpolator(new DecelerateInterpolator());
+        animator.setInterpolator(new AccelerateInterpolator());
         animator.start();
     }
 }

@@ -4,7 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 
-import zhiwenyan.cmccaifu.com.android2017.activity.MainActivity;
+import zhiwenyan.cmccaifu.com.android2017.eventbus.EventBus;
 
 public class MyService extends Service {
     public MyService() {
@@ -13,7 +13,12 @@ public class MyService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        startActivity(new Intent(this, MainActivity.class));
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        EventBus.getDefault().post("service");
+        return super.onStartCommand(intent, flags, startId);
     }
 
     @Override
