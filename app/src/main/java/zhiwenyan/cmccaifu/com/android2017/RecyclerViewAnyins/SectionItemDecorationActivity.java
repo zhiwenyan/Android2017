@@ -83,14 +83,6 @@ public class SectionItemDecorationActivity extends AppCompatActivity {
             public String getGroupName(int position) {
                 return lists.get(position).getComingTitle();
             }
-            //获取同组中的第一个内容
-            @Override
-            public String getGroupFirstLine(int position) {
-                if(lists.get(position).getComingTitle()!=null) {
-                    return lists.get(position).getComingTitle();
-                }
-                return "";
-            }
         }));
         MovieAdapter movieAdapter = new MovieAdapter(this, lists, R.layout.section_layout);
         mRecyclerView.setAdapter(movieAdapter);

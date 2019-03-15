@@ -1,5 +1,7 @@
 package zhiwenyan.cmccaifu.com.android2017.view.BezierCurve;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -14,16 +16,19 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.OvershootInterpolator;
 
 /**
  * Created by zhiwenyan on 2017/8/18.
  */
 
 public class MessageBubbleView extends View {
+    //固定圆
     private PointF mFixationPoint;
+    //拖拽圆
     private PointF mDragPoint;
     private Paint mPaint;
-    private int mFixationRadiusMax = dip2px(7);
+    private int mFixationRadiusMax = dip2px(8);
     private int mFixationRadius;
     private int mFixationRadiusMin = dip2px(2);
     private int mDragRadius = dip2px(12);
@@ -81,14 +86,15 @@ public class MessageBubbleView extends View {
         //计算两个点的距离
         double distance = getDistance(mDragPoint, mFixationPoint);
         mFixationRadius = (int) (mFixationRadiusMax - distance / 10);
+
         Path bezierPath = getPath();
         if (bezierPath != null) {
             if (mFixationRadius > mFixationRadiusMin) {
-                canvas.drawCircle(mFixationPoint.x, mFixationPoint.y, mFixationRadius, mPaint);
                 canvas.drawPath(bezierPath, mPaint);
+                canvas.drawCircle(mFixationPoint.x, mFixationPoint.y, mFixationRadius, mPaint);
             }
             if (mDragBitmap != null) {
-                // 搞一个渐变动画
+                // 搞一个渐变动画 中心位置才是手指拖动的位置
                 canvas.drawBitmap(mDragBitmap, mDragPoint.x - mDragBitmap.getWidth() / 2, mDragPoint.y - mDragBitmap.getHeight() / 2, null);
             }
         }
@@ -188,23 +194,44 @@ public class MessageBubbleView extends View {
         if (mFixationRadius > mFixationRadiusMin) {
             ValueAnimator animator = ObjectAnimator.ofFloat(1);
             animator.setDuration(350);
+            PointF start = new PointF(mDragPoint.x, mDragPoint.y);
+            PointF end = new PointF(mFixationPoint.x, mFixationPoint.y);
             animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimator animation) {
-
+                    float percent = (float) animation.getAnimatedValue();
+                    PointF pointF = BubbleUtils.getPointByPercent(start, end, percent);
+                    updateDragPoint(pointF.x, pointF.y);
+                }
+            });
+            animator.setInterpolator(new OvershootInterpolator());
+            animator.start();
+            //还要通知TouchListener 移除当前的View
+            animator.addListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation, boolean isReverse) {
+                    if (mMessageBubbleListener != null) {
+                        mMessageBubbleListener.restore();
+                    }
                 }
             });
         } else {
-
+            //爆炸
+            mMessageBubbleListener.dismiss();
         }
     }
 
+    private MessageBubbleListener mMessageBubbleListener;
+
+    public void setMessageBubbleListener(MessageBubbleListener messageBubbleListener) {
+        mMessageBubbleListener = messageBubbleListener;
+    }
 
     public interface MessageBubbleListener {
         // 还原
         void restore();
 
         // 消失爆炸
-        void dismiss(PointF pointF);
+        void dismiss();
     }
 }

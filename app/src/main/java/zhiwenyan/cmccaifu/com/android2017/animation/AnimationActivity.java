@@ -1,5 +1,7 @@
 package zhiwenyan.cmccaifu.com.android2017.animation;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -24,7 +26,7 @@ public class AnimationActivity extends BaseActivity {
         return R.layout.activity_animation;
     }
 
-    @OnClick({R.id.transBtn, R.id.rorationBtn, R.id.scaleBtn, R.id.alphaBtn, R.id.groupBtn})
+    @OnClick({R.id.transBtn, R.id.rorationBtn, R.id.scaleBtn, R.id.alphaBtn, R.id.groupBtn, R.id.btn})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.transBtn:
@@ -64,6 +66,20 @@ public class AnimationActivity extends BaseActivity {
                 animationSet.addAnimation(rotateAnimation1);
                 animationSet.setDuration(2000);
                 mTarget.startAnimation(animationSet);
+                break;
+            case R.id.btn:
+                final ObjectAnimator animator = new ObjectAnimator();
+                animator.setTarget(mTarget);
+                animator.setFloatValues(0, 200);
+                animator.setPropertyName("translationY");
+                animator.start();
+                animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator animation) {
+                        float value = (float) animation.getAnimatedValue();
+                        mTarget.setTop((int) value);
+                    }
+                });
                 break;
         }
     }

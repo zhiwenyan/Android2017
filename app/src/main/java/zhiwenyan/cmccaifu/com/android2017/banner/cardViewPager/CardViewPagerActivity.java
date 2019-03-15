@@ -27,8 +27,11 @@ public class CardViewPagerActivity extends AppCompatActivity {
         mViewPager.setAdapter(adapter);
 //        mViewPager.setCurrentItem(adapter.getCount() / 2);
         //设置每个页面的margin
+        ViewGroup.LayoutParams layoutParams = mViewPager.getLayoutParams();
+        layoutParams.width = getResources().getDisplayMetrics().widthPixels - 220;
+        mViewPager.setLayoutParams(layoutParams);
+        mViewPager.setOffscreenPageLimit(2);
         mViewPager.setPageTransformer(true, new ScalePageTransformer());
-
     }
 
 
@@ -51,8 +54,9 @@ public class CardViewPagerActivity extends AppCompatActivity {
          */
         @Override
         public float getPageWidth(int position) {
-            return 1 / 3f;
+            return 1.f;
         }
+
 
         @Override
         public Fragment getItem(int position) {
@@ -73,21 +77,25 @@ public class CardViewPagerActivity extends AppCompatActivity {
     }
 
     public class ScalePageTransformer implements ViewPager.PageTransformer {
+        private static final float MIN_SCALE = 0.8f;
+
         @Override
         public void transformPage(View page, float position) {
             Log.i("TAG", "transformPage: " + position);
-//            if (position >= -1 && position <= 1) {
-//                float scale = 1.0f - Math.abs(position) * (1 - MIN_SCALE);
-//                page.setScaleX(scale);
-//                page.setScaleY(scale);
-//            } else {
-//                page.setScaleX(MIN_SCALE);
-//                page.setScaleY(MIN_SCALE);
-//            }
-            float abs = Math.abs(position - 1 / 3f);
-            float scale = (2 * (abs * abs));
-            page.setScaleX(1 - scale);
-            page.setScaleY(1 - scale);
+            if (position >= -1.0f && position <= 1.0f) {
+                float scale = 1.0f - Math.abs(position) * (1 - MIN_SCALE);
+                page.setScaleX(scale);
+                page.setScaleY(scale);
+            } else {
+                page.setScaleX(MIN_SCALE);
+                page.setScaleY(MIN_SCALE);
+            }
+//            float abs = Math.abs(position - 1 / 3f);
+//            float scale = (2 * (abs * abs));
+//            page.setScaleX(1 - scale);
+//            page.setScaleY(1 - scale);
+
         }
+
     }
 }

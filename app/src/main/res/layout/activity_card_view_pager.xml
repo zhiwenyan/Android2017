@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/radar"
+    android:clipChildren="false"
     tools:context="zhiwenyan.cmccaifu.com.android2017.banner.cardViewPager.CardViewPagerActivity">
 
 
@@ -12,7 +12,7 @@
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="160dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
-        android:clipChildren="false"
-        android:overScrollMode="never"/>
+        android:clipChildren="false" />
 </RelativeLayout>

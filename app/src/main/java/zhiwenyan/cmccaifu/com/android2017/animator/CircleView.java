@@ -16,7 +16,7 @@ import android.view.animation.LinearInterpolator;
 public class CircleView extends View {
 
     private Paint mPaint;
-    private PointF currentPoint;
+    private PointF currentPoint=new PointF();
 
     public CircleView(Context context) {
         this(context, null);
@@ -41,15 +41,15 @@ public class CircleView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, getWidth() / 2, mPaint);
+        canvas.drawCircle(currentPoint.x, currentPoint.y, getWidth() / 2, mPaint);
     }
 
     /**
      * 小球动画
      */
     public void startAnimationMotion() {
-        PointF startPoint = new PointF(getWidth() / 2, getHeight() / 2);
-        PointF endPoint = new PointF(getWidth() - getWidth() / 2, 0);
+        PointF startPoint = new PointF(0, 0);
+        PointF endPoint = new PointF(500, 500);
         ValueAnimator animator = ValueAnimator.ofObject(new OscillationEvaluator(), startPoint, endPoint);
         animator.setDuration(7000).setRepeatCount(3);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -81,7 +81,7 @@ public class CircleView extends View {
             //x坐标线性变化
             float x = startPoint.x + fraction * (endPoint.x - startPoint.x);
             //y坐标取相对应函数值
-            float y = 120 * ( float ) (Math.sin(0.01 * Math.PI * x)) + getHeight() / 2;
+            float y = 120 * ( float ) (Math.sin(Math.PI * x)) + getHeight() / 2;
             return new PointF(x, y);
         }
 

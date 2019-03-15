@@ -35,6 +35,7 @@ public class TagLayout extends ViewGroup {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         mChildViews.clear();
         //for循环测量子View
+
         int childCount = getChildCount();
         int width = MeasureSpec.getSize(widthMeasureSpec);
         int height = getPaddingTop() + getPaddingBottom();

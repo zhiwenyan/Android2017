@@ -1,6 +1,7 @@
 package zhiwenyan.cmccaifu.com.android2017.banner.banner;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.BottomSheetDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +10,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
 
 import zhiwenyan.cmccaifu.com.android2017.R;
 import zhiwenyan.cmccaifu.com.android2017.base.BaseActivity;
@@ -32,6 +35,8 @@ public class BannerActivity extends BaseActivity {
         doSetToolBarTitle("自定义Banner实现无限轮播");
 //        String info = HttpUtils.getInstance(url).execute();
         mBannerView = findViewById(R.id.bannerView);
+        Intent intent=new Intent();
+        intent.putParcelableArrayListExtra("",new ArrayList<>());
         mBannerView.setAdapter(new BannerAdapter() {
             @Override
             public View getView(int position, View convertView) {

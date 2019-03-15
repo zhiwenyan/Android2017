@@ -18,7 +18,7 @@ import android.util.SparseArray;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CalendarView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -89,18 +89,17 @@ public class MainActivity extends BaseActivity {
     TextView mTweenAnimTv;
     @BindView(R.id.frameAnimTv)
     TextView mrameAnimTv;
-    private CalendarView mCalendarView;
     private String mEnter;
     private int cache;
-
+    @BindView(R.id.iv)
+    ImageView iv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mCalendarView = findViewById(R.id.cv);
         // String signParam = SignatureUtils.signatureParams("userName=steven&password=123456");
         // Log.i("TAG", signParam);
         Toast.makeText(this, "toast", Toast.LENGTH_SHORT).show();
-        ViewGroup parent = ( ViewGroup ) findViewById(R.id.view_root);
+        ViewGroup parent = (ViewGroup) findViewById(R.id.view_root);
         EventBus.getDefault().post(new MessageEvent("Hello everyone!"));
         NavigationBar navigationBar = new NavigationBar.Builder(this, R.layout.ui_navigation_bar, parent)
                 .setText(R.id.text, "返回")
@@ -113,8 +112,6 @@ public class MainActivity extends BaseActivity {
         //如果想设置字体的大小、颜色，图片、等等
         TextView textView = navigationBar.findById(R.id.text);
 
-        mCalendarView = findViewById(R.id.cv);
-        initCalendarView();
         initSparseArray();
         textView.post(new Runnable() {
             @Override
@@ -123,15 +120,17 @@ public class MainActivity extends BaseActivity {
             }
         });
         BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds=true;
-        options.inSampleSize = 2;  //会压缩四倍
-        options.inJustDecodeBounds=false;
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_splash, options);
-        System.out.println("bitmap.getByteCount()=" + bitmap.getByteCount());
+        options.inJustDecodeBounds = true;
+        options.inSampleSize = 2;  //getByteCount会压缩四倍
+        options.inJustDecodeBounds = false;
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.home_content_bg, options);
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         System.out.println("bitmap width=" + width);
         System.out.println("bitmap height=" + height);
+        System.out.println("bitmap.getByteCount()=" + bitmap.getByteCount());
+
+        iv.setImageBitmap(bitmap);
 
 
     }
@@ -146,9 +145,6 @@ public class MainActivity extends BaseActivity {
     }
 
 
-    private void initCalendarView() {
-        mCalendarView.setDate(System.currentTimeMillis());
-    }
 
     @Override
     protected void onResume() {
@@ -218,7 +214,7 @@ public class MainActivity extends BaseActivity {
             R.id.threedTv, R.id.lruTv, R.id.drawTv, R.id.coorTv, R.id.messenger, R.id.startService,
             R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager, R.id.bntv, R.id.device, R.id.sensor
             , R.id.dialog, R.id.sqliteTv, R.id.dialogTv, R.id.noticeTv, R.id.designTv, R.id.emojiTv, R.id.kotlin,
-            R.id.ui,R.id.tv_transition})
+            R.id.ui, R.id.tv_transition})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -366,6 +362,7 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return true;
@@ -456,5 +453,31 @@ public class MainActivity extends BaseActivity {
                 e.printStackTrace();
             }
         }
+    }
+
+    /**
+     * ，onSaveInstanceState()的调用遵循一个重要原则，即当系统存在“未经你许可”时销毁了我们的activity的可能时，
+     * 则onSaveInstanceState()会被系统调用，这是系统的责任，因为它必须要提供一个机会让你保存你的数据（当然你不保存那就随便你了）。
+     * 如果调用，调用将发生在onPause()或onStop()方法之前。（虽然测试时发现多数在onPause()前）
+     *
+     * @param outState
+     */
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+
+    /**
+     * onRestoreInstanceState()被调用的前提是，activity A“确实”被系统销毁了，而如果仅仅是停留在有这种可能性的情况下，
+     * 则该方法不会被调用，例如，当正在显示activity A的时候，用户按下HOME键回到主界面，然后用户紧接着又返回到activity A，
+     * 这种情况下activity A一般不会因为内存的原因被系统销毁，故activity A的onRestoreInstanceState方法不会被执行 此也说明上二者，大多数情况下不成对被使用。
+     * onRestoreInstanceState()在onStart() 和 onPostCreate(Bundle)之间调用。
+     *
+     * @param savedInstanceState
+     */
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
     }
 }
