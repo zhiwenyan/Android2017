@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import zhiwenyan.cmccaifu.com.android2017.activity.INetEvent;
+import zhiwenyan.cmccaifu.com.android2017.eventbus.EventBus;
 
 
 public abstract class BaseActivity extends AppCompatActivity implements INetEvent {
@@ -19,6 +20,7 @@ public abstract class BaseActivity extends AppCompatActivity implements INetEven
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         mUnbinder = ButterKnife.bind(this);
+        EventBus.getDefault().register(this);
         initToolBar();
 
         //初始化网络状态的监听
@@ -60,6 +62,7 @@ public abstract class BaseActivity extends AppCompatActivity implements INetEven
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        EventBus.getDefault().unregister(this);
         mUnbinder.unbind();
     }
 

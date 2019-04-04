@@ -23,6 +23,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".view.shader.ShaderViewActivity">
+
+        </activity>
         <activity android:name=".view.circleImageView.ShapeActivity">
 
 
@@ -31,7 +34,7 @@
         <receiver
             android:name=".activity.NetStateReceiver"
             android:enabled="true"
-            android:exported="true"></receiver>
+            android:exported="true" />
 
         <activity android:name=".ViewGroup.event.ScrollConflictActivity" />
         <activity
@@ -76,17 +79,13 @@
         <activity android:name=".DialogFragment.DialogFragmentActivity" />
         <activity android:name=".animator.AnimatorActivity" />
         <activity android:name=".okhttp.OkhttpActivity" />
-        <activity android:name=".okhttp.okhttp.OKHttpSourceActivity" >
-
-        </activity>
+        <activity android:name=".okhttp.okhttp.OKHttpSourceActivity"></activity>
         <activity android:name=".retrofit.RetrofitActivity" />
         <activity android:name=".Thread.ThreadActivity" />
         <activity android:name=".Thread.ThreadPoolActivity" />
         <activity android:name=".cache.ThreeCacheActivity" />
         <activity android:name=".glide.GlideActivity" />
-        <activity android:name=".animation.AnimationActivity" >
-
-        </activity>
+        <activity android:name=".animation.AnimationActivity"></activity>
         <activity android:name=".mvp.MVPActivity" />
         <activity android:name=".banner.ViewPagerActivity" />
         <activity

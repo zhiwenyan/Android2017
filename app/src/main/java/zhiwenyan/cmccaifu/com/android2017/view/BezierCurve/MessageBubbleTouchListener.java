@@ -33,6 +33,7 @@ public class MessageBubbleTouchListener implements View.OnTouchListener, Message
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+        System.out.println("MessageBubbleTouchListener--->" + event.getAction());
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mView.setVisibility(View.INVISIBLE);

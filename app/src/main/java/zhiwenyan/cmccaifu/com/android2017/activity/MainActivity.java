@@ -1,5 +1,6 @@
 package zhiwenyan.cmccaifu.com.android2017.activity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ComponentName;
@@ -9,6 +10,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
@@ -24,7 +26,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.Closeable;
 import java.io.File;
@@ -93,6 +96,7 @@ public class MainActivity extends BaseActivity {
     private int cache;
     @BindView(R.id.iv)
     ImageView iv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,7 +104,7 @@ public class MainActivity extends BaseActivity {
         // Log.i("TAG", signParam);
         Toast.makeText(this, "toast", Toast.LENGTH_SHORT).show();
         ViewGroup parent = (ViewGroup) findViewById(R.id.view_root);
-        EventBus.getDefault().post(new MessageEvent("Hello everyone!"));
+        //EventBus.getDefault().post(new MessageEvent("Hello everyone!"));
         NavigationBar navigationBar = new NavigationBar.Builder(this, R.layout.ui_navigation_bar, parent)
                 .setText(R.id.text, "返回")
                 .setOnClickListener(R.id.text, new View.OnClickListener() {
@@ -132,6 +136,53 @@ public class MainActivity extends BaseActivity {
 
         iv.setImageBitmap(bitmap);
 
+        testThreadLocal();
+
+
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEventBus(MessageEvent messageEvent) {
+        System.out.println("MessageEvent=" + messageEvent.message);
+    }
+
+
+    private ThreadLocal<Boolean> mBooleanThreadLocal = new ThreadLocal<>();
+
+    @SuppressLint("StaticFieldLeak")
+    private void testThreadLocal() {
+        mBooleanThreadLocal.set(true);
+        Log.d("TAG", "run: Main Thread=" + mBooleanThreadLocal.get());
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                mBooleanThreadLocal.set(false);
+                Log.d("TAG", "run: Thread[1]=" + mBooleanThreadLocal.get());
+            }
+        }).start();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Log.d("TAG", "run: Thread[2]=" + mBooleanThreadLocal.get());
+
+            }
+        }).start();
+        //串行
+        new AsyncTask<String, Integer, String>() {
+            @Override
+            protected String doInBackground(String... strings) {
+                return null;
+            }
+        }.execute("");
+        //并行
+        new AsyncTask<String, Integer, String>() {
+            @Override
+            protected String doInBackground(String... strings) {
+                return null;
+            }
+        }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "");
 
     }
 
@@ -144,7 +195,8 @@ public class MainActivity extends BaseActivity {
         System.out.println(array.valueAt(0));
     }
 
-
+    private void initWindow() {
+    }
 
     @Override
     protected void onResume() {

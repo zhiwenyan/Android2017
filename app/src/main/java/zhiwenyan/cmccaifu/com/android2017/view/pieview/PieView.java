@@ -63,8 +63,8 @@ public class PieView extends View {
         if (null == mData)
             return;
         float currentStartAngle = mStartAngle;                      // 当前起始角度
-        canvas.translate(mWidth / 2, mHeight / 2);                  // 将画布坐标原点移动到中心位置
-        float r = ( float ) (Math.min(mWidth, mHeight) / 2 * 0.8);    // 饼状图半径
+        canvas.translate(mWidth / 2, mHeight / 2);         // 将画布坐标原点移动到中心位置
+        float r = (float) (Math.min(mWidth, mHeight) / 2 * 0.8);    // 饼状图半径
         RectF rect = new RectF(-r, -r, r, r);                       // 饼状图绘制区域
 
         for (int i = 0; i < mData.size(); i++) {

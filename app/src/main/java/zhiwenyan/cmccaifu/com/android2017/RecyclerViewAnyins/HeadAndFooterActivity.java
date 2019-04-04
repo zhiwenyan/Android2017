@@ -25,7 +25,7 @@ public class HeadAndFooterActivity extends BaseActivity {
     private List<String> mList = new ArrayList<>();
     private View mHeaderView;
     private View mFooterView;
-
+    ListContentAdapter mContentAdapter;
     @Override
     protected int getLayoutId() {
         return R.layout.activity_head_and_footer;
@@ -39,14 +39,14 @@ public class HeadAndFooterActivity extends BaseActivity {
         }
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this,
                 LinearLayoutManager.VERTICAL, false));
-        ListContentAdapter adapter = new ListContentAdapter(this, mList, R.layout.list_content_item);
+        mContentAdapter= new ListContentAdapter(this, mList, R.layout.list_content_item);
         mHeaderView = LayoutInflater.from(this).inflate(R.layout.list_header_item, mRecyclerView, false);
         mFooterView = LayoutInflater.from(this).inflate(R.layout.list_footer_item, mRecyclerView, false);
         mRecyclerView.addItemDecoration(new DefaultItemDecoration(this, R.drawable.default_item));
-        mRecyclerView.setAdapter(adapter);
+        mRecyclerView.setAdapter(mContentAdapter);
         mRecyclerView.addHeaderView(mHeaderView);
         mRecyclerView.addFooterView(mFooterView);
-        adapter.setItemClickListener(new ItemClickListener() {
+        mContentAdapter.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClick(int position) {
                 Toast.makeText(HeadAndFooterActivity.this, "你单击了第：" + position + "个", Toast.LENGTH_SHORT).show();
@@ -77,6 +77,14 @@ public class HeadAndFooterActivity extends BaseActivity {
                 break;
             case R.id.removefooter:
                 mRecyclerView.removeFooterView(mFooterView);
+                break;
+            case R.id.addItem:
+                mList.add("content---" + (mList.size() + 1));
+                mContentAdapter.notifyDataSetChanged();
+                break;
+            case R.id.removeItem:
+                mList.clear();
+                mContentAdapter.notifyDataSetChanged();
                 break;
         }
         return super.onOptionsItemSelected(item);

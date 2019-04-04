@@ -56,6 +56,7 @@ public class MessageBubbleView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        System.out.println("MessageBubbleView--->" + event.getAction());
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 float downX = event.getX();

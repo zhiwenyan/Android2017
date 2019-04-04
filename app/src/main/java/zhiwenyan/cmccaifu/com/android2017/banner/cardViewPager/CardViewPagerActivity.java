@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import zhiwenyan.cmccaifu.com.android2017.R;
+import zhiwenyan.cmccaifu.com.android2017.banner.transformer.BackgroundToForegroundTransformer;
 
 public class CardViewPagerActivity extends AppCompatActivity {
     private ViewPager mViewPager;
@@ -25,13 +26,12 @@ public class CardViewPagerActivity extends AppCompatActivity {
         mViewPager = findViewById(R.id.viewPager);
         CardViewPagerAdapter adapter = new CardViewPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(adapter);
+        mViewPager.setOffscreenPageLimit(2);
 //        mViewPager.setCurrentItem(adapter.getCount() / 2);
         //设置每个页面的margin
-        ViewGroup.LayoutParams layoutParams = mViewPager.getLayoutParams();
-        layoutParams.width = getResources().getDisplayMetrics().widthPixels - 220;
-        mViewPager.setLayoutParams(layoutParams);
-        mViewPager.setOffscreenPageLimit(2);
-        mViewPager.setPageTransformer(true, new ScalePageTransformer());
+        //mViewPager.setPageMargin(30);
+
+        mViewPager.setPageTransformer(true, new BackgroundToForegroundTransformer());
     }
 
 
@@ -84,10 +84,10 @@ public class CardViewPagerActivity extends AppCompatActivity {
             Log.i("TAG", "transformPage: " + position);
             if (position >= -1.0f && position <= 1.0f) {
                 float scale = 1.0f - Math.abs(position) * (1 - MIN_SCALE);
-                page.setScaleX(scale);
+//                page.setScaleX(scale);
                 page.setScaleY(scale);
             } else {
-                page.setScaleX(MIN_SCALE);
+//                page.setScaleX(MIN_SCALE);
                 page.setScaleY(MIN_SCALE);
             }
 //            float abs = Math.abs(position - 1 / 3f);

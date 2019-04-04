@@ -30,8 +30,8 @@ public class AnimationActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.transBtn:
-                TranslateAnimation translateAnimation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0f, Animation.RELATIVE_TO_SELF, 0.3f,
-                        Animation.RELATIVE_TO_SELF, 0f, Animation.RELATIVE_TO_SELF, 0.5f);
+                TranslateAnimation translateAnimation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0f,
+                        Animation.RELATIVE_TO_SELF, 0.3f, Animation.RELATIVE_TO_SELF, 0f, Animation.RELATIVE_TO_SELF, 0.5f);
                 translateAnimation.setDuration(2000);
                 mTarget.startAnimation(translateAnimation);
                 break;

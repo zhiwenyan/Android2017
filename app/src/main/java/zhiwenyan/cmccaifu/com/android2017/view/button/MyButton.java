@@ -27,12 +27,12 @@ public class MyButton extends Button {
 
     public MyButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i(TAG, "onClick");
-            }
-        });
+//        setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.i(TAG, "onClick");
+//            }
+//        });
     }
 
     @SuppressLint("ClickableViewAccessibility")

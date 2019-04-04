@@ -1,4 +1,4 @@
-package zhiwenyan.cmccaifu.com.android2017.view.circleImageView;
+package zhiwenyan.cmccaifu.com.android2017.view.shader;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -15,62 +15,58 @@ import android.util.AttributeSet;
 
 /**
  * Description:
- * Data：10/30/2018-6:21 PM
+ * Data：4/1/2019-10:33 AM
  *
  * @author yanzhiwen
  */
-public class CircleImageView extends AppCompatImageView {
-    private float width;
-    private float height;
-    private float radius;
-    private Paint paint;
+public class ShaderView extends AppCompatImageView {
+    private Paint mPaint;
+    private float mRadius;
+    private float width, height;
     private Matrix matrix;
 
-    public CircleImageView(Context context) {
+    public ShaderView(Context context) {
         this(context, null);
     }
 
-    public CircleImageView(Context context, @Nullable AttributeSet attrs) {
+    public ShaderView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CircleImageView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public ShaderView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        paint = new Paint();
-        paint.setAntiAlias(true);   //设置抗锯齿
-        matrix = new Matrix();      //初始化缩放矩阵
+        mPaint = new Paint();
+        mPaint.setAntiAlias(true);
+        matrix = new Matrix();
+
     }
 
-    /**
-     * 测量控件的宽高，并获取其内切圆的半径
-     */
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         width = getMeasuredWidth();
         height = getMeasuredHeight();
-        radius = Math.min(width, height) / 2;
+
+        mRadius = Math.min(width, height) / 2;
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
         if (getDrawable() == null) {
             return;
         }
-        paint.setShader(initBitmapShader());//将着色器设置给画笔
-        canvas.drawCircle(width / 2, height / 2, radius, paint);//使用画笔在画布上画圆
+        mPaint.setShader(initBitmapShader());
+        canvas.drawCircle(width / 2, height / 2, mRadius, mPaint);
     }
 
-    /**
-     * 获取ImageView中资源图片的Bitmap，利用Bitmap初始化图片着色器,通过缩放矩阵将原资源图片缩放到铺满整个绘制区域，避免边界填充
-     */
-    //Canvas的宽度（高度）小于等于BitmapShader中Bitmap的宽度（高度）时的绘图情况，这种情况下面我们一般可以将我们的图像剪切成各种形状，最常
     private BitmapShader initBitmapShader() {
         Bitmap bitmap = drawableToBitmap(getDrawable());
         BitmapShader bitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         float scale = Math.max(width / bitmap.getWidth(), height / bitmap.getHeight());
         System.out.println("scale=" + scale);
-        matrix.setScale(scale, scale);//将图片宽高等比例缩放，避免拉伸
+        //将图片宽高等比例缩放，避免拉伸
+        matrix.setScale(scale, scale);
         bitmapShader.setLocalMatrix(matrix);
         return bitmapShader;
     }
@@ -85,5 +81,5 @@ public class CircleImageView extends AppCompatImageView {
         drawable.draw(canvas);
         return bitmap;
     }
-}
 
+}
