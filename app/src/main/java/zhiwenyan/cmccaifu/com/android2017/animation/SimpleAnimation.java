@@ -5,6 +5,7 @@ import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
 /**
+ * 自定义动画
  * Created by zhiwenyan on 4/20/17.
  */
 

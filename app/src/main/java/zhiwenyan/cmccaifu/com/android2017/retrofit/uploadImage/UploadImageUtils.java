@@ -25,6 +25,14 @@ public class UploadImageUtils {
     private static final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/png");
 
     public static void uploadFile(File file) {
+
+//        File file = new File(mFilePath); //mImagePath为上传的文件绝对路径
+//        //构建body
+//        RequestBody requestBody = new MultipartBody.Builder()
+//                .setType(MultipartBody.FORM)
+//                .addFormDataPart("file", file.getName(), RequestBody.create(MediaType.parse("multipart/form-data"), file))
+//                .build();
+
         // 创建 RequestBody，用于封装构建RequestBody
         RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
         // MultipartBody.Part  和后端约定好Key，这里的partName是用image

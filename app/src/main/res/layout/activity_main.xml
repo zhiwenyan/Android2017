@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/sv"
     android:layout_width="match_parent"
@@ -14,14 +13,17 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <CalendarView
-            android:id="@+id/cv"
+        <ImageView
+            android:id="@+id/iv"
+            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone">
+            android:layout_height="match_parent" />
 
-        </CalendarView>
-
+        <EditText
+            android:layout_margin="@dimen/x"
+            android:background="@drawable/layer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
         <LinearLayout
 
             android:layout_width="match_parent"
@@ -34,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="动画"
-                android:textColor="#00b2f9"/>
+                android:textColor="#00b2f9" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -50,7 +52,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="属性动画"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/tweenAnimTv"
@@ -62,7 +64,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="补间动画"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/frameAnimTv"
@@ -74,7 +76,19 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="帧动画"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
+
+                <TextView
+                    android:id="@+id/tv_transition"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="#00b2f9"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Transition"
+                    android:textColor="@color/colorWhite" />
             </LinearLayout>
 
             <TextView
@@ -82,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="material design"
-                android:textColor="#fc8122"/>
+                android:textColor="#fc8122" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -98,7 +112,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="沉浸式状态栏"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/drawTv"
@@ -110,7 +124,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="抽屉式布局"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/recylerTv"
@@ -122,7 +136,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="RecyclerView"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
             </LinearLayout>
 
 
@@ -141,7 +155,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="ToolBar"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/behaviorTv"
@@ -153,7 +167,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="自定义behavior"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/bntv"
@@ -165,7 +179,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="BottomNavigation"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
             </LinearLayout>
 
             <TextView
@@ -173,7 +187,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="网络、RxJava、MVP"
-                android:textColor="#ff527b"/>
+                android:textColor="#ff527b" />
 
 
             <LinearLayout
@@ -191,7 +205,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="Http"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/okHttpTv"
@@ -203,7 +217,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="okHttp"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/retrofit"
@@ -215,7 +229,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="Retrofit"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
             </LinearLayout>
 
@@ -234,7 +248,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="RxJava"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/mvpTv"
@@ -246,7 +260,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="MVP模式"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
             </LinearLayout>
 
 
@@ -255,7 +269,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="缓存"
-                android:textColor="#ec1affec"/>
+                android:textColor="#ec1affec" />
 
 
             <LinearLayout
@@ -273,7 +287,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="Lru"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/diskTv"
@@ -285,7 +299,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="磁盘缓存"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/threeTv"
@@ -297,7 +311,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="三级缓存"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
             </LinearLayout>
 
             <TextView
@@ -305,7 +319,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="线程"
-                android:textColor="#8964f9"/>
+                android:textColor="#8964f9" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -321,7 +335,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="线程"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/threadPoolTv"
@@ -333,7 +347,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="线程池"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
             </LinearLayout>
 
             <TextView
@@ -341,7 +355,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="图片处理"
-                android:textColor="#5ff7a9"/>
+                android:textColor="#5ff7a9" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -357,7 +371,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="Glide"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
             </LinearLayout>
 
 
@@ -366,7 +380,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Banner"
-                android:textColor="#d4c176"/>
+                android:textColor="#d4c176" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -382,7 +396,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="ViewPager"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
                 <!--<TextView-->
                 <!--android:id="@+id/tabTv"-->
@@ -406,7 +420,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="3D轮滑效果"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
 
                 <TextView
@@ -419,7 +433,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="卡片效果"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
             </LinearLayout>
 
@@ -438,7 +452,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="通用的ViewPager指示器"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
 
             </LinearLayout>
@@ -449,7 +463,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="自定义View、ViewGroup"
-                android:textColor="#ff5e5b"/>
+                android:textColor="#ff5e5b" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -465,7 +479,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="自定义View"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/viewgroupTv"
@@ -477,7 +491,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="自定义ViewGroup"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
             </LinearLayout>
 
 
@@ -487,7 +501,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="IPC机制"
-                android:textColor="#5be6ff"/>
+                android:textColor="#5be6ff" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -503,7 +517,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="AIDL"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/messenger"
@@ -515,7 +529,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="Messenger"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/startService"
@@ -527,7 +541,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="startService"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
             </LinearLayout>
 
 
@@ -547,7 +561,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="约束布局"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/sensor"
@@ -559,7 +573,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="传感器应用"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/dialog"
@@ -572,7 +586,7 @@
                     android:padding="8dp"
                     android:text="dialog"
                     android:textAllCaps="false"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
             </LinearLayout>
 
 
@@ -581,7 +595,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="数据库"
-                android:textColor="#8964f9"/>
+                android:textColor="#8964f9" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -597,7 +611,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="Sqlite"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
 
             </LinearLayout>
@@ -607,7 +621,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Dialog"
-                android:textColor="#22fff8"/>
+                android:textColor="#22fff8" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -623,7 +637,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="Dialog"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/noticeTv"
@@ -634,7 +648,7 @@
                     android:gravity="center_horizontal"
                     android:padding="8dp"
                     android:text="通知"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite" />
 
 
             </LinearLayout>
@@ -653,7 +667,7 @@
                     android:background="@color/colorAccent"
                     android:padding="@dimen/y"
                     android:text="设计模式"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white" />
 
                 <TextView
                     android:id="@+id/emojiTv"
@@ -664,7 +678,7 @@
                     android:background="@color/colorAccent"
                     android:padding="@dimen/y"
                     android:text="Emoji表情"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 
@@ -679,7 +693,34 @@
             android:layout_marginTop="8dp"
             android:background="@color/app_main_color_deep"
             android:text="Kotlin"
-            android:textColor="#ff0000"/>
+            android:textColor="#ff0000" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="性能优化"
+            android:textColor="#8964f9" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/ui"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#8964f9"
+                android:gravity="center_horizontal"
+                android:padding="8dp"
+                android:text="界面优化"
+                android:textColor="@color/colorWhite" />
+
+
+        </LinearLayout>
 
     </LinearLayout>
 

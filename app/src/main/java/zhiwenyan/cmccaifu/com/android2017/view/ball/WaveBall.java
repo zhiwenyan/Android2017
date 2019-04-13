@@ -114,8 +114,8 @@ public class WaveBall extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         drawCircle(canvas);
-        drawCenterText(canvas);
         drawWave(canvas);
+        drawCenterText(canvas);
     }
 
     private void drawCircle(Canvas canvas) {

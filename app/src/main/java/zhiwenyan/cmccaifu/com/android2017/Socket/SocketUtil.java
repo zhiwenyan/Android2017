@@ -1,10 +1,17 @@
 package zhiwenyan.cmccaifu.com.android2017.Socket;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
 import java.net.URL;
+import java.nio.charset.Charset;
+
+import okio.BufferedSource;
+import okio.Okio;
+import okio.Source;
 
 /**
  * Description:
@@ -35,31 +42,82 @@ public class SocketUtil {
 //        }
 
         try {
-            String path = "https://www.tmall.com/";
+            String path = "https://www.baidu.com";
             URL url = new URL(path);
             System.out.println("port=" + url.getDefaultPort());
-            SocketAddress socketAddress = new InetSocketAddress(url.getPath(), url.getDefaultPort());
-            System.out.println("连接到 " + socketAddress);
+            SocketAddress socketAddress = new InetSocketAddress(url.getHost(), url.getDefaultPort());
+            System.out.println("连接到 " + ((InetSocketAddress) socketAddress).getAddress().getCanonicalHostName());
             Socket socket = new Socket();
             socket.connect(socketAddress);
-            System.out.println();
+            readByOkio(socket.getInputStream());
         } catch (IOException e) {
             System.out.println("异常：" + e.getMessage());
         }
 
 
-        try {
-            //代理服务器地址
-            String path = "https://www.tmall.com/";
-            int proxyPort = 443;//代理服务器端口
-//            InetSocketAddress socketAddress = new InetSocketAddress(path, proxyPort);
-//            Proxy proxy = new Proxy(Proxy.Type.HTTP, socketAddress);
-            Socket socket = new Socket(path,proxyPort);
-            //服务器的ip及地址
-            System.out.println(socket.getKeepAlive());
+//
+//        Socket socket = new Socket();
+//        SocketAddress socketAddr = new InetSocketAddress("www.tmall.com", 443);
+//        try {
+//            socket.connect(socketAddr);
+//            System.out.println(socket.getKeepAlive());
+//            System.out.println(socket.getInputStream().read());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
+        //构造代理服务器地址
+//        SocketAddress sa = new InetSocketAddress("192.168.10.92", 808);
+//        //构造Socket代理
+//        Proxy proxy = new Proxy(Proxy.Type.SOCKS, sa);
+//        //使用代理创建socket
+//        Socket socket = new Socket(proxy);
+//        //构造目标地址
+//        SocketAddress socketAddr = new InetSocketAddress("www.baidu.com", 80);
+//        //socket使用代理连接目标地址
+//        try {
+//            socket.connect(socketAddr);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+    }
+
+    public static void read(InputStream inputStream) {
+        BufferedInputStream stream = new BufferedInputStream(inputStream);
+        int length = 0;
+        byte[] bytes = new byte[4096];
+        try {
+            while ((length = stream.read()) != -1) {
+                //将读取的字节转为字符串对象
+                String chunk = new String(bytes, 0, length);
+                System.out.print(chunk);
+            }
+            stream.close();
+            inputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    public static void readByOkio(InputStream inputStream) {
+        BufferedSource bufferedSource = null;
+        Source source = Okio.source(inputStream);
+        bufferedSource = Okio.buffer(source);
+        String read = null;
+        try {
+            read = bufferedSource.readString(Charset.forName("GBK"));
+            System.out.println(read);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                bufferedSource.close();
+                source.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
 }

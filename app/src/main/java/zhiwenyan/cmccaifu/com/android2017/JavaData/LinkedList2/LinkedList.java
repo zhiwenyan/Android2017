@@ -94,7 +94,7 @@ public class LinkedList<E> {
         for (int i = 0; i < 5; i++) {
             linkedList.add(i);
         }
-        linkedList.remove(0);
+        linkedList.remove(2);
         linkedList.insert(0, 10);
         for (int i = 0; i < linkedList.size(); i++) {
             System.out.println(linkedList.get(i));

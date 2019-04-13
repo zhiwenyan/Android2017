@@ -18,8 +18,8 @@ public class StringUtils {
         System.out.println(str3.equals(str6)); //true
         System.out.println(str3 == str6);  //false
         System.out.println(str3 == str4); //true
-        System.out.println(str4 == str5);
-        System.out.println((str1+str2) == str5);
+        System.out.println(str4 == str5);  //false
+        System.out.println((str1+str2) == str5); //false
 
 
 

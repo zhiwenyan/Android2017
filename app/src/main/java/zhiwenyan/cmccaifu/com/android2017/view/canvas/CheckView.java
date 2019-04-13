@@ -134,10 +134,11 @@ public class CheckView extends View {
         // 得到图像选区 和 实际绘制位置
         Rect src = new Rect(sideLength * animCurrentPage, 0, sideLength * (animCurrentPage + 1), sideLength);
         Rect dst = new Rect(-200, -200, 200, 200);
-        // src  指定绘制图片的区域
-        // dst  指定图片在屏幕上显示(绘制)的区域
-        // 绘制
+//        // src  指定绘制图片的区域
+//        // dst  指定图片在屏幕上显示(绘制)的区域
+//        // 绘制
         canvas.drawBitmap(okBitmap, src, dst, null);
+//        canvas.drawBitmap(okBitmap,-200,-200,null);
     }
 
 
@@ -170,7 +171,7 @@ public class CheckView extends View {
      *
      * @param animDuration
      */
-    public void setAnimDuration(int animDuration) {
+    public  void setAnimDuration(int animDuration) {
         if (animDuration <= 0)
             return;
         this.animDuration = animDuration;

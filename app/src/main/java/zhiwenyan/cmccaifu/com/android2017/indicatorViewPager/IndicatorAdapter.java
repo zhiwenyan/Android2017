@@ -8,10 +8,16 @@ import android.view.ViewGroup;
  */
 
 public abstract class IndicatorAdapter {
-    //显示的条目
+    /**
+     * @return 总共显示的条数
+     */
     public abstract int getCount();
 
-    //获取当前的View
+    /**
+     * @param position
+     * @param parent
+     * @return 获取当前的View
+     */
     public abstract View getView(int position, ViewGroup parent);
 
     public void highIndicator(View view) {

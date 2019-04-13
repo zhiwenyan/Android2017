@@ -7,14 +7,14 @@ package zhiwenyan.cmccaifu.com.android2017.DesignPattern.proxy.simple1;
  */
 
 public class BankWorker implements IBank {
-    private Man mMan;
+    private IBank mMan;
 
     /**
      *持有代理的对象
      * @param man
      */
 
-    public BankWorker(Man man) {
+    public BankWorker(IBank man) {
         mMan = man;
     }
 

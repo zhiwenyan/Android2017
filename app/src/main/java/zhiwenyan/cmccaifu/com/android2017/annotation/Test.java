@@ -3,7 +3,6 @@ package zhiwenyan.cmccaifu.com.android2017.annotation;
 import android.content.res.AssetManager;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -49,19 +48,19 @@ public class Test {
         }
         //获取属性
         try {
-            TestBean testBean = new TestBean();
-            Method method = testBean.getClass().getMethod("getName", null);
-            method.invoke(testBean, null);
-
-            Field field = TestBean.class.getDeclaredField("name");
-            field.setAccessible(true);
-            field.set(testBean, "1212");
-            String key = field.getName();
-            Object value = field.get(testBean);
-            String name = ( String ) field.get(testBean);
-            System.out.println("key=" + key + "," + "name" + name + ",value=" + value);
-            String fileTypeName = field.getType().getName();
-            System.out.println("fileTypeName=" + fileTypeName);
+//            TestBean testBean = new TestBean();
+//            Method method = testBean.getClass().getMethod("getName", null);
+//            method.invoke(testBean, null);
+//
+//            Field field = TestBean.class.getDeclaredField("name");
+//            field.setAccessible(true);
+//            field.set(testBean, "1212");
+//            String key = field.getName();
+//            Object value = field.get(testBean);
+//            String name = ( String ) field.get(testBean);
+//            System.out.println("key=" + key + "," + "name" + name + ",value=" + value);
+//            String fileTypeName = field.getType().getName();
+//            System.out.println("fileTypeName=" + fileTypeName);
 //            Class clz = Class.forName("android.app.ActivityThread");
 //            clz.newInstance();
 //            Field sCurrentActivityThreadField = clz.getDeclaredField("sCurrentActivityThread");

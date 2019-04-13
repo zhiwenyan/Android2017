@@ -22,6 +22,6 @@
         app:ballRadius="130dp"
         app:centerText="30%"
         app:centerTextColor="#000000"
-        app:centerTextSize="28dp"
+        app:centerTextSize="20sp"
         app:waveColor="@color/blue"/>
 </LinearLayout>

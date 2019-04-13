@@ -44,7 +44,7 @@ public class TouchViewGroup extends LinearLayout {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         Log.i("TAG", "ViewGroup--->onTouchEvent: " + event.getAction());
-        return false;
+        return super.onTouchEvent(event);
     }
 
     //I/TAG: ViewGroup-->dispatchTouchEvent: 0

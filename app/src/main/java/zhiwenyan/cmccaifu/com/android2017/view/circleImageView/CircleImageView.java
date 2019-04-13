@@ -8,6 +8,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
@@ -53,6 +54,9 @@ public class CircleImageView extends AppCompatImageView {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        if (getDrawable() == null) {
+            return;
+        }
         paint.setShader(initBitmapShader());//将着色器设置给画笔
         canvas.drawCircle(width / 2, height / 2, radius, paint);//使用画笔在画布上画圆
     }
@@ -60,13 +64,26 @@ public class CircleImageView extends AppCompatImageView {
     /**
      * 获取ImageView中资源图片的Bitmap，利用Bitmap初始化图片着色器,通过缩放矩阵将原资源图片缩放到铺满整个绘制区域，避免边界填充
      */
+    //Canvas的宽度（高度）小于等于BitmapShader中Bitmap的宽度（高度）时的绘图情况，这种情况下面我们一般可以将我们的图像剪切成各种形状，最常
     private BitmapShader initBitmapShader() {
-        Bitmap bitmap = ((BitmapDrawable ) getDrawable()).getBitmap();
+        Bitmap bitmap = drawableToBitmap(getDrawable());
         BitmapShader bitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         float scale = Math.max(width / bitmap.getWidth(), height / bitmap.getHeight());
+        System.out.println("scale=" + scale);
         matrix.setScale(scale, scale);//将图片宽高等比例缩放，避免拉伸
         bitmapShader.setLocalMatrix(matrix);
         return bitmapShader;
+    }
+
+    private Bitmap drawableToBitmap(Drawable drawable) {
+        if (drawable instanceof BitmapDrawable) {
+            return ((BitmapDrawable) drawable).getBitmap();
+        }
+        Bitmap bitmap = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, getMeasuredWidth(), getMeasuredHeight());
+        drawable.draw(canvas);
+        return bitmap;
     }
 }
 

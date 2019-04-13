@@ -26,16 +26,6 @@ public class TagLayoutActivity extends AppCompatActivity {
         mItems.add("22222");
         mItems.add("333333");
         mItems.add("8998");
-        mItems.add("66666");
-        mItems.add("99999");
-        mItems.add("888888888");
-        mItems.add("11");
-        mItems.add("22222");
-        mItems.add("333333");
-        mItems.add("88999");
-        mItems.add("66666");
-        mItems.add("99999");
-        mItems.add("888888");
         //设置TAG用Adapter设计模式
         BaseAdapter adapter = new BaseAdapter() {
             @Override

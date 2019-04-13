@@ -12,23 +12,50 @@ public class LinkedStack<E> {
     public LinkedStack() {
     }
 
-    public void add(E e) {
+    /**
+     * 添加
+     *
+     * @param e
+     */
+    public void push(E e) {
         Node<E> newNode = new Node<>(e, null);
         if (top == null) {
             top = newNode;
         } else {
-            System.out.println(top);
             newNode.next = top;
             top = newNode;
         }
     }
 
-    public E remove() {
-        System.out.println(top);
+    /**
+     * 弹出
+     *
+     * @return
+     */
+    public E pop() {
         E value = top.value;
         top = top.next;
         return value;
     }
+
+    /**
+     * 获取某个元素
+     *
+     * @return
+     */
+    public E get(int index) {
+        E value = node(index).value;
+        return value;
+    }
+
+    public Node<E> node(int index) {
+        Node<E> t = top;
+        for (int i = 0; i < index; i++) {
+            t = t.next;
+        }
+        return t;
+    }
+
 
     public boolean isEmpty() {
         return top == null;
@@ -36,17 +63,17 @@ public class LinkedStack<E> {
 
     public static void main(String[] args) {
         LinkedStack<Integer> stack = new LinkedStack<>();
-        stack.add(1);
-        stack.add(2);
-        stack.add(3);
-        stack.add(4);
-        stack.add(5);
-
-        System.out.println(stack.remove());
-        System.out.println(stack.remove());
-        System.out.println(stack.remove());
-        System.out.println(stack.remove());
-        System.out.println(stack.remove());
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
+        System.out.println(stack.get(3));
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
         if (stack.isEmpty()) {
             System.out.println("stack is Empty");
         }

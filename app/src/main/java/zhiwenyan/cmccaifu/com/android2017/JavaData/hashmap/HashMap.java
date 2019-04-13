@@ -187,7 +187,7 @@ public class HashMap<K, V> {
 
         // 2. 判断有没有存在该 key
         for (MapEntry<K, V> e = table[index]; e != null; e = e.next) {
-            Object k; // 一丁点优化做好
+            Object k; // 一点优化做好
             if (e.hash == hash && ((k = e.key) == key || key.equals(k))) {
                 return e;
             }
@@ -201,13 +201,13 @@ public class HashMap<K, V> {
     }
 
     public static void main(String[] args) {
-//        HashMap<Integer, Student> hashMap = new HashMap<>();
-//        for (int i = 0; i < 8; i++) {
-//            hashMap.put(i, new Student("steven" + i));
-//        }
-//        for (int i = 0; i < 8; i++) {
-//            System.out.println(hashMap.get(i).name);
-//        }
+        HashMap<Integer, Student> hashMap = new HashMap<>();
+        for (int i = 0; i < 8; i++) {
+            hashMap.put(i, new Student("steven" + i));
+        }
+        for (int i = 0; i < 8; i++) {
+            System.out.println(hashMap.get(i).name);
+        }
 
         HashMap<Student, Integer> map = new HashMap<>();
 

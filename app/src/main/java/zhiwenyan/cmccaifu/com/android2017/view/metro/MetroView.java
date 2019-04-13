@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -24,6 +25,7 @@ public class MetroView extends RelativeLayout {
     private View mRightView;
     private boolean mIsStopAnimator;
     private float mScaleFactor = 1.3f;
+    private LinearLayout mLinearLayout;
 
     public MetroView(Context context) {
         this(context, null);
@@ -39,23 +41,32 @@ public class MetroView extends RelativeLayout {
         mMiddleView = getCircleView(context, Color.GREEN);
         mRightView = getCircleView(context, Color.BLUE);
 
-        LinearLayout linearLayout = new LinearLayout(context);
-        linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-        linearLayout.addView(mLeftView);
-        linearLayout.addView(mMiddleView);
-        linearLayout.addView(mRightView);
+        mLinearLayout = new LinearLayout(context);
+        mLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
+        mLinearLayout.addView(mLeftView);
+        mLinearLayout.addView(mMiddleView);
+        mLinearLayout.addView(mRightView);
 
-        LayoutParams layoutParams = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT * 2,
-                LinearLayout.LayoutParams.WRAP_CONTENT * 2);
+        LayoutParams layoutParams = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         //中间的位置
         layoutParams.addRule(CENTER_IN_PARENT);
-        linearLayout.setLayoutParams(layoutParams);
-        addView(linearLayout);
+        mLinearLayout.setLayoutParams(layoutParams);
+        addView(mLinearLayout);
 
-        LinearLayout.LayoutParams params = ( LinearLayout.LayoutParams ) mMiddleView.getLayoutParams();
-        params.leftMargin = dip2px(8);
-        params.rightMargin = dip2px(8);
-        mMiddleView.setLayoutParams(params);
+        LinearLayout.LayoutParams middleViewParams = (LinearLayout.LayoutParams) mMiddleView.getLayoutParams();
+        middleViewParams.leftMargin = dip2px(8);
+        middleViewParams.rightMargin = dip2px(8);
+        mMiddleView.setLayoutParams(middleViewParams);
+
+        LinearLayout.LayoutParams leftViewParams = (LinearLayout.LayoutParams) mMiddleView.getLayoutParams();
+        leftViewParams.leftMargin = dip2px(8);
+        mLeftView.setLayoutParams(leftViewParams);
+
+
+        LinearLayout.LayoutParams rightViewParams = (LinearLayout.LayoutParams) mMiddleView.getLayoutParams();
+        rightViewParams.rightMargin = dip2px(8);
+        mRightView.setLayoutParams(rightViewParams);
+
 
         post(new Runnable() {
             @Override
@@ -63,13 +74,12 @@ public class MetroView extends RelativeLayout {
                 startEnlargeAnimation(mLeftView);
             }
         });
-
     }
 
     private CircleView getCircleView(Context context, int color) {
         CircleView circleView = new CircleView(context);
         circleView.setColor(color);
-        LayoutParams layoutParams = new LayoutParams(dip2px(24), dip2px(24));
+        LayoutParams layoutParams = new LayoutParams(dip2px(16), dip2px(16));
         circleView.setLayoutParams(layoutParams);
         return circleView;
     }
@@ -77,8 +87,11 @@ public class MetroView extends RelativeLayout {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        setMeasuredDimension(Math.min(widthMeasureSpec, heightMeasureSpec),
-                Math.min(widthMeasureSpec, heightMeasureSpec));
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
     }
 
     /**
@@ -149,6 +162,6 @@ public class MetroView extends RelativeLayout {
     }
 
     private int dip2px(int px) {
-        return ( int ) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, px, getResources().getDisplayMetrics());
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, px, getResources().getDisplayMetrics());
     }
 }

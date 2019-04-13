@@ -14,7 +14,7 @@ import android.view.WindowManager;
 /**
  * 监听当前View的Touch事件
  */
-public class MessageBubbleTouchListener implements View.OnTouchListener {
+public class MessageBubbleTouchListener implements View.OnTouchListener, MessageBubbleView.MessageBubbleListener {
     private View mView;
     private WindowManager mWindowManager;
     private MessageBubbleView mMessageBubbleView;
@@ -33,6 +33,7 @@ public class MessageBubbleTouchListener implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+        System.out.println("MessageBubbleTouchListener--->" + event.getAction());
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mView.setVisibility(View.INVISIBLE);
@@ -42,9 +43,11 @@ public class MessageBubbleTouchListener implements View.OnTouchListener {
                 mMessageBubbleView.initPoint(event.getRawX(), event.getRawY() - BubbleUtils.getStatusBarHeight(mContext));
                 //给消息拖拽设置一个Bitmap
                 mMessageBubbleView.setDragBitmap(getBitmapByView(mView));
+                mMessageBubbleView.setMessageBubbleListener(this);
                 break;
             case MotionEvent.ACTION_MOVE:
                 mMessageBubbleView.updateDragPoint(event.getRawX(), event.getRawY() - BubbleUtils.getStatusBarHeight(mContext));
+
                 break;
             case MotionEvent.ACTION_UP:
                 mMessageBubbleView.handleActionUp();
@@ -58,5 +61,16 @@ public class MessageBubbleTouchListener implements View.OnTouchListener {
         view.buildDrawingCache();
         Bitmap bitmap = view.getDrawingCache();
         return bitmap;
+    }
+
+    @Override
+    public void restore() {
+        mWindowManager.removeView(mMessageBubbleView);
+        mView.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void dismiss() {
+        //帧动画
     }
 }

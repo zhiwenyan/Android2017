@@ -2,17 +2,14 @@
   "message": "\u83b7\u53d6\u6210\u529f",
   "code": 200,
   "result": {
-    "total": 1600,
-    "count": 1,
-    "due": 0,
-    "repay": {
-      "1": {
-        "id": "351",
-        "money": "1600.00",
-        "detail_id": "48738",
-        "deadline": "2018-11-29",
-        "msg": "\u8ddd\u79bb\u8fd8\u6b3e\u65e5\u8fd8\u52697\u5929"
-      }
+    "bankInfo": {
+      "city_code": "2900",
+      "parent_bank_code": "0305",
+      "card_no": "621691******0145",
+      "city": "\u4e0a\u6d77",
+      "province": "\u4e0a\u6d77\u5e02",
+      "bank_name": "\u4e2d\u56fd\u6c11\u751f\u94f6\u884c",
+      "fuiou_id": "15807088638"
     }
   }
 }

@@ -1,7 +1,6 @@
 package zhiwenyan.cmccaifu.com.android2017.ViewGroup.Scroller;
 
 import android.content.Context;
-import android.support.v4.view.ViewConfigurationCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -57,7 +56,7 @@ public class ScrollerLayout extends ViewGroup {
         this.mScroller = new Scroller(context);
         ViewConfiguration configuration = ViewConfiguration.get(context);
         // 获取TouchSlop值
-        mTouchSlop = ViewConfigurationCompat.getScaledPagingTouchSlop(configuration);
+        mTouchSlop = configuration.getScaledPagingTouchSlop();
     }
 
     @Override
@@ -144,6 +143,7 @@ public class ScrollerLayout extends ViewGroup {
 
     @Override
     public void computeScroll() {
+        System.out.println("-----computeScroll------");
         // 第三步，重写computeScroll()方法，并在其内部完成平滑滚动的逻辑
         if (mScroller.computeScrollOffset()) {
             scrollTo(mScroller.getCurrX(), mScroller.getCurrY());

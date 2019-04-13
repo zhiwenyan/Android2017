@@ -1,5 +1,6 @@
 package zhiwenyan.cmccaifu.com.android2017.activity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ComponentName;
@@ -7,6 +8,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
@@ -16,13 +20,14 @@ import android.util.SparseArray;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CalendarView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.Closeable;
 import java.io.File;
@@ -74,6 +79,7 @@ import zhiwenyan.cmccaifu.com.android2017.net.HttpURLConnectionActivity;
 import zhiwenyan.cmccaifu.com.android2017.okhttp.OkhttpActivity;
 import zhiwenyan.cmccaifu.com.android2017.retrofit.RetrofitActivity;
 import zhiwenyan.cmccaifu.com.android2017.sqlite.SqliteActivity;
+import zhiwenyan.cmccaifu.com.android2017.transition.FirstActivity;
 import zhiwenyan.cmccaifu.com.android2017.view.ViewActivity;
 import zhiwenyan.cmccaifu.com.androidadvanced.UserAidl;
 
@@ -86,19 +92,19 @@ public class MainActivity extends BaseActivity {
     TextView mTweenAnimTv;
     @BindView(R.id.frameAnimTv)
     TextView mrameAnimTv;
-    private CalendarView mCalendarView;
     private String mEnter;
     private int cache;
+    @BindView(R.id.iv)
+    ImageView iv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mCalendarView = findViewById(R.id.cv);
         // String signParam = SignatureUtils.signatureParams("userName=steven&password=123456");
         // Log.i("TAG", signParam);
-        Toast.makeText(this,"toast",Toast.LENGTH_SHORT).show();
-        ViewGroup parent = ( ViewGroup ) findViewById(R.id.view_root);
-        EventBus.getDefault().post(new MessageEvent("Hello everyone!"));
+        Toast.makeText(this, "toast", Toast.LENGTH_SHORT).show();
+        ViewGroup parent = (ViewGroup) findViewById(R.id.view_root);
+        //EventBus.getDefault().post(new MessageEvent("Hello everyone!"));
         NavigationBar navigationBar = new NavigationBar.Builder(this, R.layout.ui_navigation_bar, parent)
                 .setText(R.id.text, "返回")
                 .setOnClickListener(R.id.text, new View.OnClickListener() {
@@ -110,8 +116,6 @@ public class MainActivity extends BaseActivity {
         //如果想设置字体的大小、颜色，图片、等等
         TextView textView = navigationBar.findById(R.id.text);
 
-        mCalendarView = findViewById(R.id.cv);
-        initCalendarView();
         initSparseArray();
         textView.post(new Runnable() {
             @Override
@@ -119,6 +123,66 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        options.inSampleSize = 2;  //getByteCount会压缩四倍
+        options.inJustDecodeBounds = false;
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.home_content_bg, options);
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        System.out.println("bitmap width=" + width);
+        System.out.println("bitmap height=" + height);
+        System.out.println("bitmap.getByteCount()=" + bitmap.getByteCount());
+
+        iv.setImageBitmap(bitmap);
+
+        testThreadLocal();
+
+
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEventBus(MessageEvent messageEvent) {
+        System.out.println("MessageEvent=" + messageEvent.message);
+    }
+
+
+    private ThreadLocal<Boolean> mBooleanThreadLocal = new ThreadLocal<>();
+
+    @SuppressLint("StaticFieldLeak")
+    private void testThreadLocal() {
+        mBooleanThreadLocal.set(true);
+        Log.d("TAG", "run: Main Thread=" + mBooleanThreadLocal.get());
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                mBooleanThreadLocal.set(false);
+                Log.d("TAG", "run: Thread[1]=" + mBooleanThreadLocal.get());
+            }
+        }).start();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Log.d("TAG", "run: Thread[2]=" + mBooleanThreadLocal.get());
+
+            }
+        }).start();
+        //串行
+        new AsyncTask<String, Integer, String>() {
+            @Override
+            protected String doInBackground(String... strings) {
+                return null;
+            }
+        }.execute("");
+        //并行
+        new AsyncTask<String, Integer, String>() {
+            @Override
+            protected String doInBackground(String... strings) {
+                return null;
+            }
+        }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "");
 
     }
 
@@ -131,10 +195,7 @@ public class MainActivity extends BaseActivity {
         System.out.println(array.valueAt(0));
     }
 
-
-
-    private void initCalendarView() {
-        mCalendarView.setDate(System.currentTimeMillis());
+    private void initWindow() {
     }
 
     @Override
@@ -204,7 +265,8 @@ public class MainActivity extends BaseActivity {
             R.id.okHttpTv, R.id.retrofit, R.id.bannerTv, R.id.viewTv, R.id.viewgroupTv, R.id.commonViewPager,
             R.id.threedTv, R.id.lruTv, R.id.drawTv, R.id.coorTv, R.id.messenger, R.id.startService,
             R.id.aidlTv, R.id.behaviorTv, R.id.cardViewPager, R.id.bntv, R.id.device, R.id.sensor
-            , R.id.dialog, R.id.sqliteTv, R.id.dialogTv, R.id.noticeTv, R.id.designTv, R.id.emojiTv, R.id.kotlin})
+            , R.id.dialog, R.id.sqliteTv, R.id.dialogTv, R.id.noticeTv, R.id.designTv, R.id.emojiTv, R.id.kotlin,
+            R.id.ui, R.id.tv_transition})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -343,8 +405,15 @@ public class MainActivity extends BaseActivity {
                 intent = new Intent(this, KotlinActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.ui:
+                break;
+            case R.id.tv_transition:
+                intent = new Intent(this, FirstActivity.class);
+                startActivity(intent);
+                break;
         }
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -436,5 +505,31 @@ public class MainActivity extends BaseActivity {
                 e.printStackTrace();
             }
         }
+    }
+
+    /**
+     * ，onSaveInstanceState()的调用遵循一个重要原则，即当系统存在“未经你许可”时销毁了我们的activity的可能时，
+     * 则onSaveInstanceState()会被系统调用，这是系统的责任，因为它必须要提供一个机会让你保存你的数据（当然你不保存那就随便你了）。
+     * 如果调用，调用将发生在onPause()或onStop()方法之前。（虽然测试时发现多数在onPause()前）
+     *
+     * @param outState
+     */
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+
+    /**
+     * onRestoreInstanceState()被调用的前提是，activity A“确实”被系统销毁了，而如果仅仅是停留在有这种可能性的情况下，
+     * 则该方法不会被调用，例如，当正在显示activity A的时候，用户按下HOME键回到主界面，然后用户紧接着又返回到activity A，
+     * 这种情况下activity A一般不会因为内存的原因被系统销毁，故activity A的onRestoreInstanceState方法不会被执行 此也说明上二者，大多数情况下不成对被使用。
+     * onRestoreInstanceState()在onStart() 和 onPostCreate(Bundle)之间调用。
+     *
+     * @param savedInstanceState
+     */
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
     }
 }

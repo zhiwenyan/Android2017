@@ -47,9 +47,9 @@ public class CircleView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        int cx = getWidth() / 4;
-        int cy = getHeight() / 4;
-        float radius = getWidth() / 4;
+        int cx = getWidth() / 2;
+        int cy = getHeight() / 2;
+        float radius = getWidth() / 2;
         mPaint.setColor(getColor());
         canvas.drawCircle(cx, cy, radius, mPaint);
 

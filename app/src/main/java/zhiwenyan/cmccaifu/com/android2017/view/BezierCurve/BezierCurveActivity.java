@@ -1,8 +1,7 @@
 package zhiwenyan.cmccaifu.com.android2017.view.BezierCurve;
 
-import android.graphics.PointF;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import zhiwenyan.cmccaifu.com.android2017.R;
 
@@ -19,7 +18,7 @@ public class BezierCurveActivity extends AppCompatActivity {
             }
 
             @Override
-            public void dismiss(PointF pointF) {
+            public void dismiss() {
 
             }
         });
