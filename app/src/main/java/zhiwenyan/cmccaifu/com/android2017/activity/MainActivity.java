@@ -26,9 +26,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
-
 import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
@@ -39,6 +36,7 @@ import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.concurrent.Executors;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -69,7 +67,6 @@ import zhiwenyan.cmccaifu.com.android2017.cache.ThreeCacheActivity;
 import zhiwenyan.cmccaifu.com.android2017.cache.lru.PhotoWallActivity;
 import zhiwenyan.cmccaifu.com.android2017.dialog.DialogActivity;
 import zhiwenyan.cmccaifu.com.android2017.emoji.EmojiActivity;
-import zhiwenyan.cmccaifu.com.android2017.eventbus.eventbus.MessageEvent;
 import zhiwenyan.cmccaifu.com.android2017.glide.GlideActivity;
 import zhiwenyan.cmccaifu.com.android2017.indicatorViewPager.CommonViewPagerActivity;
 import zhiwenyan.cmccaifu.com.android2017.materialdesign.DrawActivity;
@@ -104,6 +101,7 @@ public class MainActivity extends BaseActivity {
         // Log.i("TAG", signParam);
         Toast.makeText(this, "toast", Toast.LENGTH_SHORT).show();
         ViewGroup parent = (ViewGroup) findViewById(R.id.view_root);
+
         //EventBus.getDefault().post(new MessageEvent("Hello everyone!"));
         NavigationBar navigationBar = new NavigationBar.Builder(this, R.layout.ui_navigation_bar, parent)
                 .setText(R.id.text, "返回")
@@ -138,13 +136,22 @@ public class MainActivity extends BaseActivity {
 
         testThreadLocal();
 
+        Executors.newCachedThreadPool();
+        Executors.newSingleThreadExecutor();
+        Executors.newFixedThreadPool(5);
+        Executors.newScheduledThreadPool(3);
+        textView.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
 
+        });
+        textView.post(() -> {
+
+        });
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEventBus(MessageEvent messageEvent) {
-        System.out.println("MessageEvent=" + messageEvent.message);
-    }
+//    @Subscribe(threadMode = ThreadMode.MAIN)
+//    public void onEventBus(MessageEvent messageEvent) {
+//        System.out.println("MessageEvent=" + messageEvent.message);
+//    }
 
 
     private ThreadLocal<Boolean> mBooleanThreadLocal = new ThreadLocal<>();

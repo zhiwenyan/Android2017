@@ -17,6 +17,7 @@ import java.net.URLConnection;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
@@ -121,5 +122,15 @@ public class PostFileActivity extends AppCompatActivity {
                 LogUtil.i("upload idCard image success");
             }
         });
+    }
+
+    public void postFormBody() {
+        FormBody formBody = new FormBody.Builder()
+                .add("key", "value")
+                .build();
+        Request request = new Request.Builder()
+                .url("")
+                .post(RequestBody.create(MediaType.parse(""), new File("")))
+                .build();
     }
 }

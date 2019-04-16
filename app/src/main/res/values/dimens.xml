@@ -24,4 +24,9 @@
     <dimen name="yyyyy">40dp</dimen>
     <dimen name="sectioned_top">16</dimen>
     <dimen name="sectioned_alignBottom">16</dimen>
+
+    <dimen name="font_big">18sp</dimen>
+    <dimen name="font_middle">16sp</dimen>
+    <dimen name="font_small">14sp</dimen>
+
 </resources>

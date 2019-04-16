@@ -57,7 +57,7 @@ public class DoubleLinkedList<E> {
      */
     private Node<E> node(int index) {
         //位运算效率高
-        if (index < length >> 1) {
+        if (index < (length >> 1)) {
             //从前往后遍历
             Node<E> cur = head;
             for (int i = 0; i < index; i++) {

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@color/colorAccent"
+        android:src="@drawable/ic_action_stat_share"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="mini"
+        app:layout_constraintCircle="@id/fab_add"
+        app:layout_constraintCircleAngle="270"
+        app:layout_constraintCircleRadius="80dp"
+        app:pressedTranslationZ="20dp"
+        tools:ignore="MissingConstraints" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_write"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="mini"
+        app:layout_constraintCircle="@id/fab_add"
+        app:layout_constraintCircleAngle="315"
+        app:layout_constraintCircleRadius="80dp"
+        app:pressedTranslationZ="20dp"
+        tools:ignore="MissingConstraints" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="mini"
+        app:layout_constraintCircle="@id/fab_add"
+        app:layout_constraintCircleAngle="360"
+        app:layout_constraintCircleRadius="80dp"
+        app:pressedTranslationZ="20dp"
+        tools:ignore="MissingConstraints" />
+</android.support.constraint.ConstraintLayout>

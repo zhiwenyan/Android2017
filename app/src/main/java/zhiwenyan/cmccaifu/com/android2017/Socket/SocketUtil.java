@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
-import java.net.SocketAddress;
 import java.net.URL;
 import java.nio.charset.Charset;
 
@@ -45,11 +44,14 @@ public class SocketUtil {
             String path = "https://www.baidu.com";
             URL url = new URL(path);
             System.out.println("port=" + url.getDefaultPort());
-            SocketAddress socketAddress = new InetSocketAddress(url.getHost(), url.getDefaultPort());
-            System.out.println("连接到 " + ((InetSocketAddress) socketAddress).getAddress().getCanonicalHostName());
+            InetSocketAddress socketAddress = new InetSocketAddress(url.getHost(), url.getDefaultPort());
+            System.out.println("连接到 " + socketAddress.getAddress().getCanonicalHostName());
             Socket socket = new Socket();
             socket.connect(socketAddress);
-            readByOkio(socket.getInputStream());
+            if (socket.isConnected()) {
+                System.out.println("已经连接");
+            }
+            read(socket.getInputStream());
         } catch (IOException e) {
             System.out.println("异常：" + e.getMessage());
         }
@@ -86,6 +88,7 @@ public class SocketUtil {
         BufferedInputStream stream = new BufferedInputStream(inputStream);
         int length = 0;
         byte[] bytes = new byte[4096];
+
         try {
             while ((length = stream.read()) != -1) {
                 //将读取的字节转为字符串对象

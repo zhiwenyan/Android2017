@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/xx">
+
+    <TextView
+        android:id="@+id/tv_tip1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="授权提示"
+        android:textColor="@color/common_black"
+        android:textSize="@dimen/font_small"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_tip2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/x"
+        android:text="为了您能够正常提现，请根据下图进行授权"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tip1" />
+
+    <TextView
+        android:id="@+id/tv_auth_repay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:paddingTop="@dimen/y"
+        android:text="授权还款："
+        android:textColor="@color/common_black"
+        android:textSize="@dimen/font_small"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/chb1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tip2" />
+
+    <CheckBox
+        android:id="@+id/chb1"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="@dimen/y_half"
+        android:checked="true"
+        android:clickable="false"
+        android:textColor="@color/common_black"
+        android:textSize="@dimen/font_small"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/tv_auth_repay"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tip2" />
+
+    <TextView
+        android:id="@+id/tv_repay_date1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:paddingTop="@dimen/y"
+        android:text="还款授权期限："
+        android:textColor="@color/common_black"
+        android:textSize="@dimen/font_small"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_repay_date2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_auth_repay" />
+
+    <TextView
+        android:id="@+id/tv_repay_date2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y_half"
+        android:background="@drawable/tv_auth_bg"
+        android:paddingLeft="@dimen/x_half"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:text="20991231"
+        android:textColor="@color/common_black"
+        android:textSize="12sp"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/tv_repay_date1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chb1" />
+
+    <TextView
+        android:id="@+id/tv_auth_limit1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:paddingTop="@dimen/y"
+        android:text="还款授权额度："
+        android:textColor="@color/common_black"
+        android:textSize="@dimen/font_small"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_auth_limit2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_repay_date1" />
+
+    <TextView
+        android:id="@+id/tv_auth_limit2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y"
+        android:background="@drawable/tv_auth_bg"
+        android:paddingLeft="@dimen/x_half"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:text="9999999.99"
+        android:textColor="@color/common_black"
+        android:textSize="12sp"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/tv_auth_limit1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_repay_date2" />
+
+
+    <TextView
+        android:id="@+id/tv_auth_payment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:paddingTop="@dimen/y"
+        android:text="授权缴费："
+        android:textColor="@color/common_black"
+        android:textSize="@dimen/font_small"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/chb2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_auth_limit1" />
+
+    <CheckBox
+        android:id="@+id/chb2"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="@dimen/y_half"
+        android:checked="true"
+        android:clickable="false"
+        android:textColor="@color/common_black"
+        android:textSize="@dimen/font_small"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/tv_auth_payment"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_auth_limit2" />
+
+
+    <TextView
+        android:id="@+id/tv_payment_date1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:paddingTop="@dimen/y"
+        android:text="缴费授权期限："
+        android:textColor="@color/common_black"
+        android:textSize="@dimen/font_small"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_payment_date2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_auth_payment" />
+
+    <TextView
+        android:id="@+id/tv_payment_date2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y_half"
+        android:background="@drawable/tv_auth_bg"
+        android:paddingLeft="@dimen/x_half"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:text="20991231"
+        android:textColor="@color/common_black"
+        android:textSize="12sp"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/tv_payment_date1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chb2" />
+
+
+    <TextView
+        android:id="@+id/tv_payment_limit1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:paddingTop="@dimen/y"
+        android:text="缴费授权额度："
+        android:textColor="@color/common_black"
+        android:textSize="@dimen/font_small"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_payment_limit2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_payment_date1" />
+
+    <TextView
+        android:id="@+id/tv_payment_limit2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y"
+        android:background="@drawable/tv_auth_bg"
+        android:paddingLeft="@dimen/x_half"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:text="9999999.99"
+        android:textColor="@color/common_black"
+        android:textSize="12sp"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/tv_payment_limit1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_payment_date2" />
+
+
+</android.support.constraint.ConstraintLayout>

@@ -23,13 +23,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.shader.ShaderViewActivity">
+        <activity android:name=".cl.ClCircleActivity">
 
         </activity>
-        <activity android:name=".view.circleImageView.ShapeActivity">
-
-
-        </activity>
+        <activity android:name=".utils.db.ProviderActivity"/>
+        <activity android:name=".view.shader.ShaderViewActivity" />
+        <activity android:name=".view.circleImageView.ShapeActivity" />
 
         <receiver
             android:name=".activity.NetStateReceiver"
@@ -79,13 +78,13 @@
         <activity android:name=".DialogFragment.DialogFragmentActivity" />
         <activity android:name=".animator.AnimatorActivity" />
         <activity android:name=".okhttp.OkhttpActivity" />
-        <activity android:name=".okhttp.okhttp.OKHttpSourceActivity"></activity>
+        <activity android:name=".okhttp.okhttp.OKHttpSourceActivity" />
         <activity android:name=".retrofit.RetrofitActivity" />
         <activity android:name=".Thread.ThreadActivity" />
         <activity android:name=".Thread.ThreadPoolActivity" />
         <activity android:name=".cache.ThreeCacheActivity" />
         <activity android:name=".glide.GlideActivity" />
-        <activity android:name=".animation.AnimationActivity"></activity>
+        <activity android:name=".animation.AnimationActivity" />
         <activity android:name=".mvp.MVPActivity" />
         <activity android:name=".banner.ViewPagerActivity" />
         <activity
@@ -313,6 +312,10 @@
             android:name=".transition.SecondActivity"
             android:theme="@style/transitionTheme" />
         <activity android:name=".transition.ThirdActivity" />
+
+        <provider
+            android:name=".utils.db.BookProvider"
+            android:authorities="zhiwenyan.cmccaifu.com.android2017.utils.db.book.provider" />
     </application>
 
 </manifest>

@@ -1,50 +1,6 @@
 {
-  "message": "\u83b7\u53d6\u6210\u529f",
-  "code": 200,
-  "result": {
-    "binfo": {
-      "coupon_id": "0",
-      "status": "3",
-      "id": "3012",
-      "is_random": "0",
-      "audit_status": "4"
-    },
-    "info": {
-      "id": "1748",
-      "uid": "840",
-      "borrow_id": "3012",
-      "first_trial": "1",
-      "bank_bing": "1",
-      "id_verify": "0",
-      "verify_phone": "1",
-      "pending": "0",
-      "tree": "2",
-      "signed": "1",
-      "zhima_auth": "1",
-      "zhima_time": "1529054307",
-      "first_trial_uid": null,
-      "first_trial_time": "1529054296",
-      "bank_bing_time": "1529054307",
-      "id_verify_time": "0",
-      "pending_uid": null,
-      "pending_time": null,
-      "tree_time": "1529054318",
-      "signed_uid": null,
-      "signed_time": "1529054318",
-      "alipay_biz_no": null,
-      "reason": null,
-      "calm_time": "1529054383",
-      "calm": "1",
-      "recheck_uid": null,
-      "recheck_time": "0",
-      "is_recheck": "0",
-      "mid_tree": "1",
-      "mid_tree_time": "1529054307",
-      "is_random": "0",
-      "countDownTime": 1529054354,
-      "time": 1529054518,
-      "is_status": 1,
-      "isIdVerify": 0
-    }
+  "geckoInfo": {
+    "marketCap": "1218.8100868583556",
+    "rank": "1524"
   }
 }
